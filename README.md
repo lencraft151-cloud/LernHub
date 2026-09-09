@@ -53,8 +53,12 @@ Danach `http://localhost:8000/` öffnen.
 
 1. In den Repository-Einstellungen unter **Settings → Pages** als Quelle
    **GitHub Actions** auswählen.
-2. Auf `main` pushen — der Workflow `.github/workflows/deploy-pages.yml` prüft die
-   Lerninhalte und veröffentlicht anschließend das Repository unverändert.
+2. Pushen — der Workflow `.github/workflows/deploy-pages.yml` prüft bei jedem Push die
+   Lerninhalte und veröffentlicht das Repository unverändert, sobald der Push auf dem
+   **Standardbranch** des Repositories landet. Der Branchname ist dabei frei; ein
+   Umbenennen auf `main` erfordert keine Änderung am Workflow. Über
+   **Actions → Deploy to GitHub Pages → Run workflow** lässt sich die
+   Veröffentlichung auch manuell auslösen.
 
 Alle Pfade sind relativ, das Routing läuft über den Hash (`#/fach/chemie`), und eine
 `.nojekyll`-Datei verhindert die Jekyll-Verarbeitung. Damit funktioniert die App auch

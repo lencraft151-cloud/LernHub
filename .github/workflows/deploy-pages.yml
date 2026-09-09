@@ -4,11 +4,14 @@
 # Daten und lädt das Repository anschließend unverändert als Pages-Artefakt
 # hoch. Damit der Workflow greift, muss in den Repository-Einstellungen unter
 # "Pages" als Quelle "GitHub Actions" ausgewählt sein.
+#
+# Geprüft wird jeder Push auf jedem Branch. Veröffentlicht wird nur der
+# Standardbranch des Repositories — unabhängig davon, wie er heißt, damit ein
+# späteres Umbenennen (etwa auf "main") nichts am Workflow ändert.
 name: Deploy to GitHub Pages
 
 on:
   push:
-    branches: [main]
   workflow_dispatch:
 
 permissions:
@@ -44,6 +47,7 @@ jobs:
   deploy:
     name: Veröffentlichen
     needs: verify
+    if: github.event_name == 'workflow_dispatch' || github.ref_name == github.event.repository.default_branch
     runs-on: ubuntu-latest
     environment:
       name: github-pages
