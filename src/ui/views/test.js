@@ -347,7 +347,7 @@ export async function renderTest(root, { params }) {
           <a class="btn btn-lg" href="#/thema/${meta.id}/lernen">${icon('book')} Lerntext ansehen</a>
           <button type="button" class="btn btn-ghost btn-lg" data-role="retake">${icon('refresh')} Test wiederholen</button>
           ${nextTopic ? html`
-            <a class="btn btn-ghost btn-lg" href="#/thema/${nextTopic.id}/lernen">
+            <a class="btn btn-ghost btn-lg btn-wrap" href="#/thema/${nextTopic.id}/lernen">
               Weiter: ${nextTopic.title} ${icon('arrowRight')}
             </a>` : ''}
         </div>

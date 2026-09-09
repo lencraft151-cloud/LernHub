@@ -231,7 +231,7 @@ export async function renderPractice(root, { params, query }) {
           <a class="btn btn-lg" href="#/thema/${meta.id}/test">${icon('target')} Kompetenztest schreiben</a>
           <a class="btn btn-ghost btn-lg" href="#/thema/${meta.id}/lernen">${icon('book')} Lerntext ansehen</a>
           ${nextTopic ? html`
-            <a class="btn btn-ghost btn-lg" href="#/thema/${nextTopic.id}/lernen">
+            <a class="btn btn-ghost btn-lg btn-wrap" href="#/thema/${nextTopic.id}/lernen">
               Weiter: ${nextTopic.title} ${icon('arrowRight')}
             </a>` : ''}
         </div>

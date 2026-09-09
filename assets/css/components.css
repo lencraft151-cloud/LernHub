@@ -30,6 +30,11 @@
               box-shadow var(--dur-fast) var(--ease);
   box-shadow: var(--shadow-xs);
 }
+/* Beschriftungen aus Inhaltsdaten koennen beliebig lang werden. Der Button
+   darf dabei nie breiter als sein Container werden; mit .btn-wrap umbricht
+   die Beschriftung zusaetzlich mehrzeilig. */
+.btn { max-width: 100%; }
+.btn-wrap { white-space: normal; text-align: center; }
 .btn:hover { text-decoration: none; background: var(--surface-2); }
 .btn:active { transform: translateY(1px); }
 .btn:disabled,

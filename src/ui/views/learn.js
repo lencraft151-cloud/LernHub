@@ -139,7 +139,7 @@ export async function renderLearn(root, { params }) {
               <a class="btn btn-primary btn-lg" href="#/thema/${meta.id}/ueben">${icon('pencil')} Übungsmodus starten</a>
               <a class="btn btn-lg" href="#/thema/${meta.id}/test">${icon('target')} Kompetenztest</a>
               ${nextTopic ? html`
-                <a class="btn btn-ghost btn-lg" href="#/thema/${nextTopic.id}/lernen">
+                <a class="btn btn-ghost btn-lg btn-wrap" href="#/thema/${nextTopic.id}/lernen">
                   Nächstes Thema: ${nextTopic.title} ${icon('arrowRight')}
                 </a>` : ''}
             </div>
