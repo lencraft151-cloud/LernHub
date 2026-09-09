@@ -1,0 +1,5 @@
+# Nur für lokale Tests, gehört nicht ins Repository
+.smoke-shots/
+node_modules/
+*.log
+.DS_Store

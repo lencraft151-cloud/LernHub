@@ -1,0 +1,43 @@
+<!doctype html>
+<html lang="de" data-theme="auto">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<title>StudyFlow — Lernplattform für die Schule</title>
+<meta name="description" content="StudyFlow ist eine zentrale Lernplattform für Schülerinnen und Schüler: Lehrplan auswählen, Thema lernen, üben, Wissen testen und Schwächen gezielt wiederholen.">
+<meta name="color-scheme" content="light dark">
+<meta name="theme-color" content="#ffffff" media="(prefers-color-scheme: light)">
+<meta name="theme-color" content="#0e1116" media="(prefers-color-scheme: dark)">
+<link rel="icon" href="assets/favicon.svg" type="image/svg+xml">
+<link rel="stylesheet" href="assets/css/base.css?v=1">
+<link rel="stylesheet" href="assets/css/components.css?v=1">
+<link rel="stylesheet" href="assets/css/layout.css?v=1">
+<script>
+  // Theme muss vor dem ersten Paint stehen, sonst blitzt der falsche Modus auf.
+  try {
+    const stored = JSON.parse(localStorage.getItem('studyflow.v1') || '{}');
+    const theme = stored?.settings?.theme || 'auto';
+    document.documentElement.dataset.theme = theme;
+  } catch (_) { /* kaputter Speicher darf den Start nicht blockieren */ }
+</script>
+</head>
+<body>
+<a class="skip-link" href="#main">Zum Hauptinhalt springen</a>
+
+<div id="app" class="app-shell" data-booting="true">
+  <div class="boot-screen">
+    <div class="boot-mark" aria-hidden="true"></div>
+    <p>StudyFlow wird geladen …</p>
+  </div>
+</div>
+
+<noscript>
+  <div class="noscript">
+    <h1>StudyFlow benötigt JavaScript</h1>
+    <p>Diese Lernplattform läuft vollständig im Browser. Bitte aktiviere JavaScript, um Lerninhalte, Übungen und Tests zu nutzen.</p>
+  </div>
+</noscript>
+
+<script type="module" src="src/main.js?v=1"></script>
+</body>
+</html>

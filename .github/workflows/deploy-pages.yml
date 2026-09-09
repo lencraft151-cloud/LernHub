@@ -1,0 +1,58 @@
+# Veröffentlicht StudyFlow auf GitHub Pages.
+#
+# Die App ist eine statische Seite ohne Build-Schritt — der Workflow prüft die
+# Daten und lädt das Repository anschließend unverändert als Pages-Artefakt
+# hoch. Damit der Workflow greift, muss in den Repository-Einstellungen unter
+# "Pages" als Quelle "GitHub Actions" ausgewählt sein.
+name: Deploy to GitHub Pages
+
+on:
+  push:
+    branches: [main]
+  workflow_dispatch:
+
+permissions:
+  contents: read
+  pages: write
+  id-token: write
+
+concurrency:
+  group: pages
+  cancel-in-progress: true
+
+jobs:
+  verify:
+    name: Lerninhalte prüfen
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-node@v4
+        with:
+          node-version: '22'
+      - name: Inhaltsregistry neu erzeugen und auf Änderungen prüfen
+        run: |
+          node tools/build-content-index.mjs
+          if ! git diff --quiet -- src/data/content/index.js src/data/content/meta.js; then
+            echo "::error::Die generierte Inhaltsregistry ist nicht aktuell."
+            echo "Bitte 'node tools/build-content-index.mjs' ausführen und das Ergebnis committen."
+            git --no-pager diff --stat -- src/data/content/index.js src/data/content/meta.js
+            exit 1
+          fi
+      - name: Lehrplan und Aufgaben validieren
+        run: node tools/validate-content.mjs
+
+  deploy:
+    name: Veröffentlichen
+    needs: verify
+    runs-on: ubuntu-latest
+    environment:
+      name: github-pages
+      url: ${{ steps.deployment.outputs.page_url }}
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/configure-pages@v5
+      - uses: actions/upload-pages-artifact@v3
+        with:
+          path: '.'
+      - id: deployment
+        uses: actions/deploy-pages@v4
