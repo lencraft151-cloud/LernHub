@@ -1,0 +1,295 @@
+export default {
+  id: 'en9-reported-speech',
+  title: 'Reported Speech',
+  summary: 'Bei der indirekten Rede wird die Zeitform eine Stufe zurückverschoben. Auch Pronomen sowie Zeit- und Ortsangaben ändern sich.',
+  estimatedMinutes: 30,
+  aliases: ['indirekte Rede', 'backshift', 'indirect speech', 'reporting verb'],
+  competencies: [
+    { id: 'backshift', title: 'Zeitenverschiebung', description: 'Die Zeitform korrekt eine Stufe zurückverschieben.' },
+    { id: 'pronouns', title: 'Pronomen anpassen', description: 'Personal- und Possessivpronomen richtig verändern.' },
+    { id: 'timeplace', title: 'Zeit- und Ortsangaben', description: 'Angaben wie today oder here korrekt umformen.' },
+    { id: 'questions', title: 'Fragen', description: 'Entscheidungs- und W-Fragen in die indirekte Rede setzen.' },
+    { id: 'commands', title: 'Aufforderungen', description: 'Befehle und Bitten mit Infinitiv wiedergeben.' },
+  ],
+  sections: [
+    {
+      id: 's1',
+      title: 'Das Grundprinzip: backshift',
+      blocks: [
+        { type: 'text', html: 'Gibt man wieder, was jemand gesagt hat, verschwinden die Anführungszeichen. Steht das einleitende Verb in der Vergangenheit (<code>said</code>, <code>told</code>, <code>explained</code>), rutscht die Zeitform der Aussage <strong>eine Stufe in die Vergangenheit</strong>. Das nennt man <em>backshift</em>.' },
+        { type: 'formula', text: '"I am tired," she said.  →  She said (that) she was tired.', caption: 'Present Simple wird zu Past Simple' },
+        {
+          type: 'table',
+          caption: 'Zeitenverschiebung im Überblick',
+          head: ['Direkte Rede', 'Indirekte Rede'],
+          rows: [
+            ['Present Simple (I work)', 'Past Simple (he worked)'],
+            ['Present Progressive (I am working)', 'Past Progressive (he was working)'],
+            ['Past Simple (I worked)', 'Past Perfect (he had worked)'],
+            ['Present Perfect (I have worked)', 'Past Perfect (he had worked)'],
+            ['Past Perfect (I had worked)', 'Past Perfect (bleibt)'],
+            ['will (I will work)', 'would (he would work)'],
+            ['can (I can work)', 'could (he could work)'],
+            ['must (I must work)', 'had to (he had to work)'],
+            ['may (I may work)', 'might (he might work)'],
+          ],
+        },
+        {
+          type: 'note',
+          variant: 'merksatz',
+          title: 'Merksatz',
+          html: '<strong>Ein Schritt zurück.</strong> Present → Past, Past → Past Perfect. '
+            + 'Und weiter zurück als Past Perfect geht es nicht — dort bleibt die Form stehen.',
+        },
+        {
+          type: 'note',
+          variant: 'info',
+          title: 'Wann bleibt die Zeit gleich?',
+          html: 'Steht das einleitende Verb im Präsens (<code>She says …</code>) oder handelt es sich um eine '
+            + 'allgemein gültige Tatsache (<code>He said the earth is round.</code>), bleibt die Zeitform unverändert.',
+        },
+      ],
+      check: ['q1', 'q2'],
+    },
+    {
+      id: 's2',
+      title: 'Pronomen, Zeit- und Ortsangaben',
+      blocks: [
+        { type: 'text', html: 'Wer spricht, ändert sich — deshalb ändern sich die <strong>Pronomen</strong>. Und weil man später und woanders berichtet, ändern sich <strong>Zeit- und Ortsangaben</strong>.' },
+        {
+          type: 'table',
+          caption: 'Angaben, die sich verändern',
+          head: ['Direkte Rede', 'Indirekte Rede'],
+          rows: [
+            ['now', 'then'],
+            ['today', 'that day'],
+            ['tonight', 'that night'],
+            ['yesterday', 'the day before / the previous day'],
+            ['tomorrow', 'the next day / the following day'],
+            ['last week', 'the week before'],
+            ['next year', 'the following year'],
+            ['here', 'there'],
+            ['this', 'that'],
+            ['these', 'those'],
+            ['ago', 'before'],
+          ],
+        },
+        {
+          type: 'example',
+          title: 'Beispiel 1 — alles auf einmal',
+          task: 'Setze in die indirekte Rede: "I saw your brother here yesterday," Tom said.',
+          steps: [
+            { text: 'Einleitung bilden', math: 'Tom said (that) …' },
+            { text: 'Pronomen anpassen: I → he, your → my', math: 'he … my brother' },
+            { text: 'Zeitform zurückverschieben: saw → had seen', math: 'he had seen' },
+            { text: 'Ort und Zeit anpassen: here → there, yesterday → the day before', math: 'there the day before' },
+          ],
+          result: 'Tom said (that) he had seen my brother there the day before.',
+        },
+        {
+          type: 'note',
+          variant: 'tipp',
+          title: 'that ist optional',
+          html: 'Nach <code>say</code>, <code>tell</code> und ähnlichen Verben kann <code>that</code> stehen oder wegfallen — beides ist korrekt. '
+            + 'Achte aber auf den Unterschied: <code>say something</code>, aber <code>tell somebody something</code>. '
+            + 'Also: <em>He told <strong>me</strong> that …</em>',
+        },
+      ],
+      check: ['q3', 'q4'],
+    },
+    {
+      id: 's3',
+      title: 'Fragen und Aufforderungen',
+      blocks: [
+        { type: 'text', html: 'Bei <strong>Fragen</strong> gibt es zwei Regeln, die man leicht übersieht: Es gibt <strong>keine Frageform</strong> mehr (kein <code>do/does/did</code>, keine Inversion) und <strong>kein Fragezeichen</strong>.' },
+        {
+          type: 'list',
+          items: [
+            '<strong>W-Frage:</strong> Das Fragewort bleibt als Verbindung stehen.<br>'
+              + '"Where do you live?" she asked. → She asked where I lived.',
+            '<strong>Entscheidungsfrage (ja/nein):</strong> Es wird mit <code>if</code> oder <code>whether</code> eingeleitet.<br>'
+              + '"Are you coming?" he asked. → He asked if I was coming.',
+          ],
+        },
+        {
+          type: 'note',
+          variant: 'fehler',
+          title: 'Der Klassiker im Test',
+          html: 'Falsch: <em>She asked where did I live.</em> — Richtig: <em>She asked where I lived.</em> '
+            + 'In der indirekten Frage steht die <strong>normale Wortstellung</strong>: Subjekt vor Verb.',
+        },
+        { type: 'text', html: 'Bei <strong>Aufforderungen</strong> wird der Imperativ zum <strong>Infinitiv mit to</strong>. Verneinte Aufforderungen bekommen <code>not to</code>.' },
+        {
+          type: 'example',
+          title: 'Beispiel 2 — Aufforderungen',
+          task: 'Setze in die indirekte Rede.',
+          steps: [
+            { text: '"Open the window!" the teacher said.', math: 'The teacher told me to open the window.' },
+            { text: '"Don\'t be late!" my mother said.', math: 'My mother told me not to be late.' },
+            { text: '"Please help me," she said.', math: 'She asked me to help her.' },
+          ],
+          result: 'Befehl → tell somebody to do. Bitte → ask somebody to do. Verneinung → not to do.',
+        },
+      ],
+      check: ['q5', 'q6'],
+    },
+  ],
+  keyFacts: [
+    'Backshift: eine Zeitstufe zurück (Present → Past, Past → Past Perfect).',
+    'Past Perfect bleibt Past Perfect — weiter zurück geht es nicht.',
+    'will → would, can → could, must → had to, may → might.',
+    'Pronomen sowie Zeit- und Ortsangaben anpassen: today → that day, here → there.',
+    'Indirekte Fragen: normale Wortstellung, kein do/does/did, kein Fragezeichen.',
+    'Ja/Nein-Fragen mit if oder whether einleiten; W-Fragen behalten das Fragewort.',
+    'Imperativ → Infinitiv mit to; verneint → not to.',
+    'say something, aber tell somebody something.',
+  ],
+  commonMistakes: [
+    {
+      mistake: 'She asked me where did I live.',
+      why: 'Die Frageform der direkten Rede wird beibehalten.',
+      fix: 'In der indirekten Frage gilt normale Wortstellung: She asked me where I lived.',
+    },
+    {
+      mistake: 'He told that he was tired.',
+      why: 'say und tell werden verwechselt.',
+      fix: 'tell braucht ein Objekt: He told me that he was tired. Oder ohne Objekt: He said that he was tired.',
+    },
+    {
+      mistake: 'Das Fragezeichen bleibt stehen.',
+      why: 'Es sieht weiterhin wie eine Frage aus.',
+      fix: 'Die indirekte Frage ist ein Aussagesatz und endet mit einem Punkt.',
+    },
+    {
+      mistake: 'Der backshift wird bei Past Perfect ein weiteres Mal angewendet.',
+      why: 'Die Regel wird mechanisch angewandt.',
+      fix: 'Past Perfect ist die letzte Stufe und bleibt unverändert.',
+    },
+  ],
+  recap: 'In der indirekten Rede berichtet man, was jemand gesagt hat. Steht das einleitende Verb in der Vergangenheit, wird die Zeitform eine Stufe zurückverschoben: Present → Past, Past und Present Perfect → Past Perfect, will → would, can → could, must → had to. Pronomen sowie Zeit- und Ortsangaben werden aus der neuen Perspektive angepasst. Fragen verlieren Frageform und Fragezeichen: W-Fragen behalten das Fragewort, Ja/Nein-Fragen werden mit if oder whether eingeleitet. Aufforderungen werden zum Infinitiv mit to, verneint mit not to.',
+  simpler: 'Stell dir vor, du erzählst einer Freundin, was jemand gestern gesagt hat. Weil es vorbei ist, rutscht alles einen Schritt in die Vergangenheit: „Ich bin müde" wird zu „er war müde". Weil du nicht mehr die Person bist, die gesprochen hat, wird aus „ich" ein „er" oder „sie". Und weil du woanders und später erzählst, wird aus „hier" ein „dort" und aus „heute" ein „an diesem Tag". Bei Fragen lässt du das Fragezeichen weg und stellst die Wörter in die normale Reihenfolge.',
+  deeper: 'Der backshift ist keine starre Regel, sondern folgt der Perspektive: Ist die Aussage zum Zeitpunkt des Berichtens noch gültig, darf die Zeitform bleiben ("She said she is a teacher" — sie ist es weiterhin). Ebenso bleibt sie bei allgemeinen Wahrheiten und in journalistischen Texten oft unverändert. Bei Modalverben ohne Vergangenheitsform (would, should, could, might, ought to) findet kein weiterer Rückschritt statt. whether ist formeller als if und steht zwingend vor to-Infinitiven und nach Präpositionen.',
+  glossary: [
+    { term: 'reported speech', definition: 'Indirekte Rede — die Wiedergabe einer Äußerung ohne Anführungszeichen.' },
+    { term: 'backshift', definition: 'Die Verschiebung der Zeitform eine Stufe in die Vergangenheit.' },
+    { term: 'reporting verb', definition: 'Das einleitende Verb, z. B. say, tell, ask, explain.' },
+    { term: 'whether', definition: 'Formellere Alternative zu if bei Entscheidungsfragen.' },
+  ],
+  questions: [
+    {
+      id: 'q1', type: 'mc', difficulty: 1, competency: 'backshift',
+      prompt: '"I am reading a book," she said. Wie lautet die indirekte Rede?',
+      options: [
+        { id: 'a', text: 'She said she is reading a book.' },
+        { id: 'b', text: 'She said she was reading a book.' },
+        { id: 'c', text: 'She said she had been reading a book.' },
+        { id: 'd', text: 'She said she reads a book.' },
+      ],
+      answer: 'b',
+      explanation: 'Present Progressive wird zu Past Progressive: am reading → was reading.',
+    },
+    {
+      id: 'q2', type: 'match', difficulty: 2, competency: 'backshift',
+      prompt: 'Ordne jeder Form der direkten Rede die richtige Form der indirekten Rede zu.',
+      pairs: [
+        { left: 'I work', right: 'he worked' },
+        { left: 'I worked', right: 'he had worked' },
+        { left: 'I will work', right: 'he would work' },
+        { left: 'I can work', right: 'he could work' },
+        { left: 'I must work', right: 'he had to work' },
+      ],
+      explanation: 'Jede Form geht eine Stufe zurück. Modalverben haben feste Entsprechungen: will → would, can → could, must → had to.',
+    },
+    {
+      id: 'q3', type: 'cloze', difficulty: 2, competency: 'timeplace',
+      prompt: 'Vervollständige die indirekte Rede: "I met him here yesterday," Anna said.',
+      segments: [
+        'Anna said she ',
+        { blank: 'verb', accept: ['had met'] },
+        ' him ',
+        { blank: 'place', accept: ['there'] },
+        ' ',
+        { blank: 'time', accept: ['the day before', 'the previous day'] },
+        '.',
+      ],
+      explanation: 'met (Past Simple) → had met (Past Perfect), here → there, yesterday → the day before.',
+    },
+    {
+      id: 'q4', type: 'mc', difficulty: 2, competency: 'pronouns',
+      prompt: '"I lost my keys," Tom told me. Wie lautet die indirekte Rede?',
+      options: [
+        { id: 'a', text: 'Tom told me he had lost my keys.' },
+        { id: 'b', text: 'Tom told me he had lost his keys.' },
+        { id: 'c', text: 'Tom told me I had lost his keys.' },
+        { id: 'd', text: 'Tom told me he has lost his keys.' },
+      ],
+      answer: 'b',
+      explanation: 'I → he und my → his, weil Tom über seine eigenen Schlüssel spricht. lost → had lost.',
+    },
+    {
+      id: 'q5', type: 'mc', difficulty: 2, competency: 'questions',
+      prompt: '"Where do you live?" she asked. Wie lautet die indirekte Frage?',
+      options: [
+        { id: 'a', text: 'She asked where did I live.' },
+        { id: 'b', text: 'She asked where I lived.' },
+        { id: 'c', text: 'She asked where do I live?' },
+        { id: 'd', text: 'She asked if I lived where.' },
+      ],
+      answer: 'b',
+      explanation: 'Kein do in der indirekten Frage, normale Wortstellung (I lived), kein Fragezeichen.',
+    },
+    {
+      id: 'q6', type: 'cloze', difficulty: 2, competency: 'commands',
+      prompt: 'Setze in die indirekte Rede: "Don\'t forget your homework!" the teacher said.',
+      segments: [
+        'The teacher told us ',
+        { blank: 'inf', accept: ['not to forget'] },
+        ' our homework.',
+      ],
+      explanation: 'Verneinte Aufforderungen werden mit not to + Infinitiv wiedergegeben. Außerdem your → our.',
+    },
+    {
+      id: 'q7', type: 'multi', difficulty: 3, competency: 'questions',
+      prompt: 'Welche Sätze sind korrekte indirekte Fragen?',
+      options: [
+        { id: 'a', text: 'He asked if I was hungry.' },
+        { id: 'b', text: 'He asked whether I had seen the film.' },
+        { id: 'c', text: 'He asked was I hungry.' },
+        { id: 'd', text: 'He asked me what my name was.' },
+        { id: 'e', text: 'He asked what was my name?' },
+      ],
+      answer: ['a', 'b', 'd'],
+      explanation: 'Ja/Nein-Fragen brauchen if oder whether; W-Fragen behalten das Fragewort und haben normale Wortstellung. Kein Fragezeichen, keine Inversion.',
+    },
+    {
+      id: 'q8', type: 'truefalse', difficulty: 2, competency: 'backshift',
+      prompt: 'In "She says she is tired." muss die Zeitform zurückverschoben werden.',
+      answer: false,
+      explanation: 'Falsch. Steht das einleitende Verb im Präsens (says), bleibt die Zeitform unverändert. Backshift gilt nur bei Vergangenheit im einleitenden Verb.',
+    },
+    {
+      id: 'q9', type: 'free', difficulty: 3, competency: 'questions',
+      prompt: 'Ein Mitschüler schreibt: "She asked me where did I buy the book." Erkläre den Fehler und gib die richtige Version an.',
+      keywords: [
+        { label: 'keine Frageform / kein did', any: ['did', 'frageform', 'hilfsverb', 'inversion'] },
+        { label: 'normale Wortstellung', any: ['wortstellung', 'subjekt vor verb', 'reihenfolge', 'word order'] },
+        { label: 'richtige Version', any: ['where i bought', 'where i had bought'] },
+      ],
+      minKeywords: 2,
+      modelAnswer: 'In der indirekten Frage darf kein did stehen, weil es keine Frageform mehr gibt. Es gilt die normale Wortstellung mit dem Subjekt vor dem Verb. Richtig ist: She asked me where I had bought the book. (Oder, wenn kein backshift nötig ist: where I bought the book.)',
+      explanation: 'Der Fehler ist die beibehaltene Frageform. Indirekte Fragen sind Aussagesätze: Fragewort + Subjekt + Verb.',
+    },
+    {
+      id: 'q10', type: 'order', difficulty: 2, competency: 'backshift',
+      prompt: 'Bringe die Schritte für die Umformung in die indirekte Rede in eine sinnvolle Reihenfolge.',
+      items: [
+        'Einleitendes Verb prüfen: steht es in der Vergangenheit?',
+        'Zeitform der Aussage eine Stufe zurückverschieben',
+        'Pronomen aus der neuen Perspektive anpassen',
+        'Zeit- und Ortsangaben umformen',
+        'Anführungszeichen und Fragezeichen entfernen',
+      ],
+      explanation: 'Erst entscheidet das einleitende Verb, ob überhaupt verschoben wird. Dann folgen Zeitform, Pronomen und Angaben; die Zeichensetzung wird zuletzt angepasst.',
+    },
+  ],
+};

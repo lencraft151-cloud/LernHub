@@ -1,0 +1,277 @@
+export default {
+  id: 'ma9-quadratische-funktionen',
+  title: 'Quadratische Funktionen',
+  summary: 'Der Graph einer quadratischen Funktion ist eine Parabel. Aus der Funktionsgleichung liest man Öffnung, Streckung und Scheitelpunkt direkt ab.',
+  estimatedMinutes: 32,
+  aliases: ['Parabel', 'Scheitelpunkt', 'Scheitelpunktform', 'Normalparabel', 'Streckfaktor'],
+  competencies: [
+    { id: 'normalparabel', title: 'Normalparabel und Verschiebungen', description: 'Verschiebungen und Streckungen der Normalparabel erkennen.' },
+    { id: 'scheitelform', title: 'Scheitelpunktform', description: 'Scheitelpunkt aus der Scheitelpunktform ablesen und umgekehrt.' },
+    { id: 'allgemeine-form', title: 'Allgemeine Form', description: 'Zwischen allgemeiner Form und Scheitelpunktform wechseln.' },
+    { id: 'nullstellen', title: 'Nullstellen', description: 'Nullstellen bestimmen und ihre Anzahl begründen.' },
+    { id: 'modellieren', title: 'Modellieren', description: 'Sachsituationen mit quadratischen Funktionen beschreiben.' },
+  ],
+  sections: [
+    {
+      id: 's1',
+      title: 'Die Normalparabel und ihre Verwandten',
+      blocks: [
+        { type: 'text', html: 'Die einfachste quadratische Funktion ist <code>f(x) = x²</code>. Ihr Graph heißt <strong>Normalparabel</strong>. Sie ist nach oben geöffnet, hat ihren tiefsten Punkt im Ursprung und ist symmetrisch zur y-Achse.' },
+        {
+          type: 'table',
+          caption: 'Wertetabelle der Normalparabel',
+          head: ['x', '−3', '−2', '−1', '0', '1', '2', '3'],
+          rows: [['f(x) = x²', '9', '4', '1', '0', '1', '4', '9']],
+        },
+        { type: 'text', html: 'Ändert man die Gleichung, verschiebt oder verformt sich die Parabel — nach einem klaren System:' },
+        {
+          type: 'table',
+          caption: 'Wie Parameter die Parabel verändern',
+          head: ['Gleichung', 'Wirkung'],
+          rows: [
+            ['f(x) = x² + d', 'Verschiebung um d nach oben (d > 0) bzw. unten (d < 0)'],
+            ['f(x) = (x − e)²', 'Verschiebung um e nach rechts (e > 0) bzw. links (e < 0)'],
+            ['f(x) = a · x², a > 1', 'gestreckt — die Parabel wird schmaler'],
+            ['f(x) = a · x², 0 < a < 1', 'gestaucht — die Parabel wird breiter'],
+            ['f(x) = −a · x²', 'nach unten geöffnet (gespiegelt)'],
+          ],
+        },
+        {
+          type: 'note',
+          variant: 'fehler',
+          title: 'Vorsicht beim Vorzeichen von e',
+          html: 'In <code>(x − 3)²</code> steht ein Minus, verschoben wird aber nach <strong>rechts</strong>. '
+            + 'In <code>(x + 3)²</code> steht ein Plus, verschoben wird nach <strong>links</strong>. '
+            + 'Das Vorzeichen im Term ist immer umgekehrt zur Richtung.',
+        },
+      ],
+      check: ['q1', 'q2'],
+    },
+    {
+      id: 's2',
+      title: 'Scheitelpunktform',
+      blocks: [
+        { type: 'text', html: 'Kombiniert man alle drei Parameter, entsteht die <strong>Scheitelpunktform</strong>. Aus ihr liest man den Scheitelpunkt sofort ab.' },
+        { type: 'formula', text: 'f(x) = a · (x − d)² + e', caption: 'Scheitelpunkt S(d | e)' },
+        {
+          type: 'list',
+          items: [
+            '<strong>a</strong> bestimmt Öffnung und Form: a > 0 nach oben, a < 0 nach unten.',
+            '<strong>d</strong> ist die x-Koordinate des Scheitelpunkts (mit umgekehrtem Vorzeichen im Term).',
+            '<strong>e</strong> ist die y-Koordinate des Scheitelpunkts.',
+          ],
+        },
+        {
+          type: 'example',
+          title: 'Beispiel 1 — Scheitelpunkt ablesen',
+          task: 'Bestimme den Scheitelpunkt von f(x) = 2(x − 3)² − 5.',
+          steps: [
+            { text: 'Mit der Scheitelpunktform vergleichen', math: 'a = 2, d = 3, e = −5' },
+            { text: 'Scheitelpunkt aufschreiben', math: 'S(3 | −5)' },
+            { text: 'Öffnung prüfen', math: 'a = 2 > 0 → nach oben geöffnet, S ist der tiefste Punkt' },
+          ],
+          result: 'S(3 | −5), nach oben geöffnet und im Vergleich zur Normalparabel schmaler.',
+        },
+        {
+          type: 'example',
+          title: 'Beispiel 2 — Gleichung aus dem Scheitelpunkt',
+          task: 'Eine nach unten geöffnete Parabel hat den Scheitelpunkt S(−1 | 4) und die Form der Normalparabel. Gib die Gleichung an.',
+          steps: [
+            { text: 'a bestimmen', math: 'Form der Normalparabel, nach unten → a = −1' },
+            { text: 'd und e einsetzen', math: 'd = −1, e = 4' },
+            { text: 'Gleichung aufschreiben', math: 'f(x) = −(x + 1)² + 4' },
+          ],
+          result: 'f(x) = −(x + 1)² + 4',
+        },
+      ],
+      check: ['q3', 'q4'],
+    },
+    {
+      id: 's3',
+      title: 'Allgemeine Form und Nullstellen',
+      blocks: [
+        { type: 'text', html: 'Multipliziert man die Scheitelpunktform aus, entsteht die <strong>allgemeine Form</strong>:' },
+        { type: 'formula', text: 'f(x) = a · x² + b · x + c', caption: 'c ist der y-Achsenabschnitt' },
+        { type: 'text', html: 'Den Scheitelpunkt bekommt man daraus per <strong>quadratischer Ergänzung</strong> — oder direkt über eine Formel:' },
+        { type: 'formula', text: 'x_S = −b / (2a)', caption: 'y-Koordinate durch Einsetzen: y_S = f(x_S)' },
+        {
+          type: 'example',
+          title: 'Beispiel 3 — Scheitelpunkt aus der allgemeinen Form',
+          task: 'Bestimme den Scheitelpunkt von f(x) = x² − 6x + 5.',
+          steps: [
+            { text: 'a und b ablesen', math: 'a = 1, b = −6' },
+            { text: 'x-Koordinate berechnen', math: 'x_S = −(−6) / (2 · 1) = 3' },
+            { text: 'y-Koordinate durch Einsetzen', math: 'f(3) = 9 − 18 + 5 = −4' },
+          ],
+          result: 'S(3 | −4)',
+        },
+        { type: 'text', html: 'Die <strong>Nullstellen</strong> sind die Schnittpunkte mit der x-Achse. Man setzt f(x) = 0 und löst die quadratische Gleichung.' },
+        {
+          type: 'note',
+          variant: 'merksatz',
+          title: 'Anzahl der Nullstellen',
+          html: 'Liegt der Scheitelpunkt <strong>über</strong> der x-Achse und öffnet die Parabel nach oben, gibt es <strong>keine</strong> Nullstelle. '
+            + 'Liegt er <strong>auf</strong> der x-Achse, gibt es <strong>genau eine</strong>. '
+            + 'Liegt er <strong>darunter</strong>, gibt es <strong>zwei</strong>.',
+        },
+        {
+          type: 'example',
+          title: 'Beispiel 4 — Nullstellen bestimmen',
+          task: 'Bestimme die Nullstellen von f(x) = x² − 6x + 5.',
+          steps: [
+            { text: 'f(x) = 0 setzen', math: '0 = x² − 6x + 5' },
+            { text: 'pq-Formel anwenden (p = −6, q = 5)', math: 'x = 3 ± √(9 − 5)' },
+            { text: 'Wurzel ausrechnen', math: 'x = 3 ± 2' },
+            { text: 'Beide Lösungen', math: 'x₁ = 1, x₂ = 5' },
+          ],
+          result: 'Die Parabel schneidet die x-Achse bei (1|0) und (5|0).',
+        },
+      ],
+      check: ['q5', 'q6'],
+    },
+  ],
+  keyFacts: [
+    'Scheitelpunktform: f(x) = a(x − d)² + e mit Scheitelpunkt S(d | e).',
+    'Allgemeine Form: f(x) = ax² + bx + c, dabei ist c der y-Achsenabschnitt.',
+    'x-Koordinate des Scheitelpunkts: x_S = −b/(2a).',
+    'a > 0 nach oben, a < 0 nach unten geöffnet. |a| > 1 schmaler, |a| < 1 breiter.',
+    'Im Term ist das Vorzeichen von d umgekehrt zur Verschiebungsrichtung.',
+    'Die Lage des Scheitelpunkts entscheidet über die Anzahl der Nullstellen (0, 1 oder 2).',
+  ],
+  commonMistakes: [
+    {
+      mistake: 'Bei f(x) = (x − 4)² wird nach links verschoben.',
+      why: 'Das Minuszeichen wird direkt als Richtung gelesen.',
+      fix: 'Der Scheitelpunkt liegt bei x = 4, also rechts. Setze x = 4 ein: der Klammerinhalt wird null.',
+    },
+    {
+      mistake: 'Der Scheitelpunkt wird als S(d | e) aus f(x) = a·x² + b·x + c direkt abgelesen.',
+      why: 'Die beiden Formen werden verwechselt.',
+      fix: 'Nur die Scheitelpunktform erlaubt direktes Ablesen. Aus der allgemeinen Form erst x_S = −b/(2a) berechnen.',
+    },
+    {
+      mistake: 'Beim Berechnen von x_S wird das Minuszeichen vergessen.',
+      why: 'Die Formel wird als b/(2a) erinnert.',
+      fix: 'Es ist x_S = −b/(2a). Bei b = −6 und a = 1 ergibt das +3, nicht −3.',
+    },
+    {
+      mistake: 'a wird für den y-Achsenabschnitt gehalten.',
+      why: 'In der linearen Funktion war der zweite Parameter der Achsenabschnitt.',
+      fix: 'Bei quadratischen Funktionen ist c der y-Achsenabschnitt, a bestimmt nur die Form.',
+    },
+  ],
+  recap: 'Quadratische Funktionen haben eine Parabel als Graph. Die Scheitelpunktform f(x) = a(x − d)² + e zeigt Scheitelpunkt S(d|e), Öffnungsrichtung und Streckung auf einen Blick. Die allgemeine Form f(x) = ax² + bx + c verrät den y-Achsenabschnitt c; den Scheitelpunkt berechnet man daraus mit x_S = −b/(2a) und anschließendem Einsetzen. Nullstellen findet man, indem man f(x) = 0 setzt und die quadratische Gleichung löst — je nach Lage des Scheitelpunkts gibt es keine, eine oder zwei.',
+  simpler: 'Denk an einen geworfenen Ball: Er steigt, erreicht einen höchsten Punkt und fällt wieder. Diese Bahn ist eine Parabel. Die Zahl vor der Klammer sagt, ob die Kurve nach oben (Tal) oder nach unten (Berg) geht und wie steil sie ist. Die Zahlen in und hinter der Klammer sagen, wo der Umkehrpunkt liegt: die Zahl in der Klammer verschiebt nach links oder rechts (mit umgekehrtem Vorzeichen), die Zahl dahinter nach oben oder unten.',
+  deeper: 'Die Scheitelpunktform entsteht aus der allgemeinen Form durch quadratische Ergänzung: aus x² + px ergänzt man (p/2)², addiert und subtrahiert es und formt zu (x + p/2)² − (p/2)² um. Daraus folgt direkt x_S = −p/2 = −b/(2a). Später zeigt die Differentialrechnung dasselbe: die Ableitung f′(x) = 2ax + b ist genau bei x = −b/(2a) null, und dort liegt der Extrempunkt. Die Diskriminante D = b² − 4ac entscheidet über die Anzahl der Nullstellen und ist bis auf einen Faktor die y-Koordinate des Scheitelpunkts.',
+  glossary: [
+    { term: 'Parabel', definition: 'Der Graph einer quadratischen Funktion.' },
+    { term: 'Scheitelpunkt', definition: 'Höchster oder tiefster Punkt der Parabel; liegt auf der Symmetrieachse.' },
+    { term: 'Normalparabel', definition: 'Der Graph von f(x) = x².' },
+    { term: 'Streckfaktor a', definition: 'Bestimmt Öffnungsrichtung und Breite der Parabel.' },
+    { term: 'Quadratische Ergänzung', definition: 'Verfahren, um die allgemeine Form in die Scheitelpunktform umzuwandeln.' },
+  ],
+  questions: [
+    {
+      id: 'q1', type: 'mc', difficulty: 1, competency: 'normalparabel',
+      prompt: 'Wie verändert sich der Graph von f(x) = x² zu g(x) = x² − 4?',
+      options: [
+        { id: 'a', text: 'Verschiebung um 4 nach unten' },
+        { id: 'b', text: 'Verschiebung um 4 nach oben' },
+        { id: 'c', text: 'Verschiebung um 4 nach rechts' },
+        { id: 'd', text: 'Verschiebung um 4 nach links' },
+      ],
+      answer: 'a',
+      explanation: 'Eine Zahl, die hinter dem Quadrat addiert oder subtrahiert wird, verschiebt in y-Richtung. −4 bedeutet 4 nach unten.',
+    },
+    {
+      id: 'q2', type: 'match', difficulty: 2, competency: 'normalparabel',
+      prompt: 'Ordne jeder Funktion die passende Beschreibung zu.',
+      pairs: [
+        { left: 'f(x) = (x − 2)²', right: '2 nach rechts verschoben' },
+        { left: 'f(x) = (x + 2)²', right: '2 nach links verschoben' },
+        { left: 'f(x) = 3x²', right: 'schmaler als die Normalparabel' },
+        { left: 'f(x) = −x²', right: 'nach unten geöffnet' },
+      ],
+      explanation: 'Das Vorzeichen in der Klammer ist umgekehrt zur Verschiebungsrichtung. Ein Faktor größer 1 streckt (schmaler), ein negatives a spiegelt.',
+    },
+    {
+      id: 'q3', type: 'cloze', difficulty: 2, competency: 'scheitelform',
+      prompt: 'Betrachte f(x) = −2(x + 3)² + 7.',
+      segments: [
+        'Der Scheitelpunkt liegt bei S(',
+        { blank: 'x', accept: ['-3', '−3'] },
+        ' | ',
+        { blank: 'y', accept: ['7'] },
+        '). Die Parabel ist nach ',
+        { blank: 'richtung', accept: ['unten'] },
+        ' geöffnet.',
+      ],
+      explanation: 'In f(x) = a(x − d)² + e ist d = −3 (wegen x + 3 = x − (−3)) und e = 7. Weil a = −2 negativ ist, öffnet die Parabel nach unten.',
+    },
+    {
+      id: 'q4', type: 'mc', difficulty: 2, competency: 'scheitelform',
+      prompt: 'Eine Parabel hat die Form der Normalparabel, ist nach oben geöffnet und hat den Scheitelpunkt S(4 | −1). Wie lautet ihre Gleichung?',
+      options: [
+        { id: 'a', text: 'f(x) = (x + 4)² − 1' },
+        { id: 'b', text: 'f(x) = (x − 4)² − 1' },
+        { id: 'c', text: 'f(x) = (x − 4)² + 1' },
+        { id: 'd', text: 'f(x) = −(x − 4)² − 1' },
+      ],
+      answer: 'b',
+      explanation: 'd = 4 steht als (x − 4) in der Klammer, e = −1 dahinter. a = 1, weil Normalparabelform und nach oben geöffnet.',
+    },
+    {
+      id: 'q5', type: 'steps', difficulty: 3, competency: 'allgemeine-form',
+      prompt: 'Bestimme den Scheitelpunkt von f(x) = x² + 8x + 10.',
+      steps: [
+        { label: 'x-Koordinate x_S', type: 'numeric', answer: -4, tolerance: 0.001 },
+        { label: 'y-Koordinate y_S', type: 'numeric', answer: -6, tolerance: 0.001 },
+      ],
+      explanation: 'x_S = −b/(2a) = −8/2 = −4. Einsetzen: f(−4) = 16 − 32 + 10 = −6. Also S(−4 | −6).',
+    },
+    {
+      id: 'q6', type: 'mc', difficulty: 2, competency: 'nullstellen',
+      prompt: 'Eine nach oben geöffnete Parabel hat den Scheitelpunkt S(2 | 3). Wie viele Nullstellen hat sie?',
+      options: [
+        { id: 'a', text: 'keine' },
+        { id: 'b', text: 'genau eine' },
+        { id: 'c', text: 'genau zwei' },
+        { id: 'd', text: 'das lässt sich nicht entscheiden' },
+      ],
+      answer: 'a',
+      explanation: 'Der tiefste Punkt liegt bei y = 3, also oberhalb der x-Achse. Weil die Parabel nach oben geöffnet ist, kommt sie der x-Achse nie näher — keine Nullstelle.',
+    },
+    {
+      id: 'q7', type: 'numeric', difficulty: 3, competency: 'nullstellen',
+      prompt: 'Bestimme die größere Nullstelle von f(x) = x² − 2x − 8.',
+      answer: 4, tolerance: 0.001,
+      hint: 'pq-Formel mit p = −2 und q = −8.',
+      explanation: '0 = x² − 2x − 8 → x = 1 ± √(1 + 8) = 1 ± 3. Also x₁ = −2 und x₂ = 4. Die größere Nullstelle ist 4.',
+    },
+    {
+      id: 'q8', type: 'truefalse', difficulty: 2, competency: 'allgemeine-form',
+      prompt: 'In f(x) = 3x² − 12x + 7 ist 7 der y-Achsenabschnitt.',
+      answer: true,
+      explanation: 'Richtig. Setzt man x = 0 ein, bleibt f(0) = 7. In der allgemeinen Form ist c immer der y-Achsenabschnitt.',
+    },
+    {
+      id: 'q9', type: 'numeric', difficulty: 3, competency: 'modellieren',
+      prompt: 'Ein Ball wird geworfen. Seine Höhe in Metern beschreibt h(t) = −5t² + 20t mit t in Sekunden. Nach wie vielen Sekunden erreicht er den höchsten Punkt?',
+      answer: 2, tolerance: 0.001, unit: 's',
+      hint: 'Der höchste Punkt ist der Scheitelpunkt: t_S = −b/(2a).',
+      explanation: 't_S = −20 / (2 · (−5)) = −20 / (−10) = 2. Nach 2 Sekunden ist der Ball am höchsten (h(2) = 20 m).',
+    },
+    {
+      id: 'q10', type: 'free', difficulty: 3, competency: 'modellieren',
+      prompt: 'Erkläre, woran man an der Gleichung f(x) = a(x − d)² + e erkennt, ob der Scheitelpunkt der höchste oder der tiefste Punkt der Parabel ist.',
+      keywords: [
+        { label: 'Vorzeichen von a', any: ['a', 'vorzeichen', 'faktor'] },
+        { label: 'a positiv → nach oben → tiefster Punkt', any: ['positiv', 'nach oben', 'tiefster', 'minimum'] },
+        { label: 'a negativ → nach unten → höchster Punkt', any: ['negativ', 'nach unten', 'hoechster', 'maximum'] },
+      ],
+      minKeywords: 2,
+      modelAnswer: 'Entscheidend ist das Vorzeichen von a. Ist a positiv, öffnet sich die Parabel nach oben — dann ist der Scheitelpunkt der tiefste Punkt (Minimum). Ist a negativ, öffnet sie sich nach unten und der Scheitelpunkt ist der höchste Punkt (Maximum). Der Betrag von a sagt zusätzlich, wie schmal oder breit die Parabel verläuft.',
+      explanation: 'Nur das Vorzeichen von a entscheidet über die Öffnungsrichtung und damit darüber, ob der Scheitelpunkt Minimum oder Maximum ist.',
+    },
+  ],
+};
