@@ -588,3 +588,93 @@
 
 /* Inline-Elemente ignorieren overflow — deshalb als Block ausgeben. */
 .step-math { display: block; }
+
+/* ================================================================== *
+ * Bedienung auf dem Handy
+ *
+ * Alles in diesem Block betrifft ausschliesslich Touch-Geräte und kleine
+ * Displays. Ziel: keine versehentlichen Zooms, keine zu kleinen Ziele,
+ * keine Aktion, die hinter der Bildschirmkante verschwindet.
+ * ================================================================== */
+
+/* Kein 300-ms-Verzug beim Tippen und kein graues Aufblitzen. */
+a, button, [role="button"], .game-option, .option, .bottomnav-item, .chip, .tab {
+  touch-action: manipulation;
+  -webkit-tap-highlight-color: transparent;
+}
+
+/* Beschriftungen von Bedienelementen sollen sich nicht markieren lassen,
+   sonst erscheint bei jedem längeren Tippen die Auswahl-Lupe. */
+button, .bottomnav-item, .tab, .game-option { -webkit-user-select: none; user-select: none; }
+
+/* Seitliches Wegziehen der ganzen Seite verhindern. */
+html, body { overscroll-behavior-x: none; }
+
+/* Alles, was quer scrollt, soll das Scrollen nicht an die Seite weiterreichen. */
+.table-wrap, .tabs, .chip-row, .btn-group, .chart-scroll {
+  overscroll-behavior-x: contain;
+  -webkit-overflow-scrolling: touch;
+}
+
+@media (max-width: 719px) {
+  /* iOS zoomt beim Fokussieren, sobald die Schrift kleiner als 16 px ist. */
+  .input, .select, .textarea, input[type="text"], input[type="number"],
+  input[type="search"], input[type="url"], input[type="password"], textarea, select {
+    font-size: 16px;
+  }
+
+  /* Mindestgrösse für Tippziele (Apple: 44 px, Google: 48 dp). */
+  .btn { min-height: 44px; padding-inline: 16px; }
+  .btn-sm { min-height: 38px; }
+  .icon-btn { min-width: 42px; min-height: 42px; }
+  .bottomnav-item { min-height: 52px; }
+  .game-option { min-height: 58px; }
+  .option { min-height: 52px; }
+  .chip, .tab { min-height: 38px; display: inline-flex; align-items: center; }
+  .topic-row { min-height: 56px; }
+
+  /* Buttons in Reihen füllen die Breite, statt zu dritt nebeneinander
+     zusammenzuschrumpfen. */
+  .row-wrap > .btn-lg { flex: 1 1 100%; }
+
+  /* Etwas mehr Luft zum unteren Rand, damit die Bottom-Navigation nicht
+     über der letzten Aktion klebt. */
+  .main { padding-bottom: calc(var(--bottomnav-h) + env(safe-area-inset-bottom, 0px) + var(--sp-8)); }
+
+  .page { gap: var(--sp-5); }
+  .page-head h1 { font-size: var(--text-xl); }
+}
+
+/* Aktionsleiste unter jeder Aufgabe.
+   Auf dem Handy bleibt sie über der Bottom-Navigation stehen — sonst muss
+   man nach jeder Aufgabe erst scrollen, um "Antwort prüfen" zu erreichen. */
+.sticky-actions {
+  display: flex;
+  align-items: center;
+  gap: var(--sp-3);
+  flex-wrap: wrap;
+}
+.sticky-actions > * { min-width: 0; }
+
+@media (max-width: 899px) {
+  .sticky-actions {
+    position: sticky;
+    bottom: calc(var(--bottomnav-h) + env(safe-area-inset-bottom, 0px));
+    z-index: 40;
+    margin: var(--sp-2) calc(var(--sp-4) * -1) 0;
+    padding: var(--sp-3) var(--sp-4);
+    background: color-mix(in srgb, var(--surface) 97%, transparent);
+    backdrop-filter: blur(12px);
+    border-top: 1px solid var(--border);
+  }
+  .sticky-actions .btn-lg { flex: 1 1 auto; }
+  /* Im Prüfungsmodus sitzt bereits eine eigene Leiste unten. */
+  .exam-shell .sticky-actions { position: static; margin: 0; padding: 0; background: none; border-top: 0; backdrop-filter: none; }
+}
+
+/* Quer liegendes Handy: die Bottom-Navigation frisst sonst die halbe Höhe. */
+@media (max-height: 460px) and (orientation: landscape) {
+  .bottomnav { height: calc(46px + env(safe-area-inset-bottom, 0px)); }
+  .bottomnav-item span { display: none; }
+  .main { padding-bottom: calc(56px + env(safe-area-inset-bottom, 0px)); }
+}

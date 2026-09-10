@@ -2,6 +2,18 @@
 export default {
   subject: 'musik',
   grades: {
+    1: [{ id: 'mu1-singen', title: 'Singen und Bewegen', topics: [
+      { id: 'mu1-lieder', title: 'Lieder singen', keywords: ['Lied', 'Melodie'], subtopics: ['Bekannte Lieder', 'Laut und leise', 'Zu Musik bewegen'] },
+    ] }],
+    2: [{ id: 'mu2-rhythmus', title: 'Rhythmus', topics: [
+      { id: 'mu2-rhythmus', title: 'Rhythmus klatschen', keywords: ['Rhythmus', 'Puls', 'Takt'], subtopics: ['Puls spüren', 'Rhythmen nachklatschen', 'Körperinstrumente'] },
+    ] }],
+    3: [{ id: 'mu3-instrumente', title: 'Instrumente', topics: [
+      { id: 'mu3-instrumente', title: 'Instrumente kennenlernen', keywords: ['Instrument', 'Orchester'], subtopics: ['Instrumentenfamilien', 'Klänge erkennen', 'Orff-Instrumente'] },
+    ] }],
+    4: [{ id: 'mu4-noten', title: 'Notenschrift', topics: [
+      { id: 'mu4-noten-erste', title: 'Erste Noten lesen', keywords: ['Note', 'Notenlinien'], subtopics: ['Notenlinien', 'Notennamen', 'Notenwerte'] },
+    ] }],
     5: [
       { id: 'mu5-notenlehre', title: 'Notenlehre', topics: [
         { id: 'mu5-noten', title: 'Noten, Pausen und Takt', keywords: ['Notenwerte', 'Taktart', 'Notenschlüssel'], subtopics: ['Notennamen', 'Notenwerte', 'Taktarten', 'Pausen'] },

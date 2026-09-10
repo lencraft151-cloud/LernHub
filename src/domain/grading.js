@@ -75,6 +75,10 @@ export function parseNumber(value) {
   let text = String(value ?? '').trim();
   if (!text) return null;
   text = text.replace(/\s/g, '').replace(/^≈|^~|^ca\./i, '');
+  // Ohne Ziffer ist es keine Zahl. Ohne diese Prüfung würde die folgende
+  // Einheitenbereinigung aus "keine Ahnung" ein leeres Feld und daraus die
+  // Zahl 0 machen — bei einer Aufgabe mit der Lösung 0 wäre das "richtig".
+  if (!/\d/.test(text)) return null;
   // Einheiten und sonstige Buchstaben am Ende abschneiden
   text = text.replace(/[a-zA-Zµ°%²³/°]+$/u, (m) => (m === '/' ? m : ''));
   // Tausenderpunkt nur entfernen, wenn zusätzlich ein Komma existiert
@@ -187,8 +191,14 @@ export function grade(question, answer) {
       const givenSet = new Set((Array.isArray(answer) ? answer : [answer]).map(String));
       const hits = [...givenSet].filter((id) => correctSet.has(id)).length;
       const falsePositives = [...givenSet].filter((id) => !correctSet.has(id)).length;
-      // Punkte: Treffer minus Fehlgriffe, nie unter 0.
-      const raw = correctSet.size ? (hits - falsePositives) / correctSet.size : 0;
+      // Treffer anteilig, Fehlgriffe anteilig an der Zahl der Distraktoren.
+      // Dadurch ergibt "alles ankreuzen" genau 0 Punkte: volle Trefferquote
+      // minus volle Fehlgriffquote. Vorher waren es 50 % und damit statistisch
+      // eine richtige Antwort.
+      const distractors = Math.max(1, (question.options || []).length - correctSet.size);
+      const raw = correctSet.size
+        ? hits / correctSet.size - falsePositives / distractors
+        : 0;
       const score = Math.max(0, raw);
       const status = score >= 1 ? 'correct' : score > 0 ? 'partial' : 'wrong';
       return result(status, score, correctAnswerText(question), {
@@ -307,6 +317,18 @@ export function correctAnswerText(question) {
 export function applySelfCheck(gradeResult, verdict) {
   const score = verdict === 'correct' ? 1 : verdict === 'partial' ? 0.5 : 0;
   return { ...gradeResult, status: verdict, score, detail: { ...gradeResult.detail, selfChecked: true } };
+}
+
+/**
+ * Eindeutiger Schlüssel einer Aufgabe.
+ *
+ * Die Aufgaben-IDs sind nur innerhalb ihres Inhaltsmoduls eindeutig — fast
+ * jedes Thema hat eine "q1". Ohne das Thema im Schlüssel würden sich die
+ * Statistiken verschiedener Fächer vermischen und ein richtig gelöstes "q1"
+ * in Chemie den offenen Fehler "q1" in Mathematik löschen.
+ */
+export function questionKey(topicId, questionId) {
+  return `${topicId || '?'}:${questionId}`;
 }
 
 /** Zählt ein Ergebnis als "richtig" für Statistiken? (Teilpunkte ab 50 %) */

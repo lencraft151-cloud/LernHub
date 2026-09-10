@@ -2,6 +2,47 @@
 export default {
   subject: 'deutsch',
   grades: {
+    1: [
+      { id: 'de1-schrift', title: 'Lesen und Schreiben lernen', topics: [
+        { id: 'de1-laute-buchstaben', title: 'Laute und Buchstaben', keywords: ['Buchstabe', 'Laut', 'Anlaut'], subtopics: ['Anlaute hören', 'Buchstaben schreiben', 'Buchstabe und Laut zuordnen'] },
+        { id: 'de1-silben', title: 'Silben und erste Wörter', keywords: ['Silbe', 'klatschen', 'lesen'], subtopics: ['Silben klatschen', 'Wörter zusammenlesen', 'Kurze Sätze lesen'] },
+      ] },
+    ],
+    2: [
+      { id: 'de2-sprache', title: 'Sprache untersuchen', topics: [
+        { id: 'de2-wortarten', title: 'Nomen, Verben, Adjektive', keywords: ['Nomen', 'Verb', 'Adjektiv', 'Wortart'], subtopics: ['Nomen und Begleiter', 'Verben erkennen', 'Adjektive beschreiben'] },
+        { id: 'de2-satzzeichen', title: 'Satzarten und Satzzeichen', keywords: ['Punkt', 'Fragezeichen', 'Ausrufezeichen'], subtopics: ['Aussagesatz', 'Fragesatz', 'Ausrufesatz'] },
+      ] },
+      { id: 'de2-rechtschreibung', title: 'Richtig schreiben', topics: [
+        { id: 'de2-grossschreibung', title: 'Großschreibung', keywords: ['Nomen', 'Satzanfang'], subtopics: ['Satzanfänge', 'Nomen großschreiben', 'Namen schreiben'] },
+        { id: 'de2-lange-kurze-vokale', title: 'Lange und kurze Vokale', keywords: ['ie', 'Doppelkonsonant', 'Dehnung'], subtopics: ['Wörter mit ie', 'Doppelte Mitlaute', 'Silben trennen'] },
+      ] },
+    ],
+    3: [
+      { id: 'de3-sprache', title: 'Sprache untersuchen', topics: [
+        { id: 'de3-zeitformen', title: 'Zeitformen: Präsens und Präteritum', keywords: ['Gegenwart', 'Vergangenheit', 'Zeitform'], subtopics: ['Präsens bilden', 'Präteritum bilden', 'Zeitformen unterscheiden'] },
+        { id: 'de3-woertliche-rede', title: 'Wörtliche Rede', keywords: ['Anführungszeichen', 'Redebegleitsatz'], subtopics: ['Anführungszeichen setzen', 'Redebegleitsatz', 'Doppelpunkt'] },
+      ] },
+      { id: 'de3-rechtschreibung', title: 'Rechtschreibstrategien', topics: [
+        { id: 'de3-verlaengern', title: 'Verlängern und Ableiten', keywords: ['Wortstamm', 'ableiten', 'verlängern'], subtopics: ['Wörter verlängern', 'Von Verwandten ableiten', 'Wortfamilien'] },
+      ] },
+      { id: 'de3-texte', title: 'Texte schreiben und verstehen', topics: [
+        { id: 'de3-erzaehlen', title: 'Eine Geschichte erzählen', keywords: ['Einleitung', 'Höhepunkt', 'Schluss'], subtopics: ['Aufbau einer Geschichte', 'Spannend erzählen', 'Überarbeiten'] },
+      ] },
+    ],
+    4: [
+      { id: 'de4-sprache', title: 'Sprache untersuchen', topics: [
+        { id: 'de4-satzglieder', title: 'Satzglieder bestimmen', keywords: ['Subjekt', 'Prädikat', 'Objekt', 'Umstellprobe'], subtopics: ['Subjekt und Prädikat', 'Objekte', 'Umstellprobe'] },
+        { id: 'de4-faelle', title: 'Die vier Fälle', keywords: ['Nominativ', 'Genitiv', 'Dativ', 'Akkusativ'], subtopics: ['Fälle erfragen', 'Fälle unterscheiden', 'Artikel im Fall'] },
+        { id: 'de4-perfekt-futur', title: 'Perfekt und Futur', keywords: ['Perfekt', 'Futur', 'Hilfsverb'], subtopics: ['Perfekt bilden', 'Futur bilden', 'Zeitformen im Text'] },
+      ] },
+      { id: 'de4-rechtschreibung', title: 'Richtig schreiben', topics: [
+        { id: 'de4-das-dass', title: 'das oder dass', keywords: ['das', 'dass', 'Ersatzprobe'], subtopics: ['Ersatzprobe', 'dass als Bindewort', 'Typische Fehler'] },
+      ] },
+      { id: 'de4-texte', title: 'Texte schreiben', topics: [
+        { id: 'de4-bericht', title: 'Berichten und beschreiben', keywords: ['Bericht', 'W-Fragen', 'sachlich'], subtopics: ['W-Fragen beantworten', 'Sachlich schreiben', 'Vorgang beschreiben'] },
+      ] },
+    ],
     5: [
       { id: 'de5-sprache', title: 'Sprache untersuchen', topics: [
         { id: 'de5-wortarten', title: 'Wortarten', keywords: ['Nomen', 'Verb', 'Adjektiv', 'Artikel', 'Pronomen'], subtopics: ['Nomen', 'Verben', 'Adjektive', 'Begleiter und Pronomen'] },

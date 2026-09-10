@@ -13,7 +13,7 @@
  */
 
 import { SUBJECTS, getSubject } from './subjects.js';
-import { gradeLabel } from './states.js';
+import { gradeLabel, gradesForSchoolType } from './states.js';
 
 import mathematik from './plans/mathematik.js';
 import deutsch from './plans/deutsch.js';
@@ -31,10 +31,12 @@ import religion from './plans/religion.js';
 import musik from './plans/musik.js';
 import kunst from './plans/kunst.js';
 import sport from './plans/sport.js';
+import sachunterricht from './plans/sachunterricht.js';
 
 const PLANS = [
   mathematik, deutsch, englisch, franzoesisch, latein, chemie, physik, biologie,
   geschichte, erdkunde, informatik, politik, religion, musik, kunst, sport,
+  sachunterricht,
 ];
 
 const PLAN_BY_SUBJECT = new Map(PLANS.map((plan) => [plan.subject, plan]));
@@ -157,6 +159,19 @@ export function getSubjectOutline({ subjectId, state, schoolType, grades }) {
 }
 
 /**
+ * Gehört eine Klassenstufe zur gewählten Schulform?
+ *
+ * Ohne diesen Filter würden in der Sekundarstufe die Grundschulthemen
+ * mitzählen, weil "Vorwissen zählt mit" sonst jede kleinere Klassenzahl
+ * einschließt — ein Neuntklässler bekäme "Zahlenraum bis 20" vorgeschlagen.
+ */
+export function inSchoolType(grade, schoolTypeId) {
+  if (!schoolTypeId) return true;
+  const grades = gradesForSchoolType(schoolTypeId);
+  return grades.includes(Number(grade));
+}
+
+/**
  * Alle Themen, die für ein konkretes Setup relevant sind (aktuelle Klasse
  * plus alle darunter liegenden Klassen desselben Fachs — Vorwissen zählt mit).
  */
@@ -165,6 +180,7 @@ export function relevantTopics({ subjects, grade, state, schoolType, includeLowe
   const wanted = new Set(subjects && subjects.length ? subjects : SUBJECTS.map((s) => s.id));
   return getAllTopics().filter((topic) => {
     if (!wanted.has(topic.subjectId)) return false;
+    if (!inSchoolType(topic.grade, schoolType)) return false;
     if (includeLowerGrades ? topic.grade > maxGrade : topic.grade !== maxGrade) return false;
     return matchesScope(topic, { state, schoolType });
   });

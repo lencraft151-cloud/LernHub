@@ -8,7 +8,7 @@
  */
 
 import { addDays, daysBetween, isoDate, startOfDay, weekdayName } from '../core/format.js';
-import { hasContent } from '../data/content/index.js';
+import { hasPractice } from './topics.js';
 import { contentMeta } from '../data/content/meta.js';
 import { getAreas, getTopicMeta } from '../data/curriculum/index.js';
 import { hasActivity, topicMastery } from './progress.js';
@@ -52,7 +52,7 @@ export function createPlan({
 
   // Themen nach Bedarf sortieren: Schwächstes zuerst.
   const topics = topicIds
-    .filter((id) => hasContent(id))
+    .filter((id) => hasPractice(id))
     .map((id) => {
       const record = state.topics?.[id] || null;
       const meta = contentMeta(id);
@@ -264,7 +264,7 @@ export function suggestTopicsForExam({ subjectId, grade, state: stateId, schoolT
   const areas = getAreas({ subjectId, grade, state: stateId, schoolType });
   return areas
     .flatMap((area) => area.topics.map((topic) => ({ ...topic, areaTitle: area.title })))
-    .filter((topic) => hasContent(topic.id))
+    .filter((topic) => hasPractice(topic.id))
     .map((topic) => {
       const record = state.topics?.[topic.id] || null;
       return {

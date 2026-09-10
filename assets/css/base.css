@@ -143,6 +143,11 @@
   --primary-text: #b9b4f8;
 
   --success: #34c48f;
+  --coin: #e8bd52;
+  --coin-text: #f0cf7a;
+  --coin-soft: #3a3218;
+  --coin-soft-hover: #463d1e;
+  --coin-border: #5c4f28;
   --success-soft: #10281f;
   --success-text: #6fdcb4;
   --warning: #e9a72e;
@@ -195,6 +200,11 @@
     --primary-text: #b9b4f8;
 
     --success: #34c48f;
+  --coin: #e8bd52;
+  --coin-text: #f0cf7a;
+  --coin-soft: #3a3218;
+  --coin-soft-hover: #463d1e;
+  --coin-border: #5c4f28;
     --success-soft: #10281f;
     --success-text: #6fdcb4;
     --warning: #e9a72e;
@@ -240,6 +250,14 @@
   --subj-musik: #c2568f;
   --subj-kunst: #d0894a;
   --subj-sport: #5a9c3d;
+  --subj-sachunterricht: #17879c;
+
+  /* Münzen — bewusst ein warmer, eigener Ton, klar getrennt von Status- und Fachfarben */
+  --coin: #b8860b;
+  --coin-text: #8a6508;
+  --coin-soft: #fdf4dd;
+  --coin-soft-hover: #f8ead0;
+  --coin-border: #e8d5a3;
 }
 
 /* ==========================================================================

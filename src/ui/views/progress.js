@@ -55,7 +55,7 @@ export function renderProgress(root, { query }) {
   const strong = strengths(state, setup, now);
   const compWeak = competencyWeaknesses(state, setup, now);
   const typeStats = questionTypeStats(state);
-  const allTopics = scopedTopics(state, setup, now).filter((view) => view.hasContent);
+  const allTopics = scopedTopics(state, setup, now).filter((view) => view.practisable);
   const reviewCount = (state.sessions || []).filter((s) => s.type === 'practice' || s.type === 'test').length;
 
   const subjectRows = setup.subjects

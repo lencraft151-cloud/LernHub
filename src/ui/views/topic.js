@@ -51,7 +51,7 @@ export async function renderTopic(root, { params }) {
     badge: statusBadge(view.status),
   })}
 
-      ${!view.hasContent ? emptyState({
+      ${!view.practisable ? emptyState({
     iconName: 'layers',
     title: 'Lerninhalte in Vorbereitung',
     text: `Für <strong>${meta.title}</strong> ist die Lehrplanstruktur schon angelegt, `
@@ -93,12 +93,15 @@ export async function renderTopic(root, { params }) {
         </div>
 
         <div class="grid grid-2">
-          <a class="card card-link stack stack-3" href="#/thema/${meta.id}/lernen">
+          <a class="card card-link stack stack-3 ${view.hasContent ? '' : 'is-muted'}"
+             href="#/thema/${meta.id}/${view.hasContent ? 'lernen' : 'ueben'}">
             <span class="subject-icon" style="--subject-color: var(--primary)">${icon('book')}</span>
             <div class="stack" style="gap:2px">
               <b>Lernen</b>
               <span class="small muted">
-                ${sectionCount} Abschnitte mit Erklärung, Beispielen und Verständnis-Checks
+                ${view.hasContent
+    ? `${sectionCount} Abschnitte mit Erklärung, Beispielen und Verständnis-Checks`
+    : 'Die ausformulierten Erklärungen folgen noch — üben kannst du dieses Thema aber schon.'}
               </span>
             </div>
             ${sectionCount ? progressBar(sectionsDone / sectionCount, {
@@ -111,8 +114,8 @@ export async function renderTopic(root, { params }) {
             <div class="stack" style="gap:2px">
               <b>Üben</b>
               <span class="small muted">
-                ${view.meta?.questions || 0} Aufgaben in ${new Set((content?.questions || []).map((q) => q.type)).size} Formaten,
-                mit Lösung und Erklärung
+                ${(view.meta?.questions || 0) + (view.exercises || 0)} Aufgaben mit Lösung und Erklärung${view.exercises
+    ? ` — davon ${view.exercises} aus dem Übungspool` : ''}
               </span>
             </div>
             ${view.record?.practice?.attempts ? progressBar(

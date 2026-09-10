@@ -18,6 +18,8 @@ import { shuffle, seededRandom } from '../../domain/exam.js';
 import { nextTopicInSubject } from '../../domain/analytics.js';
 import { getTopicMeta, topicBreadcrumb, getSubject } from '../../data/curriculum/index.js';
 import { loadTopicContent } from '../../data/content/index.js';
+import { exercisesForTopic } from '../../data/exercises/index.js';
+import { exerciseCompetencies } from '../../data/exercises/meta.js';
 import { profileSetup, confirmDialog, toast } from '../shell.js';
 import {
   pageHead, emptyState, statusBadge, competencyRow, statTile,
@@ -26,6 +28,15 @@ import { QuizRunner } from '../components/quiz.js';
 import { progressRing, splitBar, lineChart, enhanceCharts } from '../components/charts.js';
 
 const TEST_SIZE = 10;
+
+/** Kompetenzen aus Lerninhalt und Übungspool ohne Dubletten zusammenführen. */
+function mergeCompetencies(fromContent = [], fromPool = []) {
+  const out = [...(fromContent || [])];
+  for (const entry of fromPool) {
+    if (!out.some((c) => c.id === entry.id)) out.push(entry);
+  }
+  return out;
+}
 
 let disposeTracker = null;
 let activeRunner = null;
@@ -51,7 +62,26 @@ export async function renderTest(root, { params }) {
     return;
   }
 
-  const content = await loadTopicContent(meta.id);
+  // Der Test speist sich aus Lerninhalten und Übungspool. Gibt es keine
+  // ausformulierten Inhalte, wird aus dem Pool ein gleichwertiges Objekt
+  // gebaut — inklusive Kompetenzliste für das Auswertungsprofil.
+  const [rawContent, poolExercises] = await Promise.all([
+    loadTopicContent(meta.id),
+    exercisesForTopic(meta.subjectId, meta.id),
+  ]);
+  const content = rawContent
+    ? {
+      ...rawContent,
+      questions: [...(rawContent.questions || []), ...poolExercises],
+      competencies: mergeCompetencies(rawContent.competencies, exerciseCompetencies(meta.id)),
+    }
+    : (poolExercises.length ? {
+      id: meta.id,
+      title: meta.title,
+      questions: poolExercises,
+      competencies: exerciseCompetencies(meta.id),
+    } : null);
+
   if (!content) {
     mount(root, html`<div class="page">${emptyState({
       iconName: 'layers', title: 'Für dieses Thema gibt es noch keinen Test',

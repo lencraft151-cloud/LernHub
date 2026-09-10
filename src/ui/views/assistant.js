@@ -43,7 +43,7 @@ export function renderAssistant(root, { query }) {
   const mastery = topicId ? topicMastery(record, topicId) : null;
   const apiMode = state.settings.ai.mode === 'api' && state.settings.ai.apiKey;
 
-  const topics = scopedTopics(state, setup).filter((view) => view.hasContent);
+  const topics = scopedTopics(state, setup).filter((view) => view.practisable);
   const suggested = suggestions({ hasTopic: Boolean(meta), lastWrong: Boolean(lastWrong), mastery });
 
   mount(root, html`

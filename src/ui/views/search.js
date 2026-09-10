@@ -83,9 +83,9 @@ export function renderSearchPage(root, { query }) {
                   </span>
                 </span>
                 <span class="topic-row-right">
-                  ${entry.hasContent && view?.started ? html`
+                  ${entry.practisable && view?.started ? html`
                     <span class="mini-progress">${progressBar(view.mastery, { size: 'progress-sm' })}</span>
-                    <span class="topic-row-pct">${percentOf(view.mastery)}</span>` : entry.hasContent ? html`
+                    <span class="topic-row-pct">${percentOf(view.mastery)}</span>` : entry.practisable ? html`
                     <span class="badge badge-outline">verfügbar</span>` : html`
                     <span class="badge badge-outline">bald</span>`}
                   ${icon('chevronRight', { size: 15, cls: 'subtle' })}

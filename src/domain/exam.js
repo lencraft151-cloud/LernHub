@@ -8,6 +8,8 @@
 
 import { simulatedGrade } from '../core/format.js';
 import { loadTopicContent, hasContent } from '../data/content/index.js';
+import { exercisesForTopic } from '../data/exercises/index.js';
+import { hasExercises } from '../data/exercises/meta.js';
 import { getTopicMeta } from '../data/curriculum/index.js';
 import { correctAnswerText, grade as gradeAnswer, OPEN_TYPES } from './grading.js';
 
@@ -74,18 +76,27 @@ export async function buildExam({
   seed = Date.now(),
   allowOpen = true,
 }) {
-  const usable = topicIds.filter(hasContent);
-  const modules = await Promise.all(usable.map((id) => loadTopicContent(id)));
+  // Ein Thema ist prüfbar, wenn es Lerninhalte oder Übungen im Pool hat.
+  const usable = topicIds.filter((id) => hasContent(id) || hasExercises(id));
+  const modules = await Promise.all(usable.map((id) => (hasContent(id) ? loadTopicContent(id) : null)));
+  const poolLists = await Promise.all(usable.map((id) => {
+    const meta = getTopicMeta(id);
+    return meta ? exercisesForTopic(meta.subjectId, id) : [];
+  }));
   const random = seededRandom(seed);
   const level = getDifficulty(difficulty);
 
   const pool = [];
-  modules.forEach((module, index) => {
-    if (!module) return;
-    const topicId = usable[index];
-    for (const question of module.questions || []) {
+  usable.forEach((topicId, index) => {
+    const module = modules[index];
+    const title = module?.title || getTopicMeta(topicId)?.title || topicId;
+    for (const question of module?.questions || []) {
       if (!allowOpen && OPEN_TYPES.has(question.type)) continue;
-      pool.push({ ...question, topicId, topicTitle: module.title });
+      pool.push({ ...question, topicId, topicTitle: title });
+    }
+    for (const exercise of poolLists[index] || []) {
+      if (!allowOpen && OPEN_TYPES.has(exercise.type)) continue;
+      pool.push({ ...exercise, topicId, topicTitle: title });
     }
   });
 

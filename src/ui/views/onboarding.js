@@ -11,7 +11,7 @@ import {
   STATES, schoolTypesForState, gradesForSchoolType, gradeLabel,
   subjectsFor, defaultSubjectSelection, SUBJECT_GROUPS, getState, getSchoolType,
 } from '../../data/curriculum/index.js';
-import { hasContent } from '../../data/content/index.js';
+import { hasPractice } from '../../domain/topics.js';
 import { getAreas } from '../../data/curriculum/index.js';
 import { toast } from '../shell.js';
 
@@ -99,7 +99,7 @@ export function renderOnboarding(root, { onDone } = {}) {
                     ${inGroup.map((subject) => {
     const ready = getAreas({
       subjectId: subject.id, grade: draft.grade, state: draft.state, schoolType: draft.schoolType,
-    }).some((area) => area.topics.some((topic) => hasContent(topic.id)));
+    }).some((area) => area.topics.some((topic) => hasPractice(topic.id)));
     return html`
                         <button type="button" class="chip" data-role="toggle-subject" data-value="${subject.id}"
                                 aria-pressed="${String(draft.subjects.includes(subject.id))}">

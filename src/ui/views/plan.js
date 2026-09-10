@@ -17,7 +17,7 @@ import {
 import { createPlan, syncPlan, suggestTopicsForExam, TASK_TYPES, remainingMinutes } from '../../domain/planner.js';
 import { dueTopics } from '../../domain/progress.js';
 import { getSubject, getAreas, gradeLabel } from '../../data/curriculum/index.js';
-import { hasContent } from '../../data/content/index.js';
+import { hasPractice } from '../../domain/topics.js';
 import { profileSetup, toast, confirmDialog } from '../shell.js';
 import { pageHead, emptyState, statTile, subjectIcon } from '../components/common.js';
 import { progressBar, progressRing } from '../components/charts.js';
@@ -37,7 +37,7 @@ export function renderPlan(root, { query }) {
   const draft = {
     subjectId: query.fach || setup.subjects.find((id) => getAreas({
       subjectId: id, grade: setup.grade, state: setup.state, schoolType: setup.schoolType,
-    }).some((area) => area.topics.some((topic) => hasContent(topic.id)))) || setup.subjects[0],
+    }).some((area) => area.topics.some((topic) => hasPractice(topic.id)))) || setup.subjects[0],
     targetDate: isoDate(addDays(now, 4)),
     minutesPerDay: state.profile.dailyGoalMinutes >= 30 ? state.profile.dailyGoalMinutes : 30,
     topicIds: null,
@@ -67,7 +67,7 @@ export function renderPlan(root, { query }) {
       .filter(Boolean)
       .filter((subject) => getAreas({
         subjectId: subject.id, grade: setup.grade, state: setup.state, schoolType: setup.schoolType,
-      }).some((area) => area.topics.some((topic) => hasContent(topic.id))));
+      }).some((area) => area.topics.some((topic) => hasPractice(topic.id))));
 
     mount(root, html`
       <div class="page">

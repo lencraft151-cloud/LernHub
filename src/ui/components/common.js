@@ -62,6 +62,7 @@ export function emptyState({ iconName = 'compass', title, text, action }) {
 export function topicRow(view, { schoolType } = {}) {
   const sub = [];
   if (view.hasContent && view.meta) sub.push(`${view.meta.sections} Abschnitte · ${view.meta.questions} Aufgaben`);
+  else if (view.hasExercises) sub.push(`${view.exercises} Übungsaufgaben`);
   else sub.push('Inhalt in Vorbereitung');
   if (view.lastActivityAt) sub.push(`zuletzt ${relativeDay(view.lastActivityAt)}`);
   if (view.due) sub.push('Wiederholung fällig');
@@ -74,7 +75,7 @@ export function topicRow(view, { schoolType } = {}) {
         <span class="topic-row-sub">${sub.join(' · ')}</span>
       </span>
       <span class="topic-row-right">
-        ${view.hasContent ? html`
+        ${view.practisable ? html`
           <span class="mini-progress">${progressBar(view.mastery, { size: 'progress-sm', tone: view.status.tone === 'neutral' ? 'primary' : view.status.tone })}</span>
           <span class="topic-row-pct">${view.started ? percentOf(view.mastery) : '—'}</span>` : html`
           <span class="badge badge-outline">bald</span>`}

@@ -14,8 +14,8 @@ import { QUESTION_TYPES } from './grading.js';
 import { hasActivity, topicMastery, topicStatus, topicView } from './progress.js';
 import { overdueDays, retention } from './srs.js';
 import { competencyList } from '../data/content/meta.js';
-import { hasContent } from '../data/content/index.js';
-import { getAllTopics, getAreas, getTopicMeta } from '../data/curriculum/index.js';
+import { hasPractice } from './topics.js';
+import { getAllTopics, getAreas, getTopicMeta, inSchoolType } from '../data/curriculum/index.js';
 import { daysBetween } from '../core/format.js';
 
 /** Themen des Setups mit allen abgeleiteten Werten. */
@@ -24,6 +24,7 @@ export function scopedTopics(state, setup, now = new Date()) {
   const maxGrade = Number(setup.grade) || 13;
   return getAllTopics()
     .filter((topic) => (subjects.size ? subjects.has(topic.subjectId) : true))
+    .filter((topic) => inSchoolType(topic.grade, setup.schoolType))
     .filter((topic) => topic.grade <= maxGrade)
     .map((topic) => topicView(state, topic, now));
 }
@@ -137,7 +138,7 @@ const ACTIONS = {
  * Jede Empfehlung nennt Grund und konkrete nächste Handlung.
  */
 export function recommendations(state, setup, limit = 5, now = new Date()) {
-  const views = scopedTopics(state, setup, now).filter((view) => view.hasContent);
+  const views = scopedTopics(state, setup, now).filter((view) => view.practisable);
   const scored = [];
   const currentGrade = Number(setup.grade);
 
@@ -250,7 +251,7 @@ export function recommendations(state, setup, limit = 5, now = new Date()) {
  */
 export function continueTopic(state, setup, now = new Date()) {
   const candidates = scopedTopics(state, setup, now)
-    .filter((view) => view.hasContent && view.lastActivityAt)
+    .filter((view) => view.practisable && view.lastActivityAt)
     .sort((a, b) => b.lastActivityAt - a.lastActivityAt);
 
   for (const view of candidates) {
@@ -268,9 +269,9 @@ export function continueTopic(state, setup, now = new Date()) {
   }
   // Nichts begonnen: erstes Thema mit Inhalt in der aktuellen Klassenstufe.
   const fresh = scopedTopics(state, setup, now)
-    .filter((view) => view.hasContent && !view.started && view.grade === Number(setup.grade))
+    .filter((view) => view.practisable && !view.started && view.grade === Number(setup.grade))
     .sort((a, b) => a.subjectName.localeCompare(b.subjectName, 'de'))[0]
-    || scopedTopics(state, setup, now).filter((view) => view.hasContent && !view.started)[0];
+    || scopedTopics(state, setup, now).filter((view) => view.practisable && !view.started)[0];
   if (!fresh) return null;
   return { view: fresh, action: ACTIONS.learn, reason: 'Neu starten', href: ACTIONS.learn.route(fresh.id) };
 }
@@ -289,7 +290,7 @@ export function nextTopicInSubject(state, subjectId, setup, afterTopicId = null,
   const startIndex = afterTopicId ? flat.findIndex((t) => t.id === afterTopicId) + 1 : 0;
   for (let i = startIndex; i < flat.length; i += 1) {
     const record = state.topics[flat[i].id];
-    if (!hasContent(flat[i].id)) continue;
+    if (!hasPractice(flat[i].id)) continue;
     if (!hasActivity(record) || topicMastery(record, flat[i].id, now) < 0.8) {
       return getTopicMeta(flat[i].id);
     }
@@ -308,7 +309,11 @@ export function nextTopicInSubject(state, subjectId, setup, afterTopicId = null,
 export function progressTimeline(state, days = 30, now = new Date()) {
   const sessions = (state.sessions || []).filter((s) => s.percent != null);
   const points = [];
-  for (let i = days - 1; i >= 0; i -= 1) {
+  // Absicherung: Ein versehentlich durchgereichtes Datum statt einer Tageszahl
+  // würde hier eine Schleife über Milliarden Schritte erzeugen und den Tab
+  // einfrieren. Der Wert wird deshalb auf einen sinnvollen Bereich begrenzt.
+  const span = Math.min(365, Math.max(1, Math.floor(Number(days)) || 30));
+  for (let i = span - 1; i >= 0; i -= 1) {
     const day = new Date(now);
     day.setDate(day.getDate() - i);
     day.setHours(23, 59, 59, 999);
@@ -340,7 +345,7 @@ export function progressTimeline(state, days = 30, now = new Date()) {
 export function statusBreakdown(state, setup, now = new Date()) {
   const counts = { secure: 0, unsure: 0, review: 0, new: 0 };
   for (const view of scopedTopics(state, setup, now)) {
-    if (!view.hasContent) continue;
+    if (!view.practisable) continue;
     counts[topicStatus(view.record, view.id, now).id] += 1;
   }
   return counts;

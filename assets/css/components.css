@@ -1403,3 +1403,181 @@ a.bar-row:hover { background: var(--surface-2); text-decoration: none; }
 .exam-review-row > summary:hover { background: var(--surface-2); }
 .exam-review-row[open] > summary { background: var(--surface-2); }
 .exam-review-row .badge { flex: none; min-width: 4.6em; justify-content: center; }
+
+/* ------------------------------------------------------------------ *
+ * Münzen
+ * ------------------------------------------------------------------ */
+.coin-badge {
+  position: relative;
+  display: inline-flex;
+  align-items: center;
+  gap: 6px;
+  height: 36px;
+  padding: 0 11px;
+  font-size: var(--text-sm);
+  font-weight: 620;
+  color: var(--coin-text);
+  background: var(--coin-soft);
+  border: 1px solid var(--coin-border);
+  border-radius: 999px;
+  text-decoration: none;
+  transition: background var(--dur-fast) var(--ease), transform var(--dur-fast) var(--ease);
+}
+.coin-badge:hover { background: var(--coin-soft-hover); text-decoration: none; }
+.coin-badge:active { transform: translateY(1px); }
+.coin-badge .sf-icon { color: var(--coin); }
+
+/* Kurz eingeblendeter Zuwachs statt einer Toast-Meldung je Antwort. */
+.coin-gain {
+  position: absolute;
+  top: 50%;
+  right: 6px;
+  font-size: var(--text-xs);
+  font-weight: 700;
+  color: var(--coin-text);
+  opacity: 0;
+  pointer-events: none;
+}
+.coin-gain.is-visible { animation: coin-rise 1.4s var(--ease) forwards; }
+@keyframes coin-rise {
+  0%   { opacity: 0; transform: translateY(0); }
+  15%  { opacity: 1; transform: translateY(-10px); }
+  70%  { opacity: 1; transform: translateY(-16px); }
+  100% { opacity: 0; transform: translateY(-22px); }
+}
+[data-motion="reduced"] .coin-gain.is-visible { animation: none; opacity: 1; }
+
+.coin-stat { display: flex; align-items: baseline; gap: 8px; }
+.coin-stat b { font-size: var(--text-3xl); line-height: 1; color: var(--coin-text); }
+
+.coin-log { display: grid; gap: 2px; }
+.coin-log-row {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: var(--sp-3);
+  padding: 7px 0;
+  border-bottom: 1px solid var(--border);
+  font-size: var(--text-sm);
+}
+.coin-log-row:last-child { border-bottom: 0; }
+.coin-log-row .delta { font-variant-numeric: tabular-nums; font-weight: 650; }
+.coin-log-row .delta.plus { color: var(--success-text); }
+.coin-log-row .delta.minus { color: var(--danger-text); }
+
+/* ------------------------------------------------------------------ *
+ * Minispiel
+ * ------------------------------------------------------------------ */
+.game-shell {
+  display: grid;
+  gap: var(--sp-4);
+  max-width: 680px;
+  margin: 0 auto;
+  width: 100%;
+}
+.game-hud {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: var(--sp-3);
+  flex-wrap: wrap;
+}
+.game-hud-item { display: grid; gap: 1px; min-width: 0; }
+.game-hud-item .label {
+  font-size: var(--text-xs);
+  letter-spacing: 0.04em;
+  text-transform: uppercase;
+  color: var(--text-subtle);
+}
+.game-hud-item .value { font-size: var(--text-xl); font-weight: 680; line-height: 1.1; }
+
+.game-timer {
+  height: 8px;
+  border-radius: 999px;
+  background: var(--surface-3);
+  overflow: hidden;
+}
+.game-timer-bar {
+  height: 100%;
+  width: 100%;
+  border-radius: 999px;
+  background: var(--primary);
+  transition: width 200ms linear, background var(--dur) var(--ease);
+}
+.game-timer-bar.is-low { background: var(--danger); }
+
+.game-question {
+  display: grid;
+  gap: var(--sp-4);
+  padding: var(--sp-5);
+  background: var(--surface);
+  border: 1px solid var(--border);
+  border-radius: var(--radius-lg);
+  box-shadow: var(--shadow-sm);
+}
+.game-topic {
+  font-size: var(--text-xs);
+  letter-spacing: 0.03em;
+  text-transform: uppercase;
+  color: var(--text-subtle);
+}
+.game-prompt { font-size: var(--text-lg); font-weight: 600; line-height: 1.45; }
+
+.game-options { display: grid; gap: var(--sp-2); }
+.game-option {
+  display: flex;
+  align-items: center;
+  gap: var(--sp-3);
+  width: 100%;
+  min-height: 54px;
+  padding: 12px 16px;
+  font-size: var(--text-base);
+  font-weight: 550;
+  text-align: left;
+  color: var(--text);
+  background: var(--surface-2);
+  border: 1.5px solid var(--border);
+  border-radius: var(--radius);
+  cursor: pointer;
+  transition: background var(--dur-fast) var(--ease), border-color var(--dur-fast) var(--ease);
+}
+.game-option:hover { background: var(--surface-3); }
+.game-option:active { transform: translateY(1px); }
+.game-option.is-correct { border-color: var(--success); background: var(--success-soft); color: var(--success-text); }
+.game-option.is-wrong { border-color: var(--danger); background: var(--danger-soft); color: var(--danger-text); }
+.game-option[disabled] { cursor: default; }
+
+.game-combo {
+  display: inline-flex;
+  align-items: center;
+  gap: 5px;
+  padding: 3px 10px;
+  font-size: var(--text-xs);
+  font-weight: 650;
+  border-radius: 999px;
+  background: var(--coin-soft);
+  color: var(--coin-text);
+}
+
+.game-numeric { display: flex; gap: var(--sp-2); flex-wrap: wrap; }
+.game-numeric .input { flex: 1 1 160px; min-width: 0; font-size: var(--text-lg); }
+
+.game-feedback {
+  min-height: 26px;
+  font-size: var(--text-sm);
+  font-weight: 560;
+}
+.game-feedback.ok { color: var(--success-text); }
+.game-feedback.no { color: var(--danger-text); }
+
+.game-result-score {
+  font-size: 3rem;
+  font-weight: 700;
+  line-height: 1;
+  letter-spacing: -0.02em;
+}
+
+/* Aufzählung der Spielregeln: Symbol links, Text daneben. */
+.game-points { display: grid; gap: var(--sp-2); list-style: none; padding: 0; margin: 0; }
+.game-points li { display: flex; align-items: flex-start; gap: var(--sp-2); min-width: 0; }
+.game-points li .sf-icon { flex: none; margin-top: 2px; color: var(--text-subtle); }

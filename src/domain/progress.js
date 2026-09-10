@@ -17,7 +17,8 @@
 import { STATUS, clamp, daysBetween } from '../core/format.js';
 import { sectionCount, competencyList, contentMeta } from '../data/content/meta.js';
 import { hasContent } from '../data/content/index.js';
-import { getAllTopics, getAreas, gradesWithPlan } from '../data/curriculum/index.js';
+import { hasExercises, exerciseCount } from '../data/exercises/meta.js';
+import { getAllTopics, getAreas, gradesWithPlan, inSchoolType } from '../data/curriculum/index.js';
 import { isDue, overdueDays, retention } from './srs.js';
 
 const WEIGHTS = { learn: 0.20, practice: 0.30, test: 0.35, retention: 0.15 };
@@ -126,6 +127,10 @@ export function topicView(state, topicMeta, now = new Date()) {
     mastery,
     status: topicStatus(record, topicMeta.id, now),
     hasContent: hasContent(topicMeta.id),
+    hasExercises: hasExercises(topicMeta.id),
+    exercises: exerciseCount(topicMeta.id),
+    // Übbar ist ein Thema schon dann, wenn nur der Übungspool Aufgaben liefert.
+    practisable: hasContent(topicMeta.id) || hasExercises(topicMeta.id),
     meta: contentMeta(topicMeta.id),
     due: isDue(record?.srs, now),
     overdue: overdueDays(record?.srs, now),
@@ -146,7 +151,9 @@ export function topicView(state, topicMeta, now = new Date()) {
  */
 export function subjectProgress(state, subjectId, setup, now = new Date()) {
   const { state: stateId, schoolType, grade } = setup;
-  const grades = setup.allGrades ? gradesWithPlan(subjectId) : [Number(grade)];
+  const grades = setup.allGrades
+    ? gradesWithPlan(subjectId).filter((g) => inSchoolType(g, schoolType))
+    : [Number(grade)];
   const topics = [];
   for (const g of grades) {
     for (const area of getAreas({ subjectId, grade: g, state: stateId, schoolType })) {
@@ -154,7 +161,7 @@ export function subjectProgress(state, subjectId, setup, now = new Date()) {
     }
   }
 
-  const withContent = topics.filter((t) => hasContent(t.id));
+  const withContent = topics.filter((t) => hasContent(t.id) || hasExercises(t.id));
   const basis = withContent.length ? withContent : topics;
 
   let masterySum = 0;

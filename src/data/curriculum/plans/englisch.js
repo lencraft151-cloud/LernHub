@@ -2,6 +2,20 @@
 export default {
   subject: 'englisch',
   grades: {
+    3: [
+      { id: 'en3-basics', title: 'First words', topics: [
+        { id: 'en3-greetings', title: 'Greetings and classroom language', keywords: ['hello', 'please', 'classroom'], subtopics: ['Saying hello', 'Classroom phrases', 'Polite words'] },
+        { id: 'en3-numbers-colours', title: 'Numbers and colours', keywords: ['numbers', 'colours'], subtopics: ['Numbers 1–20', 'Colours', 'Asking how many'] },
+        { id: 'en3-animals-family', title: 'Animals and family', keywords: ['animals', 'family', 'pets'], subtopics: ['Pets and farm animals', 'Family members', 'This is my …'] },
+      ] },
+    ],
+    4: [
+      { id: 'en4-everyday', title: 'Everyday English', topics: [
+        { id: 'en4-food', title: 'Food and drinks', keywords: ['food', 'drinks', 'breakfast'], subtopics: ['Food words', 'I like / I do not like', 'Ordering food'] },
+        { id: 'en4-time-routine', title: 'Time and daily routine', keywords: ['time', 'clock', 'routine'], subtopics: ['Telling the time', 'Days of the week', 'My day'] },
+        { id: 'en4-school', title: 'At school', keywords: ['school', 'subjects', 'timetable'], subtopics: ['School things', 'School subjects', 'My timetable'] },
+      ] },
+    ],
     5: [
       { id: 'en5-grammar', title: 'Grammar basics', topics: [
         { id: 'en5-present-simple', title: 'Present Simple', keywords: ['simple present', 'third person s', 'do does'], subtopics: ['Bildung', 'Das -s in der 3. Person', 'Fragen und Verneinung', 'Signalwörter'] },

@@ -2,6 +2,18 @@
 export default {
   subject: 'religion',
   grades: {
+    1: [{ id: 'rel1-feste', title: 'Feste im Jahreskreis', topics: [
+      { id: 'rel1-feste', title: 'Feste feiern', keywords: ['Weihnachten', 'Ostern', 'Fest'], subtopics: ['Weihnachten', 'Ostern', 'Feste in der Familie'] },
+    ] }],
+    2: [{ id: 'rel2-schoepfung', title: 'Schöpfung', topics: [
+      { id: 'rel2-schoepfung', title: 'Die Welt als Schöpfung', keywords: ['Schöpfung', 'Natur', 'bewahren'], subtopics: ['Schöpfungsgeschichte', 'Staunen über die Natur', 'Verantwortung für die Umwelt'] },
+    ] }],
+    3: [{ id: 'rel3-bibel', title: 'Geschichten der Bibel', topics: [
+      { id: 'rel3-bibel', title: 'Bekannte biblische Geschichten', keywords: ['Bibel', 'Gleichnis'], subtopics: ['Aufbau der Bibel', 'Erzählungen verstehen', 'Was Gleichnisse sagen'] },
+    ] }],
+    4: [{ id: 'rel4-weltreligionen', title: 'Religionen kennenlernen', topics: [
+      { id: 'rel4-weltreligionen', title: 'Weltreligionen entdecken', keywords: ['Judentum', 'Islam', 'Christentum'], subtopics: ['Judentum', 'Christentum', 'Islam', 'Gemeinsamkeiten'] },
+    ] }],
     5: [
       { id: 'rel5-ich', title: 'Ich und die Gemeinschaft', topics: [
         { id: 'rel5-regeln', title: 'Regeln und Zusammenleben', keywords: ['Goldene Regel', 'Fairness'], subtopics: ['Warum Regeln?', 'Goldene Regel', 'Streit lösen'] },

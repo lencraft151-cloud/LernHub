@@ -21,7 +21,7 @@ import { recordExam, recordAnswer, createTimeTracker } from '../../domain/sessio
 import { suggestTopicsForExam } from '../../domain/planner.js';
 import { QUESTION_TYPES, OPEN_TYPES, grade as gradeAnswer } from '../../domain/grading.js';
 import { getSubject, getAreas, gradeLabel, getTopicMeta } from '../../data/curriculum/index.js';
-import { hasContent } from '../../data/content/index.js';
+import { hasPractice } from '../../domain/topics.js';
 import { profileSetup, confirmDialog, toast } from '../shell.js';
 import {
   pageHead, emptyState, statTile, subjectIcon, competencyRow,
@@ -51,7 +51,7 @@ export function renderTestsHub(root, { query }) {
     .filter(Boolean)
     .filter((subject) => getAreas({
       subjectId: subject.id, grade: setup.grade, state: setup.state, schoolType: setup.schoolType,
-    }).some((area) => area.topics.some((topic) => hasContent(topic.id))));
+    }).some((area) => area.topics.some((topic) => hasPractice(topic.id))));
 
   const selectedSubject = query.fach && subjectsWithContent.some((s) => s.id === query.fach)
     ? query.fach

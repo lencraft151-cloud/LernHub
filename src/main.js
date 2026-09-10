@@ -28,6 +28,7 @@ import { renderReview } from './ui/views/review.js';
 import { renderAssistant } from './ui/views/assistant.js';
 import { renderSettings } from './ui/views/settings.js';
 import { renderSearchPage } from './ui/views/search.js';
+import { renderGame, disposeGame } from './ui/views/game.js';
 import { html, mount } from './core/dom.js';
 import { emptyState, pageHead } from './ui/components/common.js';
 
@@ -72,6 +73,7 @@ function cleanup() {
   disposePractice();
   disposeTest();
   disposeExam();
+  disposeGame();
 }
 
 function main() {
@@ -140,6 +142,7 @@ function setupRoutes() {
     .add('/lernplan', view(renderPlan))
     .add('/wiederholen', view(renderReview))
     .add('/assistent', view(renderAssistant))
+    .add('/spiel', view(renderGame))
     .add('/suche', view(renderSearchPage))
     .add('/einstellungen', view(renderSettings))
     .setNotFound(view((host, context) => {

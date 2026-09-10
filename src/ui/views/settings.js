@@ -11,7 +11,7 @@ import {
   SUBJECT_GROUPS, getState, getSchoolType, CURRICULUM_STATS, defaultSubjectSelection,
 } from '../../data/curriculum/index.js';
 import { CONTENT_TOTALS } from '../../data/content/meta.js';
-import { hasContent } from '../../data/content/index.js';
+import { hasPractice } from '../../domain/topics.js';
 import { getAreas } from '../../data/curriculum/index.js';
 import { profileSetup, toast, confirmDialog, applyTheme, updateShell } from '../shell.js';
 import { pageHead, statTile, emptyState } from '../components/common.js';
@@ -105,7 +105,7 @@ export function renderSettings(root, { query }) {
                   ${inGroup.map((subject) => {
     const ready = getAreas({
       subjectId: subject.id, grade: setup.grade, state: setup.state, schoolType: setup.schoolType,
-    }).some((area) => area.topics.some((topic) => hasContent(topic.id)));
+    }).some((area) => area.topics.some((topic) => hasPractice(topic.id)));
     return html`
                       <button type="button" class="chip" data-role="toggle-subject" data-value="${subject.id}"
                               aria-pressed="${String(setup.subjects.includes(subject.id))}">

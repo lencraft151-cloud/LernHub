@@ -13,11 +13,12 @@ import { navigate } from '../../core/router.js';
 import { percentOf, integer } from '../../core/format.js';
 import { topicView, topicCompetencies } from '../../domain/progress.js';
 import { recordAnswer, recordPracticeSession, createTimeTracker } from '../../domain/session.js';
-import { QUESTION_TYPES } from '../../domain/grading.js';
+import { QUESTION_TYPES, questionKey } from '../../domain/grading.js';
 import { shuffle, seededRandom } from '../../domain/exam.js';
 import { nextTopicInSubject } from '../../domain/analytics.js';
 import { getTopicMeta, topicBreadcrumb, getSubject } from '../../data/curriculum/index.js';
 import { loadTopicContent } from '../../data/content/index.js';
+import { exercisesForTopic } from '../../data/exercises/index.js';
 import { profileSetup, toast } from '../shell.js';
 import { rememberWrongAnswer } from './assistant.js';
 import { pageHead, emptyState, statusBadge, competencyRow, statTile } from '../components/common.js';
@@ -46,8 +47,14 @@ export async function renderPractice(root, { params, query }) {
     return;
   }
 
-  const content = await loadTopicContent(meta.id);
-  if (!content) {
+  // Aufgaben kommen aus zwei Quellen: den ausgearbeiteten Lerninhalten und
+  // dem Übungspool des Fachs. Ein Thema ist schon dann übbar, wenn nur der
+  // Pool Aufgaben liefert.
+  const [content, poolExercises] = await Promise.all([
+    loadTopicContent(meta.id),
+    exercisesForTopic(meta.subjectId, meta.id),
+  ]);
+  if (!content && !poolExercises.length) {
     mount(root, html`<div class="page">${emptyState({
       iconName: 'layers', title: 'Für dieses Thema gibt es noch keine Aufgaben',
       action: html`<a class="btn btn-primary" href="#/fach/${meta.subjectId}?klasse=${meta.grade}">Andere Themen</a>`,
@@ -62,16 +69,16 @@ export async function renderPractice(root, { params, query }) {
     .filter((entry) => entry.topicId === meta.id)
     .map((entry) => entry.questionId));
 
-  // Auswahl der Aufgaben
-  const all = content.questions || [];
+  // Auswahl der Aufgaben: Lerninhalt zuerst, danach der Übungspool.
+  const all = [...(content?.questions || []), ...poolExercises];
   let pool = all;
   if (mode === 'wiederholung' && wrongIds.size) {
     pool = all.filter((question) => wrongIds.has(question.id));
   } else if (mode === 'wiederholung') {
     // Keine offenen Fehler: die Aufgaben mit der schwächsten Bilanz üben.
     pool = [...all].sort((a, b) => {
-      const statA = state.questions[a.id];
-      const statB = state.questions[b.id];
+      const statA = state.questions[questionKey(meta.id, a.id)];
+      const statB = state.questions[questionKey(meta.id, b.id)];
       const scoreA = statA ? (statA.correct + statA.partial * 0.5) / Math.max(1, statA.seen) : 0.5;
       const scoreB = statB ? (statB.correct + statB.partial * 0.5) / Math.max(1, statB.seen) : 0.5;
       return scoreA - scoreB;
@@ -104,7 +111,7 @@ export async function renderPractice(root, { params, query }) {
           <span class="badge badge-primary">${questions.length} Aufgaben</span>
           ${mode === 'wiederholung' ? html`<span class="badge badge-danger">Wiederholung</span>` : ''}
           ${query.kompetenz ? html`<span class="badge badge-info">
-            ${content.competencies.find((c) => c.id === query.kompetenz)?.title || query.kompetenz}</span>` : ''}
+            ${(content?.competencies || []).find((c) => c.id === query.kompetenz)?.title || query.kompetenz}</span>` : ''}
           ${[...new Set(questions.map((q) => q.type))].slice(0, 4).map((type) => html`
             <span class="badge badge-outline">${QUESTION_TYPES[type]}</span>`)}
         </div>

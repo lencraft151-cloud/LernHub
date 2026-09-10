@@ -11,6 +11,7 @@ import { store } from '../core/store.js';
 import { navigate } from '../core/router.js';
 import { search, highlightParts, matchContext } from '../domain/search.js';
 import { dueTopics } from '../domain/progress.js';
+import { coinBalance } from '../domain/coins.js';
 import { getSubject, gradeLabel, getState, getSchoolType } from '../data/curriculum/index.js';
 
 export const NAV_ITEMS = [
@@ -20,9 +21,10 @@ export const NAV_ITEMS = [
   { id: 'tests', path: '/tests', label: 'Tests', icon: 'clipboard', mobile: false },
   { id: 'progress', path: '/fortschritt', label: 'Fortschritt', icon: 'chart', mobile: false },
   { id: 'assistant', path: '/assistent', label: 'KI-Assistent', icon: 'sparkles', mobile: true },
+  { id: 'game', path: '/spiel', label: 'Münzspiel', icon: 'dice', mobile: false },
 ];
 
-const MOBILE_MORE = ['tests', 'progress'];
+const MOBILE_MORE = ['tests', 'progress', 'game'];
 
 let searchOpen = false;
 let sheetOpen = false;
@@ -73,6 +75,11 @@ export function renderShell(root) {
       </div>
 
       <div class="topbar-actions">
+        <a class="coin-badge" href="#/spiel" data-role="coin-badge" title="Münzen — zum Minispiel">
+          ${icon('coin', { size: 15 })}
+          <b data-role="coin-count">0</b>
+          <span class="coin-gain" data-role="coin-gain" aria-hidden="true"></span>
+        </a>
         <button type="button" class="icon-btn" data-role="open-search" aria-label="Suchen">${icon('search')}</button>
         <button type="button" class="icon-btn" data-role="toggle-theme" aria-label="Farbschema wechseln"
                 data-role-secondary="theme">${icon('sun')}</button>
@@ -134,8 +141,9 @@ export function updateShell() {
       <span class="nav-section-label">Lernen</span>
       ${NAV_ITEMS.slice(0, 3).map((item) => navLink(item, active, due))}
       <span class="nav-section-label">Überprüfen</span>
-      ${NAV_ITEMS.slice(3).map((item) => navLink(item, active, due))}
+      ${NAV_ITEMS.slice(3).filter((item) => item.id !== 'game').map((item) => navLink(item, active, due))}
       <span class="nav-section-label">Mehr</span>
+      ${navLink({ id: 'game', path: '/spiel', label: 'Münzspiel', icon: 'dice' }, active, due)}
       ${navLink({ id: 'repeat', path: '/wiederholen', label: 'Wiederholungen', icon: 'repeat' }, active, due)}
       ${navLink({ id: 'settings', path: '/einstellungen', label: 'Einstellungen', icon: 'settings' }, active, due)}`);
   }
@@ -180,6 +188,8 @@ export function updateShell() {
       : 'Einstellungen';
   }
 
+  updateCoinBadge(coinBalance(state));
+
   const themeButton = $('[data-role="toggle-theme"]');
   if (themeButton) {
     const theme = state.settings.theme;
@@ -187,6 +197,33 @@ export function updateShell() {
     themeButton.setAttribute('title', `Farbschema: ${
       theme === 'auto' ? 'automatisch' : theme === 'dark' ? 'dunkel' : 'hell'}`);
   }
+}
+
+/**
+ * Münzstand in der Topbar. Ein Zuwachs wird kurz als "+N" eingeblendet —
+ * das ersetzt eine Toast-Meldung pro richtiger Antwort, die schnell nervt.
+ */
+let lastCoinBalance = null;
+let coinGainTimer = null;
+function updateCoinBadge(balance) {
+  const count = $('[data-role="coin-count"]');
+  if (!count) return;
+  count.textContent = String(balance);
+  const badge = $('[data-role="coin-badge"]');
+  if (badge) {
+    badge.setAttribute('aria-label', `${balance} ${balance === 1 ? 'Münze' : 'Münzen'} — zum Minispiel`);
+  }
+  const gain = balance - (lastCoinBalance ?? balance);
+  lastCoinBalance = balance;
+  if (gain <= 0) return;
+  const gainEl = $('[data-role="coin-gain"]');
+  if (!gainEl) return;
+  gainEl.textContent = `+${gain}`;
+  gainEl.classList.remove('is-visible');
+  void gainEl.offsetWidth;          // Animation neu starten
+  gainEl.classList.add('is-visible');
+  clearTimeout(coinGainTimer);
+  coinGainTimer = setTimeout(() => gainEl.classList.remove('is-visible'), 1400);
 }
 
 function navLink(item, active, due) {
@@ -208,6 +245,7 @@ function activeNavId(path) {
   if (path.startsWith('/assistent')) return 'assistant';
   if (path.startsWith('/wiederholen')) return 'repeat';
   if (path.startsWith('/einstellungen')) return 'settings';
+  if (path.startsWith('/spiel')) return 'game';
   if (path.startsWith('/suche')) return 'search';
   return '';
 }
@@ -332,7 +370,7 @@ export function openSearch(initialQuery = '') {
           <span>${parts.map((part) => (part.hit ? html`<mark>${part.text}</mark>` : part.text))}</span>
           <span class="search-crumb">${context || crumb}</span>
         </span>
-        ${entry.kind === 'topic' && !entry.hasContent ? html`<span class="badge badge-outline">bald</span>` : ''}
+        ${entry.kind === 'topic' && !entry.practisable ? html`<span class="badge badge-outline">bald</span>` : ''}
         ${icon('arrowRight', { size: 14, cls: 'subtle' })}
       </a>`;
   };

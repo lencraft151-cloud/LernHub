@@ -5,6 +5,49 @@
 export default {
   subject: 'mathematik',
   grades: {
+    1: [
+      { id: 'ma1-zahlen', title: 'Zahlen bis 20', topics: [
+        { id: 'ma1-zahlenraum-20', title: 'Zahlenraum bis 20', keywords: ['zählen', 'Zahlenreihe', 'Vorgänger'], subtopics: ['Zählen und Abzählen', 'Zahlen ordnen', 'Vorgänger und Nachfolger', 'Zahlzerlegung'] },
+        { id: 'ma1-plus-minus-20', title: 'Plusrechnen und Minusrechnen bis 20', keywords: ['addieren', 'subtrahieren', 'Zehnerübergang'], subtopics: ['Addition bis 10', 'Subtraktion bis 10', 'Zehnerübergang', 'Rechengeschichten'] },
+      ] },
+      { id: 'ma1-geometrie', title: 'Formen und Größen', topics: [
+        { id: 'ma1-formen', title: 'Geometrische Formen', keywords: ['Kreis', 'Dreieck', 'Quadrat'], subtopics: ['Formen erkennen', 'Formen benennen', 'Muster fortsetzen'] },
+      ] },
+    ],
+    2: [
+      { id: 'ma2-zahlen', title: 'Zahlen bis 100', topics: [
+        { id: 'ma2-zahlenraum-100', title: 'Zahlenraum bis 100', keywords: ['Zehner', 'Einer', 'Hunderterfeld'], subtopics: ['Zehner und Einer', 'Zahlen vergleichen', 'Zahlenstrahl bis 100'] },
+        { id: 'ma2-plus-minus-100', title: 'Addition und Subtraktion bis 100', keywords: ['halbschriftlich', 'Zehnerübergang'], subtopics: ['Ohne Übergang', 'Mit Übergang', 'Halbschriftlich rechnen'] },
+        { id: 'ma2-einmaleins', title: 'Das kleine Einmaleins', keywords: ['malnehmen', 'Reihe', 'Division'], subtopics: ['Malreihen', 'Kernaufgaben', 'Teilen', 'Tauschaufgaben'] },
+      ] },
+      { id: 'ma2-groessen', title: 'Größen und Messen', topics: [
+        { id: 'ma2-uhrzeit', title: 'Die Uhrzeit', keywords: ['Uhr', 'Stunde', 'Minute'], subtopics: ['Volle und halbe Stunden', 'Viertelstunden', 'Digital und analog'] },
+        { id: 'ma2-laengen', title: 'Längen messen', keywords: ['Meter', 'Zentimeter'], subtopics: ['Zentimeter und Meter', 'Schätzen und Messen', 'Umrechnen'] },
+      ] },
+    ],
+    3: [
+      { id: 'ma3-zahlen', title: 'Zahlen bis 1000', topics: [
+        { id: 'ma3-zahlenraum-1000', title: 'Zahlenraum bis 1000', keywords: ['Hunderter', 'Stellenwert', 'runden'], subtopics: ['Hunderter, Zehner, Einer', 'Zahlen ordnen', 'Runden'] },
+        { id: 'ma3-schriftlich-addieren', title: 'Schriftlich addieren und subtrahieren', keywords: ['Übertrag', 'schriftlich'], subtopics: ['Schriftliche Addition', 'Übertrag', 'Schriftliche Subtraktion'] },
+        { id: 'ma3-mal-geteilt', title: 'Multiplizieren und Dividieren', keywords: ['Einmaleins', 'Rest'], subtopics: ['Großes Einmaleins', 'Division mit Rest', 'Rechengesetze'] },
+      ] },
+      { id: 'ma3-geometrie', title: 'Geometrie und Größen', topics: [
+        { id: 'ma3-symmetrie', title: 'Symmetrie und Flächen', keywords: ['Spiegelachse', 'Fläche'], subtopics: ['Achsensymmetrie', 'Flächen vergleichen', 'Körper erkennen'] },
+        { id: 'ma3-geld-gewicht', title: 'Geld, Gewichte und Zeit', keywords: ['Euro', 'Kilogramm', 'Zeitspanne'], subtopics: ['Mit Geld rechnen', 'Gramm und Kilogramm', 'Zeitspannen berechnen'] },
+      ] },
+    ],
+    4: [
+      { id: 'ma4-zahlen', title: 'Große Zahlen und schriftliche Verfahren', topics: [
+        { id: 'ma4-zahlenraum-million', title: 'Zahlenraum bis 1 000 000', keywords: ['Million', 'Stellenwerttafel'], subtopics: ['Stellenwerttafel', 'Zahlen lesen und schreiben', 'Runden und Überschlagen'] },
+        { id: 'ma4-schriftlich-mal', title: 'Schriftlich multiplizieren und dividieren', keywords: ['Multiplikation', 'Division'], subtopics: ['Schriftliche Multiplikation', 'Schriftliche Division', 'Überschlag zur Kontrolle'] },
+        { id: 'ma4-brueche-erste', title: 'Erste Brüche', keywords: ['Hälfte', 'Viertel', 'Bruchteil'], subtopics: ['Bruchteile erkennen', 'Hälfte, Drittel, Viertel', 'Brüche vergleichen'] },
+      ] },
+      { id: 'ma4-anwenden', title: 'Anwenden und Darstellen', topics: [
+        { id: 'ma4-umfang-flaeche', title: 'Umfang und Flächeninhalt', keywords: ['Umfang', 'Flächeninhalt', 'Quadratzentimeter'], subtopics: ['Umfang bestimmen', 'Flächeninhalt auszählen', 'Rechteck berechnen'] },
+        { id: 'ma4-diagramme', title: 'Daten und Diagramme', keywords: ['Tabelle', 'Säulendiagramm'], subtopics: ['Tabellen lesen', 'Diagramme auswerten', 'Daten sammeln'] },
+        { id: 'ma4-sachaufgaben', title: 'Sachaufgaben lösen', keywords: ['Textaufgabe', 'Rechenweg'], subtopics: ['Aufgabe verstehen', 'Rechenweg planen', 'Ergebnis prüfen'] },
+      ] },
+    ],
     5: [
       {
         id: 'ma5-zahlen', title: 'Zahlen und Größen',

@@ -116,7 +116,7 @@ export function renderSubject(root, { params, query }) {
                     <h2 style="font-size: var(--text-md)">${area.title}</h2>
                     <span class="xs subtle">
                       ${area.views.length} ${area.views.length === 1 ? 'Thema' : 'Themen'} ·
-                      ${area.views.filter((v) => v.hasContent).length} mit Lerninhalt
+                      ${area.views.filter((v) => v.practisable).length} mit Lerninhalt
                     </span>
                   </div>
                   <span class="nowrap" style="width: 90px">

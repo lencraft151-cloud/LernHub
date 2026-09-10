@@ -12,7 +12,7 @@
 
 import { getAllTopics, getSubject, SUBJECTS } from '../data/curriculum/index.js';
 import { contentTerms } from '../data/content/meta.js';
-import { hasContent } from '../data/content/index.js';
+import { hasContent, hasPractice } from './topics.js';
 import { normalizeText, similarity } from './grading.js';
 
 /**
@@ -100,6 +100,7 @@ export function buildIndex() {
       areaTitle: topic.areaTitle,
       subtopics: topic.subtopics,
       hasContent: hasContent(topic.id),
+      practisable: hasPractice(topic.id),
       href: `#/thema/${topic.id}`,
       fields,
       haystack,
@@ -193,12 +194,12 @@ export function search(query, options = {}) {
   const results = [];
   for (const entry of buildIndex()) {
     if (wanted && entry.kind === 'topic' && !wanted.has(entry.subjectId)) continue;
-    if (onlyWithContent && entry.kind === 'topic' && !entry.hasContent) continue;
+    if (onlyWithContent && entry.kind === 'topic' && !entry.practisable) continue;
     const score = scoreEntry(entry, variants, queryTokens);
     if (score <= 0) continue;
     // Themen der eigenen Klassenstufe leicht bevorzugen.
     const gradeBonus = grade && entry.grade ? Math.max(0, 6 - Math.abs(entry.grade - grade)) : 0;
-    const contentBonus = entry.hasContent ? 5 : 0;
+    const contentBonus = entry.practisable ? 5 : 0;
     results.push({ ...entry, score: score + gradeBonus + contentBonus });
   }
 

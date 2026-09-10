@@ -6,6 +6,7 @@
  * nicht angeboten. Damit lässt sich das Angebot ohne Codeänderung erweitern.
  */
 
+const PRIMAR = [1, 2, 3, 4];
 const SEK1 = [5, 6, 7, 8, 9, 10];
 const SEK1_2 = [7, 8, 9, 10];
 const GYM_ALL = [5, 6, 7, 8, 9, 10, 11, 12, 13];
@@ -15,10 +16,11 @@ const GYM_UPPER = [11, 12, 13];
 const MITTEL = ['realschule', 'hauptschule', 'mittelschule', 'oberschule', 'sekundarschule', 'realschule-plus'];
 const GYM_LIKE = ['gymnasium', 'gesamtschule', 'stadtteilschule', 'gemeinschaftsschule'];
 
-function everywhere(grades, upperGrades = grades) {
+function everywhere(grades, upperGrades = grades, primarGrades = null) {
   const out = {};
   for (const id of GYM_LIKE) out[id] = upperGrades;
   for (const id of MITTEL) out[id] = grades.filter((g) => g <= 10);
+  if (primarGrades) out.grundschule = primarGrades;
   return out;
 }
 
@@ -38,7 +40,7 @@ export const SUBJECTS = [
     icon: 'chart',
     core: true,
     description: 'Zahlen, Terme, Gleichungen, Funktionen, Geometrie und Stochastik.',
-    availability: everywhere(SEK1, GYM_ALL),
+    availability: everywhere(SEK1, GYM_ALL, PRIMAR),
   },
   {
     id: 'deutsch',
@@ -49,7 +51,7 @@ export const SUBJECTS = [
     icon: 'book',
     core: true,
     description: 'Lesen, Schreiben, Sprache untersuchen und Literatur verstehen.',
-    availability: everywhere(SEK1, GYM_ALL),
+    availability: everywhere(SEK1, GYM_ALL, PRIMAR),
   },
   {
     id: 'englisch',
@@ -60,7 +62,7 @@ export const SUBJECTS = [
     icon: 'compass',
     core: true,
     description: 'Grammatik, Wortschatz, Textarbeit und Kommunikation.',
-    availability: everywhere(SEK1, GYM_ALL),
+    availability: everywhere(SEK1, GYM_ALL, [3, 4]),
   },
   {
     id: 'franzoesisch',
@@ -172,7 +174,18 @@ export const SUBJECTS = [
     color: 'var(--subj-religion)',
     icon: 'bulb',
     description: 'Weltreligionen, Ethik und philosophische Grundfragen.',
-    availability: everywhere(SEK1, GYM_ALL),
+    availability: everywhere(SEK1, GYM_ALL, PRIMAR),
+  },
+  {
+    id: 'sachunterricht',
+    name: 'Sachunterricht',
+    short: 'SU',
+    group: 'Gesellschaft',
+    color: 'var(--subj-sachunterricht)',
+    icon: 'globe',
+    core: true,
+    description: 'Natur, Technik, Raum, Zeit und Zusammenleben in der Grundschule.',
+    availability: { grundschule: PRIMAR },
   },
   {
     id: 'musik',
@@ -182,7 +195,7 @@ export const SUBJECTS = [
     color: 'var(--subj-musik)',
     icon: 'play',
     description: 'Notenlehre, Musikgeschichte und Analyse.',
-    availability: everywhere(SEK1, GYM_ALL),
+    availability: everywhere(SEK1, GYM_ALL, PRIMAR),
   },
   {
     id: 'kunst',
@@ -192,7 +205,7 @@ export const SUBJECTS = [
     color: 'var(--subj-kunst)',
     icon: 'pencil',
     description: 'Bildanalyse, Gestaltung, Kunstgeschichte.',
-    availability: everywhere(SEK1, GYM_ALL),
+    availability: everywhere(SEK1, GYM_ALL, PRIMAR),
   },
   {
     id: 'sport',
@@ -202,7 +215,7 @@ export const SUBJECTS = [
     color: 'var(--subj-sport)',
     icon: 'target',
     description: 'Sporttheorie: Training, Anatomie und Fairplay.',
-    availability: everywhere(SEK1, GYM_ALL),
+    availability: everywhere(SEK1, GYM_ALL, PRIMAR),
   },
 ];
 
@@ -222,9 +235,12 @@ export function subjectsFor({ schoolType, grade }) {
 
 /** Standardauswahl beim Onboarding: Kernfächer plus die MINT-Fächer der Stufe. */
 export function defaultSubjectSelection({ schoolType, grade }) {
-  return subjectsFor({ schoolType, grade })
+  const available = subjectsFor({ schoolType, grade });
+  // In der Grundschule ist das Fächerangebot klein genug, um alles vorzuschlagen.
+  if (schoolType === 'grundschule') return available.map((s) => s.id);
+  return available
     .filter((s) => s.core || ['chemie', 'physik', 'biologie', 'geschichte', 'erdkunde'].includes(s.id))
     .map((s) => s.id);
 }
 
-export { GYM_UPPER, SEK1, SEK1_2, only };
+export { GYM_UPPER, SEK1, SEK1_2, PRIMAR, only };

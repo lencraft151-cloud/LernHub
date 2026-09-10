@@ -49,6 +49,10 @@ export function createEmptyState() {
     /** ISO-Datum -> Lernzeit in ms */
     dailyTime: {},
     streak: { current: 0, longest: 0, lastDay: null },
+    /** Münzen: Guthaben, Summen, Tagesbudget und Verlauf */
+    coins: { balance: 0, earnedTotal: 0, spentTotal: 0, day: null, earnedToday: 0, goalDay: null, log: [] },
+    /** Ergebnisse des Minispiels */
+    gameRuns: [],
     goals: [],
     /** laufende, noch nicht abgeschlossene Prüfung (damit Reload nichts zerstört) */
     activeExam: null,

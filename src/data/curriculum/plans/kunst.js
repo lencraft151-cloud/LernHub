@@ -2,6 +2,18 @@
 export default {
   subject: 'kunst',
   grades: {
+    1: [{ id: 'ku1-farben', title: 'Farben und Formen', topics: [
+      { id: 'ku1-farben-mischen', title: 'Farben mischen', keywords: ['Grundfarben', 'mischen'], subtopics: ['Grundfarben', 'Mischfarben', 'Malen mit Deckfarben'] },
+    ] }],
+    2: [{ id: 'ku2-drucken', title: 'Drucken und Gestalten', topics: [
+      { id: 'ku2-drucken', title: 'Drucken und Muster', keywords: ['Stempel', 'Muster'], subtopics: ['Stempeldruck', 'Muster erfinden', 'Reihung'] },
+    ] }],
+    3: [{ id: 'ku3-plastisch', title: 'Plastisches Gestalten', topics: [
+      { id: 'ku3-plastisch', title: 'Mit Ton und Papier gestalten', keywords: ['Ton', 'Plastik', 'formen'], subtopics: ['Formen mit Ton', 'Papier falten', 'Räumlich gestalten'] },
+    ] }],
+    4: [{ id: 'ku4-kuenstler', title: 'Künstler entdecken', topics: [
+      { id: 'ku4-kuenstler', title: 'Berühmte Bilder betrachten', keywords: ['Kunstwerk', 'betrachten'], subtopics: ['Bilder beschreiben', 'Künstler kennenlernen', 'Selbst nachgestalten'] },
+    ] }],
     5: [
       { id: 'ku5-grundlagen', title: 'Gestalterische Grundlagen', topics: [
         { id: 'ku5-farbenlehre', title: 'Farbenlehre', keywords: ['Farbkreis', 'Primärfarben', 'Komplementärfarben'], subtopics: ['Farbkreis', 'Primär- und Sekundärfarben', 'Farbkontraste'] },

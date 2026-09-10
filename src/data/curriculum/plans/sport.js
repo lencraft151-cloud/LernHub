@@ -2,6 +2,18 @@
 export default {
   subject: 'sport',
   grades: {
+    1: [{ id: 'sp1-bewegen', title: 'Bewegen und Spielen', topics: [
+      { id: 'sp1-spielregeln', title: 'Spielen mit Regeln', keywords: ['Regel', 'Fairness', 'Spiel'], subtopics: ['Regeln einhalten', 'Fair spielen', 'Gemeinsam gewinnen und verlieren'] },
+    ] }],
+    2: [{ id: 'sp2-koerper', title: 'Körper wahrnehmen', topics: [
+      { id: 'sp2-aufwaermen', title: 'Warm werden vor dem Sport', keywords: ['aufwärmen', 'Puls'], subtopics: ['Warum aufwärmen', 'Aufwärmspiele', 'Puls spüren'] },
+    ] }],
+    3: [{ id: 'sp3-leichtathletik', title: 'Laufen, Springen, Werfen', topics: [
+      { id: 'sp3-laufen-springen', title: 'Laufen, Springen, Werfen', keywords: ['Sprint', 'Weitsprung', 'werfen'], subtopics: ['Schnell laufen', 'Weit springen', 'Richtig werfen'] },
+    ] }],
+    4: [{ id: 'sp4-schwimmen', title: 'Schwimmen und Sicherheit', topics: [
+      { id: 'sp4-baderegeln', title: 'Baderegeln und Schwimmen', keywords: ['Baderegeln', 'Schwimmabzeichen'], subtopics: ['Baderegeln', 'Sicher ins Wasser', 'Schwimmarten'] },
+    ] }],
     5: [{ id: 'sp5-grundlagen', title: 'Grundlagen', topics: [
       { id: 'sp5-aufwaermen', title: 'Aufwärmen und Dehnen', keywords: ['Erwärmung', 'Verletzungsprophylaxe'], subtopics: ['Warum aufwärmen?', 'Aufwärmphasen', 'Dehnen'] },
       { id: 'sp5-fairplay', title: 'Fairplay und Regeln', keywords: ['Fairness', 'Schiedsrichter'], subtopics: ['Regeln im Sport', 'Fairplay', 'Konflikte lösen'] },

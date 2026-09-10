@@ -190,8 +190,78 @@ for (const file of files) {
   }
 }
 
+/* ------------------------------------------------------------------ *
+ * Übungspools
+ *
+ * Gleiche Prüfung wie bei den Lerninhalten: Jede erzeugte Aufgabe wird mit
+ * ihrer eigenen Musterlösung beantwortet und muss als richtig gelten.
+ * ------------------------------------------------------------------ */
+const exerciseDir = join(here, '..', 'src', 'data', 'exercises');
+let poolFiles = [];
+try {
+  poolFiles = (await readdir(exerciseDir))
+    .filter((f) => f.endsWith('.js') && !GENERATED.includes(f)).sort();
+} catch { /* noch keine Pools vorhanden */ }
+
+let totalExercises = 0;
+const poolTypeUsage = new Map();
+const poolIds = new Set();
+
+for (const file of poolFiles) {
+  const mod = await import(pathToFileURL(join(exerciseDir, file)).href);
+  const pool = mod.default;
+  if (!pool?.exercises) { fail(file, 'kein Übungspool im Default-Export'); continue; }
+
+  for (const exercise of pool.exercises) {
+    totalExercises += 1;
+    poolTypeUsage.set(exercise.type, (poolTypeUsage.get(exercise.type) || 0) + 1);
+
+    if (!exercise.id) { fail(file, 'Übung ohne id'); continue; }
+    if (poolIds.has(exercise.id)) fail(file, `doppelte Übungs-ID "${exercise.id}"`);
+    poolIds.add(exercise.id);
+    if (!QUESTION_TYPES[exercise.type]) fail(file, `${exercise.id}: unbekannter Typ "${exercise.type}"`);
+    if (!exercise.prompt) fail(file, `${exercise.id}: keine Aufgabenstellung`);
+    if (!exercise.explanation) fail(file, `${exercise.id}: keine Erklärung zur Lösung`);
+    if (!curriculumIds.has(exercise.topicId)) {
+      fail(file, `${exercise.id}: Thema "${exercise.topicId}" steht in keinem Lehrplan`);
+    }
+    if (exercise.difficulty != null && ![1, 2, 3].includes(exercise.difficulty)) {
+      fail(file, `${exercise.id}: difficulty muss 1, 2 oder 3 sein`);
+    }
+    if (exercise.type === 'mc' || exercise.type === 'multi') {
+      const ids = (exercise.options || []).map((o) => o.id);
+      if (new Set(ids).size !== ids.length) fail(file, `${exercise.id}: doppelte Option-IDs`);
+      const texts = (exercise.options || []).map((o) => o.text);
+      if (new Set(texts).size !== texts.length) fail(file, `${exercise.id}: zwei Optionen mit gleichem Text`);
+      const expected = exercise.type === 'mc' ? [exercise.answer] : (exercise.answer || []);
+      for (const answerId of expected) {
+        if (!ids.includes(answerId)) fail(file, `${exercise.id}: Lösung "${answerId}" ist keine Option`);
+      }
+    }
+    if (exercise.type === 'numeric' && typeof exercise.answer !== 'number') {
+      fail(file, `${exercise.id}: numerische Lösung muss eine Zahl sein`);
+    }
+    if (exercise.type === 'numeric' && !Number.isFinite(exercise.answer)) {
+      fail(file, `${exercise.id}: numerische Lösung ist keine endliche Zahl`);
+    }
+
+    const model = modelAnswerFor(exercise);
+    const result = grade(exercise, model);
+    const passes = result.status === 'correct'
+      || (result.status === 'selfcheck' && result.detail?.suggested === 'correct');
+    if (!passes) {
+      fail(file, `${exercise.id}: eigene Musterlösung wird nicht als richtig erkannt `
+        + `(Status "${result.status}", Score ${result.score.toFixed(2)}, Typ ${exercise.type})`);
+    }
+  }
+}
+
 console.log(`\nGeprüft: ${files.length} Themen, ${totalSections} Abschnitte, ${totalQuestions} Aufgaben`);
 console.log(`Aufgabentypen: ${[...typeUsage.entries()].sort((a, b) => b[1] - a[1]).map(([t, n]) => `${t}=${n}`).join(', ')}`);
+if (poolFiles.length) {
+  console.log(`\nÜbungspools: ${poolFiles.length} Fächer, ${totalExercises} Übungen`);
+  console.log(`Aufgabentypen: ${[...poolTypeUsage.entries()].sort((a, b) => b[1] - a[1]).map(([t, n]) => `${t}=${n}`).join(', ')}`);
+}
 
 if (warnings.length) {
   console.log(`\n${warnings.length} Hinweis(e):`);

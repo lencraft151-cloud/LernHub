@@ -31,6 +31,14 @@ export const STATES = [
  */
 export const SCHOOL_TYPES = [
   {
+    id: 'grundschule',
+    name: 'Grundschule',
+    description: 'Klasse 1–4, Primarstufe',
+    grades: [1, 2, 3, 4],
+    track: 'primar',
+    states: '*',
+  },
+  {
     id: 'gymnasium',
     name: 'Gymnasium',
     description: 'Klasse 5–13, Abitur',
@@ -138,6 +146,11 @@ export function schoolTypesForState(stateId) {
 
 export function gradesForSchoolType(schoolTypeId) {
   return getSchoolType(schoolTypeId)?.grades ?? [5, 6, 7, 8, 9, 10];
+}
+
+/** Primarstufe? Steuert Ansprache und Voreinstellungen. */
+export function isPrimary(schoolTypeId) {
+  return getSchoolType(schoolTypeId)?.track === 'primar';
 }
 
 /** Ist die Kombination gültig? Wird beim Laden des Profils geprüft. */
