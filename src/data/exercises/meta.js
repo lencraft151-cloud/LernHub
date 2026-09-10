@@ -419,6 +419,461 @@ export const EXERCISE_META = {
    ]
   }
  },
+ "deutsch": {
+  "total": 110,
+  "byTopic": {
+   "de1-laute-buchstaben": 5,
+   "de1-silben": 5,
+   "de2-wortarten": 6,
+   "de2-satzzeichen": 1,
+   "de2-grossschreibung": 1,
+   "de2-lange-kurze-vokale": 4,
+   "de3-zeitformen": 4,
+   "de3-woertliche-rede": 1,
+   "de3-verlaengern": 4,
+   "de4-faelle": 7,
+   "de4-satzglieder": 1,
+   "de4-das-dass": 4,
+   "de4-bericht": 1,
+   "de5-wortarten": 9,
+   "de5-satzglieder": 8,
+   "de5-maerchen": 2,
+   "de6-zeitformen": 8,
+   "de6-satzarten": 1,
+   "de6-woerter": 1,
+   "de6-brief": 1,
+   "de8-rhetorik": 12,
+   "de7-aktiv-passiv": 1,
+   "de7-konjunktiv": 1,
+   "de7-inhaltsangabe": 1,
+   "de7-ballade": 1,
+   "de7-zeitung": 1,
+   "de8-charakterisierung": 1,
+   "de8-bewerbung": 1,
+   "de9-eroerterung": 2,
+   "de9-sachtextanalyse": 1,
+   "de9-epochen": 8,
+   "de9-drama": 1,
+   "de10-roman": 1,
+   "de9-medienkritik": 1,
+   "de8-satzbau": 1,
+   "de10-textinterpretation": 2
+  },
+  "competencies": {
+   "de1-laute-buchstaben": [
+    {
+     "id": "laute",
+     "title": "Laute und Buchstaben"
+    }
+   ],
+   "de1-silben": [
+    {
+     "id": "silben",
+     "title": "Silben"
+    }
+   ],
+   "de2-wortarten": [
+    {
+     "id": "wortarten",
+     "title": "Wortarten"
+    }
+   ],
+   "de2-satzzeichen": [
+    {
+     "id": "satzzeichen",
+     "title": "Satzzeichen"
+    }
+   ],
+   "de2-grossschreibung": [
+    {
+     "id": "grossschreibung",
+     "title": "Großschreibung"
+    }
+   ],
+   "de2-lange-kurze-vokale": [
+    {
+     "id": "vokale",
+     "title": "Lange und kurze Vokale"
+    }
+   ],
+   "de3-zeitformen": [
+    {
+     "id": "zeitformen",
+     "title": "Zeitformen"
+    }
+   ],
+   "de3-woertliche-rede": [
+    {
+     "id": "woertliche_rede",
+     "title": "Wörtliche Rede"
+    }
+   ],
+   "de3-verlaengern": [
+    {
+     "id": "strategien",
+     "title": "Rechtschreibstrategien"
+    }
+   ],
+   "de4-faelle": [
+    {
+     "id": "faelle",
+     "title": "Die vier Fälle"
+    }
+   ],
+   "de4-satzglieder": [
+    {
+     "id": "satzglieder",
+     "title": "Satzglieder"
+    }
+   ],
+   "de4-das-dass": [
+    {
+     "id": "dass",
+     "title": "das oder dass"
+    }
+   ],
+   "de4-bericht": [
+    {
+     "id": "bericht",
+     "title": "Bericht"
+    }
+   ],
+   "de5-wortarten": [
+    {
+     "id": "wortarten",
+     "title": "Wortarten"
+    }
+   ],
+   "de5-satzglieder": [
+    {
+     "id": "satzglieder",
+     "title": "Satzglieder"
+    }
+   ],
+   "de5-maerchen": [
+    {
+     "id": "maerchen",
+     "title": "Märchen und Fabeln"
+    }
+   ],
+   "de6-zeitformen": [
+    {
+     "id": "zeitformen",
+     "title": "Zeitformen"
+    }
+   ],
+   "de6-satzarten": [
+    {
+     "id": "satzarten",
+     "title": "Haupt- und Nebensätze"
+    }
+   ],
+   "de6-woerter": [
+    {
+     "id": "wortbildung",
+     "title": "Wortbildung"
+    }
+   ],
+   "de6-brief": [
+    {
+     "id": "brief",
+     "title": "Briefe und E-Mails"
+    }
+   ],
+   "de8-rhetorik": [
+    {
+     "id": "mittel",
+     "title": "Sprachliche Mittel"
+    }
+   ],
+   "de7-aktiv-passiv": [
+    {
+     "id": "passiv",
+     "title": "Aktiv und Passiv"
+    }
+   ],
+   "de7-konjunktiv": [
+    {
+     "id": "konjunktiv",
+     "title": "Konjunktiv"
+    }
+   ],
+   "de7-inhaltsangabe": [
+    {
+     "id": "inhaltsangabe",
+     "title": "Inhaltsangabe"
+    }
+   ],
+   "de7-ballade": [
+    {
+     "id": "ballade",
+     "title": "Balladen"
+    }
+   ],
+   "de7-zeitung": [
+    {
+     "id": "zeitung",
+     "title": "Zeitung und Nachricht"
+    }
+   ],
+   "de8-charakterisierung": [
+    {
+     "id": "charakterisierung",
+     "title": "Charakterisierung"
+    }
+   ],
+   "de8-bewerbung": [
+    {
+     "id": "bewerbung",
+     "title": "Bewerbung"
+    }
+   ],
+   "de9-eroerterung": [
+    {
+     "id": "eroerterung",
+     "title": "Erörterung"
+    }
+   ],
+   "de9-sachtextanalyse": [
+    {
+     "id": "sachtext",
+     "title": "Sachtextanalyse"
+    }
+   ],
+   "de9-epochen": [
+    {
+     "id": "epochen",
+     "title": "Literaturepochen"
+    }
+   ],
+   "de9-drama": [
+    {
+     "id": "drama",
+     "title": "Drama"
+    }
+   ],
+   "de10-roman": [
+    {
+     "id": "erzaehltheorie",
+     "title": "Erzähltheorie"
+    }
+   ],
+   "de9-medienkritik": [
+    {
+     "id": "medien",
+     "title": "Medienkritik"
+    }
+   ],
+   "de8-satzbau": [
+    {
+     "id": "stil",
+     "title": "Satzbau und Stil"
+    }
+   ],
+   "de10-textinterpretation": [
+    {
+     "id": "interpretation",
+     "title": "Interpretation"
+    }
+   ]
+  }
+ },
+ "englisch": {
+  "total": 106,
+  "byTopic": {
+   "en3-greetings": 7,
+   "en3-numbers-colours": 10,
+   "en3-animals-family": 10,
+   "en4-food": 9,
+   "en4-school": 9,
+   "en4-time-routine": 3,
+   "en5-present-simple": 6,
+   "en5-present-progressive": 1,
+   "en5-plural-articles": 6,
+   "en6-simple-past": 8,
+   "en7-present-perfect": 6,
+   "en6-comparison": 5,
+   "en6-future": 1,
+   "en7-modals": 1,
+   "en7-relative-clauses": 1,
+   "en8-passive": 3,
+   "en8-conditional": 2,
+   "en8-gerund": 1,
+   "en9-reported-speech": 3,
+   "en7-uk-usa": 7,
+   "en9-globalisation": 1,
+   "en9-text-analysis": 1,
+   "en10-argumentative-essay": 1,
+   "en6-reading": 1,
+   "en8-writing-email": 1,
+   "en9-tenses-review": 1,
+   "en10-advanced-structures": 1
+  },
+  "competencies": {
+   "en3-greetings": [
+    {
+     "id": "greetings",
+     "title": "Greetings"
+    }
+   ],
+   "en3-numbers-colours": [
+    {
+     "id": "colours",
+     "title": "Colours"
+    }
+   ],
+   "en3-animals-family": [
+    {
+     "id": "animals",
+     "title": "Animals"
+    }
+   ],
+   "en4-food": [
+    {
+     "id": "food",
+     "title": "Food and drinks"
+    }
+   ],
+   "en4-school": [
+    {
+     "id": "school",
+     "title": "School"
+    }
+   ],
+   "en4-time-routine": [
+    {
+     "id": "time",
+     "title": "Telling the time"
+    }
+   ],
+   "en5-present-simple": [
+    {
+     "id": "present_simple",
+     "title": "Present Simple"
+    }
+   ],
+   "en5-present-progressive": [
+    {
+     "id": "present_progressive",
+     "title": "Present Progressive"
+    }
+   ],
+   "en5-plural-articles": [
+    {
+     "id": "plural",
+     "title": "Plural forms"
+    }
+   ],
+   "en6-simple-past": [
+    {
+     "id": "irregular",
+     "title": "Unregelmäßige Verben"
+    }
+   ],
+   "en7-present-perfect": [
+    {
+     "id": "present_perfect",
+     "title": "Present Perfect"
+    }
+   ],
+   "en6-comparison": [
+    {
+     "id": "comparison",
+     "title": "Steigerung"
+    }
+   ],
+   "en6-future": [
+    {
+     "id": "future",
+     "title": "Future forms"
+    }
+   ],
+   "en7-modals": [
+    {
+     "id": "modals",
+     "title": "Modalverben"
+    }
+   ],
+   "en7-relative-clauses": [
+    {
+     "id": "relative",
+     "title": "Relativsätze"
+    }
+   ],
+   "en8-passive": [
+    {
+     "id": "passive",
+     "title": "Passive Voice"
+    }
+   ],
+   "en8-conditional": [
+    {
+     "id": "conditional",
+     "title": "Conditional sentences"
+    }
+   ],
+   "en8-gerund": [
+    {
+     "id": "gerund",
+     "title": "Gerund und Infinitiv"
+    }
+   ],
+   "en9-reported-speech": [
+    {
+     "id": "reported",
+     "title": "Reported Speech"
+    }
+   ],
+   "en7-uk-usa": [
+    {
+     "id": "landeskunde",
+     "title": "Landeskunde"
+    }
+   ],
+   "en9-globalisation": [
+    {
+     "id": "landeskunde",
+     "title": "Landeskunde"
+    }
+   ],
+   "en9-text-analysis": [
+    {
+     "id": "analysis",
+     "title": "Textanalyse"
+    }
+   ],
+   "en10-argumentative-essay": [
+    {
+     "id": "essay",
+     "title": "Essay"
+    }
+   ],
+   "en6-reading": [
+    {
+     "id": "reading",
+     "title": "Leseverstehen"
+    }
+   ],
+   "en8-writing-email": [
+    {
+     "id": "writing",
+     "title": "Schreiben"
+    }
+   ],
+   "en9-tenses-review": [
+    {
+     "id": "tenses",
+     "title": "Zeitenüberblick"
+    }
+   ],
+   "en10-advanced-structures": [
+    {
+     "id": "tenses",
+     "title": "Zeitenüberblick"
+    }
+   ]
+  }
+ },
  "erdkunde": {
   "total": 100,
   "byTopic": {
@@ -561,6 +1016,133 @@ export const EXERCISE_META = {
     {
      "id": "ressourcen",
      "title": "Ressourcen und Energie"
+    }
+   ]
+  }
+ },
+ "franzoesisch": {
+  "total": 108,
+  "byTopic": {
+   "fr6-artikel": 13,
+   "fr6-praesens": 31,
+   "fr7-passe-compose": 10,
+   "fr7-imparfait": 5,
+   "fr7-fragen": 19,
+   "fr8-pronomen": 11,
+   "fr8-futur": 1,
+   "fr9-subjonctif": 1,
+   "fr9-relativsaetze": 1,
+   "fr10-conditionnel": 1,
+   "fr9-frankophonie": 14,
+   "fr10-textarbeit": 1
+  },
+  "competencies": {
+   "fr6-artikel": [
+    {
+     "id": "vokabeln",
+     "title": "Wortschatz"
+    },
+    {
+     "id": "artikel",
+     "title": "Artikel"
+    },
+    {
+     "id": "substantive",
+     "title": "Substantive"
+    }
+   ],
+   "fr6-praesens": [
+    {
+     "id": "vokabeln",
+     "title": "Wortschatz"
+    },
+    {
+     "id": "praesens",
+     "title": "Présent"
+    },
+    {
+     "id": "verben",
+     "title": "Verbformen"
+    }
+   ],
+   "fr7-passe-compose": [
+    {
+     "id": "partizip",
+     "title": "Participe passé"
+    },
+    {
+     "id": "passe",
+     "title": "Passé composé"
+    }
+   ],
+   "fr7-imparfait": [
+    {
+     "id": "zeitwahl",
+     "title": "Zeitenwahl"
+    },
+    {
+     "id": "imparfait",
+     "title": "Imparfait"
+    }
+   ],
+   "fr7-fragen": [
+    {
+     "id": "fragen",
+     "title": "Fragen stellen"
+    },
+    {
+     "id": "vokabeln",
+     "title": "Wortschatz"
+    }
+   ],
+   "fr8-pronomen": [
+    {
+     "id": "pronomen",
+     "title": "Objektpronomen"
+    },
+    {
+     "id": "vokabeln",
+     "title": "Wortschatz"
+    }
+   ],
+   "fr8-futur": [
+    {
+     "id": "futur",
+     "title": "Futur simple"
+    }
+   ],
+   "fr9-subjonctif": [
+    {
+     "id": "subjonctif",
+     "title": "Subjonctif"
+    }
+   ],
+   "fr9-relativsaetze": [
+    {
+     "id": "relativ",
+     "title": "Relativsätze"
+    }
+   ],
+   "fr10-conditionnel": [
+    {
+     "id": "conditionnel",
+     "title": "Conditionnel"
+    }
+   ],
+   "fr9-frankophonie": [
+    {
+     "id": "frankophonie",
+     "title": "Frankophonie"
+    },
+    {
+     "id": "vokabeln",
+     "title": "Wortschatz"
+    }
+   ],
+   "fr10-textarbeit": [
+    {
+     "id": "textarbeit",
+     "title": "Textarbeit"
     }
    ]
   }
@@ -864,6 +1446,252 @@ export const EXERCISE_META = {
     {
      "id": "algorithmus",
      "title": "Algorithmusbegriff"
+    }
+   ]
+  }
+ },
+ "kunst": {
+  "total": 101,
+  "byTopic": {
+   "ku1-farben-mischen": 5,
+   "ku5-farbenlehre": 20,
+   "ku2-drucken": 3,
+   "ku3-plastisch": 2,
+   "ku5-zeichnen": 8,
+   "ku6-perspektive": 9,
+   "ku7-bildanalyse": 9,
+   "ku8-renaissance": 8,
+   "ku9-expressionismus": 9,
+   "ku9-fotografie": 3,
+   "ku10-design": 8,
+   "ku12-gegenwart": 8,
+   "ku4-kuenstler": 2,
+   "ku11-methoden": 7
+  },
+  "competencies": {
+   "ku1-farben-mischen": [
+    {
+     "id": "mischen",
+     "title": "Farben mischen"
+    },
+    {
+     "id": "grundfarben",
+     "title": "Grundfarben"
+    }
+   ],
+   "ku5-farbenlehre": [
+    {
+     "id": "mischen",
+     "title": "Farben mischen"
+    },
+    {
+     "id": "komplementaer",
+     "title": "Komplementärfarben"
+    },
+    {
+     "id": "farbkreis",
+     "title": "Farbkreis"
+    },
+    {
+     "id": "kontraste",
+     "title": "Farbkontraste"
+    },
+    {
+     "id": "eigenschaften",
+     "title": "Farbeigenschaften"
+    }
+   ],
+   "ku2-drucken": [
+    {
+     "id": "drucken",
+     "title": "Drucktechniken"
+    },
+    {
+     "id": "muster",
+     "title": "Muster und Reihung"
+    }
+   ],
+   "ku3-plastisch": [
+    {
+     "id": "plastisch",
+     "title": "Plastisches Gestalten"
+    }
+   ],
+   "ku5-zeichnen": [
+    {
+     "id": "zeichnen",
+     "title": "Zeichnen und Schraffur"
+    }
+   ],
+   "ku6-perspektive": [
+    {
+     "id": "perspektive",
+     "title": "Perspektive"
+    }
+   ],
+   "ku7-bildanalyse": [
+    {
+     "id": "bildanalyse",
+     "title": "Bildanalyse"
+    },
+    {
+     "id": "komposition",
+     "title": "Komposition"
+    }
+   ],
+   "ku8-renaissance": [
+    {
+     "id": "epochen",
+     "title": "Kunstepochen"
+    }
+   ],
+   "ku9-expressionismus": [
+    {
+     "id": "kuenstler",
+     "title": "Künstler"
+    },
+    {
+     "id": "epochen",
+     "title": "Kunstepochen"
+    }
+   ],
+   "ku9-fotografie": [
+    {
+     "id": "fotografie",
+     "title": "Fotografie"
+    }
+   ],
+   "ku10-design": [
+    {
+     "id": "design",
+     "title": "Design"
+    }
+   ],
+   "ku12-gegenwart": [
+    {
+     "id": "gegenwart",
+     "title": "Gegenwartskunst"
+    }
+   ],
+   "ku4-kuenstler": [
+    {
+     "id": "bildanalyse",
+     "title": "Bildanalyse"
+    },
+    {
+     "id": "kuenstler",
+     "title": "Künstler"
+    }
+   ],
+   "ku11-methoden": [
+    {
+     "id": "bildanalyse",
+     "title": "Bildanalyse"
+    }
+   ]
+  }
+ },
+ "latein": {
+  "total": 106,
+  "byTopic": {
+   "la6-deklination": 24,
+   "la6-praesens": 17,
+   "la7-tempora": 18,
+   "la7-kasusfunktionen": 19,
+   "la8-aci": 2,
+   "la8-participia": 1,
+   "la9-ablativus-absolutus": 1,
+   "la9-konjunktiv": 1,
+   "la9-roemisches-leben": 15,
+   "la10-caesar": 8
+  },
+  "competencies": {
+   "la6-deklination": [
+    {
+     "id": "deklination",
+     "title": "Deklination"
+    },
+    {
+     "id": "vokabeln",
+     "title": "Wortschatz"
+    }
+   ],
+   "la6-praesens": [
+    {
+     "id": "praesens",
+     "title": "Präsens"
+    },
+    {
+     "id": "vokabeln",
+     "title": "Wortschatz"
+    },
+    {
+     "id": "konjugation",
+     "title": "Konjugation"
+    }
+   ],
+   "la7-tempora": [
+    {
+     "id": "perfekt",
+     "title": "Perfektstamm"
+    },
+    {
+     "id": "tempora",
+     "title": "Tempora"
+    }
+   ],
+   "la7-kasusfunktionen": [
+    {
+     "id": "kasus",
+     "title": "Kasusfunktionen"
+    },
+    {
+     "id": "vokabeln",
+     "title": "Wortschatz"
+    }
+   ],
+   "la8-aci": [
+    {
+     "id": "aci",
+     "title": "AcI"
+    }
+   ],
+   "la8-participia": [
+    {
+     "id": "participium",
+     "title": "Participium coniunctum"
+    }
+   ],
+   "la9-ablativus-absolutus": [
+    {
+     "id": "ablabs",
+     "title": "Ablativus absolutus"
+    }
+   ],
+   "la9-konjunktiv": [
+    {
+     "id": "konjunktiv",
+     "title": "Konjunktiv"
+    }
+   ],
+   "la9-roemisches-leben": [
+    {
+     "id": "kultur",
+     "title": "Römisches Leben"
+    },
+    {
+     "id": "vokabeln",
+     "title": "Wortschatz"
+    }
+   ],
+   "la10-caesar": [
+    {
+     "id": "autoren",
+     "title": "Lateinische Autoren"
+    },
+    {
+     "id": "uebersetzen",
+     "title": "Übersetzen"
     }
    ]
   }
@@ -1470,6 +2298,137 @@ export const EXERCISE_META = {
    ]
   }
  },
+ "musik": {
+  "total": 100,
+  "byTopic": {
+   "mu1-lieder": 2,
+   "mu2-rhythmus": 3,
+   "mu3-instrumente": 8,
+   "mu4-noten-erste": 5,
+   "mu5-noten": 26,
+   "mu5-instrumente": 8,
+   "mu6-tonleiter": 10,
+   "mu7-akkorde": 4,
+   "mu8-barock-klassik": 15,
+   "mu9-formen": 9,
+   "mu9-popmusik": 2,
+   "mu10-moderne": 8
+  },
+  "competencies": {
+   "mu1-lieder": [
+    {
+     "id": "singen",
+     "title": "Singen"
+    },
+    {
+     "id": "dynamik",
+     "title": "Dynamik"
+    }
+   ],
+   "mu2-rhythmus": [
+    {
+     "id": "rhythmus",
+     "title": "Rhythmus"
+    },
+    {
+     "id": "takt",
+     "title": "Taktarten"
+    }
+   ],
+   "mu3-instrumente": [
+    {
+     "id": "instrumente",
+     "title": "Instrumentenkunde"
+    }
+   ],
+   "mu4-noten-erste": [
+    {
+     "id": "notenwerte",
+     "title": "Notenwerte"
+    },
+    {
+     "id": "notennamen",
+     "title": "Notennamen"
+    }
+   ],
+   "mu5-noten": [
+    {
+     "id": "notenwerte",
+     "title": "Notenwerte"
+    },
+    {
+     "id": "pausen",
+     "title": "Pausen"
+    },
+    {
+     "id": "tempo",
+     "title": "Tempobezeichnungen"
+    },
+    {
+     "id": "notennamen",
+     "title": "Notennamen"
+    },
+    {
+     "id": "takt",
+     "title": "Taktarten"
+    }
+   ],
+   "mu5-instrumente": [
+    {
+     "id": "instrumente",
+     "title": "Instrumentenkunde"
+    }
+   ],
+   "mu6-tonleiter": [
+    {
+     "id": "tonleiter",
+     "title": "Tonleitern"
+    },
+    {
+     "id": "intervalle",
+     "title": "Intervalle"
+    }
+   ],
+   "mu7-akkorde": [
+    {
+     "id": "akkorde",
+     "title": "Akkorde"
+    },
+    {
+     "id": "kadenz",
+     "title": "Kadenz"
+    }
+   ],
+   "mu8-barock-klassik": [
+    {
+     "id": "epochen",
+     "title": "Musikepochen"
+    },
+    {
+     "id": "komponisten",
+     "title": "Komponisten"
+    }
+   ],
+   "mu9-formen": [
+    {
+     "id": "formen",
+     "title": "Musikalische Formen"
+    }
+   ],
+   "mu9-popmusik": [
+    {
+     "id": "popmusik",
+     "title": "Popmusik"
+    }
+   ],
+   "mu10-moderne": [
+    {
+     "id": "moderne",
+     "title": "Neue Musik und Filmmusik"
+    }
+   ]
+  }
+ },
  "physik": {
   "total": 110,
   "byTopic": {
@@ -1691,6 +2650,511 @@ export const EXERCISE_META = {
     }
    ]
   }
+ },
+ "politik": {
+  "total": 103,
+  "byTopic": {
+   "pw9-verfassungsorgane": 10,
+   "pw9-wahlen": 23,
+   "pw9-gesetzgebung": 2,
+   "pw8-markt": 10,
+   "pw10-sozialstaat": 12,
+   "pw10-soziale-marktwirtschaft": 8,
+   "pw9-arbeitsmarkt": 5,
+   "pw7-kinderrechte": 2,
+   "pw7-medien": 9,
+   "pw8-verbraucher": 5,
+   "pw10-eu": 8,
+   "pw10-un": 2,
+   "pw11-konjunktur": 7
+  },
+  "competencies": {
+   "pw9-verfassungsorgane": [
+    {
+     "id": "organe",
+     "title": "Verfassungsorgane"
+    },
+    {
+     "id": "grundrechte",
+     "title": "Grundrechte"
+    }
+   ],
+   "pw9-wahlen": [
+    {
+     "id": "wahlen",
+     "title": "Wahlen"
+    },
+    {
+     "id": "wahlgrundsaetze",
+     "title": "Wahlgrundsätze"
+    }
+   ],
+   "pw9-gesetzgebung": [
+    {
+     "id": "gesetzgebung",
+     "title": "Gesetzgebung"
+    }
+   ],
+   "pw8-markt": [
+    {
+     "id": "markt",
+     "title": "Markt und Preisbildung"
+    }
+   ],
+   "pw10-sozialstaat": [
+    {
+     "id": "versicherung",
+     "title": "Sozialversicherungen"
+    }
+   ],
+   "pw10-soziale-marktwirtschaft": [
+    {
+     "id": "marktwirtschaft",
+     "title": "Soziale Marktwirtschaft"
+    }
+   ],
+   "pw9-arbeitsmarkt": [
+    {
+     "id": "arbeitsmarkt",
+     "title": "Arbeitsmarkt"
+    }
+   ],
+   "pw7-kinderrechte": [
+    {
+     "id": "kinderrechte",
+     "title": "Kinder- und Jugendrechte"
+    }
+   ],
+   "pw7-medien": [
+    {
+     "id": "medien",
+     "title": "Medien und Meinungsbildung"
+    }
+   ],
+   "pw8-verbraucher": [
+    {
+     "id": "verbraucher",
+     "title": "Verbraucherschutz"
+    }
+   ],
+   "pw10-eu": [
+    {
+     "id": "eu",
+     "title": "Europäische Union"
+    }
+   ],
+   "pw10-un": [
+    {
+     "id": "un",
+     "title": "Vereinte Nationen"
+    }
+   ],
+   "pw11-konjunktur": [
+    {
+     "id": "marktwirtschaft",
+     "title": "Soziale Marktwirtschaft"
+    }
+   ]
+  }
+ },
+ "religion": {
+  "total": 101,
+  "byTopic": {
+   "rel1-feste": 8,
+   "rel2-schoepfung": 3,
+   "rel3-bibel": 8,
+   "rel4-weltreligionen": 11,
+   "rel5-weltreligionen-einstieg": 8,
+   "rel5-regeln": 3,
+   "rel6-bibel": 3,
+   "rel7-judentum": 11,
+   "rel7-islam": 16,
+   "rel8-gewissen": 2,
+   "rel8-gerechtigkeit": 8,
+   "rel9-ethik-verantwortung": 9,
+   "rel9-medizinethik": 2,
+   "rel9-theodizee": 1,
+   "rel10-freiheit": 1,
+   "rel10-erkenntnis": 4,
+   "rel11-menschenbild": 3
+  },
+  "competencies": {
+   "rel1-feste": [
+    {
+     "id": "feste",
+     "title": "Feste im Jahreskreis"
+    }
+   ],
+   "rel2-schoepfung": [
+    {
+     "id": "schoepfung",
+     "title": "Schöpfung"
+    }
+   ],
+   "rel3-bibel": [
+    {
+     "id": "bibel",
+     "title": "Bibel"
+    }
+   ],
+   "rel4-weltreligionen": [
+    {
+     "id": "weltreligionen",
+     "title": "Weltreligionen"
+    }
+   ],
+   "rel5-weltreligionen-einstieg": [
+    {
+     "id": "weltreligionen",
+     "title": "Weltreligionen"
+    }
+   ],
+   "rel5-regeln": [
+    {
+     "id": "regeln",
+     "title": "Regeln und Zusammenleben"
+    }
+   ],
+   "rel6-bibel": [
+    {
+     "id": "bibelaufbau",
+     "title": "Aufbau der Bibel"
+    }
+   ],
+   "rel7-judentum": [
+    {
+     "id": "judentum",
+     "title": "Judentum"
+    }
+   ],
+   "rel7-islam": [
+    {
+     "id": "islam",
+     "title": "Islam"
+    }
+   ],
+   "rel8-gewissen": [
+    {
+     "id": "gewissen",
+     "title": "Gewissen"
+    }
+   ],
+   "rel8-gerechtigkeit": [
+    {
+     "id": "gerechtigkeit",
+     "title": "Gerechtigkeit"
+    }
+   ],
+   "rel9-ethik-verantwortung": [
+    {
+     "id": "ethik",
+     "title": "Ethische Entscheidungen"
+    }
+   ],
+   "rel9-medizinethik": [
+    {
+     "id": "medizinethik",
+     "title": "Medizinethik"
+    }
+   ],
+   "rel9-theodizee": [
+    {
+     "id": "theodizee",
+     "title": "Leid und Gottesfrage"
+    }
+   ],
+   "rel10-freiheit": [
+    {
+     "id": "freiheit",
+     "title": "Freiheit und Determinismus"
+    }
+   ],
+   "rel10-erkenntnis": [
+    {
+     "id": "erkenntnis",
+     "title": "Erkenntnis und Wahrheit"
+    }
+   ],
+   "rel11-menschenbild": [
+    {
+     "id": "menschenbild",
+     "title": "Menschenbilder"
+    }
+   ]
+  }
+ },
+ "sachunterricht": {
+  "total": 109,
+  "byTopic": {
+   "su1-schulweg": 9,
+   "su1-sinne": 9,
+   "su1-jahreszeiten": 8,
+   "su1-tiere-winter": 14,
+   "su2-wetter": 12,
+   "su2-pflanzen": 2,
+   "su2-haustiere": 14,
+   "su2-verkehr": 2,
+   "su3-wasser": 4,
+   "su3-magnetismus": 4,
+   "su3-feuer": 2,
+   "su3-ernaehrung": 3,
+   "su3-zaehne": 2,
+   "su3-himmelsrichtungen": 2,
+   "su4-stromkreis": 3,
+   "su4-fahrrad": 2,
+   "su4-deutschland": 8,
+   "su4-sonnensystem": 3,
+   "su4-damals-heute": 6
+  },
+  "competencies": {
+   "su1-schulweg": [
+    {
+     "id": "verkehr",
+     "title": "Verkehr und Sicherheit"
+    }
+   ],
+   "su1-sinne": [
+    {
+     "id": "sinne",
+     "title": "Sinne"
+    }
+   ],
+   "su1-jahreszeiten": [
+    {
+     "id": "jahreszeiten",
+     "title": "Jahreszeiten"
+    }
+   ],
+   "su1-tiere-winter": [
+    {
+     "id": "tiere",
+     "title": "Tiere"
+    }
+   ],
+   "su2-wetter": [
+    {
+     "id": "wetter",
+     "title": "Wetter"
+    }
+   ],
+   "su2-pflanzen": [
+    {
+     "id": "pflanzen",
+     "title": "Pflanzen"
+    }
+   ],
+   "su2-haustiere": [
+    {
+     "id": "haustiere",
+     "title": "Haus- und Nutztiere"
+    }
+   ],
+   "su2-verkehr": [
+    {
+     "id": "verkehr",
+     "title": "Verkehr und Sicherheit"
+    }
+   ],
+   "su3-wasser": [
+    {
+     "id": "wasser",
+     "title": "Wasser"
+    }
+   ],
+   "su3-magnetismus": [
+    {
+     "id": "magnetismus",
+     "title": "Magnetismus"
+    }
+   ],
+   "su3-feuer": [
+    {
+     "id": "feuer",
+     "title": "Feuer"
+    }
+   ],
+   "su3-ernaehrung": [
+    {
+     "id": "ernaehrung",
+     "title": "Ernährung"
+    }
+   ],
+   "su3-zaehne": [
+    {
+     "id": "zaehne",
+     "title": "Zähne"
+    }
+   ],
+   "su3-himmelsrichtungen": [
+    {
+     "id": "orientierung",
+     "title": "Orientierung"
+    }
+   ],
+   "su4-stromkreis": [
+    {
+     "id": "strom",
+     "title": "Strom"
+    }
+   ],
+   "su4-fahrrad": [
+    {
+     "id": "fahrrad",
+     "title": "Fahrrad"
+    }
+   ],
+   "su4-deutschland": [
+    {
+     "id": "deutschland",
+     "title": "Deutschland und Europa"
+    }
+   ],
+   "su4-sonnensystem": [
+    {
+     "id": "weltall",
+     "title": "Erde, Sonne und Mond"
+    }
+   ],
+   "su4-damals-heute": [
+    {
+     "id": "zeit",
+     "title": "Damals und heute"
+    }
+   ]
+  }
+ },
+ "sport": {
+  "total": 101,
+  "byTopic": {
+   "sp1-spielregeln": 9,
+   "sp2-aufwaermen": 2,
+   "sp3-laufen-springen": 6,
+   "sp4-baderegeln": 9,
+   "sp5-aufwaermen": 9,
+   "sp5-fairplay": 2,
+   "sp6-muskeln": 16,
+   "sp7-ausdauer": 21,
+   "sp8-trainingsprinzipien": 11,
+   "sp9-energiebereitstellung": 10,
+   "sp9-doping": 2,
+   "sp10-sport-gesellschaft": 2,
+   "sp11-bewegungsanalyse": 1,
+   "sp12-periodisierung": 1
+  },
+  "competencies": {
+   "sp1-spielregeln": [
+    {
+     "id": "regeln",
+     "title": "Regeln und Fairplay"
+    }
+   ],
+   "sp2-aufwaermen": [
+    {
+     "id": "aufwaermen",
+     "title": "Aufwärmen"
+    },
+    {
+     "id": "puls",
+     "title": "Herzfrequenz"
+    }
+   ],
+   "sp3-laufen-springen": [
+    {
+     "id": "leichtathletik",
+     "title": "Laufen, Springen, Werfen"
+    }
+   ],
+   "sp4-baderegeln": [
+    {
+     "id": "schwimmen",
+     "title": "Schwimmen und Baderegeln"
+    }
+   ],
+   "sp5-aufwaermen": [
+    {
+     "id": "aufwaermen",
+     "title": "Aufwärmen"
+    },
+    {
+     "id": "dehnen",
+     "title": "Dehnen"
+    }
+   ],
+   "sp5-fairplay": [
+    {
+     "id": "regeln",
+     "title": "Regeln und Fairplay"
+    }
+   ],
+   "sp6-muskeln": [
+    {
+     "id": "muskeln",
+     "title": "Muskeln"
+    },
+    {
+     "id": "gelenke",
+     "title": "Gelenke"
+    }
+   ],
+   "sp7-ausdauer": [
+    {
+     "id": "puls",
+     "title": "Herzfrequenz"
+    },
+    {
+     "id": "ausdauer",
+     "title": "Ausdauer"
+    }
+   ],
+   "sp8-trainingsprinzipien": [
+    {
+     "id": "methoden",
+     "title": "Trainingsmethoden"
+    },
+    {
+     "id": "superkompensation",
+     "title": "Superkompensation"
+    },
+    {
+     "id": "prinzipien",
+     "title": "Trainingsprinzipien"
+    }
+   ],
+   "sp9-energiebereitstellung": [
+    {
+     "id": "energie",
+     "title": "Energiebereitstellung"
+    },
+    {
+     "id": "laktat",
+     "title": "Laktat"
+    }
+   ],
+   "sp9-doping": [
+    {
+     "id": "doping",
+     "title": "Doping und Sportethik"
+    }
+   ],
+   "sp10-sport-gesellschaft": [
+    {
+     "id": "gesellschaft",
+     "title": "Sport und Gesellschaft"
+    }
+   ],
+   "sp11-bewegungsanalyse": [
+    {
+     "id": "biomechanik",
+     "title": "Bewegungsanalyse"
+    }
+   ],
+   "sp12-periodisierung": [
+    {
+     "id": "prinzipien",
+     "title": "Trainingsprinzipien"
+    }
+   ]
+  }
  }
 };
 
@@ -1714,7 +3178,7 @@ export function exerciseCount(topicId) {
 export const hasExercises = (topicId) => exerciseCount(topicId) > 0;
 
 export const EXERCISE_TOTALS = {
-  subjects: 7,
-  exercises: 872,
-  topics: 176,
+  subjects: 17,
+  exercises: 1917,
+  topics: 350,
 };

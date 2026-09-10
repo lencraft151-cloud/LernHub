@@ -616,6 +616,19 @@ html, body { overscroll-behavior-x: none; }
   -webkit-overflow-scrolling: touch;
 }
 
+/* Die Topbar trägt auf dem Handy Wortmarke und Aktionen nebeneinander.
+   Mit der Münzanzeige passt beides nicht mehr in 390 px — die Wortmarke
+   weicht zuerst, das Zeichen bleibt als Weg zum Dashboard erhalten. */
+@media (max-width: 480px) {
+  .topbar-mobile-brand .brand-name { display: none; }
+  .topbar-actions { gap: 4px; }
+}
+@media (max-width: 359px) {
+  /* Sehr schmale Geräte: Das Farbschema lässt sich auch in den
+     Einstellungen wechseln, die Suche dagegen nicht. */
+  .topbar-actions [data-role="toggle-theme"] { display: none; }
+}
+
 @media (max-width: 719px) {
   /* iOS zoomt beim Fokussieren, sobald die Schrift kleiner als 16 px ist. */
   .input, .select, .textarea, input[type="text"], input[type="number"],

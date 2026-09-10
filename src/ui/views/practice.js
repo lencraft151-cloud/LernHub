@@ -28,6 +28,17 @@ import { splitBar, progressRing } from '../components/charts.js';
 let disposeTracker = null;
 let activeRunner = null;
 
+/**
+ * Rangwert einer Aufgabe: je kleiner, desto dringender.
+ * Noch nie gestellte Aufgaben kommen zuerst, danach die mit der
+ * schlechtesten Bilanz — so wiederholt eine Runde nicht immer dasselbe.
+ */
+function weakness(state, topicId, question) {
+  const stat = state.questions?.[questionKey(topicId, question.id)];
+  if (!stat || !stat.seen) return -1;
+  return (stat.correct + stat.partial * 0.5) / stat.seen;
+}
+
 export function disposePractice() {
   if (disposeTracker) { disposeTracker(); disposeTracker = null; }
   if (activeRunner) { activeRunner.dispose(); activeRunner = null; }
@@ -89,7 +100,15 @@ export async function renderPractice(root, { params, query }) {
     if (filtered.length) pool = filtered;
   }
 
-  const questions = shuffle(pool, seededRandom(Date.now() % 100000));
+  // Eine Runde bleibt überschaubar. Mit dem Übungspool kämen sonst über
+  // 30 Aufgaben zusammen — das hält niemand am Stück durch, und der
+  // Lerneffekt einer Runde hängt nicht an ihrer Länge.
+  const ROUND_SIZE = 15;
+  const available = pool.length;
+  const ranked = mode === 'wiederholung'
+    ? pool
+    : [...pool].sort((a, b) => weakness(state, meta.id, a) - weakness(state, meta.id, b));
+  const questions = shuffle(ranked.slice(0, ROUND_SIZE), seededRandom(Date.now() % 100000));
   const startedAt = Date.now();
 
   function renderRunner() {
@@ -108,7 +127,8 @@ export async function renderPractice(root, { params, query }) {
     })}
 
         <div class="row row-wrap row-3">
-          <span class="badge badge-primary">${questions.length} Aufgaben</span>
+          <span class="badge badge-primary">${questions.length}${available > questions.length
+      ? ` von ${available}` : ''} Aufgaben</span>
           ${mode === 'wiederholung' ? html`<span class="badge badge-danger">Wiederholung</span>` : ''}
           ${query.kompetenz ? html`<span class="badge badge-info">
             ${(content?.competencies || []).find((c) => c.id === query.kompetenz)?.title || query.kompetenz}</span>` : ''}

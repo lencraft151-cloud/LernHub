@@ -268,7 +268,9 @@ try {
 
   // Aufgaben der Reihe nach mit der Musterlösung beantworten.
   await check('Alle Aufgabentypen sind bedienbar', async () => {
-    for (let i = 0; i < 14; i += 1) {
+    // Eine Übungsrunde umfasst bis zu 15 Aufgaben; die Schleife läuft etwas
+    // länger und bricht ab, sobald die Auswertung erscheint.
+    for (let i = 0; i < 20; i += 1) {
       const finished = await page.locator('.result-hero').count();
       if (finished) break;
       const question = page.locator('.question').first();
@@ -276,10 +278,15 @@ try {
       const type = await question.getAttribute('data-type');
       const qid = await question.getAttribute('data-question');
 
-      // Musterlösung aus den Inhaltsdaten holen
+      // Musterlösung suchen — die Übungsseite mischt Lerninhalte und den
+      // Übungspool des Fachs, deshalb werden beide Quellen durchsucht.
       const model = await page.evaluate(async ({ id }) => {
-        const mod = await import('/src/data/content/ch9-ph-wert.js');
-        const q = mod.default.questions.find((x) => x.id === id);
+        const content = await import('/src/data/content/ch9-ph-wert.js');
+        let q = content.default.questions.find((x) => x.id === id);
+        if (!q) {
+          const pool = await import('/src/data/exercises/chemie.js');
+          q = pool.default.exercises.find((x) => x.id === id);
+        }
         if (!q) return null;
         switch (q.type) {
           case 'mc': return { type: q.type, value: q.answer };
@@ -297,7 +304,7 @@ try {
           default: return { type: q.type, value: q.modelAnswer };
         }
       }, { id: qid });
-      if (!model) throw new Error(`Aufgabe ${qid} nicht in den Inhaltsdaten gefunden`);
+      if (!model) throw new Error(`Aufgabe ${qid} weder in den Lerninhalten noch im Übungspool gefunden`);
 
       if (model.type === 'mc' || model.type === 'truefalse') {
         await question.locator(`.option[data-option="${model.value}"]`).click();
@@ -611,6 +618,64 @@ try {
     await page.keyboard.press('Escape');
   });
 
+  /* --------------------------- Münzen und Spiel ------------------------ */
+  console.log('\n== Münzen und Minispiel ==');
+
+  let balanceBefore = 0;
+  await check('Münzen wurden fürs Lernen gutgeschrieben', async () => {
+    balanceBefore = await page.evaluate(() => JSON.parse(localStorage.getItem('studyflow.v1')).coins.balance);
+    if (!balanceBefore) throw new Error('kein Guthaben nach Lernen, Üben und Test');
+  });
+
+  await check('Münzstand steht in der Topbar', async () => {
+    const shown = await page.locator('[data-role="coin-count"]').textContent();
+    if (Number(shown) !== balanceBefore) throw new Error(`Anzeige ${shown}, gespeichert ${balanceBefore}`);
+  });
+
+  await go('/spiel');
+  await check('Minispiel lädt', async () => { await seeText('Wissens-Blitz'); });
+
+  await check('Einsatz und Runde starten', async () => {
+    if (balanceBefore < 10) {
+      // Ohne Guthaben muss die Seite den Weg zu Münzen erklären statt zu starten.
+      await seeText('bis zur nächsten Runde');
+      return;
+    }
+    await page.locator('[data-role="start"]').click();
+    await page.locator('.game-question').waitFor({ timeout: 15000 });
+    const after = await page.evaluate(() => JSON.parse(localStorage.getItem('studyflow.v1')).coins.balance);
+    if (after !== balanceBefore - 10) throw new Error(`Einsatz falsch verbucht: ${balanceBefore} → ${after}`);
+  });
+
+  if (balanceBefore >= 10) {
+    await check('Spiel zeigt Aufgabe, Zeit und Punktestand', async () => {
+      await page.locator('.game-prompt').waitFor({ timeout: 5000 });
+      const zeit = await page.locator('[data-role="time-left"]').textContent();
+      if (!/\d+\s*s/.test(zeit)) throw new Error(`Zeitanzeige "${zeit}"`);
+      const punkte = await page.locator('[data-role="score"]').textContent();
+      if (punkte.trim() !== '0') throw new Error(`Startpunktzahl "${punkte}"`);
+    });
+
+    await check('Antwort im Spiel wird bewertet', async () => {
+      const option = page.locator('[data-role="option"]').first();
+      if (await option.count()) await option.click();
+      else {
+        await page.locator('[data-role="numeric-input"]').fill('1');
+        await page.locator('[data-role="numeric-form"] button[type=submit]').click();
+      }
+      await page.waitForTimeout(400);
+      const feedback = await page.locator('[data-role="feedback"]').textContent();
+      if (!feedback.trim()) throw new Error('keine Rückmeldung nach der Antwort');
+    });
+
+    await check('Runde beenden führt zur Auswertung', async () => {
+      await page.locator('[data-role="abort"]').click();
+      await page.locator('.game-result-score').waitFor({ timeout: 5000 });
+      const runs = await page.evaluate(() => JSON.parse(localStorage.getItem('studyflow.v1')).gameRuns.length);
+      if (!runs) throw new Error('Ergebnis wurde nicht gespeichert');
+    });
+  }
+
   /* ---------------------------- Einstellungen -------------------------- */
   console.log('\n== Einstellungen und Darstellung ==');
   await go('/einstellungen');
@@ -711,6 +776,65 @@ try {
     await go('/thema/ma5-natuerliche-zahlen/lernen');
     await seeText('in Vorbereitung');
   });
+
+  /* ----------------------------- Grundschule --------------------------- */
+  // Eigener Kontext mit leerem Speicher: Die Einrichtung soll für die
+  // Primarstufe genauso funktionieren wie für die Sekundarstufe.
+  console.log('\n== Grundschule ==');
+  const gsContext = await browser.newContext({ viewport: { width: 390, height: 844 }, locale: 'de-DE', isMobile: true, hasTouch: true });
+  const gs = await gsContext.newPage();
+  gs.on('pageerror', (error) => consoleErrors.push(`pageerror (Grundschule): ${error.message}`));
+  gs.on('console', (message) => { if (message.type() === 'error') consoleErrors.push(`Grundschule: ${message.text()}`); });
+  const gsGo = async (hash) => { await gs.evaluate((h) => { window.location.hash = h; }, hash); await gs.waitForTimeout(500); };
+
+  await gs.goto(base, { waitUntil: 'networkidle' });
+  await check('Grundschule steht zur Auswahl', async () => {
+    await gs.locator('[data-role="pick-state"][data-value="by"]').click();
+    await gs.locator('[data-role="next"]').click();
+    await gs.locator('[data-role="pick-schooltype"][data-value="grundschule"]').waitFor({ timeout: 5000 });
+  });
+  await check('Grundschule bietet die Klassen 1 bis 4', async () => {
+    await gs.locator('[data-role="pick-schooltype"][data-value="grundschule"]').click();
+    await gs.locator('[data-role="next"]').click();
+    await gs.locator('[data-role="pick-grade"]').first().waitFor({ timeout: 5000 });
+    const werte = await gs.locator('[data-role="pick-grade"]').evaluateAll(
+      (els) => els.map((el) => Number(el.dataset.value)).sort((a, b) => a - b),
+    );
+    if (werte.join(',') !== '1,2,3,4') throw new Error(`Klassen ${werte.join(', ')}`);
+  });
+  await check('Sachunterricht wird angeboten', async () => {
+    await gs.locator('[data-role="pick-grade"][data-value="3"]').click();
+    await gs.locator('[data-role="next"]').click();
+    await gs.getByText('Sachunterricht', { exact: false }).first().waitFor({ timeout: 5000 });
+  });
+  await check('Einrichtung der Grundschule abschließen', async () => {
+    await gs.locator('[data-role="next"]').click();
+    await gs.locator('[data-role="name"]').fill('Tim');
+    await gs.locator('[data-role="next"]').click();
+    await gs.waitForTimeout(900);
+    // Der Name steht auch in der auf dem Handy verborgenen Sidebar — deshalb
+    // wird gezielt im Hauptbereich gesucht.
+    const text = await gs.evaluate(() => document.querySelector('#main')?.innerText || '');
+    if (!text.includes('Tim')) throw new Error(`Dashboard ohne Namen: ${text.slice(0, 80)}`);
+    const profil = await gs.evaluate(() => JSON.parse(localStorage.getItem('studyflow.v1')).profile);
+    if (profil.schoolType !== 'grundschule' || Number(profil.grade) !== 3) {
+      throw new Error(`Profil falsch gespeichert: ${profil.schoolType} / Klasse ${profil.grade}`);
+    }
+  });
+  await check('Grundschulthemen sind übbar', async () => {
+    await gsGo('/thema/ma3-mal-geteilt/ueben');
+    await gs.locator('.question').first().waitFor({ timeout: 8000 });
+  });
+  await check('Sekundarstufenthemen tauchen in der Grundschule nicht auf', async () => {
+    await gsGo('/faecher');
+    const text = await gs.evaluate(() => document.querySelector('#main').innerText);
+    if (/Klasse (5|6|7|8|9|10)/.test(text)) throw new Error('Sekundarstufe in der Grundschulansicht sichtbar');
+  });
+  await check('Keine Überbreite in der Grundschulansicht', async () => {
+    const overflow = await gs.evaluate(() => document.documentElement.scrollWidth - window.innerWidth);
+    if (overflow > 2) throw new Error(`${overflow}px Überbreite`);
+  });
+  await gsContext.close();
 
   /* --------------------------- Konsolenfehler -------------------------- */
   console.log('\n== Konsole ==');

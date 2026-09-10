@@ -9,11 +9,21 @@
 const POOLS = {
   'biologie': () => import('./biologie.js'),
   'chemie': () => import('./chemie.js'),
+  'deutsch': () => import('./deutsch.js'),
+  'englisch': () => import('./englisch.js'),
   'erdkunde': () => import('./erdkunde.js'),
+  'franzoesisch': () => import('./franzoesisch.js'),
   'geschichte': () => import('./geschichte.js'),
   'informatik': () => import('./informatik.js'),
+  'kunst': () => import('./kunst.js'),
+  'latein': () => import('./latein.js'),
   'mathematik': () => import('./mathematik.js'),
+  'musik': () => import('./musik.js'),
   'physik': () => import('./physik.js'),
+  'politik': () => import('./politik.js'),
+  'religion': () => import('./religion.js'),
+  'sachunterricht': () => import('./sachunterricht.js'),
+  'sport': () => import('./sport.js'),
 };
 
 const cache = new Map();

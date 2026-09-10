@@ -28,8 +28,17 @@ Alle Daten bleiben im Browser (`localStorage`), es gibt keinen Server und kein K
 | **Wiederholen** | Spaced Repetition mit den Intervallen 1 / 3 / 7 / 14 / 30 / 60 Tagen |
 | **KI-Assistent** | Beantwortet Rückfragen zum aktuellen Thema — offline aus den Lerninhalten, optional über ein eigenes Sprachmodell |
 | **Suche** | Findet Themen über Titel, Unterthemen, Synonyme und Tippfehler und zeigt den vollen Pfad („Mathematik → Klasse 8 → Bruchgleichungen") |
+| **Münzen** | Belohnung für nachgewiesenen Lernfortschritt — nie fürs blosse Klicken |
+| **Minispiel** | „Wissens-Blitz": 60 Sekunden, echte Aufgaben, Einsatz 10 Münzen |
 
-Kein Gamification-Beiwerk: keine RPG-Optik, keine Lootboxen, keine Spielelemente.
+Von der **Grundschule** (Klasse 1–4, mit Sachunterricht) bis zum **Abitur**:
+16 Bundesländer, 11 Schulformen, 17 Fächer.
+
+Münzen und Minispiel sind bewusst zurückhaltend gestaltet: keine RPG-Optik,
+keine Lootboxen, keine Zufallsbelohnungen. Münzen kommen ausschliesslich aus
+gemessenem Lernfortschritt, und das Spiel stellt echte Aufgaben aus den eigenen
+Fächern — es ist eine Übungsform auf Zeit, kein Glücksspiel.
+
 Light- und Dark-Mode, vollständig responsiv, Bottom-Navigation auf dem Handy,
 Tastaturbedienung und sichtbare Fokusringe überall.
 
@@ -75,9 +84,12 @@ assets/css/                base.css (Design-Tokens) · components.css · layout.
 src/core/                  dom.js · store.js · router.js · format.js · icons.js
 src/data/curriculum/       states.js · subjects.js · index.js · plans/<fach>.js
 src/data/content/          Ein Modul je Thema + generierte index.js / meta.js
+src/data/exercises/        Generierte Übungspools je Fach + index.js / meta.js
 src/domain/                grading · srs · progress · session · analytics · planner · exam · search · tutor
 src/ui/                    shell.js · components/ · views/
-tools/                     build-content-index.mjs · validate-content.mjs · smoke.mjs · env-shim.mjs
+tools/                     build-content-index.mjs · build-exercises.mjs ·
+                           validate-content.mjs · smoke.mjs · env-shim.mjs
+tools/exercise-builders/   Generatoren der Übungspools, einer je Fach
 ```
 
 **Trennung der Schichten:** `data` kennt kein DOM, `domain` rechnet nur auf Daten und
@@ -88,7 +100,13 @@ Fortschritt, Prüfungsbau) in Node testen, ohne einen Browser zu starten.
 
 Der gesamte Lernstand liegt unter dem `localStorage`-Schlüssel `studyflow.v1`:
 Profil, Einstellungen, ein Datensatz je Thema (Abschnitte, Aufgabenstatistik,
-Kompetenzen, Wiederholungsdaten), Sitzungen, Prüfungen, Lernpläne, Lernzeit und Ziele.
+Kompetenzen, Wiederholungsdaten), Sitzungen, Prüfungen, Lernpläne, Lernzeit,
+Ziele, Münzen und Spielergebnisse.
+
+Die Aufgabenstatistik ist mit `themenId:aufgabenId` geschlüsselt. Die IDs der
+Aufgaben sind nur innerhalb ihres Moduls eindeutig — fast jedes Thema hat eine
+„q1"; ohne das Thema im Schlüssel würden sich die Statistiken der Fächer
+vermischen.
 Fehlende Felder werden beim Laden gegen die Vorgaben ergänzt, sodass neue Versionen
 alte Stände weiterverwenden können. Offene Tabs synchronisieren sich über das
 `storage`-Ereignis. Unter **Einstellungen** lässt sich der Stand exportieren,
@@ -103,6 +121,31 @@ importieren und zurücksetzen.
   und 60 Tage verlängern sich bei sicheren Antworten und fallen bei Fehlern zurück.
 * **Schwächenanalyse** gewichtet jüngere Antworten stärker und erzeugt daraus die
   priorisierte Liste „Das solltest du als Nächstes lernen".
+
+### Münzen und Minispiel
+
+Münzen gibt es nur für etwas, das die App ohnehin als Lernerfolg verbucht:
+
+| Anlass | Münzen |
+| --- | --- |
+| Aufgabe vollständig richtig gelöst | 1 (einmal je Aufgabe und Tag) |
+| Lernabschnitt durchgearbeitet | 2 |
+| Übungsrunde abgeschlossen | 1–5, je nach Trefferquote |
+| Kompetenztest bestanden | 5 ab 60 %, 10 ab 90 % |
+| Prüfung abgeschlossen | 2–15, je nach Ergebnis |
+| Fällige Wiederholung erledigt | 3 |
+| Tagesziel erreicht | 10 |
+
+Zwei Regeln verhindern das Farmen: Dieselbe Aufgabe bringt pro Tag höchstens
+einmal eine Münze, und pro Tag sind höchstens 150 Münzen erreichbar.
+
+Das Minispiel **Wissens-Blitz** kostet 10 Münzen pro Runde. In 60 Sekunden
+werden echte Aufgaben aus den eigenen Fächern gestellt; jede richtige Antwort in
+Folge erhöht den Serienbonus. Je 25 Punkte gibt es eine Münze zurück (höchstens
+30) — der Einsatz lässt sich also durch gutes Spiel zurückgewinnen, aber nichts
+wird verlost. Antworten aus dem Spiel zählen für Aufgabenstatistik und
+Wiederholungsliste, geben aber keine Einzelmünzen: sonst liesse sich der Einsatz
+im Spiel selbst zurückholen.
 
 ---
 
@@ -145,8 +188,13 @@ Fächer in `subjects.js` (dort steht auch, in welchen Schulformen und Klassenstu
 Fach angeboten wird). Ein neues Fach braucht zusätzlich einen Eintrag im Plan-Register
 in `plans/` und ein Symbol in `src/core/icons.js`.
 
-Aktuell enthalten: 16 Bundesländer, 10 Schulformen, 16 Fächer, 366 Themen mit
-1241 Unterthemen von Klasse 5 bis 13.
+Aktuell enthalten: 16 Bundesländer, 11 Schulformen, 17 Fächer, 441 Themen mit
+1470 Unterthemen von Klasse 1 bis 13.
+
+Die Klassenstufen einer Schulform gehören ausschliesslich zu dieser Schulform:
+Ein Neuntklässler bekommt Klasse 5 bis 9 als Vorwissen angeboten, aber keine
+Grundschulthemen. Zuständig dafür ist `inSchoolType()` in
+`src/data/curriculum/index.js`.
 
 ### 2. Lerninhalte
 
@@ -192,10 +240,60 @@ so muss für das Dashboard nie der gesamte Inhalt geladen werden. **Beide Dateie
 generiert und gehören mit in den Commit**; die GitHub-Action bricht ab, wenn sie nicht
 zum Stand der Inhalte passen.
 
-Aktuell enthalten: 34 ausformulierte Themen aus allen 16 Fächern (Klasse 5 bis 10) mit
-104 Abschnitten, 329 Aufgaben und 204 Verständnis-Checks.
+Aktuell enthalten: 34 ausformulierte Themen aus allen Fächern der Sekundarstufe
+mit 104 Abschnitten, 329 Aufgaben und 204 Verständnis-Checks.
 
-### 3. Aufgabentypen
+### 3. Übungspools
+
+Ausformulierte Lerninhalte sind aufwendig. Damit trotzdem jedes Fach geübt
+werden kann, gibt es zusätzlich einen **Übungspool je Fach** unter
+`src/data/exercises/<fach>.js`. Ein Thema ist schon dann übbar und testbar, wenn
+nur der Pool Aufgaben dazu liefert — der Kompetenztest baut sein Profil dann aus
+den Kompetenzen des Pools.
+
+Die Pools werden **erzeugt, nicht getippt**. Die Generatoren liegen unter
+`tools/exercise-builders/<fach>.mjs`:
+
+```bash
+node tools/build-exercises.mjs    # schreibt src/data/exercises/*.js
+node tools/validate-content.mjs   # prüft Lerninhalte und Pools gemeinsam
+```
+
+Das hat einen handfesten Grund: Wo gerechnet wird, rechnet der Generator die
+Lösung selbst aus. In einer Musterlösung kann so kein Rechenfehler stehen. Für
+Wissensfächer erzeugen `factQuestions`, `yearQuestions` und `vocabQuestions` aus
+kompakten Faktentabellen mehrere Aufgabenformate — die falschen Antworten
+stammen dabei immer aus derselben Tabelle und sind dadurch fachlich plausibel.
+
+Ein Generator sieht so aus:
+
+```js
+export const competencies = { runden: 'Runden' };   // jede ID braucht einen Titel
+
+export default function build() {
+  const out = [];
+  const r = rng(2026);
+  for (let i = 0; i < 3; i++) {
+    const n = int(r, 120, 980);
+    out.push(numeric({
+      prefix: 'ma', topicId: 'ma3-zahlenraum-1000', grade: 3,
+      difficulty: 2, competency: 'runden',
+      prompt: `Runde ${n} auf volle Zehner.`,
+      answer: Math.round(n / 10) * 10,
+      explanation: `Die Einerstelle ist ${n % 10} …`,
+    }));
+  }
+  return out;
+}
+```
+
+Der Build prüft dabei: eindeutige IDs, existierende Themen-IDs, passende
+Klassenstufe, vorhandene Erklärung und einen Titel für jede Kompetenz.
+
+Aktuell enthalten: **1917 Übungen in 17 Fächern**, verteilt auf 350 Themen —
+jedes Fach hat mindestens 100.
+
+### 4. Aufgabentypen
 
 | Typ | Beschreibung | Wichtige Felder |
 | --- | --- | --- |
@@ -242,18 +340,21 @@ Konfiguration ins Leere läuft.
 ## Prüfen
 
 ```bash
-node tools/validate-content.mjs   # Lehrplan, Inhalte und alle Musterlösungen
-node tools/smoke.mjs              # kompletter Durchlauf im Browser (Playwright)
-node tools/smoke.mjs --shots      # zusätzlich Screenshots in .smoke-shots/
-node tools/smoke.mjs --headed     # sichtbares Browserfenster
+node tools/build-content-index.mjs   # Registry der Lerninhalte neu erzeugen
+node tools/build-exercises.mjs       # Übungspools neu erzeugen
+node tools/validate-content.mjs      # Lehrplan, Inhalte, Pools und alle Musterlösungen
+node tools/smoke.mjs                 # kompletter Durchlauf im Browser (Playwright)
+node tools/smoke.mjs --shots         # zusätzlich Screenshots in .smoke-shots/
+node tools/smoke.mjs --headed        # sichtbares Browserfenster
 ```
 
-Der Rauchtest startet einen statischen Server und geht in Chromium mit 85 Prüfungen den
-vollständigen Weg von der Einrichtung bis zur Auswertung durch — inklusive echter
-Antworten auf jeden Aufgabentyp, Prüfung mit Zeitlimit, Lernplan, Wiederholung, Suche,
-Dark Mode, mobiler und Tablet-Ansicht sowie Neuladen. Er schlägt fehl, sobald ein
-erwartetes Element fehlt, eine Seite horizontal überläuft oder die Konsole eine
-Fehlermeldung ausgibt.
+Der Rauchtest startet einen statischen Server und geht in Chromium mit 99 Prüfungen
+den vollständigen Weg von der Einrichtung bis zur Auswertung durch — inklusive
+echter Antworten auf jeden Aufgabentyp, Prüfung mit Zeitlimit, Lernplan,
+Wiederholung, Münzen, Minispiel, Suche, Dark Mode, mobiler und Tablet-Ansicht,
+einer zweiten Einrichtung als Grundschulkind sowie Neuladen. Er schlägt fehl,
+sobald ein erwartetes Element fehlt, eine Seite horizontal überläuft oder die
+Konsole eine Fehlermeldung ausgibt.
 
 ---
 
