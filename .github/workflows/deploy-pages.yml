@@ -41,7 +41,16 @@ jobs:
             git --no-pager diff --stat -- src/data/content/index.js src/data/content/meta.js
             exit 1
           fi
-      - name: Lehrplan und Aufgaben validieren
+      - name: Übungspools neu erzeugen und auf Änderungen prüfen
+        run: |
+          node tools/build-exercises.mjs
+          if ! git diff --quiet -- src/data/exercises; then
+            echo "::error::Die generierten Übungspools sind nicht aktuell."
+            echo "Bitte 'node tools/build-exercises.mjs' ausführen und das Ergebnis committen."
+            git --no-pager diff --stat -- src/data/exercises
+            exit 1
+          fi
+      - name: Lehrplan, Inhalte und Übungen validieren
         run: node tools/validate-content.mjs
 
   deploy:
