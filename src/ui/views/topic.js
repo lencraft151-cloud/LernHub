@@ -14,9 +14,7 @@ import { getTopicMeta, topicBreadcrumb, gradeLabel, getSubject } from '../../dat
 import { loadTopicContent, hasContent } from '../../data/content/index.js';
 import { lessonsWithProgress, topicLessonStats } from '../../domain/lessons.js';
 import { profileSetup, confirmDialog, toast } from '../shell.js';
-import {
-  pageHead, statTile, emptyState, statusBadge, competencyRow, subjectIcon,
-} from '../components/common.js';
+import { pageHead, statTile, emptyState, statusBadge, competencyRow } from '../components/common.js';
 import { progressRing, lineChart, progressBar, enhanceCharts } from '../components/charts.js';
 import { lessonList, lessonProgressStrip } from '../components/lessons.js';
 

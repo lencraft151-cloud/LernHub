@@ -4,12 +4,10 @@
  * Schwächen · Lernzeit · Ziele
  */
 
-import { html, mount, raw, delegate } from '../../core/dom.js';
+import { html, mount } from '../../core/dom.js';
 import { icon } from '../../core/icons.js';
 import { store } from '../../core/store.js';
-import {
-  percentOf, duration, integer, relativeDay, durationShort, isoDate,
-} from '../../core/format.js';
+import { percentOf, duration, integer, relativeDay, durationShort } from '../../core/format.js';
 import {
   overallProgress, subjectProgress, dueTopics, recentTopics, timeStats,
   computeStreak, answerStats,
@@ -19,9 +17,9 @@ import {
 } from '../../domain/analytics.js';
 import { syncPlan } from '../../domain/planner.js';
 import { topicLessonStats } from '../../domain/lessons.js';
-import { lessonProgressStrip, starRow } from '../components/lessons.js';
+import { lessonProgressStrip } from '../components/lessons.js';
 import { getSubject, gradeLabel } from '../../data/curriculum/index.js';
-import { profileSetup, toast } from '../shell.js';
+import { profileSetup } from '../shell.js';
 import {
   pageHead, recommendationItem, statTile, subjectIcon, statusDot, emptyState, statusLegend,
 } from '../components/common.js';

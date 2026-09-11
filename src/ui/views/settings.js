@@ -4,17 +4,16 @@ import { html, mount, delegate, $ } from '../../core/dom.js';
 import { icon } from '../../core/icons.js';
 import { store } from '../../core/store.js';
 import { navigate } from '../../core/router.js';
-import { duration, integer, percentOf, formatDate } from '../../core/format.js';
+import { duration, integer } from '../../core/format.js';
 import { overallProgress, answerStats, timeStats } from '../../domain/progress.js';
 import {
-  STATES, schoolTypesForState, gradesForSchoolType, gradeLabel, subjectsFor,
-  SUBJECT_GROUPS, getState, getSchoolType, CURRICULUM_STATS, defaultSubjectSelection,
+  STATES, schoolTypesForState, gradesForSchoolType, gradeLabel, subjectsFor, SUBJECT_GROUPS, CURRICULUM_STATS, defaultSubjectSelection,
 } from '../../data/curriculum/index.js';
 import { CONTENT_TOTALS } from '../../data/content/meta.js';
 import { hasPractice } from '../../domain/topics.js';
 import { getAreas } from '../../data/curriculum/index.js';
 import { profileSetup, toast, confirmDialog, applyTheme, updateShell } from '../shell.js';
-import { pageHead, statTile, emptyState } from '../components/common.js';
+import { pageHead, statTile } from '../components/common.js';
 import { progressBar } from '../components/charts.js';
 import {
   pwaState, onPwaChange, promptInstall, warmOfflineCache, applyUpdate, checkForUpdate, refreshCacheStatus,

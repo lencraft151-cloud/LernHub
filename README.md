@@ -5,9 +5,16 @@ durch den vollständigen Lernweg — **Lehrplan auswählen → Thema auswählen 
 üben → Wissen testen → Ergebnis analysieren → Schwächen gezielt wiederholen** — und
 misst dabei laufend, ob der Stoff wirklich verstanden und behalten wurde.
 
+Der Weg durch ein Thema besteht aus **kurzen Lektionen**: Erklärung lesen, je
+Kompetenz üben, Abschlusstest schreiben. Jede Lektion dauert wenige Minuten und
+endet mit einem eigenen Ergebnis aus bis zu drei Sternen. Aus 441 Lehrplanthemen
+ergeben sich so **1179 Lektionen** — jedes Thema hat Inhalt, keines steht leer.
+
 Die App ist eine statische Single-Page-Anwendung **ohne Build-Schritt**: Sie besteht
 aus reinen ES-Modulen und läuft direkt aus dem Repository heraus auf GitHub Pages.
 Alle Daten bleiben im Browser (`localStorage`), es gibt keinen Server und kein Konto.
+Nach dem ersten Besuch läuft sie **vollständig offline** und lässt sich als App
+installieren.
 
 ---
 
@@ -16,31 +23,36 @@ Alle Daten bleiben im Browser (`localStorage`), es gibt keinen Server und kein K
 | Bereich | Was passiert |
 | --- | --- |
 | **Einrichtung** | Bundesland, Schulform, Klassenstufe und Fächer wählen; daraus wird der Lehrplan abgeleitet |
-| **Dashboard** | Weiterlernen-Karte, Tagesziel, empfohlene Themen, fällige Wiederholungen, erkannte Schwächen, Lernzeit, Gesamtfortschritt |
-| **Fächer** | Fortschritt, bearbeitete und offene Themen, durchschnittliche Testleistung je Fach |
-| **Themen** | Status 🟢 sicher · 🟡 unsicher · 🔴 wiederholen · ⚪ noch nicht gelernt, jeweils mit Prozentwert |
+| **Dashboard** | Die nächste Lektion direkt startbar, Tagesziel, Empfehlungen, fällige Wiederholungen, erkannte Schwächen, Lernzeit |
+| **Fächer** | Fachkacheln mit Lektionsfortschritt, gesammelten Sternen und dem nächsten Schritt |
+| **Lektionen** | Erklärung, Übung je Kompetenz, Abschlusstest — jede in wenigen Minuten, mit Sternen bewertet und Bestwert-Speicherung |
+| **Themen** | Lektionsliste als Hauptweg; Status 🟢 sicher · 🟡 unsicher · 🔴 wiederholen · ⚪ noch nicht gelernt |
 | **Lernen** | Erklärung, Schritt-für-Schritt-Beispiele, Merksätze, häufige Fehler, Zusammenfassung — nach jedem Abschnitt ein Verständnis-Check |
-| **Üben** | 11 Aufgabentypen, sofortige Rückmeldung mit Musterlösung, Erklärung und Fehleranalyse; falsche Aufgaben wandern automatisch in die Wiederholung |
+| **Üben** | 14 Aufgabentypen, sofortige Rückmeldung mit Musterlösung, Erklärung und Fehleranalyse; falsche Aufgaben wandern automatisch in die Wiederholung |
 | **Kompetenztest** | Test je Thema mit Kompetenzprofil und konkreter Empfehlung |
 | **Prüfungssimulator** | Fach, Themen, Aufgabenzahl, Schwierigkeit und Zeitlimit wählbar; Auswertung mit Punkten, Prozent, **simulierter Note (klar als Simulation gekennzeichnet)**, Fehleranalyse und Empfehlungen |
 | **Fortschritt** | Verlauf, Fächervergleich, Kompetenzen, Aufgabentypen, Lernzeit-Heatmap — jedes Diagramm zusätzlich als Tabelle |
 | **Lernplan** | Aus einem Ziel („Ich schreibe am Freitag eine Chemiearbeit") entsteht ein Tagesplan, der sich an die tatsächlichen Ergebnisse anpasst |
 | **Wiederholen** | Spaced Repetition mit den Intervallen 1 / 3 / 7 / 14 / 30 / 60 Tagen |
-| **KI-Assistent** | Beantwortet Rückfragen zum aktuellen Thema — offline aus den Lerninhalten, optional über ein eigenes Sprachmodell |
+| **KI-Assistent** | Beantwortet frei gestellte Fragen, indem er die passende Stelle in allen Lerninhalten findet und mit Quelle zeigt — ohne API-Schlüssel, ohne Internet |
+| **Offline-Betrieb** | Installierbar als App; die App-Shell liegt nach dem ersten Besuch vollständig auf dem Gerät, Lerninhalte auf Wunsch vorab |
 | **Suche** | Findet Themen über Titel, Unterthemen, Synonyme und Tippfehler und zeigt den vollen Pfad („Mathematik → Klasse 8 → Bruchgleichungen") |
 | **Münzen** | Belohnung für nachgewiesenen Lernfortschritt — nie fürs blosse Klicken |
 | **Minispiel** | „Wissens-Blitz": 60 Sekunden, echte Aufgaben, Einsatz 10 Münzen |
 
-Von der **Grundschule** (Klasse 1–4, mit Sachunterricht) bis zum **Abitur**:
-16 Bundesländer, 11 Schulformen, 17 Fächer.
+Von der **Grundschule** (Klasse 1–4, mit Sachunterricht) bis zum **Abitur**
+(Klasse 13): 16 Bundesländer, 11 Schulformen, 17 Fächer, 441 Themen,
+1179 Lektionen, 2436 Übungsaufgaben und 329 ausgearbeitete Inhaltsaufgaben.
 
 Münzen und Minispiel sind bewusst zurückhaltend gestaltet: keine RPG-Optik,
 keine Lootboxen, keine Zufallsbelohnungen. Münzen kommen ausschliesslich aus
 gemessenem Lernfortschritt, und das Spiel stellt echte Aufgaben aus den eigenen
 Fächern — es ist eine Übungsform auf Zeit, kein Glücksspiel.
 
-Light- und Dark-Mode, vollständig responsiv, Bottom-Navigation auf dem Handy,
-Tastaturbedienung und sichtbare Fokusringe überall.
+Light- und Dark-Mode, vollständig responsiv von 320 px bis 1920 px,
+Bottom-Navigation auf dem Handy, Sidebar ab Tablet-Querformat, Tippziele nach
+Eingabeart statt nach Fensterbreite, Tastaturbedienung (1–9 wählt eine Antwort,
+Enter prüft und blättert weiter) und sichtbare Fokusringe überall.
 
 ---
 
@@ -80,14 +92,18 @@ Neuladen auf jeder Unterseite.
 
 ```
 index.html                 App-Shell, Theme vor dem ersten Paint
+manifest.webmanifest       Installierbarkeit als App
+sw.js                      GENERIERT — Service Worker für den Offline-Betrieb
 assets/css/                base.css (Design-Tokens) · components.css · layout.css
-src/core/                  dom.js · store.js · router.js · format.js · icons.js
+assets/icons/              App-Icons (SVG und PNG, auch maskierbar)
+src/core/                  dom.js · store.js · router.js · format.js · icons.js · pwa.js
 src/data/curriculum/       states.js · subjects.js · index.js · plans/<fach>.js
 src/data/content/          Ein Modul je Thema + generierte index.js / meta.js
 src/data/exercises/        Generierte Übungspools je Fach + index.js / meta.js
-src/domain/                grading · srs · progress · session · analytics · planner · exam · search · tutor
+src/domain/                grading · srs · progress · session · lessons · coins · analytics ·
+                           planner · exam · search · tutor · tutor-knowledge
 src/ui/                    shell.js · components/ · views/
-tools/                     build-content-index.mjs · build-exercises.mjs ·
+tools/                     build-content-index.mjs · build-exercises.mjs · build-sw.mjs ·
                            validate-content.mjs · smoke.mjs · env-shim.mjs
 tools/exercise-builders/   Generatoren der Übungspools, einer je Fach
 ```
@@ -111,6 +127,53 @@ Fehlende Felder werden beim Laden gegen die Vorgaben ergänzt, sodass neue Versi
 alte Stände weiterverwenden können. Offene Tabs synchronisieren sich über das
 `storage`-Ereignis. Unter **Einstellungen** lässt sich der Stand exportieren,
 importieren und zurücksetzen.
+
+### Lektionen
+
+Lektionen werden **abgeleitet, nicht gepflegt**. Aus den Kompetenzen eines Themas
+und der Zahl der Aufgaben je Kompetenz entsteht ein fester Plan:
+
+| Art | Inhalt | Wann |
+| --- | --- | --- |
+| **Erklärung** | Der vollständige Lerntext des Themas | wenn ausgearbeitete Inhalte vorliegen |
+| **Übung** | 6 Aufgaben einer Kompetenz | je angefangene 6 Aufgaben einer Kompetenz |
+| **Abschlusstest** | 10 Aufgaben, aus jeder Kompetenz etwas | ab zwei Übungslektionen |
+
+Das hat zwei Vorteile: Neue Aufgaben erscheinen automatisch als neue Lektionen,
+und die Zuordnung bleibt stabil, solange die Kompetenz-IDs stabil bleiben — nur
+daran hängt der gespeicherte Fortschritt.
+
+Die Lektions-ID lautet `thema~intro`, `thema~p-<kompetenz>-<teil>` oder
+`thema~final`. Sie steht in der URL und besteht deshalb nur aus URL-sicheren
+Zeichen. Der Plan ist **synchron** abrufbar (aus den generierten Kennzahlen),
+die Aufgaben werden erst beim Öffnen geladen.
+
+Bewertet wird mit **Sternen** ab 60 %, 80 % und 95 % Trefferquote. Gespeichert
+wird der Bestwert: Sterne und Trefferquote sinken bei einem schlechteren
+Versuch nicht. Münzen gibt es nur beim ersten Abschluss und bei echter
+Verbesserung — sonst liesse sich dieselbe Lektion beliebig oft abrechnen.
+
+### Offline-Betrieb und Installation
+
+StudyFlow rechnet, bewertet und speichert vollständig im Browser. Daraus folgt
+der Offline-Betrieb: Einmal geladen, läuft die App im Bus, im Keller und im
+Schullandheim weiter.
+
+`sw.js` wird von `tools/build-sw.mjs` aus dem tatsächlichen Dateibestand
+erzeugt — zwei Listen, zwei Zwecke:
+
+* **Shell** (rund 80 Dateien): alles zum Starten. Wird bei der Installation
+  geladen; danach startet die App ohne Netz.
+* **Inhalte** (rund 50 Dateien): Lerntexte und Übungspools. Kommen beim Lesen
+  in den Cache — oder alle auf einmal über **Einstellungen → App und
+  Offline-Betrieb → Alle Inhalte offline laden**.
+
+Der Cache-Name trägt einen Hash über alle Dateien. Ändert sich irgendetwas,
+entsteht ein neuer Cache und der alte wird beim Aktivieren gelöscht; ein halb
+aktualisierter Stand kann nicht entstehen. Alle Pfade sind relativ zum Scope,
+damit die App auch unter `/<repo>/` funktioniert.
+
+Der Workflow prüft bei jedem Push, ob `sw.js` zum Dateibestand passt.
 
 ### Bewertung und Fortschritt
 
@@ -308,6 +371,13 @@ jedes Fach hat mindestens 100.
 | `free` | Freie Antwort | `keywords[]`, `minKeywords`, `modelAnswer` |
 | `term` | Begriff erklären | wie `free` |
 | `analysis` | Textanalyse | wie `free`, zusätzlich `context` mit dem Textauszug |
+| `mark` | Wörter im Satz markieren | `words[]`, `answer: [index]` |
+| `sentence` | Satz aus Wortkarten bauen | `words[]` in richtiger Folge, `accept[]` |
+| `category` | Begriffe einsortieren | `categories[]`, `items: [{ text, category }]` |
+
+Die drei letzten sind die **sprachlichen Typen**: Satzglieder markieren, einen
+Satz aus Wortkarten zusammensetzen, Wörter nach Wortart oder Regel sortieren.
+Sie werden in Deutsch, Englisch und Französisch eingesetzt.
 
 Offene Antworten (`free`, `term`, `analysis`) werden über eine Stichwortanalyse
 vorbewertet; anschließend vergleicht die Lernende ihre Antwort mit der Musterlösung und
@@ -321,19 +391,46 @@ werden, deren angegebene Lösung als falsch gewertet würde.
 
 ## KI-Lernassistent
 
-Der Assistent arbeitet standardmäßig **offline**: Er erkennt 13 Absichten
-(„Erkläre mir das einfacher", „Warum ist diese Antwort falsch?", „Gib mir ein weiteres
-Beispiel", „Frag mich dazu ab", „Erkläre es wie für Klasse 7", „Mach mir 10 Aufgaben
-dazu" …) und beantwortet sie aus den Feldern des jeweiligen Inhaltsmoduls — also aus
-echtem Lernstoff, nicht aus Textbausteinen. Er kennt dabei immer das aktuelle Fach und
-Thema sowie den eigenen Lernstand.
+Der Assistent braucht **keinen API-Schlüssel und kein Internet**. Er kann zwei
+Dinge:
 
-Wer möchte, hinterlegt unter **Einstellungen → KI-Assistent** ein eigenes Modell
-(Anthropic Messages API oder eine OpenAI-kompatible Schnittstelle). Der Schlüssel wird
-ausschließlich lokal im Browser gespeichert und direkt an den gewählten Endpunkt
-geschickt. Der Assistent bekommt dann den Inhalt des aktuellen Themas als Kontext mit.
-Ohne Schlüssel bleibt der Offline-Modus aktiv — es gibt keine Funktion, die ohne
-Konfiguration ins Leere läuft.
+**1. Absichten erkennen.** 13 Formulierungen wie „Erkläre mir das einfacher",
+„Warum ist diese Antwort falsch?", „Gib mir ein weiteres Beispiel", „Frag mich
+dazu ab", „Erkläre es wie für Klasse 7" oder „Mach mir 10 Aufgaben dazu" werden
+aus den Feldern des Inhaltsmoduls beantwortet — mit echtem Lernstoff und mit
+Blick auf den eigenen Lernstand. Themen ohne ausgearbeiteten Lerntext bedient er
+aus ihrem Übungspool.
+
+**2. Frei gestellte Fragen nachschlagen.** „Was ist Fotosynthese?", „Wie rechne
+ich Prozent aus?", „Was bedeutet Protolyse?" — dafür sucht er die passende
+Stelle in allen Lerninhalten und zeigt sie **mitsamt Quelle**. Er formuliert
+nichts frei, und genau das ist der Punkt: Was auf dem Bildschirm steht, ist
+immer belegt — ein Abschnitt, ein Merksatz, ein Begriff, die Erklärung einer
+Aufgabe. Findet er nichts, sagt er das und nennt die nächstgelegenen Themen,
+statt etwas zu erfinden.
+
+Der Abruf in `src/domain/tutor-knowledge.js` läuft zweistufig, weil Inhalte erst
+beim Öffnen geladen werden:
+
+1. **Grob** — über den vorhandenen Themenindex (synchron) bestimmen, welche
+   Themen zur Frage passen könnten. Gesucht wird mit den entkernten Begriffen,
+   nicht mit dem ganzen Satz: In „Was ist eine Primzahl?" trägt nur ein Wort
+   Bedeutung.
+2. **Fein** — nur von diesen wenigen Themen die Inhalte laden, in Passagen
+   zerlegen und mit TF-IDF gegen die Frage bewerten.
+
+So bleibt der Abruf schnell, ohne dass 2,6 MB Lerninhalte im Speicher liegen.
+Deutsche Zusammensetzungen werden dabei mitgezählt — wer „Prozent" fragt, findet
+auch „Prozentsatz", „Prozentwert" und „Prozentrechnung". Definitionsfragen
+(„Was ist …?") bevorzugen die erklärenden Passagen; ein Begriffseintrag zählt
+nur dann als Volltreffer, wenn wirklich sein Stichwort gefragt war.
+
+Wer möchte, hinterlegt zusätzlich unter **Einstellungen → KI-Assistent** ein
+eigenes Modell (Anthropic Messages API oder eine OpenAI-kompatible
+Schnittstelle). Der Schlüssel wird ausschließlich lokal im Browser gespeichert
+und direkt an den gewählten Endpunkt geschickt; der Assistent bekommt dann den
+Inhalt des aktuellen Themas als Kontext mit. Ohne Schlüssel bleibt der lokale
+Modus aktiv — es gibt keine Funktion, die ohne Konfiguration ins Leere läuft.
 
 ---
 
@@ -342,19 +439,33 @@ Konfiguration ins Leere läuft.
 ```bash
 node tools/build-content-index.mjs   # Registry der Lerninhalte neu erzeugen
 node tools/build-exercises.mjs       # Übungspools neu erzeugen
+node tools/build-sw.mjs              # Service Worker neu erzeugen
 node tools/validate-content.mjs      # Lehrplan, Inhalte, Pools und alle Musterlösungen
 node tools/smoke.mjs                 # kompletter Durchlauf im Browser (Playwright)
 node tools/smoke.mjs --shots         # zusätzlich Screenshots in .smoke-shots/
 node tools/smoke.mjs --headed        # sichtbares Browserfenster
 ```
 
-Der Rauchtest startet einen statischen Server und geht in Chromium mit 99 Prüfungen
-den vollständigen Weg von der Einrichtung bis zur Auswertung durch — inklusive
-echter Antworten auf jeden Aufgabentyp, Prüfung mit Zeitlimit, Lernplan,
-Wiederholung, Münzen, Minispiel, Suche, Dark Mode, mobiler und Tablet-Ansicht,
-einer zweiten Einrichtung als Grundschulkind sowie Neuladen. Er schlägt fehl,
-sobald ein erwartetes Element fehlt, eine Seite horizontal überläuft oder die
-Konsole eine Fehlermeldung ausgibt.
+Der Rauchtest startet einen statischen Server und geht in Chromium mit
+**137 Prüfungen** den vollständigen Weg von der Einrichtung bis zur Auswertung
+durch. Dazu gehören:
+
+* echte Antworten auf jeden der 14 Aufgabentypen
+* eine Lektion von der ersten Aufgabe bis zum Sternergebnis, inklusive
+  gespeichertem Fortschritt nach einem Neuladen
+* eine Gerätematrix von 360 px bis 1920 px: kein Querscrollen, erreichbare
+  Navigation, ausreichend grosse Tippziele, Kopfzeile verdeckt den Seitenanfang
+  nicht
+* Offline-Betrieb: Service Worker registriert sich, App startet ohne Netz,
+  Fortschritt lässt sich ohne Netz speichern, Inhalte lassen sich vorab laden
+* der Assistent: freie Frage im Thema, freie Frage ohne Thema, ausgewiesene
+  Quelle — und eine erfundene Frage, auf die er mit einer Fehlanzeige antworten
+  muss statt etwas zu erfinden
+* Prüfung mit Zeitlimit, Lernplan, Wiederholung, Münzen, Minispiel, Suche,
+  Dark Mode, eine zweite Einrichtung als Grundschulkind
+
+Er schlägt fehl, sobald ein erwartetes Element fehlt, eine Seite horizontal
+überläuft oder die Konsole eine Fehlermeldung ausgibt.
 
 ---
 
@@ -370,8 +481,18 @@ Konsole eine Fehlermeldung ausgibt.
 * **Diagramme als Inline-SVG**, bedienbar mit Maus und Tastatur, jeweils mit
   umschaltbarer Tabellenansicht. Die Farbpalette ist auf Farbsehschwächen geprüft.
 * **Barrierefreiheit:** semantische Landmarks, `aria-live` für Rückmeldungen,
-  Tastaturkürzel (`/` und `Strg`/`Cmd` + `K` für die Suche), reduzierte Animationen bei
-  `prefers-reduced-motion`.
+  Tastaturkürzel (`/` und `Strg`/`Cmd` + `K` für die Suche, `1`–`9` und `Enter` in
+  Aufgaben), reduzierte Animationen bei `prefers-reduced-motion`.
+* **Generierte Artefakte statt gepflegter Listen.** Inhaltsregistry, Übungspools
+  und Service Worker entstehen aus Werkzeugen und werden im Workflow gegen den
+  Quellstand geprüft. Ein vergessener Eintrag kann damit nicht ausgeliefert
+  werden.
+* **Übungsaufgaben werden gerechnet, nicht getippt.** Die Generatoren lassen
+  Zahlenwerte ausrechnen; in einer Musterlösung kann so kein Rechenfehler stehen.
+  Ein fester Zufallsstartwert macht die Ausgabe byteweise reproduzierbar.
+* **Eingabeart statt Fensterbreite.** Tippziele richten sich nach
+  `pointer: coarse`: Ein 800 px breites Tablet wird mit dem Finger bedient, ein
+  gleich breites Browserfenster am Notebook nicht.
 
 ## Hinweise
 
@@ -379,3 +500,7 @@ Die simulierte Note im Prüfungssimulator ist eine **Orientierung, keine Bewertu
 sie beruht auf einem gängigen Punkteschlüssel und ist in der Oberfläche entsprechend
 gekennzeichnet. Die Lehrplandaten bilden typische Themenfolgen der Sekundarstufe ab und
 ersetzen nicht den verbindlichen Kernlehrplan des jeweiligen Bundeslandes.
+
+Der KI-Assistent **erfindet keine Antworten**. Er zeigt Stellen aus den
+Lerninhalten dieser App und weist ihre Herkunft aus. Was dort nicht steht, kann
+er nicht beantworten — und sagt das auch.

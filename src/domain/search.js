@@ -10,7 +10,7 @@
  * normalisiert, leicht gestemmt und zusätzlich unscharf verglichen.
  */
 
-import { getAllTopics, getSubject, SUBJECTS } from '../data/curriculum/index.js';
+import { getAllTopics, SUBJECTS } from '../data/curriculum/index.js';
 import { contentTerms } from '../data/content/meta.js';
 import { hasContent, hasPractice } from './topics.js';
 import { normalizeText, similarity } from './grading.js';

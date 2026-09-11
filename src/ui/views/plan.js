@@ -14,13 +14,13 @@ import { navigate } from '../../core/router.js';
 import {
   percentOf, integer, formatDate, formatDateShort, isoDate, addDays, weekdayName, daysBetween,
 } from '../../core/format.js';
-import { createPlan, syncPlan, suggestTopicsForExam, TASK_TYPES, remainingMinutes } from '../../domain/planner.js';
+import { createPlan, syncPlan, suggestTopicsForExam, remainingMinutes } from '../../domain/planner.js';
 import { dueTopics } from '../../domain/progress.js';
-import { getSubject, getAreas, gradeLabel } from '../../data/curriculum/index.js';
+import { getSubject, getAreas } from '../../data/curriculum/index.js';
 import { hasPractice } from '../../domain/topics.js';
 import { profileSetup, toast, confirmDialog } from '../shell.js';
 import { pageHead, emptyState, statTile, subjectIcon } from '../components/common.js';
-import { progressBar, progressRing } from '../components/charts.js';
+import { progressRing } from '../components/charts.js';
 
 export function renderPlan(root, { query }) {
   const state = store.get();

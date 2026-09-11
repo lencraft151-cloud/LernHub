@@ -1,14 +1,12 @@
 /** Fächerübersicht — alle gewählten Fächer mit Fortschritt. */
 
 import { html, mount, delegate } from '../../core/dom.js';
-import { icon } from '../../core/icons.js';
+
 import { store } from '../../core/store.js';
 import { navigate } from '../../core/router.js';
 import { integer, duration } from '../../core/format.js';
 import { subjectProgress, overallProgress } from '../../domain/progress.js';
-import {
-  SUBJECTS, SUBJECT_GROUPS, subjectsFor, gradeLabel, getSubject,
-} from '../../data/curriculum/index.js';
+import { SUBJECT_GROUPS, subjectsFor, gradeLabel } from '../../data/curriculum/index.js';
 import { profileSetup } from '../shell.js';
 import { pageHead, subjectCard, statTile, emptyState, statusLegend } from '../components/common.js';
 

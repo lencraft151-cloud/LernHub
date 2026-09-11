@@ -20,7 +20,7 @@ import { getTopicMeta, topicBreadcrumb, getSubject } from '../../data/curriculum
 import { loadTopicContent } from '../../data/content/index.js';
 import { exercisesForTopic } from '../../data/exercises/index.js';
 import { exerciseCompetencies } from '../../data/exercises/meta.js';
-import { profileSetup, confirmDialog, toast } from '../shell.js';
+import { profileSetup, confirmDialog } from '../shell.js';
 import {
   pageHead, emptyState, statusBadge, competencyRow, statTile,
 } from '../components/common.js';

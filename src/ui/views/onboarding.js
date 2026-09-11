@@ -3,7 +3,7 @@
  * Bundesland → Schulform → Klassenstufe → Fächer → Name & Tagesziel
  */
 
-import { html, mount, delegate, $, $$ } from '../../core/dom.js';
+import { html, mount, delegate, $ } from '../../core/dom.js';
 import { icon } from '../../core/icons.js';
 import { store } from '../../core/store.js';
 import { navigate } from '../../core/router.js';

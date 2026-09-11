@@ -1,6 +1,6 @@
 /** Themenübersicht eines Fachs — nach Klassenstufe und Themenbereich gegliedert. */
 
-import { html, mount, delegate, raw } from '../../core/dom.js';
+import { html, mount, delegate } from '../../core/dom.js';
 import { icon } from '../../core/icons.js';
 import { store } from '../../core/store.js';
 import { navigate } from '../../core/router.js';
@@ -10,12 +10,10 @@ import { nextTopicInSubject } from '../../domain/analytics.js';
 import {
   getSubject, getAreas, gradesWithPlan, gradeLabel,
 } from '../../data/curriculum/index.js';
-import { hasContent } from '../../data/content/index.js';
+
 import { topicLessonStats, nextLesson } from '../../domain/lessons.js';
 import { profileSetup } from '../shell.js';
-import {
-  pageHead, topicRow, statTile, subjectIcon, emptyState, statusLegend,
-} from '../components/common.js';
+import { pageHead, topicRow, statTile, emptyState, statusLegend } from '../components/common.js';
 import { progressBar, progressRing, donutChart, enhanceCharts } from '../components/charts.js';
 
 export function renderSubject(root, { params, query }) {

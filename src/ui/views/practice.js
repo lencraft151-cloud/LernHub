@@ -19,7 +19,7 @@ import { nextTopicInSubject } from '../../domain/analytics.js';
 import { getTopicMeta, topicBreadcrumb, getSubject } from '../../data/curriculum/index.js';
 import { loadTopicContent } from '../../data/content/index.js';
 import { exercisesForTopic } from '../../data/exercises/index.js';
-import { profileSetup, toast } from '../shell.js';
+import { profileSetup } from '../shell.js';
 import { rememberWrongAnswer } from './assistant.js';
 import { pageHead, emptyState, statusBadge, competencyRow, statTile } from '../components/common.js';
 import { QuizRunner } from '../components/quiz.js';

@@ -24,7 +24,6 @@ import {
   renderBlocks, renderKeyFacts, renderCommonMistakes, renderGlossary, renderRecap,
 } from '../components/content.js';
 import { QuizRunner } from '../components/quiz.js';
-import { progressBar } from '../components/charts.js';
 
 let disposeTracker = null;
 const runners = [];

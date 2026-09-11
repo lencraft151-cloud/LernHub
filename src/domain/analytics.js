@@ -12,12 +12,11 @@
 
 import { QUESTION_TYPES } from './grading.js';
 import { hasActivity, topicMastery, topicStatus, topicView } from './progress.js';
-import { overdueDays, retention } from './srs.js';
+import { retention } from './srs.js';
 import { competencyList } from '../data/content/meta.js';
 import { hasPractice } from './topics.js';
 import { topicLessonStats } from './lessons.js';
 import { getAllTopics, getAreas, getTopicMeta, inSchoolType } from '../data/curriculum/index.js';
-import { daysBetween } from '../core/format.js';
 
 /** Themen des Setups mit allen abgeleiteten Werten. */
 export function scopedTopics(state, setup, now = new Date()) {

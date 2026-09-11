@@ -11,7 +11,7 @@ import { $ } from './core/dom.js';
 import { router, navigate, replaceNavigate } from './core/router.js';
 import { store } from './core/store.js';
 import { isValidSetup, subjectsFor, defaultSubjectSelection } from './data/curriculum/index.js';
-import { renderShell, updateShell, applyTheme, profileSetup } from './ui/shell.js';
+import { renderShell, updateShell, applyTheme } from './ui/shell.js';
 
 import { renderOnboarding } from './ui/views/onboarding.js';
 import { renderDashboard } from './ui/views/dashboard.js';

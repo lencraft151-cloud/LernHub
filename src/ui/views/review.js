@@ -1,12 +1,12 @@
 /** Fällige Wiederholungen an einem Ort. */
 
-import { html, mount, delegate } from '../../core/dom.js';
+import { html, mount } from '../../core/dom.js';
 import { icon } from '../../core/icons.js';
 import { store } from '../../core/store.js';
 import { percentOf, integer, relativeDay } from '../../core/format.js';
 import { dueTopics, staleTopics } from '../../domain/progress.js';
 import { INTERVAL_STEPS, dueLabel } from '../../domain/srs.js';
-import { getSubject, getTopicMeta } from '../../data/curriculum/index.js';
+import { getTopicMeta } from '../../data/curriculum/index.js';
 import { profileSetup } from '../shell.js';
 import { pageHead, emptyState, statTile, subjectIcon, statusDot } from '../components/common.js';
 

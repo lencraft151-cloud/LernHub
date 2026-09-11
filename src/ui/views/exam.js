@@ -7,7 +7,7 @@
  * ausdrücklich als Simulation gekennzeichnete Note und eine Fehleranalyse.
  */
 
-import { html, mount, delegate, raw, $, $$ } from '../../core/dom.js';
+import { html, mount, delegate, raw, $ } from '../../core/dom.js';
 import { icon } from '../../core/icons.js';
 import { store } from '../../core/store.js';
 import { navigate } from '../../core/router.js';
@@ -19,15 +19,13 @@ import {
 } from '../../domain/exam.js';
 import { recordExam, recordAnswer, createTimeTracker } from '../../domain/session.js';
 import { suggestTopicsForExam } from '../../domain/planner.js';
-import { QUESTION_TYPES, OPEN_TYPES, grade as gradeAnswer } from '../../domain/grading.js';
-import { getSubject, getAreas, gradeLabel, getTopicMeta } from '../../data/curriculum/index.js';
+import { QUESTION_TYPES, OPEN_TYPES } from '../../domain/grading.js';
+import { getSubject, getAreas, getTopicMeta } from '../../data/curriculum/index.js';
 import { hasPractice } from '../../domain/topics.js';
 import { profileSetup, confirmDialog, toast } from '../shell.js';
-import {
-  pageHead, emptyState, statTile, subjectIcon, competencyRow,
-} from '../components/common.js';
-import { renderQuestion, readAnswer, renderFeedback, applyAnswerStyling } from '../components/quiz.js';
-import { progressRing, splitBar, barChart, lineChart, enhanceCharts } from '../components/charts.js';
+import { pageHead, emptyState, statTile, subjectIcon } from '../components/common.js';
+import { renderQuestion, readAnswer } from '../components/quiz.js';
+import { splitBar, barChart, lineChart, enhanceCharts } from '../components/charts.js';
 
 let timerHandle = null;
 let disposeTracker = null;

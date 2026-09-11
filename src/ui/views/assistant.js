@@ -6,7 +6,7 @@
  * ein eigener Modell-Endpunkt hinterlegt, wird dieser genutzt.
  */
 
-import { html, mount, raw, delegate, miniMarkdown, $ } from '../../core/dom.js';
+import { html, mount, delegate, miniMarkdown, $ } from '../../core/dom.js';
 import { icon } from '../../core/icons.js';
 import { store } from '../../core/store.js';
 import { navigate } from '../../core/router.js';
@@ -15,10 +15,10 @@ import { answerLocally, answerViaApi, suggestions, INTENTS } from '../../domain/
 import { topicMastery } from '../../domain/progress.js';
 import { recordAnswer } from '../../domain/session.js';
 import { scopedTopics } from '../../domain/analytics.js';
-import { getTopicMeta, topicPathLabel, getSubject } from '../../data/curriculum/index.js';
-import { hasContent } from '../../data/content/index.js';
-import { profileSetup, toast } from '../shell.js';
-import { pageHead, emptyState, subjectIcon, statusBadge } from '../components/common.js';
+import { getTopicMeta, topicPathLabel } from '../../data/curriculum/index.js';
+
+import { profileSetup } from '../shell.js';
+import { pageHead, subjectIcon } from '../components/common.js';
 import { QuizRunner } from '../components/quiz.js';
 
 /** Verlauf lebt nur für die Dauer der Sitzung. */
