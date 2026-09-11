@@ -19,12 +19,13 @@ export const clamp = (value, min = 0, max = 1) => Math.min(max, Math.max(min, va
 /** Lernzeit menschenlesbar: 45 Min., 1 Std. 20 Min., 2,5 Std. */
 export function duration(ms) {
   const totalMinutes = Math.round((ms ?? 0) / 60000);
-  if (totalMinutes < 1) return 'unter 1 Min.';
+  // Kurz genug, damit der Wert in einer Kennzahlenkachel nicht umbricht.
+  if (totalMinutes < 1) return '< 1 Min.';
   if (totalMinutes < 60) return `${totalMinutes} Min.`;
   const hours = Math.floor(totalMinutes / 60);
   const minutes = totalMinutes % 60;
   if (!minutes) return `${hours} Std.`;
-  return `${hours} Std. ${minutes} Min.`;
+  return `${hours}\u202FStd. ${minutes}\u202FMin.`;
 }
 
 export function durationShort(ms) {

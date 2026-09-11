@@ -454,6 +454,11 @@ table { border-collapse: collapse; width: 100%; }
 .row-top { align-items: flex-start; }
 .grow { flex: 1 1 auto; min-width: 0; }
 
+/* Das hidden-Attribut muss jede eigene display-Regel schlagen. Ohne diese
+   Zeile blieb der Tipp-Kasten einer Aufgabe sichtbar, weil `.note` selbst
+   `display: flex` setzt — die Lösung stand dann von Anfang an da. */
+[hidden] { display: none !important; }
+
 .muted { color: var(--text-muted); }
 .subtle { color: var(--text-subtle); }
 .small { font-size: var(--text-sm); }

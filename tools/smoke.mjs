@@ -221,9 +221,17 @@ try {
   console.log('\n== Fächer und Themen ==');
   await go('/faecher');
   await check('Fächerübersicht lädt', async () => { await seeText('Fächer'); });
-  await check('Fachkarten vorhanden', async () => {
-    const count = await page.locator('.card-link').count();
-    if (count < 4) throw new Error(`nur ${count} Fachkarten`);
+  await check('Fachkacheln vorhanden', async () => {
+    const count = await page.locator('.subject-tile').count();
+    if (count < 4) throw new Error(`nur ${count} Fachkacheln`);
+  });
+  await check('Fachkacheln zeigen den Lektionsstand', async () => {
+    const text = await page.locator('.subject-tile').first().innerText();
+    if (!/Lektion/i.test(text) && !/Vorbereitung/i.test(text)) {
+      throw new Error(`Kachel zeigt "${text.replace(/\n/g, ' · ').slice(0, 70)}"`);
+    }
+    const balken = await page.locator('.subject-tile-bar').count();
+    if (!balken) throw new Error('kein Fortschrittsbalken');
   });
   await shot('faecher');
 
@@ -680,6 +688,26 @@ try {
     if (!/Lösungen/i.test(text)) throw new Error('keine Aufgaben mit Lösungen');
   });
 
+  await check('Tipps bleiben verborgen, bis man sie anfordert', async () => {
+    await go('/thema/ch9-saeuren-basen/ueben');
+    await page.locator('.question').first().waitFor({ timeout: 8000 });
+    // Bis zu einer Aufgabe mit Tipp blättern.
+    let gefunden = false;
+    for (let i = 0; i < 10 && !gefunden; i += 1) {
+      if (await page.locator('[data-role="hint"]').count()) { gefunden = true; break; }
+      const weiter = page.locator('[data-role="skip"]');
+      if (!(await weiter.count())) break;
+      await weiter.click();
+      await page.waitForTimeout(300);
+    }
+    if (!gefunden) return; // Diese Runde hatte keine Aufgabe mit Tipp.
+    const kasten = page.locator('[data-role="hint-box"]');
+    if (await kasten.isVisible()) throw new Error('Tipp war von Anfang an sichtbar');
+    await page.locator('[data-role="hint"]').click();
+    await page.waitForTimeout(200);
+    if (!(await kasten.isVisible())) throw new Error('Tipp erscheint nicht auf Klick');
+  });
+
   await shot('assistent');
 
   /* ------------------------------- Suche ------------------------------- */
@@ -935,6 +963,33 @@ try {
       if (geraet.nav === 'sidebar' && !sichtbar.sidebar) throw new Error('Sidebar fehlt');
     });
   }
+
+  await check('Kopfzeile verdeckt den Seitenanfang nicht', async () => {
+    for (const breite of [360, 390, 768, 1024, 1440]) {
+      const ctx = await browser.newContext({ viewport: { width: breite, height: 800 }, locale: 'de-DE' });
+      await ctx.addInitScript(([schluessel, profil]) => {
+        localStorage.setItem(schluessel, JSON.stringify(profil));
+      }, ['studyflow.v1', {
+        profile: {
+          onboarded: true, name: 'Kopf', state: 'nw', schoolType: 'gymnasium', grade: 9,
+          subjects: ['chemie'], dailyGoalMinutes: 20,
+        },
+      }]);
+      const seite = await ctx.newPage();
+      await seite.goto(base, { waitUntil: 'networkidle' });
+      await seite.evaluate(() => { window.location.hash = '/thema/ch9-saeuren-basen'; });
+      await seite.waitForTimeout(600);
+      const mass = await seite.evaluate(() => {
+        const topbar = document.querySelector('.topbar').getBoundingClientRect();
+        const main = document.querySelector('.main').getBoundingClientRect();
+        return { scrollY: window.scrollY, topbarBottom: topbar.bottom, mainTop: main.top };
+      });
+      await ctx.close();
+      if (mass.scrollY === 0 && mass.mainTop < mass.topbarBottom - 1) {
+        throw new Error(`${breite}px: Inhalt beginnt bei ${Math.round(mass.mainTop)}px, Kopfzeile endet bei ${Math.round(mass.topbarBottom)}px`);
+      }
+    }
+  });
 
   await check('Tippziele auf Touch-Geräten sind gross genug', async () => {
     const ctx = await browser.newContext({

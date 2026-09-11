@@ -65,14 +65,24 @@ export async function renderTopic(root, { params }) {
   }) : html`
         <div class="card">
           <div class="row row-4 row-wrap">
-            ${progressRing(view.mastery, {
+            ${progressRing(lessonStats.total ? lessonStats.ratio : view.mastery, {
     size: 104,
-    hint: 'Wissensstand',
-    tone: view.status.tone === 'neutral' ? 'primary' : view.status.tone,
+    hint: lessonStats.total ? 'Lektionen' : 'Wissensstand',
+    tone: lessonStats.total && lessonStats.done === lessonStats.total ? 'success'
+      : view.status.tone === 'neutral' ? 'primary' : view.status.tone,
   })}
             <div class="grow stack stack-3" style="min-width: 230px">
               <div class="grid grid-stats" style="gap: var(--sp-3)">
-                ${statTile({ label: 'Abschnitte', value: `${integer(sectionsDone)}/${integer(sectionCount)}` })}
+                ${statTile({
+    label: 'Lektionen',
+    value: `${integer(lessonStats.done)}/${integer(lessonStats.total)}`,
+    hint: lessonStats.next ? `weiter: Nr. ${lessonStats.next.index}` : 'alle geschafft',
+  })}
+                ${statTile({
+    label: 'Sterne',
+    value: integer(lessonStats.stars),
+    hint: `von ${integer(lessonStats.maxStars)} möglich`,
+  })}
                 ${statTile({
     label: 'Aufgaben gelöst',
     value: integer(view.record?.practice?.attempts || 0),
@@ -115,6 +125,13 @@ export async function renderTopic(root, { params }) {
             </div>
           </section>` : ''}
 
+        <section class="stack stack-4">
+          <div class="section-head">
+            <div class="stack" style="gap:2px">
+              <h2>Andere Wege durch dieses Thema</h2>
+              <p>Wenn du nicht Lektion für Lektion vorgehen willst</p>
+            </div>
+          </div>
         <div class="grid grid-2">
           <a class="card card-link stack stack-3 ${view.hasContent ? '' : 'is-muted'}"
              href="#/thema/${meta.id}/${view.hasContent ? 'lernen' : 'ueben'}">
@@ -166,6 +183,7 @@ export async function renderTopic(root, { params }) {
             </div>
           </a>
         </div>
+        </section>
 
         ${competencies.length ? html`
           <section class="card">

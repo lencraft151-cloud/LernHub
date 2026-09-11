@@ -5,6 +5,7 @@ import { icon } from '../../core/icons.js';
 import { percentOf, relativeDay, STATUS, duration } from '../../core/format.js';
 import { getSubject, gradeLabel } from '../../data/curriculum/index.js';
 import { progressBar } from './charts.js';
+import { starRow } from './lessons.js';
 
 export function subjectIcon(subjectId, { size = '' } = {}) {
   const subject = getSubject(subjectId);
@@ -58,24 +59,45 @@ export function emptyState({ iconName = 'compass', title, text, action }) {
     </div>`;
 }
 
-/** Eine Zeile in der Themenliste eines Fachs. */
-export function topicRow(view, { schoolType } = {}) {
+/**
+ * Eine Zeile in der Themenliste eines Fachs.
+ *
+ * Gezeigt wird der Lektionsfortschritt, nicht der abstrakte Wissensstand:
+ * „3 von 7 Lektionen" beantwortet die Frage „wie weit bin ich?" direkter als
+ * eine Prozentzahl, und man weiss sofort, was als Nächstes ansteht.
+ */
+export function topicRow(view, { schoolType, lessons } = {}) {
   const sub = [];
-  if (view.hasContent && view.meta) sub.push(`${view.meta.sections} Abschnitte · ${view.meta.questions} Aufgaben`);
-  else if (view.hasExercises) sub.push(`${view.exercises} Übungsaufgaben`);
-  else sub.push('Inhalt in Vorbereitung');
+  if (lessons?.total) {
+    sub.push(`${lessons.total} ${lessons.total === 1 ? 'Lektion' : 'Lektionen'}`);
+  } else if (view.hasContent && view.meta) {
+    sub.push(`${view.meta.sections} Abschnitte · ${view.meta.questions} Aufgaben`);
+  } else if (view.hasExercises) {
+    sub.push(`${view.exercises} Übungsaufgaben`);
+  } else {
+    sub.push('Inhalt in Vorbereitung');
+  }
+  if (lessons?.done && lessons.done < lessons.total && lessons.next) sub.push(`weiter: ${lessons.next.title}`);
   if (view.lastActivityAt) sub.push(`zuletzt ${relativeDay(view.lastActivityAt)}`);
   if (view.due) sub.push('Wiederholung fällig');
 
+  const fertig = lessons?.total > 0 && lessons.done === lessons.total;
+
   return html`
-    <a class="topic-row" href="#/thema/${view.id}">
+    <a class="topic-row ${fertig ? 'is-complete' : ''}" href="#/thema/${view.id}">
       ${statusDot(view.status)}
       <span class="topic-row-main">
         <span class="topic-row-title">${view.title}</span>
         <span class="topic-row-sub">${sub.join(' · ')}</span>
       </span>
       <span class="topic-row-right">
-        ${view.practisable ? html`
+        ${lessons?.total ? html`
+          ${lessons.stars ? starRow(Math.round(lessons.stars / lessons.total), { size: 'sm', label: false }) : ''}
+          <span class="mini-progress">${progressBar(lessons.ratio, {
+    size: 'progress-sm', tone: fertig ? 'success' : 'primary',
+  })}</span>
+          <span class="topic-row-pct">${lessons.done}/${lessons.total}</span>`
+    : view.practisable ? html`
           <span class="mini-progress">${progressBar(view.mastery, { size: 'progress-sm', tone: view.status.tone === 'neutral' ? 'primary' : view.status.tone })}</span>
           <span class="topic-row-pct">${view.started ? percentOf(view.mastery) : '—'}</span>` : html`
           <span class="badge badge-outline">bald</span>`}
@@ -85,27 +107,52 @@ export function topicRow(view, { schoolType } = {}) {
 }
 
 /** Karte für ein Fach in der Fächerübersicht. */
+/**
+ * Fachkachel.
+ *
+ * Der Einstieg in ein Fach soll auf einen Blick dreierlei beantworten: Welches
+ * Fach ist das, wie weit bin ich, und was kommt als Nächstes. Deshalb trägt
+ * die Kachel die Fachfarbe, den Lektionsfortschritt und die gesammelten
+ * Sterne — und nicht eine Reihe abstrakter Kennzahlen.
+ */
 export function subjectCard(subjectId, progress, { schoolType, grade } = {}) {
   const subject = getSubject(subjectId);
   if (!subject) return '';
+  const offen = Math.max(0, progress.lessonsTotal - progress.lessonsDone);
+  const fertig = progress.lessonsTotal > 0 && offen === 0;
+
   return html`
-    <a class="card card-link stack stack-4" href="#/fach/${subject.id}" style="--subject-color: ${subject.color}">
-      <div class="row row-3">
-        ${subjectIcon(subject.id, { size: 'subject-icon-lg' })}
-        <div class="stack" style="gap:1px; min-width:0">
-          <b class="truncate">${subject.name}</b>
-          <span class="xs subtle">${grade ? gradeLabel(grade, schoolType) : subject.group}</span>
-        </div>
-      </div>
-      ${progressBar(progress.mastery, {
-    tone: 'subject', subjectColor: subject.color, label: 'Wissensstand', valueText: percentOf(progress.mastery),
-  })}
-      <div class="row row-wrap xs subtle" style="gap: var(--sp-3)">
-        <span>${progress.topicsStarted}/${progress.basisCount} Themen begonnen</span>
-        ${progress.secure ? html`<span>${progress.secure} sicher</span>` : ''}
-        ${progress.review ? html`<span style="color: var(--danger-text)">${progress.review} wiederholen</span>` : ''}
-        ${progress.testAverage != null ? html`<span>Ø Test ${percentOf(progress.testAverage)}</span>` : ''}
-      </div>
+    <a class="subject-tile ${fertig ? 'is-complete' : ''}" href="#/fach/${subject.id}"
+       style="--subject-color: ${subject.color}">
+      <span class="subject-tile-head">
+        <span class="subject-tile-mark" aria-hidden="true">${subject.short}</span>
+        <span class="subject-tile-name">
+          <b>${subject.name}</b>
+          <span>${grade ? gradeLabel(grade, schoolType) : subject.group}</span>
+        </span>
+        ${progress.dueCount ? html`
+          <span class="subject-tile-due" title="Wiederholungen fällig">${icon('repeat', { size: 12 })} ${progress.dueCount}</span>` : ''}
+      </span>
+
+      <span class="subject-tile-body">
+        ${progress.lessonsTotal ? html`
+          <span class="subject-tile-bar" role="img"
+                aria-label="${progress.lessonsDone} von ${progress.lessonsTotal} Lektionen">
+            <span style="width: ${Math.round(progress.lessonsRatio * 100)}%"></span>
+          </span>
+          <span class="subject-tile-meta">
+            <span><b>${progress.lessonsDone}</b>/${progress.lessonsTotal} Lektionen</span>
+            ${progress.stars ? html`
+              <span class="subject-tile-stars">${icon('sparkles', { size: 12 })} ${progress.stars}</span>` : ''}
+          </span>` : html`
+          <span class="subject-tile-meta"><span class="subtle">Inhalt in Vorbereitung</span></span>`}
+      </span>
+
+      <span class="subject-tile-cta">
+        ${fertig ? html`${icon('checkCircle', { size: 14 })} Alles geschafft`
+    : progress.lessonsDone ? html`${icon('play', { size: 14 })} Weiter — noch ${offen}`
+      : html`${icon('play', { size: 14 })} Loslegen`}
+      </span>
     </a>`;
 }
 

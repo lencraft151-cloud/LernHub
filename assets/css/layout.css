@@ -3,11 +3,16 @@
    App-Shell, Sidebar, Topbar, Bottom-Navigation, Raster, Responsive
    ========================================================================== */
 
+/* Unterhalb der Sidebar-Schwelle stapeln sich Kopfzeile und Inhalt schlicht
+   untereinander. Als Raster ohne benannte Bereiche landeten beide in
+   derselben Zeile — die klebende Kopfzeile deckte dann die obersten 60 px
+   jeder Seite ab, auf dem Handy also den Pfad und den Anfang der Überschrift. */
 .app-shell {
   min-height: 100dvh;
-  display: grid;
-  grid-template-columns: 1fr;
+  display: flex;
+  flex-direction: column;
 }
+.app-shell > .main { flex: 1 1 auto; }
 .app-shell[data-booting="true"] { display: block; }
 
 /* ---------- Sidebar (Desktop) ---------- */
@@ -522,6 +527,7 @@
 /* Ab hier Sidebar statt Bottom-Nav */
 @media (min-width: 960px) {
   .app-shell {
+    display: grid;
     grid-template-columns: var(--sidebar-w) minmax(0, 1fr);
     grid-template-rows: auto 1fr;
     grid-template-areas:

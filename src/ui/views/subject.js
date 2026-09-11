@@ -11,6 +11,7 @@ import {
   getSubject, getAreas, gradesWithPlan, gradeLabel,
 } from '../../data/curriculum/index.js';
 import { hasContent } from '../../data/content/index.js';
+import { topicLessonStats, nextLesson } from '../../domain/lessons.js';
 import { profileSetup } from '../shell.js';
 import {
   pageHead, topicRow, statTile, subjectIcon, emptyState, statusLegend,
@@ -58,6 +59,8 @@ export function renderSubject(root, { params, query }) {
     })),
   }));
 
+  const naechsteLektion = nextLesson(state, views.flatMap((area) => area.views).map((view) => view.id));
+
   const counts = views.flatMap((area) => area.views).reduce((acc, view) => {
     acc[view.status.id] = (acc[view.status.id] || 0) + 1;
     return acc;
@@ -69,7 +72,11 @@ export function renderSubject(root, { params, query }) {
     crumbs: [{ label: 'Fächer', href: '#/faecher' }, { label: subject.name }],
     title: subject.name,
     sub: subject.description,
-    actions: nextTopic ? html`
+    actions: naechsteLektion ? html`
+          <a class="btn btn-primary btn-wrap"
+             href="#/thema/${naechsteLektion.topicId}/lektion/${encodeURIComponent(naechsteLektion.lesson.id)}">
+            ${icon('play')} ${progress.lessonsDone ? 'Weiterlernen' : 'Erste Lektion starten'}
+          </a>` : nextTopic ? html`
           <a class="btn btn-primary" href="#/thema/${nextTopic.id}/lernen">
             ${icon('play')} ${progress.topicsStarted ? 'Weiterlernen' : 'Erstes Thema starten'}
           </a>` : '',
@@ -77,11 +84,13 @@ export function renderSubject(root, { params, query }) {
 
       <div class="card">
         <div class="row row-4 row-wrap">
-          ${progressRing(progress.mastery, { size: 96, hint: gradeLabel(selectedGrade, setup.schoolType).replace('Klasse ', 'Kl. ') })}
+          ${progressRing(progress.lessonsTotal ? progress.lessonsRatio : progress.mastery, {
+    size: 96, hint: gradeLabel(selectedGrade, setup.schoolType).replace('Klasse ', 'Kl. '),
+  })}
           <div class="grow stack stack-3" style="min-width: 220px">
             <div class="grid grid-stats" style="gap: var(--sp-3)">
-              ${statTile({ label: 'Bearbeitet', value: `${integer(progress.topicsStarted)}/${integer(progress.basisCount)}` })}
-              ${statTile({ label: 'Offen', value: integer(progress.topicsOpen) })}
+              ${statTile({ label: 'Lektionen', value: `${integer(progress.lessonsDone)}/${integer(progress.lessonsTotal)}` })}
+              ${statTile({ label: 'Sterne', value: integer(progress.stars), hint: `von ${integer(progress.maxStars)}` })}
               ${statTile({
     label: 'Ø Testleistung',
     value: progress.testAverage != null ? percentOf(progress.testAverage) : '—',
@@ -121,14 +130,14 @@ export function renderSubject(root, { params, query }) {
                   </div>
                   <span class="nowrap" style="width: 90px">
                     ${progressBar(
-    area.views.reduce((sum, v) => sum + v.mastery, 0) / Math.max(1, area.views.length),
+    area.views.reduce((sum, v) => sum + topicLessonStats(state, v.id).ratio, 0) / Math.max(1, area.views.length),
     { size: 'progress-sm', tone: 'subject', subjectColor: subject.color },
   )}
                   </span>
                 </div>
                 <div>
                   ${area.views.map((view) => html`
-                    ${topicRow(view, { schoolType: setup.schoolType })}
+                    ${topicRow(view, { schoolType: setup.schoolType, lessons: topicLessonStats(state, view.id) })}
                     ${view.subtopics.length ? html`
                       <div class="subtopic-strip">
                         ${view.subtopics.map((sub) => html`<span class="badge badge-outline">${sub}</span>`)}
@@ -156,12 +165,14 @@ export function renderSubject(root, { params, query }) {
 
             <section class="card stack stack-3">
               <h3 class="small">Nächste Schritte</h3>
-              ${nextTopic ? html`
-                <a class="rec-item" href="#/thema/${nextTopic.id}/lernen">
+              ${naechsteLektion ? html`
+                <a class="rec-item" href="#/thema/${naechsteLektion.topicId}/lektion/${encodeURIComponent(naechsteLektion.lesson.id)}">
                   <span class="rec-rank">${icon('play', { size: 13 })}</span>
                   <span class="rec-body">
-                    <span class="rec-title">${nextTopic.title}</span>
-                    <span class="rec-reason">${nextTopic.areaTitle}</span>
+                    <span class="rec-title">${naechsteLektion.lesson.title}</span>
+                    <span class="rec-reason">
+                      Lektion ${naechsteLektion.lesson.index} von ${naechsteLektion.stats.total}
+                    </span>
                   </span>
                   ${icon('arrowRight', { size: 15, cls: 'subtle' })}
                 </a>` : html`<p class="small muted">In dieser Klassenstufe ist alles bearbeitet. Sehr gut!</p>`}

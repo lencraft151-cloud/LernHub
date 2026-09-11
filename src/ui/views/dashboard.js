@@ -18,6 +18,8 @@ import {
   recommendations, continueTopic, weaknesses, statusBreakdown, progressTimeline,
 } from '../../domain/analytics.js';
 import { syncPlan } from '../../domain/planner.js';
+import { topicLessonStats } from '../../domain/lessons.js';
+import { lessonProgressStrip, starRow } from '../components/lessons.js';
 import { getSubject, gradeLabel } from '../../data/curriculum/index.js';
 import { profileSetup, toast } from '../shell.js';
 import {
@@ -35,6 +37,7 @@ export function renderDashboard(root) {
   const overall = overallProgress(state, setup, now);
   const recs = recommendations(state, setup, 5, now);
   const cont = continueTopic(state, setup, now);
+  const contStats = cont ? topicLessonStats(state, cont.view.id) : { total: 0 };
   const due = dueTopics(state, setup, now);
   const recent = recentTopics(state, 4, now);
   const weak = weaknesses(state, setup, now).slice(0, 4);
@@ -60,10 +63,20 @@ export function renderDashboard(root) {
     return name ? `${part}, ${name}!` : `${part}!`;
   })();
 
+  // Über alle gewählten Fächer: Wie viel ist wirklich geschafft?
+  const lektionen = setup.subjects
+    .map((id) => subjectProgress(state, id, setup, now))
+    .reduce((summe, p) => ({
+      total: summe.total + p.lessonsTotal,
+      done: summe.done + p.lessonsDone,
+      stars: summe.stars + p.stars,
+    }), { total: 0, done: 0, stars: 0 });
+
   const subjectBars = setup.subjects
     .map((id) => ({ id, subject: getSubject(id), progress: subjectProgress(state, id, setup, now) }))
     .filter((entry) => entry.subject)
-    .sort((a, b) => b.progress.mastery - a.progress.mastery);
+    .sort((a, b) => (b.progress.lessonsRatio || 0) - (a.progress.lessonsRatio || 0)
+      || b.progress.mastery - a.progress.mastery);
 
   mount(root, html`
     <div class="page">
@@ -79,24 +92,29 @@ export function renderDashboard(root) {
   })}
 
       ${cont ? html`
-        <a class="card card-link" href="${cont.href}" style="--subject-color: ${getSubject(cont.view.subjectId)?.color}">
+        <a class="card card-link continue-card" href="${cont.href}"
+           style="--subject-color: ${getSubject(cont.view.subjectId)?.color}">
           <div class="row row-4 row-wrap">
             ${subjectIcon(cont.view.subjectId, { size: 'subject-icon-lg' })}
             <div class="grow stack stack-2" style="min-width: 200px">
-              <span class="xs subtle">Weiterlernen</span>
-              <b style="font-size: var(--text-lg)">${cont.view.title}</b>
-              <span class="small muted">${cont.view.subjectName} · Klasse ${cont.view.grade} · ${cont.reason}</span>
-              ${progressBar(cont.view.mastery, { size: 'progress-sm', tone: 'subject', subjectColor: getSubject(cont.view.subjectId)?.color })}
+              <span class="xs subtle">${cont.lesson ? 'Nächste Lektion' : 'Weiterlernen'}</span>
+              <b style="font-size: var(--text-lg)">${cont.lesson ? cont.lesson.title : cont.view.title}</b>
+              <span class="small muted">
+                ${cont.view.subjectName} · ${cont.view.title} · ${cont.reason}
+              </span>
+              ${contStats.total ? lessonProgressStrip(contStats) : progressBar(cont.view.mastery, {
+    size: 'progress-sm', tone: 'subject', subjectColor: getSubject(cont.view.subjectId)?.color,
+  })}
             </div>
-            <span class="btn btn-primary nowrap">${cont.action.label} ${icon('arrowRight')}</span>
+            <span class="btn btn-primary btn-lg nowrap">${icon('play')} ${cont.action.label}</span>
           </div>
         </a>` : ''}
 
       <div class="grid grid-stats">
         ${statTile({
-    label: 'Gesamtfortschritt',
-    value: percentOf(overall.mastery),
-    hint: `${overall.secure} von ${overall.topicsWithContent} Themen sicher`,
+    label: 'Lektionen',
+    value: `${integer(lektionen.done)}/${integer(lektionen.total)}`,
+    hint: lektionen.stars ? `${integer(lektionen.stars)} Sterne gesammelt` : 'noch keine Sterne',
   })}
         ${statTile({
     label: 'Heute gelernt',
@@ -127,17 +145,19 @@ export function renderDashboard(root) {
             <div class="card-header">
               <div class="stack" style="gap:2px">
                 <h2>Dein Lernstand</h2>
-                <span class="xs subtle">Wissensstand je Fach in ${gradeLabel(state.profile.grade, state.profile.schoolType)}</span>
+                <span class="xs subtle">Geschaffte Lektionen je Fach in ${gradeLabel(state.profile.grade, state.profile.schoolType)}</span>
               </div>
               <a class="btn btn-sm btn-ghost" href="#/faecher">Alle Fächer ${icon('chevronRight', { size: 13 })}</a>
             </div>
             ${subjectBars.length ? barChart({
-    title: 'Wissensstand je Fach',
+    title: 'Lektionsfortschritt je Fach',
     items: subjectBars.map((entry) => ({
       label: entry.subject.name,
-      value: entry.progress.mastery,
+      value: entry.progress.lessonsTotal ? entry.progress.lessonsRatio : entry.progress.mastery,
       href: `#/fach/${entry.id}`,
-      hint: `${entry.progress.topicsStarted} von ${entry.progress.basisCount} Themen begonnen`,
+      hint: entry.progress.lessonsTotal
+        ? `${entry.progress.lessonsDone} von ${entry.progress.lessonsTotal} Lektionen`
+        : `${entry.progress.topicsStarted} von ${entry.progress.basisCount} Themen begonnen`,
       badge: entry.progress.review ? `${entry.progress.review} ✕` : null,
     })),
   }) : emptyState({

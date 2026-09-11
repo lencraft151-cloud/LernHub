@@ -20,6 +20,7 @@ import { hasContent } from '../data/content/index.js';
 import { hasExercises, exerciseCount } from '../data/exercises/meta.js';
 import { getAllTopics, getAreas, gradesWithPlan, inSchoolType } from '../data/curriculum/index.js';
 import { isDue, overdueDays, retention } from './srs.js';
+import { topicLessonStats } from './lessons.js';
 
 const WEIGHTS = { learn: 0.20, practice: 0.30, test: 0.35, retention: 0.15 };
 
@@ -189,9 +190,26 @@ export function subjectProgress(state, subjectId, setup, now = new Date()) {
     timeMs += record?.timeSpentMs || 0;
   }
 
+  // Lektionen sind der Weg durch ein Fach — deshalb gehören sie in jede
+  // Fachübersicht, nicht nur auf die Themenseite.
+  let lessonsTotal = 0;
+  let lessonsDone = 0;
+  let stars = 0;
+  for (const topic of basis) {
+    const stat = topicLessonStats(state, topic.id);
+    lessonsTotal += stat.total;
+    lessonsDone += stat.done;
+    stars += stat.stars;
+  }
+
   return {
     subjectId,
     mastery: basis.length ? masterySum / basis.length : 0,
+    lessonsTotal,
+    lessonsDone,
+    lessonsRatio: lessonsTotal ? lessonsDone / lessonsTotal : 0,
+    stars,
+    maxStars: lessonsTotal * 3,
     topicsTotal: topics.length,
     topicsWithContent: withContent.length,
     topicsStarted: started,

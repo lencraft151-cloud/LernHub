@@ -4,7 +4,7 @@ import { html, mount, delegate } from '../../core/dom.js';
 import { icon } from '../../core/icons.js';
 import { store } from '../../core/store.js';
 import { navigate } from '../../core/router.js';
-import { percentOf, integer, duration } from '../../core/format.js';
+import { integer, duration } from '../../core/format.js';
 import { subjectProgress, overallProgress } from '../../domain/progress.js';
 import {
   SUBJECTS, SUBJECT_GROUPS, subjectsFor, gradeLabel, getSubject,
@@ -29,6 +29,15 @@ export function renderSubjects(root, { query }) {
     progress: subjectProgress(state, subject.id, setup, now),
   }));
 
+  // Über alle gelisteten Fächer zusammengezählt — das ist die Zahl, die
+  // beschreibt, wie weit man tatsächlich gekommen ist.
+  const lektionen = withProgress.reduce((summe, eintrag) => ({
+    total: summe.total + eintrag.progress.lessonsTotal,
+    done: summe.done + eintrag.progress.lessonsDone,
+    stars: summe.stars + eintrag.progress.stars,
+    maxStars: summe.maxStars + eintrag.progress.maxStars,
+  }), { total: 0, done: 0, stars: 0, maxStars: 0 });
+
   mount(root, html`
     <div class="page">
       ${pageHead({
@@ -42,9 +51,9 @@ export function renderSubjects(root, { query }) {
   })}
 
       <div class="grid grid-stats">
-        ${statTile({ label: 'Gesamtfortschritt', value: percentOf(overall.mastery) })}
-        ${statTile({ label: 'Themen mit Inhalt', value: integer(overall.topicsWithContent), hint: `von ${integer(overall.topicsTotal)} im Lehrplan` })}
-        ${statTile({ label: 'Sicher beherrscht', value: integer(overall.secure) })}
+        ${statTile({ label: 'Lektionen', value: `${integer(lektionen.done)}/${integer(lektionen.total)}` })}
+        ${statTile({ label: 'Sterne', value: integer(lektionen.stars), hint: `von ${integer(lektionen.maxStars)} möglich` })}
+        ${statTile({ label: 'Sicher beherrscht', value: integer(overall.secure), hint: `${integer(overall.topicsWithContent)} Themen mit Inhalt` })}
         ${statTile({ label: 'Zu wiederholen', value: integer(overall.review), tone: overall.review ? 'danger' : undefined })}
         ${statTile({ label: 'Lernzeit', value: duration(overall.timeSpentMs) })}
       </div>

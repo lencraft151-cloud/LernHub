@@ -13,7 +13,7 @@
  * Unterverzeichnis (GitHub Pages: /LernHub/) funktioniert.
  */
 
-const VERSION = 'a2161eeb1373';
+const VERSION = '6bdb8859735b';
 const SHELL_CACHE = `studyflow-shell-${VERSION}`;
 const CONTENT_CACHE = `studyflow-content-${VERSION}`;
 
