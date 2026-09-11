@@ -98,7 +98,8 @@ export function renderSubject(root, { params, query }) {
               ${statTile({ label: 'Lernzeit', value: duration(progress.timeSpentMs) })}
             </div>
             <span class="xs subtle">
-              Über alle Klassenstufen: ${percentOf(allGrades.mastery)} ·
+              Über alle Klassenstufen: ${integer(allGrades.lessonsDone)} von
+              ${integer(allGrades.lessonsTotal)} Lektionen ·
               ${integer(allGrades.topicsWithContent)} Themen mit Lerninhalt
             </span>
           </div>

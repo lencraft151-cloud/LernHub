@@ -65,6 +65,11 @@ export function emptyState({ iconName = 'compass', title, text, action }) {
  * Gezeigt wird der Lektionsfortschritt, nicht der abstrakte Wissensstand:
  * „3 von 7 Lektionen" beantwortet die Frage „wie weit bin ich?" direkter als
  * eine Prozentzahl, und man weiss sofort, was als Nächstes ansteht.
+ *
+ * Die Sterne mitteln über die **erledigten** Lektionen, nicht über alle: Wer
+ * zwei von neun Lektionen mit je drei Sternen geschafft hat, hat dort gut
+ * gearbeitet — das sollen die Sterne zeigen, nicht den offenen Rest.
+ * Abgerundet wird bewusst, damit die Anzeige nicht schmeichelt.
  */
 export function topicRow(view, { schoolType, lessons } = {}) {
   const sub = [];
@@ -92,7 +97,7 @@ export function topicRow(view, { schoolType, lessons } = {}) {
       </span>
       <span class="topic-row-right">
         ${lessons?.total ? html`
-          ${lessons.stars ? starRow(Math.round(lessons.stars / lessons.total), { size: 'sm', label: false }) : ''}
+          ${lessons.done ? starRow(Math.floor(lessons.stars / lessons.done), { size: 'sm', label: false }) : ''}
           <span class="mini-progress">${progressBar(lessons.ratio, {
     size: 'progress-sm', tone: fertig ? 'success' : 'primary',
   })}</span>
