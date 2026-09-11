@@ -94,11 +94,11 @@ export function renderAssistant(root, { query }) {
                     Beispiele durchrechnen, dich abfragen, Aufgaben erzeugen oder dir sagen, warum
                     eine Antwort falsch war.
                   </p>` : html`
-                  <p>Hallo! Ich helfe dir beim Lernen.</p>
+                  <p>Hallo! Frag einfach los.</p>
                   <p class="small muted">
-                    Wähle oben ein Thema aus — dann beziehen sich alle meine Antworten darauf.
-                    Ohne Thema kann ich dir erklären, wie StudyFlow funktioniert und was du als
-                    Nächstes lernen solltest.
+                    Ich durchsuche alle Lerninhalte dieser App und zeige dir die Stelle, die zu
+                    deiner Frage passt — mit Quelle zum Nachlesen. Wählst du oben ein Thema aus,
+                    beziehen sich meine Antworten zusätzlich auf deinen Lernstand darin.
                   </p>`}
               </div>
             </div>`}
@@ -118,8 +118,9 @@ export function renderAssistant(root, { query }) {
         <p class="xs subtle">
           ${apiMode
     ? 'Deine Frage wird mit dem Themenkontext an den in den Einstellungen hinterlegten Endpunkt gesendet.'
-    : 'Der lokale Assistent antwortet aus den Lerninhalten dieses Themas — ohne Internetverbindung '
-      + 'und ohne dass Daten deinen Browser verlassen.'}
+    : 'Der Assistent sucht die Antwort in den Lerninhalten dieser App — ohne Internetverbindung, '
+      + 'ohne API-Schlüssel und ohne dass Daten deinen Browser verlassen. Er erfindet nichts: '
+      + 'Findet er nichts, sagt er das.'}
         </p>
       </div>
 
@@ -150,7 +151,7 @@ export function renderAssistant(root, { query }) {
   const input = $('[data-role="input"]', root);
 
   /** Nachricht anzeigen. */
-  function appendMessage(role, contentNode, { actions, quizQuestions } = {}) {
+  function appendMessage(role, contentNode, { actions, quizQuestions, sources } = {}) {
     const wrapper = document.createElement('div');
     wrapper.className = `msg msg-${role}`;
     mount(wrapper, html`
@@ -170,6 +171,18 @@ export function renderAssistant(root, { query }) {
     : html`<button type="button" class="suggestion" data-role="suggest" data-prompt="${action.prompt}">
                  ${action.label}</button>`))}`);
       bubble.append(row);
+    }
+
+    // Herkunft der Antwort. Der Assistent formuliert nicht frei, er zitiert —
+    // und wer nachlesen will, kommt mit einem Klick an die Stelle.
+    if (sources?.length) {
+      const box = document.createElement('div');
+      box.className = 'msg-sources';
+      mount(box, html`
+        <span class="msg-sources-label">${icon('book', { size: 12 })} Quellen</span>
+        ${sources.slice(0, 3).map((quelle) => html`
+          <a class="msg-source" href="${quelle.href}">${quelle.topicTitle} · ${quelle.label}</a>`)}`);
+      bubble.append(box);
     }
 
     if (quizQuestions?.length) {
@@ -264,6 +277,9 @@ export function renderAssistant(root, { query }) {
         topicId,
         state: { ...store.get(), __tutorExampleCursor: exampleCursor },
         lastWrong: lastWrong && lastWrong.question ? lastWrong : null,
+        // Damit die Suche bei fachfremden Fragen zuerst in den eigenen Fächern
+        // und der eigenen Klassenstufe nachsieht.
+        setup: profileSetup(store.get()),
       });
       if (answer.cursor) exampleCursor[answer.cursor.topicId] = answer.cursor.next;
 
@@ -271,6 +287,7 @@ export function renderAssistant(root, { query }) {
       appendMessage('assistant', miniMarkdown(answer.markdown), {
         actions: answer.actions,
         quizQuestions: answer.quiz,
+        sources: answer.sources,
       });
       history.push({ role: 'assistant', text: answer.markdown, topicId });
     } catch (error) {

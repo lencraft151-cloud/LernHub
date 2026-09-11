@@ -13,7 +13,7 @@
  * Unterverzeichnis (GitHub Pages: /LernHub/) funktioniert.
  */
 
-const VERSION = 'c0fb98aabb6a';
+const VERSION = '907ab3761d6c';
 const SHELL_CACHE = `studyflow-shell-${VERSION}`;
 const CONTENT_CACHE = `studyflow-content-${VERSION}`;
 
@@ -72,6 +72,7 @@ const SHELL = [
   'src/domain/session.js',
   'src/domain/srs.js',
   'src/domain/topics.js',
+  'src/domain/tutor-knowledge.js',
   'src/domain/tutor.js',
   'src/main.js',
   'src/ui/components/charts.js',

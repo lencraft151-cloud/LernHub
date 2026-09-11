@@ -626,6 +626,60 @@ try {
     const options = await page.locator('.msg-assistant .question').count();
     if (!options) throw new Error('keine interaktive Aufgabe eingebettet');
   });
+
+  // Der Assistent ohne API-Schlüssel: Er beantwortet frei gestellte Fragen,
+  // indem er die passende Stelle in den Lerninhalten findet — und sagt es,
+  // wenn er nichts findet, statt etwas zu erfinden.
+  await check('Assistent beantwortet eine freie Frage im Thema', async () => {
+    await page.locator('[data-role="input"]').fill('Was misst man mit einem Indikator?');
+    await page.keyboard.press('Enter');
+    await page.waitForTimeout(1400);
+    const letzte = page.locator('.msg-assistant').last();
+    const text = await letzte.innerText();
+    if (text.length < 60) throw new Error('Antwort zu kurz');
+    if (!/Indikator/i.test(text)) throw new Error('Antwort geht am Begriff vorbei');
+  });
+
+  await check('Antwort nennt ihre Quelle', async () => {
+    const quellen = await page.locator('.msg-assistant').last().locator('.msg-source').count();
+    if (!quellen) throw new Error('keine Quelle ausgewiesen');
+  });
+
+  await check('Assistent antwortet auch ohne gewähltes Thema', async () => {
+    await go('/assistent');
+    await page.locator('[data-role="input"]').fill('Was ist Fotosynthese?');
+    await page.keyboard.press('Enter');
+    await page.waitForTimeout(1600);
+    const text = await page.locator('.msg-assistant').last().innerText();
+    if (!/Fotosynthese/i.test(text)) throw new Error('Thema nicht gefunden');
+    if (text.length < 80) throw new Error('Antwort zu kurz');
+  });
+
+  await check('Quelle führt zum passenden Thema', async () => {
+    const quelle = page.locator('.msg-assistant').last().locator('.msg-source').first();
+    const ziel = await quelle.getAttribute('href');
+    if (!ziel || !ziel.startsWith('#/thema/')) throw new Error(`Quellenziel "${ziel}"`);
+  });
+
+  await check('Assistent erfindet nichts', async () => {
+    await page.locator('[data-role="input"]').fill('Was ist ein Quantenschaumwirbelmotor?');
+    await page.keyboard.press('Enter');
+    await page.waitForTimeout(1600);
+    const text = await page.locator('.msg-assistant').last().innerText();
+    if (!/finde ich|nichts Passendes|erfinde/i.test(text)) {
+      throw new Error(`erwartet wurde eine Fehlanzeige, bekam: ${text.slice(0, 90)}`);
+    }
+  });
+
+  await check('Assistent hilft auch bei Themen ohne Lerntext', async () => {
+    await go('/assistent?thema=ma5-teilbarkeit');
+    await page.locator('[data-role="input"]').fill('Mach mir 3 Aufgaben dazu');
+    await page.keyboard.press('Enter');
+    await page.waitForTimeout(1400);
+    const text = await page.locator('.msg-assistant').last().innerText();
+    if (!/Lösungen/i.test(text)) throw new Error('keine Aufgaben mit Lösungen');
+  });
+
   await shot('assistent');
 
   /* ------------------------------- Suche ------------------------------- */
@@ -925,7 +979,8 @@ try {
     }
     if (!gefunden) throw new Error('keine Aufgabe mit Antwortmöglichkeiten gefunden');
 
-    await page.locator('#main').click({ position: { x: 4, y: 4 } });
+    // Fokus aus etwaigen Eingabefeldern nehmen — dort gehören die Tasten dem Feld.
+    await page.evaluate(() => document.activeElement?.blur());
     await page.keyboard.press('1');
     await page.waitForTimeout(200);
     const gewaehlt = await page.locator('[data-role="option"][aria-pressed="true"]').count();

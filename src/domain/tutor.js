@@ -17,6 +17,10 @@ import { getTopicMeta, topicPathLabel, getSubject } from '../data/curriculum/ind
 import { topicMastery, topicCompetencies, topicStatus } from './progress.js';
 import { correctAnswerText, QUESTION_TYPES } from './grading.js';
 import { shuffle, seededRandom } from './exam.js';
+import { retrieve, firstSentence } from './tutor-knowledge.js';
+import { search } from './search.js';
+import { exercisesForTopic } from '../data/exercises/index.js';
+import { hasExercises } from '../data/exercises/meta.js';
 import { percentOf } from '../core/format.js';
 
 /** Erkennbare Absichten, jeweils mit Beispielformulierungen. */
@@ -102,7 +106,11 @@ export function detectIntent(text) {
 /** Vorschläge, die zum aktuellen Zustand passen. */
 export function suggestions({ hasTopic, lastWrong, mastery }) {
   if (!hasTopic) {
+    // Ohne Thema kann der Assistent trotzdem antworten — er schlägt dann in
+    // allen Lerninhalten nach. Die Vorschläge sollen genau das zeigen.
     return [
+      'Was ist Fotosynthese?',
+      'Wie rechne ich Prozent aus?',
       'Was soll ich als Nächstes lernen?',
       'Wie funktioniert das Wiederholungssystem?',
       'Zeig mir meine Schwächen',
@@ -193,6 +201,63 @@ export function questionToText(question, index) {
  * ------------------------------------------------------------------ */
 
 /**
+ * Formt gefundene Passagen zu einer Antwort.
+ *
+ * Der Assistent erfindet nichts: Was hier steht, stammt aus den Lerninhalten
+ * und wird mit seiner Herkunft ausgewiesen. Das ist der Unterschied zu einem
+ * Sprachmodell — weniger Formulierungskunst, dafür keine erfundenen Fakten.
+ */
+function answerFromPassages({ passages, topics, query, topicId }) {
+  const haupt = passages[0];
+  const weitere = passages.slice(1, 3);
+  const quelle = (passage) => `_${passage.label} · ${passage.topicTitle}_`;
+
+  const teile = [
+    `**${haupt.title || haupt.topicTitle}**`,
+    haupt.body,
+    quelle(haupt),
+  ];
+
+  if (weitere.length) {
+    teile.push('---', '**Das gehört auch dazu**');
+    teile.push(weitere
+      .map((passage) => `- ${firstSentence(passage.body)}  \n  ${quelle(passage)}`)
+      .join('\n'));
+  }
+
+  const fremde = topics.filter((meta) => meta.id !== topicId);
+  if (fremde.length) {
+    teile.push(`_Gefunden in: ${fremde.map((meta) => meta.title).join(', ')}._`);
+  }
+
+  const actions = [];
+  if (haupt.topicId !== topicId) {
+    actions.push({ label: `Thema öffnen: ${haupt.topicTitle}`, href: `#/thema/${haupt.topicId}` });
+  }
+  actions.push({ label: 'Einfacher erklären', prompt: 'Erkläre mir das einfacher' });
+  actions.push({ label: 'Dazu abfragen', prompt: 'Frag mich dazu ab' });
+
+  return { intent: 'knowledge', markdown: teile.filter(Boolean).join('\n\n'), actions, sources: passages };
+}
+
+/** Nichts gefunden — das sagt der Assistent, statt etwas zu erfinden. */
+function answerNotFound({ query, nearby = [] }) {
+  return {
+    intent: 'notFound',
+    markdown: [
+      `Zu **„${String(query).trim()}"** finde ich in den Lerninhalten nichts Passendes.`,
+      'Ich erfinde keine Antworten — ich zeige nur, was wirklich in den Inhalten steht.',
+      nearby.length
+        ? `\nDas kommt deiner Frage am nächsten:\n${nearby.slice(0, 3).map((meta) => `- **${meta.title}** (${meta.subjectName || ''} ${meta.grade ? `Klasse ${meta.grade}` : ''})`).join('\n')}`
+        : '\nVersuch es mit einem Stichwort statt einer ganzen Frage — zum Beispiel „Fotosynthese" oder „Prozentrechnung".',
+    ].filter(Boolean).join('\n\n'),
+    actions: nearby.length
+      ? nearby.slice(0, 2).map((meta) => ({ label: meta.title, href: `#/thema/${meta.id}` }))
+      : [{ label: 'Alle Fächer ansehen', href: '#/faecher' }],
+  };
+}
+
+/**
  * Erzeugt eine Antwort.
  * @param {object} ctx
  * @param {string} ctx.text Nutzeranfrage
@@ -201,14 +266,21 @@ export function questionToText(question, index) {
  * @param {object|null} ctx.lastWrong letzte falsche Antwort { question, result }
  * @returns {Promise<{markdown:string, actions?:Array, quiz?:Array, intent:string}>}
  */
-export async function answerLocally({ text, topicId, state, lastWrong }) {
+export async function answerLocally({ text, topicId, state, lastWrong, setup = null }) {
   const { intent, match } = detectIntent(text);
   const meta = topicId ? getTopicMeta(topicId) : null;
   const content = topicId && hasContent(topicId) ? await loadTopicContent(topicId) : null;
 
-  // Ohne Thema: beim Einordnen helfen.
-  if (!meta || !content) {
-    return { intent, markdown: answerWithoutTopic({ intent, text, state }) };
+  // Ohne Thema: erst in allen Inhalten nachschlagen, dann beim Einordnen helfen.
+  if (!meta) {
+    return answerWithoutTopic({ intent, text, state, setup });
+  }
+
+  // Thema ohne ausgearbeiteten Lerntext: Es gibt trotzdem Übungen, und deren
+  // Aufgaben und Erklärungen sind echtes Wissen. Der Assistent bleibt damit
+  // auch dort auskunftsfähig, wo noch kein Lerntext geschrieben ist.
+  if (!content) {
+    return answerWithoutContent({ intent, match, text, meta, topicId, state, lastWrong, setup });
   }
 
   const record = state.topics?.[topicId] || null;
@@ -407,10 +479,19 @@ export async function answerLocally({ text, topicId, state, lastWrong }) {
       if (hit) {
         return { intent, markdown: `**${hit.term}**\n\n${stripTags(hit.definition)}` };
       }
+      // Kein Begriff dieses Themas gemeint — dann in allen Inhalten nachsehen,
+      // statt das Begriffsverzeichnis auszuschütten.
+      const fund = await retrieve(text, {
+        topicId,
+        limit: 3,
+        subjects: setup?.subjects || null,
+        grade: setup?.grade ? Number(setup.grade) : null,
+      });
+      if (fund.passages.length) return answerFromPassages({ ...fund, query: text, topicId });
       return {
         intent,
         markdown: (content.glossary || []).length
-          ? [`Diese Begriffe gehören zu **${meta.title}**:`,
+          ? [`Dazu finde ich nichts. Diese Begriffe gehören zu **${meta.title}**:`,
             content.glossary.map((entry) => `- **${entry.term}** — ${stripTags(entry.definition)}`).join('\n')].join('\n\n')
           : `Für **${meta.title}** ist kein Begriffsverzeichnis hinterlegt.`,
       };
@@ -432,11 +513,21 @@ export async function answerLocally({ text, topicId, state, lastWrong }) {
       };
     }
 
-    default:
+    default: {
+      // Keine bekannte Absicht — also eine echte Frage. Dann wird
+      // nachgeschlagen, statt eine Liste der eigenen Fähigkeiten anzubieten.
+      const fund = await retrieve(text, {
+        topicId,
+        limit: 3,
+        subjects: setup?.subjects || null,
+        grade: setup?.grade ? Number(setup.grade) : null,
+      });
+      if (fund.passages.length) return answerFromPassages({ ...fund, query: text, topicId });
+
       return {
         intent: 'fallback',
         markdown: [
-          `Ich beziehe mich auf **${path}**. Ich kann dir dazu Folgendes anbieten:`,
+          `Dazu finde ich in **${path}** nichts Passendes. Ich kann dir aber Folgendes anbieten:`,
           [
             '- **einfacher erklären** — dieselbe Sache ohne Fachsprache',
             '- **Beispiel zeigen** — vollständig durchgerechnet',
@@ -449,10 +540,143 @@ export async function answerLocally({ text, topicId, state, lastWrong }) {
           `_Kurzfassung des Themas: ${content.summary}_`,
         ].join('\n\n'),
       };
+    }
   }
 }
 
-function answerWithoutTopic({ intent, state }) {
+/**
+ * Ein Thema, das noch keinen Lerntext hat, aber Übungen.
+ *
+ * Das betrifft die grosse Mehrheit der Themen: Der Lehrplan ist vollständig,
+ * die ausformulierten Erklärungen entstehen nach und nach. Bis dahin sind die
+ * Übungsaufgaben samt ihren Erklärungen die beste verfügbare Auskunft — und
+ * die gibt der Assistent, statt auf ein leeres Thema zu verweisen.
+ */
+async function answerWithoutContent({ intent, match, text, meta, topicId, state, lastWrong, setup }) {
+  const path = topicPathLabel(topicId);
+  const pool = hasExercises(topicId) ? await exercisesForTopic(meta.subjectId, topicId) : [];
+
+  if (!pool.length) {
+    const fund = await retrieve(text, {
+      topicId: null, limit: 3, subjects: setup?.subjects || null, grade: setup?.grade ? Number(setup.grade) : null,
+    });
+    if (fund.passages.length) return answerFromPassages({ ...fund, query: text, topicId: null });
+    return {
+      intent,
+      markdown: [
+        `Für **${meta.title}** ist die Lehrplanstruktur angelegt, Erklärungen und Aufgaben folgen noch.`,
+        `_${path}_`,
+      ].join('\n\n'),
+      actions: [{ label: 'Themen mit Inhalt ansehen', href: `#/fach/${meta.subjectId}?klasse=${meta.grade}` }],
+    };
+  }
+
+  const zufall = () => shuffle(pool, seededRandom(Date.now() % 99991));
+
+  switch (intent) {
+    case 'quiz':
+      return {
+        intent,
+        markdown: `Ich frage dich zu **${meta.title}** ab — drei Aufgaben aus dem Übungspool:`,
+        quiz: zufall().slice(0, 3),
+      };
+
+    case 'tasks': {
+      const gewuenscht = Number(match?.[1]) || 5;
+      const anzahl = Math.min(Math.max(1, gewuenscht), pool.length);
+      const gewaehlt = zufall().slice(0, anzahl);
+      return {
+        intent,
+        markdown: [
+          `**${anzahl} ${anzahl === 1 ? 'Aufgabe' : 'Aufgaben'} zu ${meta.title}**`,
+          gewaehlt.map((frage, index) => questionToText(frage, index + 1)).join('\n\n'),
+          '---',
+          '**Lösungen**',
+          gewaehlt.map((frage, index) => `**${index + 1}.** ${stripTags(correctAnswerText(frage))}`).join('\n'),
+        ].join('\n\n'),
+        actions: [{ label: 'Im Übungsmodus lösen', href: `#/thema/${topicId}/ueben` }],
+      };
+    }
+
+    case 'whyWrong': {
+      if (!lastWrong) {
+        return {
+          intent,
+          markdown: 'Ich weiß gerade nicht, welche Antwort du meinst. Beantworte im Übungsmodus '
+            + 'etwas falsch und frag dann hier nach — dann sehe ich die Aufgabe.',
+          actions: [{ label: 'Üben', href: `#/thema/${topicId}/ueben` }],
+        };
+      }
+      const { question, result } = lastWrong;
+      return {
+        intent,
+        markdown: [
+          `**Aufgabe:** ${stripTags(question.prompt)}`,
+          `**Richtige Lösung:** ${stripTags(result.correctText || correctAnswerText(question))}`,
+          question.explanation ? `**Warum:** ${stripTags(question.explanation)}` : '',
+          question.hint ? `**Merke:** ${stripTags(question.hint)}` : '',
+        ].filter(Boolean).join('\n\n'),
+        actions: [{ label: 'Ähnliche Aufgabe üben', href: `#/thema/${topicId}/ueben` }],
+      };
+    }
+
+    case 'progress': {
+      const record = state.topics?.[topicId] || null;
+      const mastery = topicMastery(record, topicId);
+      return {
+        intent,
+        markdown: [
+          `**Dein Stand bei ${meta.title}**`,
+          `Wissensstand: **${percentOf(mastery)}** (${topicStatus(record, topicId).label})`,
+          `Aufgaben bearbeitet: ${record?.practice?.attempts || 0} von ${pool.length} im Pool`,
+          `Tests geschrieben: ${record?.tests?.length || 0}`,
+        ].join('\n\n'),
+        actions: [{ label: 'Üben', href: `#/thema/${topicId}/ueben` }],
+      };
+    }
+
+    default: {
+      // Alles andere ist eine Frage — also nachschlagen.
+      const fund = await retrieve(text, {
+        topicId, limit: 3, subjects: setup?.subjects || null, grade: setup?.grade ? Number(setup.grade) : null,
+      });
+      if (fund.passages.length) return answerFromPassages({ ...fund, query: text, topicId });
+      return {
+        intent,
+        markdown: [
+          `Für **${meta.title}** gibt es ${pool.length} Übungsaufgaben, aber noch keinen ausformulierten Lerntext.`,
+          'Ich kann dich abfragen („Frag mich dazu ab“), dir Aufgaben mit Lösungen geben '
+            + '(„Mach mir 5 Aufgaben dazu“) oder erklären, warum eine Antwort falsch war.',
+          `_${path}_`,
+        ].join('\n\n'),
+        actions: [
+          { label: 'Frag mich ab', prompt: 'Frag mich dazu ab' },
+          { label: 'Üben', href: `#/thema/${topicId}/ueben` },
+        ],
+      };
+    }
+  }
+}
+
+async function answerWithoutTopic({ intent, text, state, setup }) {
+  // Eine freie Frage wird zuerst nachgeschlagen — quer über alle Inhalte.
+  if (intent === 'fallback' || intent === 'glossary' || intent === 'simpler' || intent === 'deeper') {
+    const fund = await retrieve(text, {
+      topicId: null,
+      limit: 4,
+      subjects: setup?.subjects || null,
+      grade: setup?.grade ? Number(setup.grade) : null,
+    });
+    if (fund.passages.length) return answerFromPassages({ ...fund, query: text, topicId: null });
+    if (intent !== 'fallback') {
+      return answerNotFound({ query: text, nearby: search(text, { limit: 3, onlyWithContent: true }) });
+    }
+  }
+
+  return { intent, markdown: staticAnswerWithoutTopic({ intent, state }) };
+}
+
+function staticAnswerWithoutTopic({ intent, state }) {
   const started = Object.keys(state.topics || {}).length;
   switch (intent) {
     case 'plan':
@@ -473,10 +697,16 @@ function answerWithoutTopic({ intent, state }) {
         : 'Du hast noch kein Thema bearbeitet. Sobald du anfängst, kann ich dir deinen Stand zeigen.';
     default:
       return [
-        'Ich bin dein Lernassistent. Ich arbeite immer **zu einem konkreten Thema** — dann kann ich',
-        'dir Inhalte einfacher erklären, Beispiele zeigen, dich abfragen oder Aufgaben erzeugen.',
+        'Ich bin dein Lernassistent. **Frag einfach los** — ich durchsuche alle Lerninhalte und',
+        'zeige dir die Stelle, die zu deiner Frage passt, mitsamt Quelle.',
         '',
-        'Öffne dazu ein Thema und tippe oben rechts auf „Nachfragen“, oder wähle unten ein Thema aus.',
+        'Beispiele: „Was ist Fotosynthese?", „Wie rechne ich Prozent aus?", „Was bedeutet Protolyse?"',
+        '',
+        'Öffnest du zuerst ein Thema, kann ich zusätzlich **einfacher erklären**, **Beispiele zeigen**,',
+        'dich **abfragen** und **Aufgaben erzeugen** — und ich beziehe deinen Lernstand mit ein.',
+        '',
+        '_Ich erfinde nichts: Jede Antwort stammt aus den Inhalten dieser App. Wenn ich nichts finde,',
+        'sage ich das._',
       ].join('\n');
   }
 }
