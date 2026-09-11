@@ -2,7 +2,7 @@
  * AUTOMATISCH GENERIERT — nicht von Hand bearbeiten.
  * Neu erzeugen mit: node tools/build-exercises.mjs
  *
- * Übungspool englisch: 106 Aufgaben.
+ * Übungspool englisch: 172 Aufgaben.
  */
 
 export default {
@@ -2532,6 +2532,1722 @@ export default {
    ],
    "answer": "a",
    "explanation": "Nach „I wish\" mit Past Perfect steht das Bedauern über eine vergangene, nicht mehr änderbare Situation."
+  },
+  {
+   "id": "en-107",
+   "topicId": "en5-vocab-school",
+   "grade": 5,
+   "difficulty": 1,
+   "competency": "school",
+   "type": "cloze",
+   "prompt": "Wie heißt „die Tafel\" auf Englisch?",
+   "segments": [
+    "",
+    {
+     "blank": "a",
+     "accept": [
+      "the blackboard"
+     ]
+    },
+    ""
+   ],
+   "explanation": "„die Tafel\" heißt the blackboard."
+  },
+  {
+   "id": "en-108",
+   "topicId": "en5-vocab-school",
+   "grade": 5,
+   "difficulty": 1,
+   "competency": "school",
+   "type": "mc",
+   "prompt": "Was bedeutet „the blackboard\" auf Deutsch?",
+   "options": [
+    {
+     "id": "a",
+     "text": "die Pause"
+    },
+    {
+     "id": "b",
+     "text": "das Zeugnis"
+    },
+    {
+     "id": "c",
+     "text": "der Stundenplan"
+    },
+    {
+     "id": "d",
+     "text": "die Tafel"
+    }
+   ],
+   "answer": "d",
+   "explanation": "„the blackboard\" bedeutet „die Tafel\"."
+  },
+  {
+   "id": "en-109",
+   "topicId": "en5-vocab-school",
+   "grade": 5,
+   "difficulty": 1,
+   "competency": "school",
+   "type": "cloze",
+   "prompt": "Wie heißt „der Stundenplan\" auf Englisch?",
+   "segments": [
+    "",
+    {
+     "blank": "a",
+     "accept": [
+      "the timetable"
+     ]
+    },
+    ""
+   ],
+   "explanation": "„der Stundenplan\" heißt the timetable."
+  },
+  {
+   "id": "en-110",
+   "topicId": "en5-vocab-school",
+   "grade": 5,
+   "difficulty": 1,
+   "competency": "school",
+   "type": "cloze",
+   "prompt": "Wie heißt „die Pause\" auf Englisch?",
+   "segments": [
+    "",
+    {
+     "blank": "a",
+     "accept": [
+      "the break"
+     ]
+    },
+    ""
+   ],
+   "explanation": "„die Pause\" heißt the break."
+  },
+  {
+   "id": "en-111",
+   "topicId": "en5-vocab-school",
+   "grade": 5,
+   "difficulty": 1,
+   "competency": "school",
+   "type": "mc",
+   "prompt": "Was bedeutet „the break\" auf Deutsch?",
+   "options": [
+    {
+     "id": "a",
+     "text": "der Stundenplan"
+    },
+    {
+     "id": "b",
+     "text": "das Zeugnis"
+    },
+    {
+     "id": "c",
+     "text": "die Tafel"
+    },
+    {
+     "id": "d",
+     "text": "die Pause"
+    }
+   ],
+   "answer": "d",
+   "explanation": "„the break\" bedeutet „die Pause\"."
+  },
+  {
+   "id": "en-112",
+   "topicId": "en5-vocab-school",
+   "grade": 5,
+   "difficulty": 1,
+   "competency": "school",
+   "type": "cloze",
+   "prompt": "Wie heißt „das Zeugnis\" auf Englisch?",
+   "segments": [
+    "",
+    {
+     "blank": "a",
+     "accept": [
+      "the report"
+     ]
+    },
+    ""
+   ],
+   "explanation": "„das Zeugnis\" heißt the report."
+  },
+  {
+   "id": "en-113",
+   "topicId": "en5-vocab-school",
+   "grade": 5,
+   "difficulty": 1,
+   "competency": "school",
+   "type": "cloze",
+   "prompt": "Wie heißt „der Klassenraum\" auf Englisch?",
+   "segments": [
+    "",
+    {
+     "blank": "a",
+     "accept": [
+      "the classroom"
+     ]
+    },
+    ""
+   ],
+   "explanation": "„der Klassenraum\" heißt the classroom."
+  },
+  {
+   "id": "en-114",
+   "topicId": "en5-vocab-school",
+   "grade": 5,
+   "difficulty": 1,
+   "competency": "school",
+   "type": "mc",
+   "prompt": "Was bedeutet „the classroom\" auf Deutsch?",
+   "options": [
+    {
+     "id": "a",
+     "text": "die Tafel"
+    },
+    {
+     "id": "b",
+     "text": "die Pause"
+    },
+    {
+     "id": "c",
+     "text": "der Klassenraum"
+    },
+    {
+     "id": "d",
+     "text": "der Stundenplan"
+    }
+   ],
+   "answer": "c",
+   "explanation": "„the classroom\" bedeutet „der Klassenraum\"."
+  },
+  {
+   "id": "en-115",
+   "topicId": "en5-vocab-school",
+   "grade": 5,
+   "difficulty": 1,
+   "competency": "school",
+   "type": "cloze",
+   "prompt": "Wie heißt „die Hausaufgaben\" auf Englisch?",
+   "segments": [
+    "",
+    {
+     "blank": "a",
+     "accept": [
+      "the homework"
+     ]
+    },
+    ""
+   ],
+   "explanation": "„die Hausaufgaben\" heißt the homework."
+  },
+  {
+   "id": "en-116",
+   "topicId": "en5-vocab-school",
+   "grade": 5,
+   "difficulty": 1,
+   "competency": "school",
+   "type": "cloze",
+   "prompt": "Wie heißt „der Schulhof\" auf Englisch?",
+   "segments": [
+    "",
+    {
+     "blank": "a",
+     "accept": [
+      "the schoolyard"
+     ]
+    },
+    ""
+   ],
+   "explanation": "„der Schulhof\" heißt the schoolyard."
+  },
+  {
+   "id": "en-117",
+   "topicId": "en5-vocab-school",
+   "grade": 5,
+   "difficulty": 1,
+   "competency": "school",
+   "type": "mc",
+   "prompt": "Was bedeutet „the schoolyard\" auf Deutsch?",
+   "options": [
+    {
+     "id": "a",
+     "text": "die Pause"
+    },
+    {
+     "id": "b",
+     "text": "der Schulhof"
+    },
+    {
+     "id": "c",
+     "text": "die Tafel"
+    },
+    {
+     "id": "d",
+     "text": "der Stundenplan"
+    }
+   ],
+   "answer": "b",
+   "explanation": "„the schoolyard\" bedeutet „der Schulhof\"."
+  },
+  {
+   "id": "en-118",
+   "topicId": "en5-vocab-school",
+   "grade": 5,
+   "difficulty": 1,
+   "competency": "school",
+   "type": "cloze",
+   "prompt": "Wie heißt „die Turnhalle\" auf Englisch?",
+   "segments": [
+    "",
+    {
+     "blank": "a",
+     "accept": [
+      "the gym"
+     ]
+    },
+    ""
+   ],
+   "explanation": "„die Turnhalle\" heißt the gym."
+  },
+  {
+   "id": "en-119",
+   "topicId": "en5-vocab-school",
+   "grade": 5,
+   "difficulty": 1,
+   "competency": "school",
+   "type": "match",
+   "prompt": "Ordne jedem deutschen Wort die Englische Entsprechung zu.",
+   "pairs": [
+    {
+     "left": "die Tafel",
+     "right": "the blackboard"
+    },
+    {
+     "left": "der Stundenplan",
+     "right": "the timetable"
+    },
+    {
+     "left": "die Pause",
+     "right": "the break"
+    },
+    {
+     "left": "das Zeugnis",
+     "right": "the report"
+    }
+   ],
+   "explanation": "Vokabeln lernt man am besten in beide Richtungen."
+  },
+  {
+   "id": "en-120",
+   "topicId": "en5-vocab-school",
+   "grade": 5,
+   "difficulty": 1,
+   "competency": "school",
+   "type": "match",
+   "prompt": "Ordne jedem deutschen Wort die Englische Entsprechung zu.",
+   "pairs": [
+    {
+     "left": "der Klassenraum",
+     "right": "the classroom"
+    },
+    {
+     "left": "die Hausaufgaben",
+     "right": "the homework"
+    },
+    {
+     "left": "der Schulhof",
+     "right": "the schoolyard"
+    },
+    {
+     "left": "die Turnhalle",
+     "right": "the gym"
+    }
+   ],
+   "explanation": "Vokabeln lernt man am besten in beide Richtungen."
+  },
+  {
+   "id": "en-121",
+   "topicId": "en5-vocab-school",
+   "grade": 5,
+   "difficulty": 1,
+   "competency": "family",
+   "type": "cloze",
+   "prompt": "Wie heißt „die Tante\" auf Englisch?",
+   "segments": [
+    "",
+    {
+     "blank": "a",
+     "accept": [
+      "the aunt"
+     ]
+    },
+    ""
+   ],
+   "explanation": "„die Tante\" heißt the aunt."
+  },
+  {
+   "id": "en-122",
+   "topicId": "en5-vocab-school",
+   "grade": 5,
+   "difficulty": 1,
+   "competency": "family",
+   "type": "mc",
+   "prompt": "Was bedeutet „the aunt\" auf Deutsch?",
+   "options": [
+    {
+     "id": "a",
+     "text": "die Tante"
+    },
+    {
+     "id": "b",
+     "text": "der Onkel"
+    },
+    {
+     "id": "c",
+     "text": "die Großeltern"
+    },
+    {
+     "id": "d",
+     "text": "die Cousine"
+    }
+   ],
+   "answer": "a",
+   "explanation": "„the aunt\" bedeutet „die Tante\"."
+  },
+  {
+   "id": "en-123",
+   "topicId": "en5-vocab-school",
+   "grade": 5,
+   "difficulty": 1,
+   "competency": "family",
+   "type": "cloze",
+   "prompt": "Wie heißt „der Onkel\" auf Englisch?",
+   "segments": [
+    "",
+    {
+     "blank": "a",
+     "accept": [
+      "the uncle"
+     ]
+    },
+    ""
+   ],
+   "explanation": "„der Onkel\" heißt the uncle."
+  },
+  {
+   "id": "en-124",
+   "topicId": "en5-vocab-school",
+   "grade": 5,
+   "difficulty": 1,
+   "competency": "family",
+   "type": "cloze",
+   "prompt": "Wie heißt „die Cousine\" auf Englisch?",
+   "segments": [
+    "",
+    {
+     "blank": "a",
+     "accept": [
+      "the cousin"
+     ]
+    },
+    ""
+   ],
+   "explanation": "„die Cousine\" heißt the cousin."
+  },
+  {
+   "id": "en-125",
+   "topicId": "en5-vocab-school",
+   "grade": 5,
+   "difficulty": 1,
+   "competency": "family",
+   "type": "mc",
+   "prompt": "Was bedeutet „the cousin\" auf Deutsch?",
+   "options": [
+    {
+     "id": "a",
+     "text": "die Tante"
+    },
+    {
+     "id": "b",
+     "text": "die Cousine"
+    },
+    {
+     "id": "c",
+     "text": "der Onkel"
+    },
+    {
+     "id": "d",
+     "text": "die Großeltern"
+    }
+   ],
+   "answer": "b",
+   "explanation": "„the cousin\" bedeutet „die Cousine\"."
+  },
+  {
+   "id": "en-126",
+   "topicId": "en5-vocab-school",
+   "grade": 5,
+   "difficulty": 1,
+   "competency": "family",
+   "type": "cloze",
+   "prompt": "Wie heißt „die Großeltern\" auf Englisch?",
+   "segments": [
+    "",
+    {
+     "blank": "a",
+     "accept": [
+      "the grandparents"
+     ]
+    },
+    ""
+   ],
+   "explanation": "„die Großeltern\" heißt the grandparents."
+  },
+  {
+   "id": "en-127",
+   "topicId": "en5-vocab-school",
+   "grade": 5,
+   "difficulty": 1,
+   "competency": "family",
+   "type": "cloze",
+   "prompt": "Wie heißt „der Neffe\" auf Englisch?",
+   "segments": [
+    "",
+    {
+     "blank": "a",
+     "accept": [
+      "the nephew"
+     ]
+    },
+    ""
+   ],
+   "explanation": "„der Neffe\" heißt the nephew."
+  },
+  {
+   "id": "en-128",
+   "topicId": "en5-vocab-school",
+   "grade": 5,
+   "difficulty": 1,
+   "competency": "family",
+   "type": "mc",
+   "prompt": "Was bedeutet „the nephew\" auf Deutsch?",
+   "options": [
+    {
+     "id": "a",
+     "text": "der Neffe"
+    },
+    {
+     "id": "b",
+     "text": "die Tante"
+    },
+    {
+     "id": "c",
+     "text": "die Cousine"
+    },
+    {
+     "id": "d",
+     "text": "der Onkel"
+    }
+   ],
+   "answer": "a",
+   "explanation": "„the nephew\" bedeutet „der Neffe\"."
+  },
+  {
+   "id": "en-129",
+   "topicId": "en5-vocab-school",
+   "grade": 5,
+   "difficulty": 1,
+   "competency": "family",
+   "type": "cloze",
+   "prompt": "Wie heißt „die Nichte\" auf Englisch?",
+   "segments": [
+    "",
+    {
+     "blank": "a",
+     "accept": [
+      "the niece"
+     ]
+    },
+    ""
+   ],
+   "explanation": "„die Nichte\" heißt the niece."
+  },
+  {
+   "id": "en-130",
+   "topicId": "en5-vocab-school",
+   "grade": 5,
+   "difficulty": 1,
+   "competency": "family",
+   "type": "match",
+   "prompt": "Ordne jedem deutschen Wort die Englische Entsprechung zu.",
+   "pairs": [
+    {
+     "left": "die Tante",
+     "right": "the aunt"
+    },
+    {
+     "left": "der Onkel",
+     "right": "the uncle"
+    },
+    {
+     "left": "die Cousine",
+     "right": "the cousin"
+    },
+    {
+     "left": "die Großeltern",
+     "right": "the grandparents"
+    }
+   ],
+   "explanation": "Vokabeln lernt man am besten in beide Richtungen."
+  },
+  {
+   "id": "en-131",
+   "topicId": "en5-vocab-school",
+   "grade": 5,
+   "difficulty": 2,
+   "competency": "school",
+   "type": "category",
+   "prompt": "Sort the words: school or family?",
+   "categories": [
+    "school",
+    "family"
+   ],
+   "items": [
+    {
+     "text": "timetable",
+     "category": "school"
+    },
+    {
+     "text": "break",
+     "category": "school"
+    },
+    {
+     "text": "classroom",
+     "category": "school"
+    },
+    {
+     "text": "aunt",
+     "category": "family"
+    },
+    {
+     "text": "cousin",
+     "category": "family"
+    },
+    {
+     "text": "grandparents",
+     "category": "family"
+    }
+   ],
+   "explanation": "Wortfelder helfen beim Behalten: Man lernt Wörter in Gruppen, nicht einzeln."
+  },
+  {
+   "id": "en-132",
+   "topicId": "en5-vocab-school",
+   "grade": 5,
+   "difficulty": 2,
+   "competency": "school",
+   "type": "sentence",
+   "prompt": "Build the sentence: „Mein Stundenplan beginnt um acht Uhr.\"",
+   "words": [
+    "My",
+    "timetable",
+    "starts",
+    "at",
+    "eight",
+    "o",
+    "clock"
+   ],
+   "accept": [],
+   "explanation": "Im Englischen steht die Zeitangabe am Satzende."
+  },
+  {
+   "id": "en-133",
+   "topicId": "en5-vocab-school",
+   "grade": 5,
+   "difficulty": 2,
+   "competency": "family",
+   "type": "mark",
+   "prompt": "Mark the family words.",
+   "words": [
+    "My",
+    "aunt",
+    "and",
+    "my",
+    "cousin",
+    "visited",
+    "our",
+    "school",
+    "last",
+    "Friday."
+   ],
+   "answer": [
+    1,
+    4
+   ],
+   "explanation": "„School\" und „Friday\" gehören nicht zum Wortfeld Familie."
+  },
+  {
+   "id": "en-134",
+   "topicId": "en9-participle",
+   "grade": 9,
+   "difficulty": 3,
+   "competency": "gerund",
+   "type": "mc",
+   "prompt": "Which sentence uses a participle construction correctly?",
+   "options": [
+    {
+     "id": "a",
+     "text": "To open the door, she saw the parcel."
+    },
+    {
+     "id": "b",
+     "text": "She opening the door saw the parcel."
+    },
+    {
+     "id": "c",
+     "text": "Open the door, she saw the parcel."
+    },
+    {
+     "id": "d",
+     "text": "Opening the door, she saw the parcel."
+    }
+   ],
+   "answer": "d",
+   "explanation": "Das Present Participle verkürzt „While she opened the door, …\"."
+  },
+  {
+   "id": "en-135",
+   "topicId": "en9-participle",
+   "grade": 9,
+   "difficulty": 3,
+   "competency": "gerund",
+   "type": "match",
+   "prompt": "Match each participle form with its meaning.",
+   "pairs": [
+    {
+     "left": "Present Participle (-ing)",
+     "right": "aktiv, gleichzeitig"
+    },
+    {
+     "left": "Past Participle (-ed / 3. Form)",
+     "right": "passiv"
+    },
+    {
+     "left": "Perfect Participle (having + PP)",
+     "right": "vorzeitig"
+    },
+    {
+     "left": "Gerund (-ing als Nomen)",
+     "right": "Tätigkeit als Substantiv"
+    }
+   ],
+   "explanation": "Gerund und Present Participle sehen gleich aus, haben aber verschiedene Funktionen."
+  },
+  {
+   "id": "en-136",
+   "topicId": "en9-participle",
+   "grade": 9,
+   "difficulty": 3,
+   "competency": "gerund",
+   "type": "cloze",
+   "prompt": "Shorten with a participle: „While he was waiting for the bus, he read a book.\"",
+   "segments": [
+    "",
+    {
+     "blank": "a",
+     "accept": [
+      "Waiting for the bus, he read a book.",
+      "Waiting for the bus, he read a book"
+     ]
+    },
+    ""
+   ],
+   "explanation": "Die Kurzform lautet: Waiting for the bus, he read a book."
+  },
+  {
+   "id": "en-137",
+   "topicId": "en9-participle",
+   "grade": 9,
+   "difficulty": 3,
+   "competency": "gerund",
+   "type": "cloze",
+   "prompt": "Shorten with a participle: „Because she was tired, she went to bed.\"",
+   "segments": [
+    "",
+    {
+     "blank": "a",
+     "accept": [
+      "Being tired, she went to bed.",
+      "Being tired, she went to bed"
+     ]
+    },
+    ""
+   ],
+   "explanation": "Die Kurzform lautet: Being tired, she went to bed."
+  },
+  {
+   "id": "en-138",
+   "topicId": "en9-participle",
+   "grade": 9,
+   "difficulty": 3,
+   "competency": "gerund",
+   "type": "cloze",
+   "prompt": "Shorten with a participle: „After he had finished his work, he left.\"",
+   "segments": [
+    "",
+    {
+     "blank": "a",
+     "accept": [
+      "Having finished his work, he left.",
+      "Having finished his work, he left"
+     ]
+    },
+    ""
+   ],
+   "explanation": "Die Kurzform lautet: Having finished his work, he left."
+  },
+  {
+   "id": "en-139",
+   "topicId": "en9-participle",
+   "grade": 9,
+   "difficulty": 3,
+   "competency": "gerund",
+   "type": "multi",
+   "prompt": "When can you shorten a clause with a participle?",
+   "options": [
+    {
+     "id": "a",
+     "text": "The relationship is time, reason or manner"
+    },
+    {
+     "id": "b",
+     "text": "The main clause is a question"
+    },
+    {
+     "id": "c",
+     "text": "Both clauses have the same subject"
+    },
+    {
+     "id": "d",
+     "text": "The clauses have different subjects"
+    }
+   ],
+   "answer": [
+    "a",
+    "c"
+   ],
+   "explanation": "Bei verschiedenen Subjekten entsteht ein „dangling participle\" — grammatisch falsch."
+  },
+  {
+   "id": "en-140",
+   "topicId": "en10-mediation",
+   "grade": 10,
+   "difficulty": 2,
+   "competency": "writing",
+   "type": "mc",
+   "prompt": "What does mediation mean in an English exam?",
+   "options": [
+    {
+     "id": "a",
+     "text": "Eine Diskussion führen"
+    },
+    {
+     "id": "b",
+     "text": "Den sinngemässen Inhalt eines Textes in die andere Sprache übertragen"
+    },
+    {
+     "id": "c",
+     "text": "Wort für Wort übersetzen"
+    },
+    {
+     "id": "d",
+     "text": "Einen Text auswendig lernen"
+    }
+   ],
+   "answer": "b",
+   "explanation": "Mediation ist Sinnvermittlung für einen bestimmten Adressaten — keine Übersetzung."
+  },
+  {
+   "id": "en-141",
+   "topicId": "en10-mediation",
+   "grade": 10,
+   "difficulty": 3,
+   "competency": "writing",
+   "type": "multi",
+   "prompt": "What belongs in a good mediation?",
+   "options": [
+    {
+     "id": "a",
+     "text": "Eigene Formulierungen"
+    },
+    {
+     "id": "b",
+     "text": "Nur die für den Adressaten wichtigen Informationen"
+    },
+    {
+     "id": "c",
+     "text": "Wörtliche Übersetzung ganzer Sätze"
+    },
+    {
+     "id": "d",
+     "text": "Hinweis auf Quelle und Textsorte"
+    },
+    {
+     "id": "e",
+     "text": "Alle Details des Ausgangstextes"
+    }
+   ],
+   "answer": [
+    "a",
+    "b",
+    "d"
+   ],
+   "explanation": "Die Auswahl richtet sich nach der Frage: Was braucht der Adressat?"
+  },
+  {
+   "id": "en-142",
+   "topicId": "en10-mediation",
+   "grade": 10,
+   "difficulty": 3,
+   "competency": "writing",
+   "type": "order",
+   "prompt": "Put the steps of a mediation task in order.",
+   "items": [
+    "Aufgabenstellung und Adressat klären",
+    "Ausgangstext lesen und Relevantes markieren",
+    "Informationen ordnen",
+    "In der Zielsprache formulieren",
+    "Auf Adressatenbezug prüfen"
+   ],
+   "explanation": "Der Adressat steht am Anfang und am Ende — er bestimmt die Auswahl."
+  },
+  {
+   "id": "en-143",
+   "topicId": "en10-mediation",
+   "grade": 10,
+   "difficulty": 3,
+   "competency": "writing",
+   "type": "category",
+   "prompt": "Mediation or translation?",
+   "categories": [
+    "Mediation",
+    "Translation"
+   ],
+   "items": [
+    {
+     "text": "Summarise the key points for a British exchange student",
+     "category": "Mediation"
+    },
+    {
+     "text": "Explain the German school system to a friend",
+     "category": "Mediation"
+    },
+    {
+     "text": "Translate this sentence word by word",
+     "category": "Translation"
+    },
+    {
+     "text": "Give the exact English equivalent of each term",
+     "category": "Translation"
+    }
+   ],
+   "explanation": "Mediation fragt nach dem Zweck, Übersetzung nach der Entsprechung."
+  },
+  {
+   "id": "en-144",
+   "topicId": "en11-shakespeare",
+   "grade": 11,
+   "difficulty": 3,
+   "competency": "analysis",
+   "type": "mc",
+   "prompt": "What is a soliloquy?",
+   "options": [
+    {
+     "id": "a",
+     "text": "A speech in which a character speaks their thoughts alone on stage"
+    },
+    {
+     "id": "b",
+     "text": "The opening song of a play"
+    },
+    {
+     "id": "c",
+     "text": "A dialogue between two characters"
+    },
+    {
+     "id": "d",
+     "text": "A stage direction"
+    }
+   ],
+   "answer": "a",
+   "explanation": "Der Monolog öffnet dem Publikum das Innere der Figur — Hamlets „To be, or not to be\"."
+  },
+  {
+   "id": "en-145",
+   "topicId": "en11-shakespeare",
+   "grade": 11,
+   "difficulty": 3,
+   "competency": "analysis",
+   "type": "match",
+   "prompt": "Match the terms of drama analysis.",
+   "pairs": [
+    {
+     "left": "Exposition",
+     "right": "Introduces characters and conflict"
+    },
+    {
+     "left": "Climax",
+     "right": "Turning point of the action"
+    },
+    {
+     "left": "Catastrophe",
+     "right": "Final outcome of a tragedy"
+    },
+    {
+     "left": "Aside",
+     "right": "Remark only the audience hears"
+    }
+   ],
+   "explanation": "Shakespeares Dramen folgen dem fünfaktigen Aufbau nach Freytag."
+  },
+  {
+   "id": "en-146",
+   "topicId": "en11-shakespeare",
+   "grade": 11,
+   "difficulty": 3,
+   "competency": "analysis",
+   "type": "multi",
+   "prompt": "Which features are typical of Shakespearean drama?",
+   "options": [
+    {
+     "id": "a",
+     "text": "A mix of noble and common characters"
+    },
+    {
+     "id": "b",
+     "text": "Strict unity of place in every play"
+    },
+    {
+     "id": "c",
+     "text": "Prose only"
+    },
+    {
+     "id": "d",
+     "text": "Blank verse (iambic pentameter)"
+    },
+    {
+     "id": "e",
+     "text": "Five acts"
+    }
+   ],
+   "answer": [
+    "a",
+    "d",
+    "e"
+   ],
+   "explanation": "Shakespeare mischt Vers und Prosa und hält sich nicht an die drei Einheiten."
+  },
+  {
+   "id": "en-147",
+   "topicId": "en11-shakespeare",
+   "grade": 11,
+   "difficulty": 3,
+   "competency": "analysis",
+   "type": "order",
+   "prompt": "Put the five acts of a Shakespearean tragedy in order.",
+   "items": [
+    "Exposition",
+    "Rising action",
+    "Climax",
+    "Falling action",
+    "Catastrophe"
+   ],
+   "explanation": "Der Höhepunkt liegt in der Mitte — danach ist der Untergang unaufhaltsam."
+  },
+  {
+   "id": "en-148",
+   "topicId": "en11-media",
+   "grade": 11,
+   "difficulty": 3,
+   "competency": "vocab",
+   "type": "cloze",
+   "prompt": "Wie heißt „die Schlagzeile\" auf Englisch?",
+   "segments": [
+    "",
+    {
+     "blank": "a",
+     "accept": [
+      "the headline"
+     ]
+    },
+    ""
+   ],
+   "explanation": "„die Schlagzeile\" heißt the headline."
+  },
+  {
+   "id": "en-149",
+   "topicId": "en11-media",
+   "grade": 11,
+   "difficulty": 3,
+   "competency": "vocab",
+   "type": "mc",
+   "prompt": "Was bedeutet „the headline\" auf Deutsch?",
+   "options": [
+    {
+     "id": "a",
+     "text": "die Schlagzeile"
+    },
+    {
+     "id": "b",
+     "text": "die Quelle"
+    },
+    {
+     "id": "c",
+     "text": "der Leitartikel"
+    },
+    {
+     "id": "d",
+     "text": "die Falschmeldung"
+    }
+   ],
+   "answer": "a",
+   "explanation": "„the headline\" bedeutet „die Schlagzeile\"."
+  },
+  {
+   "id": "en-150",
+   "topicId": "en11-media",
+   "grade": 11,
+   "difficulty": 3,
+   "competency": "vocab",
+   "type": "cloze",
+   "prompt": "Wie heißt „der Leitartikel\" auf Englisch?",
+   "segments": [
+    "",
+    {
+     "blank": "a",
+     "accept": [
+      "the editorial"
+     ]
+    },
+    ""
+   ],
+   "explanation": "„der Leitartikel\" heißt the editorial."
+  },
+  {
+   "id": "en-151",
+   "topicId": "en11-media",
+   "grade": 11,
+   "difficulty": 3,
+   "competency": "vocab",
+   "type": "cloze",
+   "prompt": "Wie heißt „die Quelle\" auf Englisch?",
+   "segments": [
+    "",
+    {
+     "blank": "a",
+     "accept": [
+      "the source"
+     ]
+    },
+    ""
+   ],
+   "explanation": "„die Quelle\" heißt the source."
+  },
+  {
+   "id": "en-152",
+   "topicId": "en11-media",
+   "grade": 11,
+   "difficulty": 3,
+   "competency": "vocab",
+   "type": "mc",
+   "prompt": "Was bedeutet „the source\" auf Deutsch?",
+   "options": [
+    {
+     "id": "a",
+     "text": "der Leitartikel"
+    },
+    {
+     "id": "b",
+     "text": "die Quelle"
+    },
+    {
+     "id": "c",
+     "text": "die Schlagzeile"
+    },
+    {
+     "id": "d",
+     "text": "die Falschmeldung"
+    }
+   ],
+   "answer": "b",
+   "explanation": "„the source\" bedeutet „die Quelle\"."
+  },
+  {
+   "id": "en-153",
+   "topicId": "en11-media",
+   "grade": 11,
+   "difficulty": 3,
+   "competency": "vocab",
+   "type": "cloze",
+   "prompt": "Wie heißt „die Falschmeldung\" auf Englisch?",
+   "segments": [
+    "",
+    {
+     "blank": "a",
+     "accept": [
+      "fake news"
+     ]
+    },
+    ""
+   ],
+   "explanation": "„die Falschmeldung\" heißt fake news."
+  },
+  {
+   "id": "en-154",
+   "topicId": "en11-media",
+   "grade": 11,
+   "difficulty": 3,
+   "competency": "vocab",
+   "type": "cloze",
+   "prompt": "Wie heißt „die Pressefreiheit\" auf Englisch?",
+   "segments": [
+    "",
+    {
+     "blank": "a",
+     "accept": [
+      "freedom of the press"
+     ]
+    },
+    ""
+   ],
+   "explanation": "„die Pressefreiheit\" heißt freedom of the press."
+  },
+  {
+   "id": "en-155",
+   "topicId": "en11-media",
+   "grade": 11,
+   "difficulty": 3,
+   "competency": "vocab",
+   "type": "mc",
+   "prompt": "Was bedeutet „freedom of the press\" auf Deutsch?",
+   "options": [
+    {
+     "id": "a",
+     "text": "die Quelle"
+    },
+    {
+     "id": "b",
+     "text": "die Schlagzeile"
+    },
+    {
+     "id": "c",
+     "text": "der Leitartikel"
+    },
+    {
+     "id": "d",
+     "text": "die Pressefreiheit"
+    }
+   ],
+   "answer": "d",
+   "explanation": "„freedom of the press\" bedeutet „die Pressefreiheit\"."
+  },
+  {
+   "id": "en-156",
+   "topicId": "en11-media",
+   "grade": 11,
+   "difficulty": 3,
+   "competency": "vocab",
+   "type": "cloze",
+   "prompt": "Wie heißt „die Reichweite\" auf Englisch?",
+   "segments": [
+    "",
+    {
+     "blank": "a",
+     "accept": [
+      "the reach"
+     ]
+    },
+    ""
+   ],
+   "explanation": "„die Reichweite\" heißt the reach."
+  },
+  {
+   "id": "en-157",
+   "topicId": "en11-media",
+   "grade": 11,
+   "difficulty": 3,
+   "competency": "vocab",
+   "type": "match",
+   "prompt": "Ordne jedem deutschen Wort die Englische Entsprechung zu.",
+   "pairs": [
+    {
+     "left": "die Schlagzeile",
+     "right": "the headline"
+    },
+    {
+     "left": "der Leitartikel",
+     "right": "the editorial"
+    },
+    {
+     "left": "die Quelle",
+     "right": "the source"
+    },
+    {
+     "left": "die Falschmeldung",
+     "right": "fake news"
+    }
+   ],
+   "explanation": "Vokabeln lernt man am besten in beide Richtungen."
+  },
+  {
+   "id": "en-158",
+   "topicId": "en11-media",
+   "grade": 11,
+   "difficulty": 3,
+   "competency": "analysis",
+   "type": "multi",
+   "prompt": "How can you check whether a news item is trustworthy?",
+   "options": [
+    {
+     "id": "a",
+     "text": "Trust it if it confirms your view"
+    },
+    {
+     "id": "b",
+     "text": "Distinguish fact from opinion"
+    },
+    {
+     "id": "c",
+     "text": "Count the likes"
+    },
+    {
+     "id": "d",
+     "text": "Check the date"
+    },
+    {
+     "id": "e",
+     "text": "Check the source"
+    },
+    {
+     "id": "f",
+     "text": "Look for other independent reports"
+    }
+   ],
+   "answer": [
+    "b",
+    "d",
+    "e",
+    "f"
+   ],
+   "explanation": "Reichweite ist kein Wahrheitsbeleg — unabhängige Bestätigung schon."
+  },
+  {
+   "id": "en-159",
+   "topicId": "en11-media",
+   "grade": 11,
+   "difficulty": 3,
+   "competency": "analysis",
+   "type": "category",
+   "prompt": "Fact or opinion?",
+   "categories": [
+    "Fact",
+    "Opinion"
+   ],
+   "items": [
+    {
+     "text": "The report was published in 2023",
+     "category": "Fact"
+    },
+    {
+     "text": "The company employs 400 people",
+     "category": "Fact"
+    },
+    {
+     "text": "This is the best decision ever made",
+     "category": "Opinion"
+    },
+    {
+     "text": "The plan is clearly a disaster",
+     "category": "Opinion"
+    }
+   ],
+   "explanation": "Fakten sind überprüfbar, Meinungen begründbar — beides muss unterscheidbar bleiben."
+  },
+  {
+   "id": "en-160",
+   "topicId": "en11-media",
+   "grade": 11,
+   "difficulty": 3,
+   "competency": "analysis",
+   "type": "mc",
+   "prompt": "What is a „filter bubble\"?",
+   "options": [
+    {
+     "id": "a",
+     "text": "A tool for removing spam"
+    },
+    {
+     "id": "b",
+     "text": "A state in which algorithms only show you content matching your views"
+    },
+    {
+     "id": "c",
+     "text": "A privacy setting"
+    },
+    {
+     "id": "d",
+     "text": "A kind of headline"
+    }
+   ],
+   "answer": "b",
+   "explanation": "Die Filterblase verstärkt bestehende Überzeugungen, weil Widerspruch seltener auftaucht."
+  },
+  {
+   "id": "en-161",
+   "topicId": "en12-postcolonial",
+   "grade": 12,
+   "difficulty": 3,
+   "competency": "landeskunde",
+   "type": "mc",
+   "prompt": "What does the term „Commonwealth of Nations\" describe?",
+   "options": [
+    {
+     "id": "a",
+     "text": "An association of states, most of them former British colonies"
+    },
+    {
+     "id": "b",
+     "text": "A trade zone within the EU"
+    },
+    {
+     "id": "c",
+     "text": "A military alliance"
+    },
+    {
+     "id": "d",
+     "text": "The parliament of the United Kingdom"
+    }
+   ],
+   "answer": "a",
+   "explanation": "Das Commonwealth verbindet über 50 Staaten, meist ehemalige Kolonien."
+  },
+  {
+   "id": "en-162",
+   "topicId": "en12-postcolonial",
+   "grade": 12,
+   "difficulty": 3,
+   "competency": "landeskunde",
+   "type": "match",
+   "prompt": "Match the key terms of post-colonial studies.",
+   "pairs": [
+    {
+     "left": "Hybridity",
+     "right": "Mixing of cultures into something new"
+    },
+    {
+     "left": "Diaspora",
+     "right": "Community living away from its homeland"
+    },
+    {
+     "left": "Identity",
+     "right": "Sense of who one is between cultures"
+    },
+    {
+     "left": "Othering",
+     "right": "Constructing another group as fundamentally different"
+    }
+   ],
+   "explanation": "Diese Begriffe strukturieren die Analyse postkolonialer Texte."
+  },
+  {
+   "id": "en-163",
+   "topicId": "en12-postcolonial",
+   "grade": 12,
+   "difficulty": 3,
+   "competency": "landeskunde",
+   "type": "multi",
+   "prompt": "Which effects of colonialism are still visible today?",
+   "options": [
+    {
+     "id": "a",
+     "text": "Economic dependencies"
+    },
+    {
+     "id": "b",
+     "text": "English as an official language in many countries"
+    },
+    {
+     "id": "c",
+     "text": "Identical school systems worldwide"
+    },
+    {
+     "id": "d",
+     "text": "A single global currency"
+    },
+    {
+     "id": "e",
+     "text": "Borders drawn by colonial powers"
+    }
+   ],
+   "answer": [
+    "a",
+    "b",
+    "e"
+   ],
+   "explanation": "Sprache, Grenzen und Wirtschaftsstrukturen wirken über die Unabhängigkeit hinaus."
+  },
+  {
+   "id": "en-164",
+   "topicId": "en12-postcolonial",
+   "grade": 12,
+   "difficulty": 2,
+   "competency": "landeskunde",
+   "type": "truefalse",
+   "prompt": "Indian English is a recognised variety of English with its own rules.",
+   "answer": true,
+   "explanation": "Es gibt nicht ein „richtiges\" Englisch — Varietäten haben eigene Normen."
+  },
+  {
+   "id": "en-165",
+   "topicId": "en12-american-dream",
+   "grade": 12,
+   "difficulty": 2,
+   "competency": "landeskunde",
+   "type": "mc",
+   "prompt": "Which idea is at the core of the American Dream?",
+   "options": [
+    {
+     "id": "a",
+     "text": "The state provides for everyone"
+    },
+    {
+     "id": "b",
+     "text": "Wealth is inherited"
+    },
+    {
+     "id": "c",
+     "text": "Only education matters"
+    },
+    {
+     "id": "d",
+     "text": "Everyone can rise through their own effort"
+    }
+   ],
+   "answer": "d",
+   "explanation": "„From rags to riches\" — der Aufstieg aus eigener Kraft ist der Kern des Mythos."
+  },
+  {
+   "id": "en-166",
+   "topicId": "en12-american-dream",
+   "grade": 12,
+   "difficulty": 3,
+   "competency": "landeskunde",
+   "type": "match",
+   "prompt": "Match each document with its contribution to the American Dream.",
+   "pairs": [
+    {
+     "left": "Declaration of Independence (1776)",
+     "right": "„Life, Liberty and the pursuit of Happiness\""
+    },
+    {
+     "left": "Frontier thesis",
+     "right": "The West as a space of opportunity"
+    },
+    {
+     "left": "Martin Luther King (1963)",
+     "right": "„I have a dream\" — equality for all"
+    },
+    {
+     "left": "The Great Gatsby",
+     "right": "The Dream as an illusion"
+    }
+   ],
+   "explanation": "Der Traum wird immer wieder neu formuliert — und immer wieder in Frage gestellt."
+  },
+  {
+   "id": "en-167",
+   "topicId": "en12-american-dream",
+   "grade": 12,
+   "difficulty": 3,
+   "competency": "landeskunde",
+   "type": "multi",
+   "prompt": "Which arguments question the American Dream today?",
+   "options": [
+    {
+     "id": "a",
+     "text": "Access to education depends on income"
+    },
+    {
+     "id": "b",
+     "text": "Immigration has stopped completely"
+    },
+    {
+     "id": "c",
+     "text": "Wealth is increasingly inherited"
+    },
+    {
+     "id": "d",
+     "text": "The USA has no constitution"
+    },
+    {
+     "id": "e",
+     "text": "Social mobility has declined"
+    }
+   ],
+   "answer": [
+    "a",
+    "c",
+    "e"
+   ],
+   "explanation": "Die Kritik setzt an der Chancengleichheit an, nicht an der Idee selbst."
+  },
+  {
+   "id": "en-168",
+   "topicId": "en12-american-dream",
+   "grade": 12,
+   "difficulty": 3,
+   "competency": "landeskunde",
+   "type": "category",
+   "prompt": "Does the statement support or challenge the American Dream?",
+   "categories": [
+    "supports",
+    "challenges"
+   ],
+   "items": [
+    {
+     "text": "Immigrants still start successful businesses",
+     "category": "supports"
+    },
+    {
+     "text": "Anyone can run for office",
+     "category": "supports"
+    },
+    {
+     "text": "Child poverty remains high",
+     "category": "challenges"
+    },
+    {
+     "text": "Top universities cost more than average income",
+     "category": "challenges"
+    }
+   ],
+   "explanation": "Für eine Erörterung braucht man beide Seiten mit Belegen."
+  },
+  {
+   "id": "en-169",
+   "topicId": "en13-exam-skills",
+   "grade": 13,
+   "difficulty": 3,
+   "competency": "essay",
+   "type": "order",
+   "prompt": "Put the steps of answering an analysis task in order.",
+   "items": [
+    "Read the task and underline the operator",
+    "Skim the text for structure",
+    "Read closely and take notes",
+    "Plan the answer",
+    "Write and check"
+   ],
+   "explanation": "Der Operator steuert alles — „analyse\" verlangt etwas anderes als „comment\"."
+  },
+  {
+   "id": "en-170",
+   "topicId": "en13-exam-skills",
+   "grade": 13,
+   "difficulty": 3,
+   "competency": "essay",
+   "type": "match",
+   "prompt": "Match each operator with what it asks for.",
+   "pairs": [
+    {
+     "left": "outline",
+     "right": "Give the main points briefly"
+    },
+    {
+     "left": "analyse",
+     "right": "Examine how the text works and why"
+    },
+    {
+     "left": "comment on",
+     "right": "Give your own reasoned opinion"
+    },
+    {
+     "left": "compare",
+     "right": "Point out similarities and differences"
+    }
+   ],
+   "explanation": "Operatoren sind in allen Bundesländern verbindlich definiert."
+  },
+  {
+   "id": "en-171",
+   "topicId": "en13-exam-skills",
+   "grade": 13,
+   "difficulty": 3,
+   "competency": "essay",
+   "type": "multi",
+   "prompt": "What makes a strong exam answer?",
+   "options": [
+    {
+     "id": "a",
+     "text": "Retelling the whole text"
+    },
+    {
+     "id": "b",
+     "text": "Linking words"
+    },
+    {
+     "id": "c",
+     "text": "Clear structure with paragraphs"
+    },
+    {
+     "id": "d",
+     "text": "Quotations with line references"
+    },
+    {
+     "id": "e",
+     "text": "Listing devices without explaining their effect"
+    },
+    {
+     "id": "f",
+     "text": "A conclusion that answers the task"
+    }
+   ],
+   "answer": [
+    "b",
+    "c",
+    "d",
+    "f"
+   ],
+   "explanation": "Ein Stilmittel zählt erst, wenn seine Wirkung erklärt ist."
+  },
+  {
+   "id": "en-172",
+   "topicId": "en13-exam-skills",
+   "grade": 13,
+   "difficulty": 2,
+   "competency": "essay",
+   "type": "mc",
+   "prompt": "How do you quote correctly in an English exam?",
+   "options": [
+    {
+     "id": "a",
+     "text": "With the page number of the textbook"
+    },
+    {
+     "id": "b",
+     "text": "Only paraphrased"
+    },
+    {
+     "id": "c",
+     "text": "In quotation marks with line reference, e.g. (l. 12)"
+    },
+    {
+     "id": "d",
+     "text": "In italics without reference"
+    }
+   ],
+   "answer": "c",
+   "explanation": "Zeilenangaben machen Belege überprüfbar."
   }
  ]
 };

@@ -2,12 +2,19 @@
  * AUTOMATISCH GENERIERT — nicht von Hand bearbeiten.
  * Neu erzeugen mit: node tools/build-exercises.mjs
  *
- * Übungspool mathematik: 223 Aufgaben.
+ * Übungspool mathematik: 310 Aufgaben.
  */
 
 export default {
  "subject": "mathematik",
  "competencies": {
+  "ableitung": "Ableiten",
+  "wahrscheinlichkeit": "Wahrscheinlichkeitsrechnung",
+  "exponential": "Exponential- und Logarithmusfunktion",
+  "integral": "Integralrechnung",
+  "aenderungsrate": "Änderungsrate",
+  "extrempunkte": "Extrem- und Wendepunkte",
+  "vektoren": "Vektoren und Ebenen",
   "addieren": "Addieren",
   "antiproportional": "Antiproportionale Zuordnung",
   "ausreisser": "Ausreißer erkennen",
@@ -3428,6 +3435,1471 @@ export default {
    "unit": "%",
    "hint": "Pfadregel: 0,6 · 0,5",
    "explanation": "0,6 · 0,5 = 0,3 = 30 %."
+  },
+  {
+   "id": "ma-224",
+   "topicId": "ma11-aenderungsrate",
+   "grade": 11,
+   "difficulty": 2,
+   "competency": "aenderungsrate",
+   "type": "numeric",
+   "prompt": "Berechne die mittlere Änderungsrate von f(x) = 2x² im Intervall [2; 5].",
+   "answer": 14,
+   "tolerance": 0.01,
+   "hint": "Differenzenquotient: (f(x₂) − f(x₁)) / (x₂ − x₁)",
+   "explanation": "f(5) − f(2) = 50 − 8 = 42; geteilt durch 3 ergibt 14."
+  },
+  {
+   "id": "ma-225",
+   "topicId": "ma11-aenderungsrate",
+   "grade": 11,
+   "difficulty": 2,
+   "competency": "aenderungsrate",
+   "type": "numeric",
+   "prompt": "Berechne die mittlere Änderungsrate von f(x) = 1x² im Intervall [3; 5].",
+   "answer": 8,
+   "tolerance": 0.01,
+   "hint": "Differenzenquotient: (f(x₂) − f(x₁)) / (x₂ − x₁)",
+   "explanation": "f(5) − f(3) = 25 − 9 = 16; geteilt durch 2 ergibt 8."
+  },
+  {
+   "id": "ma-226",
+   "topicId": "ma11-aenderungsrate",
+   "grade": 11,
+   "difficulty": 2,
+   "competency": "aenderungsrate",
+   "type": "numeric",
+   "prompt": "Berechne die mittlere Änderungsrate von f(x) = 2x² im Intervall [2; 3].",
+   "answer": 10,
+   "tolerance": 0.01,
+   "hint": "Differenzenquotient: (f(x₂) − f(x₁)) / (x₂ − x₁)",
+   "explanation": "f(3) − f(2) = 18 − 8 = 10; geteilt durch 1 ergibt 10."
+  },
+  {
+   "id": "ma-227",
+   "topicId": "ma11-aenderungsrate",
+   "grade": 11,
+   "difficulty": 2,
+   "competency": "aenderungsrate",
+   "type": "numeric",
+   "prompt": "Berechne die mittlere Änderungsrate von f(x) = 1x² im Intervall [1; 3].",
+   "answer": 4,
+   "tolerance": 0.01,
+   "hint": "Differenzenquotient: (f(x₂) − f(x₁)) / (x₂ − x₁)",
+   "explanation": "f(3) − f(1) = 9 − 1 = 8; geteilt durch 2 ergibt 4."
+  },
+  {
+   "id": "ma-228",
+   "topicId": "ma11-aenderungsrate",
+   "grade": 11,
+   "difficulty": 2,
+   "competency": "aenderungsrate",
+   "type": "mc",
+   "prompt": "Was beschreibt der Differenzenquotient geometrisch?",
+   "options": [
+    {
+     "id": "a",
+     "text": "Den Abstand zweier Punkte"
+    },
+    {
+     "id": "b",
+     "text": "Den Flächeninhalt unter dem Graphen"
+    },
+    {
+     "id": "c",
+     "text": "Die Steigung der Sekante durch zwei Punkte des Graphen"
+    },
+    {
+     "id": "d",
+     "text": "Die Steigung der Tangente in einem Punkt"
+    }
+   ],
+   "answer": "c",
+   "explanation": "Erst der Grenzübergang x₂ → x₁ macht aus der Sekante die Tangente."
+  },
+  {
+   "id": "ma-229",
+   "topicId": "ma11-aenderungsrate",
+   "grade": 11,
+   "difficulty": 3,
+   "competency": "aenderungsrate",
+   "type": "mc",
+   "prompt": "Wie entsteht aus der mittleren die lokale Änderungsrate?",
+   "options": [
+    {
+     "id": "a",
+     "text": "Durch Verdoppeln des Intervalls"
+    },
+    {
+     "id": "b",
+     "text": "Durch den Grenzübergang h → 0 im Differenzenquotienten"
+    },
+    {
+     "id": "c",
+     "text": "Durch Mitteln mehrerer Intervalle"
+    },
+    {
+     "id": "d",
+     "text": "Durch Einsetzen von x = 0"
+    }
+   ],
+   "answer": "b",
+   "explanation": "f′(x) = lim_(h→0) (f(x+h) − f(x)) / h."
+  },
+  {
+   "id": "ma-230",
+   "topicId": "ma11-aenderungsrate",
+   "grade": 11,
+   "difficulty": 2,
+   "competency": "aenderungsrate",
+   "type": "truefalse",
+   "prompt": "Bei einer linearen Funktion sind mittlere und lokale Änderungsrate überall gleich.",
+   "answer": true,
+   "explanation": "Die Steigung einer Geraden ändert sich nicht — Sekante und Tangente fallen zusammen."
+  },
+  {
+   "id": "ma-231",
+   "topicId": "ma11-ableitung",
+   "grade": 11,
+   "difficulty": 2,
+   "competency": "ableitung",
+   "type": "numeric",
+   "prompt": "Gegeben ist f(x) = 3x^4. Berechne f′(2).",
+   "answer": 96,
+   "tolerance": 0.001,
+   "hint": "Potenzregel: aus xⁿ wird n·xⁿ⁻¹.",
+   "explanation": "f′(x) = 12x^3, also f′(2) = 12 · 8 = 96."
+  },
+  {
+   "id": "ma-232",
+   "topicId": "ma11-ableitung",
+   "grade": 11,
+   "difficulty": 2,
+   "competency": "ableitung",
+   "type": "numeric",
+   "prompt": "Gegeben ist f(x) = 6x^5. Berechne f′(1).",
+   "answer": 30,
+   "tolerance": 0.001,
+   "hint": "Potenzregel: aus xⁿ wird n·xⁿ⁻¹.",
+   "explanation": "f′(x) = 30x^4, also f′(1) = 30 · 1 = 30."
+  },
+  {
+   "id": "ma-233",
+   "topicId": "ma11-ableitung",
+   "grade": 11,
+   "difficulty": 2,
+   "competency": "ableitung",
+   "type": "numeric",
+   "prompt": "Gegeben ist f(x) = 4x^3. Berechne f′(3).",
+   "answer": 108,
+   "tolerance": 0.001,
+   "hint": "Potenzregel: aus xⁿ wird n·xⁿ⁻¹.",
+   "explanation": "f′(x) = 12x^2, also f′(3) = 12 · 9 = 108."
+  },
+  {
+   "id": "ma-234",
+   "topicId": "ma11-ableitung",
+   "grade": 11,
+   "difficulty": 2,
+   "competency": "ableitung",
+   "type": "numeric",
+   "prompt": "Gegeben ist f(x) = 5x^4. Berechne f′(2).",
+   "answer": 160,
+   "tolerance": 0.001,
+   "hint": "Potenzregel: aus xⁿ wird n·xⁿ⁻¹.",
+   "explanation": "f′(x) = 20x^3, also f′(2) = 20 · 8 = 160."
+  },
+  {
+   "id": "ma-235",
+   "topicId": "ma11-ableitung",
+   "grade": 11,
+   "difficulty": 2,
+   "competency": "ableitung",
+   "type": "numeric",
+   "prompt": "Gegeben ist f(x) = 2x^4. Berechne f′(1).",
+   "answer": 8,
+   "tolerance": 0.001,
+   "hint": "Potenzregel: aus xⁿ wird n·xⁿ⁻¹.",
+   "explanation": "f′(x) = 8x^3, also f′(1) = 8 · 1 = 8."
+  },
+  {
+   "id": "ma-236",
+   "topicId": "ma11-ableitung",
+   "grade": 11,
+   "difficulty": 3,
+   "competency": "ableitung",
+   "type": "numeric",
+   "prompt": "f(x) = 5x² + 4. Welche Steigung hat die Tangente an der Stelle x = 1?",
+   "answer": 10,
+   "tolerance": 0.001,
+   "explanation": "f′(x) = 10x, also f′(1) = 10. Die Tangente lautet y = 10x − 1."
+  },
+  {
+   "id": "ma-237",
+   "topicId": "ma11-ableitung",
+   "grade": 11,
+   "difficulty": 3,
+   "competency": "ableitung",
+   "type": "numeric",
+   "prompt": "f(x) = 2x² + 2. Welche Steigung hat die Tangente an der Stelle x = 4?",
+   "answer": 16,
+   "tolerance": 0.001,
+   "explanation": "f′(x) = 4x, also f′(4) = 16. Die Tangente lautet y = 16x − 30."
+  },
+  {
+   "id": "ma-238",
+   "topicId": "ma11-ableitung",
+   "grade": 11,
+   "difficulty": 3,
+   "competency": "ableitung",
+   "type": "numeric",
+   "prompt": "f(x) = 4x² + 3. Welche Steigung hat die Tangente an der Stelle x = 3?",
+   "answer": 24,
+   "tolerance": 0.001,
+   "explanation": "f′(x) = 8x, also f′(3) = 24. Die Tangente lautet y = 24x − 33."
+  },
+  {
+   "id": "ma-239",
+   "topicId": "ma11-ableitung",
+   "grade": 11,
+   "difficulty": 2,
+   "competency": "ableitung",
+   "type": "match",
+   "prompt": "Ordne jeder Funktion ihre Ableitung zu.",
+   "pairs": [
+    {
+     "left": "f(x) = x³",
+     "right": "f′(x) = 3x²"
+    },
+    {
+     "left": "f(x) = 5x",
+     "right": "f′(x) = 5"
+    },
+    {
+     "left": "f(x) = 7",
+     "right": "f′(x) = 0"
+    },
+    {
+     "left": "f(x) = x² + x",
+     "right": "f′(x) = 2x + 1"
+    }
+   ],
+   "explanation": "Potenzregel, Faktorregel und Summenregel reichen für ganzrationale Funktionen."
+  },
+  {
+   "id": "ma-240",
+   "topicId": "ma11-kurvendiskussion",
+   "grade": 11,
+   "difficulty": 3,
+   "competency": "extrempunkte",
+   "type": "numeric",
+   "prompt": "f(x) = x³ − 75x. An welcher positiven Stelle liegt ein lokales Minimum?",
+   "answer": 5,
+   "tolerance": 0.001,
+   "hint": "Notwendige Bedingung: f′(x) = 0.",
+   "explanation": "f′(x) = 3x² − 75 = 0 ergibt x = ±5. Wegen f″(x) = 6x ist f″(5) > 0 — dort liegt das Minimum."
+  },
+  {
+   "id": "ma-241",
+   "topicId": "ma11-kurvendiskussion",
+   "grade": 11,
+   "difficulty": 3,
+   "competency": "extrempunkte",
+   "type": "numeric",
+   "prompt": "f(x) = x³ − 27x. An welcher positiven Stelle liegt ein lokales Minimum?",
+   "answer": 3,
+   "tolerance": 0.001,
+   "hint": "Notwendige Bedingung: f′(x) = 0.",
+   "explanation": "f′(x) = 3x² − 27 = 0 ergibt x = ±3. Wegen f″(x) = 6x ist f″(3) > 0 — dort liegt das Minimum."
+  },
+  {
+   "id": "ma-242",
+   "topicId": "ma11-kurvendiskussion",
+   "grade": 11,
+   "difficulty": 3,
+   "competency": "extrempunkte",
+   "type": "numeric",
+   "prompt": "f(x) = x³ − 27x. An welcher positiven Stelle liegt ein lokales Minimum?",
+   "answer": 3,
+   "tolerance": 0.001,
+   "hint": "Notwendige Bedingung: f′(x) = 0.",
+   "explanation": "f′(x) = 3x² − 27 = 0 ergibt x = ±3. Wegen f″(x) = 6x ist f″(3) > 0 — dort liegt das Minimum."
+  },
+  {
+   "id": "ma-243",
+   "topicId": "ma11-kurvendiskussion",
+   "grade": 11,
+   "difficulty": 3,
+   "competency": "extrempunkte",
+   "type": "numeric",
+   "prompt": "f(x) = x³ − 75x. An welcher positiven Stelle liegt ein lokales Minimum?",
+   "answer": 5,
+   "tolerance": 0.001,
+   "hint": "Notwendige Bedingung: f′(x) = 0.",
+   "explanation": "f′(x) = 3x² − 75 = 0 ergibt x = ±5. Wegen f″(x) = 6x ist f″(5) > 0 — dort liegt das Minimum."
+  },
+  {
+   "id": "ma-244",
+   "topicId": "ma11-kurvendiskussion",
+   "grade": 11,
+   "difficulty": 3,
+   "competency": "extrempunkte",
+   "type": "order",
+   "prompt": "Ordne die Schritte einer Kurvendiskussion.",
+   "items": [
+    "Definitionsbereich bestimmen",
+    "Nullstellen berechnen",
+    "Ableitungen bilden",
+    "Extrempunkte bestimmen",
+    "Wendepunkte bestimmen",
+    "Graph skizzieren"
+   ],
+   "explanation": "Erst die Funktion selbst, dann ihre Ableitungen, zuletzt das Bild."
+  },
+  {
+   "id": "ma-245",
+   "topicId": "ma11-kurvendiskussion",
+   "grade": 11,
+   "difficulty": 3,
+   "competency": "extrempunkte",
+   "type": "mc",
+   "prompt": "Welche Bedingung kennzeichnet einen Wendepunkt?",
+   "options": [
+    {
+     "id": "a",
+     "text": "f″(x) = 0 und f‴(x) ≠ 0"
+    },
+    {
+     "id": "b",
+     "text": "f′(x) = 0 und f″(x) < 0"
+    },
+    {
+     "id": "c",
+     "text": "f(x) = 0"
+    },
+    {
+     "id": "d",
+     "text": "f′(x) = 0 und f″(x) > 0"
+    }
+   ],
+   "answer": "a",
+   "explanation": "Im Wendepunkt wechselt die Krümmung — das zeigt der Vorzeichenwechsel von f″."
+  },
+  {
+   "id": "ma-246",
+   "topicId": "ma11-kurvendiskussion",
+   "grade": 11,
+   "difficulty": 3,
+   "competency": "extrempunkte",
+   "type": "multi",
+   "prompt": "Woran erkennt man einen Hochpunkt?",
+   "options": [
+    {
+     "id": "a",
+     "text": "f′(x₀) = 0"
+    },
+    {
+     "id": "b",
+     "text": "Vorzeichenwechsel von f′ von + nach −"
+    },
+    {
+     "id": "c",
+     "text": "f″(x₀) < 0"
+    },
+    {
+     "id": "d",
+     "text": "f″(x₀) > 0"
+    },
+    {
+     "id": "e",
+     "text": "f(x₀) = 0"
+    }
+   ],
+   "answer": [
+    "a",
+    "b",
+    "c"
+   ],
+   "explanation": "Die Bedingung f″ < 0 bedeutet Rechtskrümmung — der Graph ist nach unten geöffnet."
+  },
+  {
+   "id": "ma-247",
+   "topicId": "ma11-vektoren",
+   "grade": 11,
+   "difficulty": 2,
+   "competency": "vektoren",
+   "type": "numeric",
+   "prompt": "Berechne den Betrag des Vektors (6 | 2 | 4). Gib das Ergebnis auf zwei Nachkommastellen an.",
+   "answer": 7.483314773547883,
+   "tolerance": 0.02,
+   "hint": "|v| = √(x² + y² + z²)",
+   "explanation": "6² + 2² + 4² = 56; √56 ≈ 7,483315."
+  },
+  {
+   "id": "ma-248",
+   "topicId": "ma11-vektoren",
+   "grade": 11,
+   "difficulty": 2,
+   "competency": "vektoren",
+   "type": "numeric",
+   "prompt": "Berechne den Betrag des Vektors (2 | 3 | 3). Gib das Ergebnis auf zwei Nachkommastellen an.",
+   "answer": 4.69041575982343,
+   "tolerance": 0.02,
+   "hint": "|v| = √(x² + y² + z²)",
+   "explanation": "2² + 3² + 3² = 22; √22 ≈ 4,690416."
+  },
+  {
+   "id": "ma-249",
+   "topicId": "ma11-vektoren",
+   "grade": 11,
+   "difficulty": 2,
+   "competency": "vektoren",
+   "type": "numeric",
+   "prompt": "Berechne den Betrag des Vektors (1 | 5 | 2). Gib das Ergebnis auf zwei Nachkommastellen an.",
+   "answer": 5.477225575051661,
+   "tolerance": 0.02,
+   "hint": "|v| = √(x² + y² + z²)",
+   "explanation": "1² + 5² + 2² = 30; √30 ≈ 5,477226."
+  },
+  {
+   "id": "ma-250",
+   "topicId": "ma11-vektoren",
+   "grade": 11,
+   "difficulty": 2,
+   "competency": "vektoren",
+   "type": "numeric",
+   "prompt": "Berechne den Betrag des Vektors (1 | 4 | 6). Gib das Ergebnis auf zwei Nachkommastellen an.",
+   "answer": 7.280109889280518,
+   "tolerance": 0.02,
+   "hint": "|v| = √(x² + y² + z²)",
+   "explanation": "1² + 4² + 6² = 53; √53 ≈ 7,28011."
+  },
+  {
+   "id": "ma-251",
+   "topicId": "ma11-vektoren",
+   "grade": 11,
+   "difficulty": 2,
+   "competency": "vektoren",
+   "type": "numeric",
+   "prompt": "Berechne das Skalarprodukt von (5 | 5 | 4) und (3 | 1 | 4).",
+   "answer": 36,
+   "tolerance": 0.001,
+   "explanation": "5·3 + 5·1 + 4·4 = 36."
+  },
+  {
+   "id": "ma-252",
+   "topicId": "ma11-vektoren",
+   "grade": 11,
+   "difficulty": 2,
+   "competency": "vektoren",
+   "type": "numeric",
+   "prompt": "Berechne das Skalarprodukt von (1 | 5 | 3) und (5 | 4 | 4).",
+   "answer": 37,
+   "tolerance": 0.001,
+   "explanation": "1·5 + 5·4 + 3·4 = 37."
+  },
+  {
+   "id": "ma-253",
+   "topicId": "ma11-vektoren",
+   "grade": 11,
+   "difficulty": 2,
+   "competency": "vektoren",
+   "type": "numeric",
+   "prompt": "Berechne das Skalarprodukt von (3 | 4 | 5) und (2 | 2 | 4).",
+   "answer": 34,
+   "tolerance": 0.001,
+   "explanation": "3·2 + 4·2 + 5·4 = 34."
+  },
+  {
+   "id": "ma-254",
+   "topicId": "ma11-vektoren",
+   "grade": 11,
+   "difficulty": 3,
+   "competency": "vektoren",
+   "type": "mc",
+   "prompt": "Wann sind zwei Vektoren kollinear?",
+   "options": [
+    {
+     "id": "a",
+     "text": "Wenn ihr Skalarprodukt 0 ist"
+    },
+    {
+     "id": "b",
+     "text": "Wenn einer ein Vielfaches des anderen ist"
+    },
+    {
+     "id": "c",
+     "text": "Wenn sie denselben Betrag haben"
+    },
+    {
+     "id": "d",
+     "text": "Wenn beide im Ursprung beginnen"
+    }
+   ],
+   "answer": "b",
+   "explanation": "Kollinear heisst parallel: a = k · b. Ein Skalarprodukt von 0 bedeutet dagegen orthogonal."
+  },
+  {
+   "id": "ma-255",
+   "topicId": "ma12-produkt-kettenregel",
+   "grade": 12,
+   "difficulty": 3,
+   "competency": "ableitung",
+   "type": "match",
+   "prompt": "Ordne jeder Regel ihre Formel zu.",
+   "pairs": [
+    {
+     "left": "Produktregel",
+     "right": "(u·v)′ = u′v + uv′"
+    },
+    {
+     "left": "Quotientenregel",
+     "right": "(u/v)′ = (u′v − uv′) / v²"
+    },
+    {
+     "left": "Kettenregel",
+     "right": "(u(v(x)))′ = u′(v(x)) · v′(x)"
+    },
+    {
+     "left": "Faktorregel",
+     "right": "(c·u)′ = c·u′"
+    }
+   ],
+   "explanation": "Die Kettenregel heisst umgangssprachlich „äussere mal innere Ableitung\"."
+  },
+  {
+   "id": "ma-256",
+   "topicId": "ma12-produkt-kettenregel",
+   "grade": 12,
+   "difficulty": 3,
+   "competency": "ableitung",
+   "type": "numeric",
+   "prompt": "f(x) = (2x + 2)². Berechne f′(1) mit der Kettenregel.",
+   "answer": 16,
+   "tolerance": 0.001,
+   "hint": "Äussere Ableitung 2u, innere Ableitung 2.",
+   "explanation": "f′(x) = 2·(2x + 2)·2. Einsetzen: 2·(4)·2 = 16."
+  },
+  {
+   "id": "ma-257",
+   "topicId": "ma12-produkt-kettenregel",
+   "grade": 12,
+   "difficulty": 3,
+   "competency": "ableitung",
+   "type": "numeric",
+   "prompt": "f(x) = (5x + 2)². Berechne f′(2) mit der Kettenregel.",
+   "answer": 120,
+   "tolerance": 0.001,
+   "hint": "Äussere Ableitung 2u, innere Ableitung 5.",
+   "explanation": "f′(x) = 2·(5x + 2)·5. Einsetzen: 2·(12)·5 = 120."
+  },
+  {
+   "id": "ma-258",
+   "topicId": "ma12-produkt-kettenregel",
+   "grade": 12,
+   "difficulty": 3,
+   "competency": "ableitung",
+   "type": "numeric",
+   "prompt": "f(x) = (5x + 4)². Berechne f′(2) mit der Kettenregel.",
+   "answer": 140,
+   "tolerance": 0.001,
+   "hint": "Äussere Ableitung 2u, innere Ableitung 5.",
+   "explanation": "f′(x) = 2·(5x + 4)·5. Einsetzen: 2·(14)·5 = 140."
+  },
+  {
+   "id": "ma-259",
+   "topicId": "ma12-produkt-kettenregel",
+   "grade": 12,
+   "difficulty": 3,
+   "competency": "ableitung",
+   "type": "numeric",
+   "prompt": "f(x) = (4x + 3)². Berechne f′(2) mit der Kettenregel.",
+   "answer": 88,
+   "tolerance": 0.001,
+   "hint": "Äussere Ableitung 2u, innere Ableitung 4.",
+   "explanation": "f′(x) = 2·(4x + 3)·4. Einsetzen: 2·(11)·4 = 88."
+  },
+  {
+   "id": "ma-260",
+   "topicId": "ma12-produkt-kettenregel",
+   "grade": 12,
+   "difficulty": 3,
+   "competency": "ableitung",
+   "type": "numeric",
+   "prompt": "f(x) = x² · 3x. Berechne f′(1) mit der Produktregel.",
+   "answer": 9,
+   "tolerance": 0.001,
+   "explanation": "u = x², v = 3x: f′(x) = 2x·3x + x²·3 = 9x². Einsetzen: 9·1 = 9."
+  },
+  {
+   "id": "ma-261",
+   "topicId": "ma12-produkt-kettenregel",
+   "grade": 12,
+   "difficulty": 3,
+   "competency": "ableitung",
+   "type": "numeric",
+   "prompt": "f(x) = x² · 3x. Berechne f′(2) mit der Produktregel.",
+   "answer": 36,
+   "tolerance": 0.001,
+   "explanation": "u = x², v = 3x: f′(x) = 2x·3x + x²·3 = 9x². Einsetzen: 9·4 = 36."
+  },
+  {
+   "id": "ma-262",
+   "topicId": "ma12-produkt-kettenregel",
+   "grade": 12,
+   "difficulty": 3,
+   "competency": "ableitung",
+   "type": "numeric",
+   "prompt": "f(x) = x² · 4x. Berechne f′(3) mit der Produktregel.",
+   "answer": 108,
+   "tolerance": 0.001,
+   "explanation": "u = x², v = 4x: f′(x) = 2x·4x + x²·4 = 12x². Einsetzen: 12·9 = 108."
+  },
+  {
+   "id": "ma-263",
+   "topicId": "ma12-e-funktion",
+   "grade": 12,
+   "difficulty": 2,
+   "competency": "exponential",
+   "type": "mc",
+   "prompt": "Was ist die Ableitung von f(x) = eˣ?",
+   "options": [
+    {
+     "id": "a",
+     "text": "f′(x) = eˣ"
+    },
+    {
+     "id": "b",
+     "text": "f′(x) = x·eˣ⁻¹"
+    },
+    {
+     "id": "c",
+     "text": "f′(x) = e"
+    },
+    {
+     "id": "d",
+     "text": "f′(x) = ln(x)"
+    }
+   ],
+   "answer": "a",
+   "explanation": "Die e-Funktion ist die einzige Funktion, die ihre eigene Ableitung ist."
+  },
+  {
+   "id": "ma-264",
+   "topicId": "ma12-e-funktion",
+   "grade": 12,
+   "difficulty": 3,
+   "competency": "exponential",
+   "type": "mc",
+   "prompt": "Wie lautet die Ableitung von f(x) = e^(5x)?",
+   "options": [
+    {
+     "id": "a",
+     "text": "f′(x) = 5x·e^(5x)"
+    },
+    {
+     "id": "b",
+     "text": "f′(x) = e^(5x)"
+    },
+    {
+     "id": "c",
+     "text": "f′(x) = 5·e^(5x)"
+    },
+    {
+     "id": "d",
+     "text": "f′(x) = e^(5x)/5"
+    }
+   ],
+   "answer": "c",
+   "explanation": "Kettenregel: äussere Ableitung e^(5x), innere Ableitung 5."
+  },
+  {
+   "id": "ma-265",
+   "topicId": "ma12-e-funktion",
+   "grade": 12,
+   "difficulty": 3,
+   "competency": "exponential",
+   "type": "mc",
+   "prompt": "Wie lautet die Ableitung von f(x) = e^(3x)?",
+   "options": [
+    {
+     "id": "a",
+     "text": "f′(x) = 3x·e^(3x)"
+    },
+    {
+     "id": "b",
+     "text": "f′(x) = e^(3x)/3"
+    },
+    {
+     "id": "c",
+     "text": "f′(x) = 3·e^(3x)"
+    },
+    {
+     "id": "d",
+     "text": "f′(x) = e^(3x)"
+    }
+   ],
+   "answer": "c",
+   "explanation": "Kettenregel: äussere Ableitung e^(3x), innere Ableitung 3."
+  },
+  {
+   "id": "ma-266",
+   "topicId": "ma12-e-funktion",
+   "grade": 12,
+   "difficulty": 3,
+   "competency": "exponential",
+   "type": "mc",
+   "prompt": "Wie lautet die Ableitung von f(x) = e^(5x)?",
+   "options": [
+    {
+     "id": "a",
+     "text": "f′(x) = e^(5x)"
+    },
+    {
+     "id": "b",
+     "text": "f′(x) = e^(5x)/5"
+    },
+    {
+     "id": "c",
+     "text": "f′(x) = 5x·e^(5x)"
+    },
+    {
+     "id": "d",
+     "text": "f′(x) = 5·e^(5x)"
+    }
+   ],
+   "answer": "d",
+   "explanation": "Kettenregel: äussere Ableitung e^(5x), innere Ableitung 5."
+  },
+  {
+   "id": "ma-267",
+   "topicId": "ma12-e-funktion",
+   "grade": 12,
+   "difficulty": 2,
+   "competency": "exponential",
+   "type": "numeric",
+   "prompt": "Berechne ln(e^4).",
+   "answer": 4,
+   "tolerance": 0.001,
+   "explanation": "Der natürliche Logarithmus ist die Umkehrfunktion der e-Funktion: ln(e^4) = 4."
+  },
+  {
+   "id": "ma-268",
+   "topicId": "ma12-e-funktion",
+   "grade": 12,
+   "difficulty": 2,
+   "competency": "exponential",
+   "type": "numeric",
+   "prompt": "Berechne ln(e^4).",
+   "answer": 4,
+   "tolerance": 0.001,
+   "explanation": "Der natürliche Logarithmus ist die Umkehrfunktion der e-Funktion: ln(e^4) = 4."
+  },
+  {
+   "id": "ma-269",
+   "topicId": "ma12-e-funktion",
+   "grade": 12,
+   "difficulty": 2,
+   "competency": "exponential",
+   "type": "numeric",
+   "prompt": "Berechne ln(e^2).",
+   "answer": 2,
+   "tolerance": 0.001,
+   "explanation": "Der natürliche Logarithmus ist die Umkehrfunktion der e-Funktion: ln(e^2) = 2."
+  },
+  {
+   "id": "ma-270",
+   "topicId": "ma12-e-funktion",
+   "grade": 12,
+   "difficulty": 2,
+   "competency": "exponential",
+   "type": "truefalse",
+   "prompt": "Die e-Funktion nimmt für kein x den Wert 0 an.",
+   "answer": true,
+   "explanation": "eˣ > 0 für alle x — die x-Achse ist waagerechte Asymptote."
+  },
+  {
+   "id": "ma-271",
+   "topicId": "ma12-integral",
+   "grade": 12,
+   "difficulty": 3,
+   "competency": "integral",
+   "type": "numeric",
+   "prompt": "Berechne das bestimmte Integral von 3x² in den Grenzen 0 bis 3.",
+   "answer": 27,
+   "tolerance": 0.01,
+   "hint": "Stammfunktion: F(x) = 3/3 · x³",
+   "explanation": "F(x) = 1x³; F(3) − F(0) = 27 − 0 = 27."
+  },
+  {
+   "id": "ma-272",
+   "topicId": "ma12-integral",
+   "grade": 12,
+   "difficulty": 3,
+   "competency": "integral",
+   "type": "numeric",
+   "prompt": "Berechne das bestimmte Integral von 4x² in den Grenzen 0 bis 4.",
+   "answer": 85.33333333333333,
+   "tolerance": 0.01,
+   "hint": "Stammfunktion: F(x) = 4/3 · x³",
+   "explanation": "F(x) = 1,333333x³; F(4) − F(0) = 85,333333 − 0 = 85,333333."
+  },
+  {
+   "id": "ma-273",
+   "topicId": "ma12-integral",
+   "grade": 12,
+   "difficulty": 3,
+   "competency": "integral",
+   "type": "numeric",
+   "prompt": "Berechne das bestimmte Integral von 1x² in den Grenzen 0 bis 2.",
+   "answer": 2.6666666666666665,
+   "tolerance": 0.01,
+   "hint": "Stammfunktion: F(x) = 1/3 · x³",
+   "explanation": "F(x) = 0,333333x³; F(2) − F(0) = 2,666667 − 0 = 2,666667."
+  },
+  {
+   "id": "ma-274",
+   "topicId": "ma12-integral",
+   "grade": 12,
+   "difficulty": 3,
+   "competency": "integral",
+   "type": "numeric",
+   "prompt": "Berechne das bestimmte Integral von 3x² in den Grenzen 0 bis 3.",
+   "answer": 27,
+   "tolerance": 0.01,
+   "hint": "Stammfunktion: F(x) = 3/3 · x³",
+   "explanation": "F(x) = 1x³; F(3) − F(0) = 27 − 0 = 27."
+  },
+  {
+   "id": "ma-275",
+   "topicId": "ma12-integral",
+   "grade": 12,
+   "difficulty": 3,
+   "competency": "integral",
+   "type": "numeric",
+   "prompt": "Berechne das bestimmte Integral von 4x² in den Grenzen 0 bis 2.",
+   "answer": 10.666666666666666,
+   "tolerance": 0.01,
+   "hint": "Stammfunktion: F(x) = 4/3 · x³",
+   "explanation": "F(x) = 1,333333x³; F(2) − F(0) = 10,666667 − 0 = 10,666667."
+  },
+  {
+   "id": "ma-276",
+   "topicId": "ma12-integral",
+   "grade": 12,
+   "difficulty": 2,
+   "competency": "integral",
+   "type": "mc",
+   "prompt": "Was besagt der Hauptsatz der Differential- und Integralrechnung?",
+   "options": [
+    {
+     "id": "a",
+     "text": "Jede Funktion ist integrierbar"
+    },
+    {
+     "id": "b",
+     "text": "Die Ableitung einer Konstanten ist 1"
+    },
+    {
+     "id": "c",
+     "text": "Das Integral ist immer positiv"
+    },
+    {
+     "id": "d",
+     "text": "Integrieren und Differenzieren sind Umkehroperationen"
+    }
+   ],
+   "answer": "d",
+   "explanation": "Ist F eine Stammfunktion von f, so gilt ∫ₐᵇ f(x) dx = F(b) − F(a)."
+  },
+  {
+   "id": "ma-277",
+   "topicId": "ma12-integral",
+   "grade": 12,
+   "difficulty": 3,
+   "competency": "integral",
+   "type": "match",
+   "prompt": "Ordne jeder Funktion eine Stammfunktion zu.",
+   "pairs": [
+    {
+     "left": "f(x) = x²",
+     "right": "F(x) = x³/3"
+    },
+    {
+     "left": "f(x) = 2x",
+     "right": "F(x) = x²"
+    },
+    {
+     "left": "f(x) = eˣ",
+     "right": "F(x) = eˣ"
+    },
+    {
+     "left": "f(x) = 1/x",
+     "right": "F(x) = ln|x|"
+    }
+   ],
+   "explanation": "Die Konstante C lässt man beim Zuordnen weg — sie ändert die Ableitung nicht."
+  },
+  {
+   "id": "ma-278",
+   "topicId": "ma12-integral",
+   "grade": 12,
+   "difficulty": 3,
+   "competency": "integral",
+   "type": "truefalse",
+   "prompt": "Liegt der Graph unterhalb der x-Achse, ist das bestimmte Integral negativ.",
+   "answer": true,
+   "explanation": "Für den Flächeninhalt muss man deshalb die Nullstellen als Teilgrenzen verwenden."
+  },
+  {
+   "id": "ma-279",
+   "topicId": "ma12-geraden",
+   "grade": 12,
+   "difficulty": 2,
+   "competency": "vektoren",
+   "type": "mc",
+   "prompt": "Wie lautet die Parameterform einer Geraden?",
+   "options": [
+    {
+     "id": "a",
+     "text": "x⃗ = p⃗ + t · u⃗"
+    },
+    {
+     "id": "b",
+     "text": "x⃗ = p⃗ · t"
+    },
+    {
+     "id": "c",
+     "text": "y = mx + b im Raum"
+    },
+    {
+     "id": "d",
+     "text": "x⃗ · n⃗ = d"
+    }
+   ],
+   "answer": "a",
+   "explanation": "p⃗ ist der Stützvektor, u⃗ der Richtungsvektor, t der Parameter."
+  },
+  {
+   "id": "ma-280",
+   "topicId": "ma12-geraden",
+   "grade": 12,
+   "difficulty": 3,
+   "competency": "vektoren",
+   "type": "match",
+   "prompt": "Ordne die Lagebeziehungen zweier Geraden ihrer Bedingung zu.",
+   "pairs": [
+    {
+     "left": "identisch",
+     "right": "Richtungsvektoren parallel, Stützpunkt liegt auf der anderen"
+    },
+    {
+     "left": "echt parallel",
+     "right": "Richtungsvektoren parallel, kein gemeinsamer Punkt"
+    },
+    {
+     "left": "schneidend",
+     "right": "Genau ein gemeinsamer Punkt"
+    },
+    {
+     "left": "windschief",
+     "right": "Weder parallel noch schneidend"
+    }
+   ],
+   "explanation": "Windschiefe Geraden gibt es nur im Raum, nicht in der Ebene."
+  },
+  {
+   "id": "ma-281",
+   "topicId": "ma12-geraden",
+   "grade": 12,
+   "difficulty": 3,
+   "competency": "vektoren",
+   "type": "numeric",
+   "prompt": "Eine Ebene hat den Normalenvektor (4 | 4 | 4) und enthält den Punkt (1 | 2 | 4). Wie lautet d in der Koordinatenform 4x + 4y + 4z = d?",
+   "answer": 28,
+   "tolerance": 0.001,
+   "explanation": "Punkt einsetzen: 4·1 + 4·2 + 4·4 = 28."
+  },
+  {
+   "id": "ma-282",
+   "topicId": "ma12-geraden",
+   "grade": 12,
+   "difficulty": 3,
+   "competency": "vektoren",
+   "type": "numeric",
+   "prompt": "Eine Ebene hat den Normalenvektor (2 | 1 | 2) und enthält den Punkt (2 | 4 | 3). Wie lautet d in der Koordinatenform 2x + 1y + 2z = d?",
+   "answer": 14,
+   "tolerance": 0.001,
+   "explanation": "Punkt einsetzen: 2·2 + 1·4 + 2·3 = 14."
+  },
+  {
+   "id": "ma-283",
+   "topicId": "ma12-geraden",
+   "grade": 12,
+   "difficulty": 3,
+   "competency": "vektoren",
+   "type": "numeric",
+   "prompt": "Eine Ebene hat den Normalenvektor (3 | 3 | 3) und enthält den Punkt (1 | 2 | 3). Wie lautet d in der Koordinatenform 3x + 3y + 3z = d?",
+   "answer": 18,
+   "tolerance": 0.001,
+   "explanation": "Punkt einsetzen: 3·1 + 3·2 + 3·3 = 18."
+  },
+  {
+   "id": "ma-284",
+   "topicId": "ma12-geraden",
+   "grade": 12,
+   "difficulty": 3,
+   "competency": "vektoren",
+   "type": "mc",
+   "prompt": "Woran erkennt man, dass zwei Vektoren orthogonal sind?",
+   "options": [
+    {
+     "id": "a",
+     "text": "Ihr Skalarprodukt ist 0"
+    },
+    {
+     "id": "b",
+     "text": "Ihr Skalarprodukt ist 1"
+    },
+    {
+     "id": "c",
+     "text": "Sie haben denselben Betrag"
+    },
+    {
+     "id": "d",
+     "text": "Einer ist ein Vielfaches des anderen"
+    }
+   ],
+   "answer": "a",
+   "explanation": "a⃗ · b⃗ = |a⃗|·|b⃗|·cos φ; bei φ = 90° ist cos φ = 0."
+  },
+  {
+   "id": "ma-285",
+   "topicId": "ma12-binomialverteilung",
+   "grade": 12,
+   "difficulty": 2,
+   "competency": "wahrscheinlichkeit",
+   "type": "numeric",
+   "prompt": "Ein Zufallsversuch mit p = 1/2 wird 7-mal wiederholt. Wie gross ist der Erwartungswert?",
+   "answer": 3.5,
+   "tolerance": 0.01,
+   "hint": "E(X) = n · p",
+   "explanation": "E(X) = 7 · 1/2 = 3,5."
+  },
+  {
+   "id": "ma-286",
+   "topicId": "ma12-binomialverteilung",
+   "grade": 12,
+   "difficulty": 2,
+   "competency": "wahrscheinlichkeit",
+   "type": "numeric",
+   "prompt": "Ein Zufallsversuch mit p = 1/2 wird 4-mal wiederholt. Wie gross ist der Erwartungswert?",
+   "answer": 2,
+   "tolerance": 0.01,
+   "hint": "E(X) = n · p",
+   "explanation": "E(X) = 4 · 1/2 = 2."
+  },
+  {
+   "id": "ma-287",
+   "topicId": "ma12-binomialverteilung",
+   "grade": 12,
+   "difficulty": 2,
+   "competency": "wahrscheinlichkeit",
+   "type": "numeric",
+   "prompt": "Ein Zufallsversuch mit p = 1/4 wird 6-mal wiederholt. Wie gross ist der Erwartungswert?",
+   "answer": 1.5,
+   "tolerance": 0.01,
+   "hint": "E(X) = n · p",
+   "explanation": "E(X) = 6 · 1/4 = 1,5."
+  },
+  {
+   "id": "ma-288",
+   "topicId": "ma12-binomialverteilung",
+   "grade": 12,
+   "difficulty": 2,
+   "competency": "wahrscheinlichkeit",
+   "type": "numeric",
+   "prompt": "Ein Zufallsversuch mit p = 1/4 wird 6-mal wiederholt. Wie gross ist der Erwartungswert?",
+   "answer": 1.5,
+   "tolerance": 0.01,
+   "hint": "E(X) = n · p",
+   "explanation": "E(X) = 6 · 1/4 = 1,5."
+  },
+  {
+   "id": "ma-289",
+   "topicId": "ma12-binomialverteilung",
+   "grade": 12,
+   "difficulty": 3,
+   "competency": "wahrscheinlichkeit",
+   "type": "numeric",
+   "prompt": "Wie viele Möglichkeiten gibt es, aus 6 Versuchen genau 4 Treffer auszuwählen? (Binomialkoeffizient)",
+   "answer": 15,
+   "tolerance": 0.001,
+   "explanation": "C(6, 4) = 6! / (4! · 2!) = 15."
+  },
+  {
+   "id": "ma-290",
+   "topicId": "ma12-binomialverteilung",
+   "grade": 12,
+   "difficulty": 3,
+   "competency": "wahrscheinlichkeit",
+   "type": "numeric",
+   "prompt": "Wie viele Möglichkeiten gibt es, aus 4 Versuchen genau 1 Treffer auszuwählen? (Binomialkoeffizient)",
+   "answer": 4,
+   "tolerance": 0.001,
+   "explanation": "C(4, 1) = 4! / (1! · 3!) = 4."
+  },
+  {
+   "id": "ma-291",
+   "topicId": "ma12-binomialverteilung",
+   "grade": 12,
+   "difficulty": 3,
+   "competency": "wahrscheinlichkeit",
+   "type": "numeric",
+   "prompt": "Wie viele Möglichkeiten gibt es, aus 4 Versuchen genau 1 Treffer auszuwählen? (Binomialkoeffizient)",
+   "answer": 4,
+   "tolerance": 0.001,
+   "explanation": "C(4, 1) = 4! / (1! · 3!) = 4."
+  },
+  {
+   "id": "ma-292",
+   "topicId": "ma12-binomialverteilung",
+   "grade": 12,
+   "difficulty": 3,
+   "competency": "wahrscheinlichkeit",
+   "type": "multi",
+   "prompt": "Wann liegt eine Bernoulli-Kette vor?",
+   "options": [
+    {
+     "id": "a",
+     "text": "Ziehen ohne Zurücklegen"
+    },
+    {
+     "id": "b",
+     "text": "Konstante Trefferwahrscheinlichkeit"
+    },
+    {
+     "id": "c",
+     "text": "Mindestens drei Ausgänge"
+    },
+    {
+     "id": "d",
+     "text": "Unabhängige Versuche"
+    },
+    {
+     "id": "e",
+     "text": "Genau zwei mögliche Ausgänge je Versuch"
+    }
+   ],
+   "answer": [
+    "b",
+    "d",
+    "e"
+   ],
+   "explanation": "Ziehen ohne Zurücklegen ändert p von Zug zu Zug — dann hilft die hypergeometrische Verteilung."
+  },
+  {
+   "id": "ma-293",
+   "topicId": "ma13-funktionsscharen",
+   "grade": 13,
+   "difficulty": 3,
+   "competency": "extrempunkte",
+   "type": "numeric",
+   "prompt": "Die Schar f_k(x) = x² − 4x. An welcher Stelle liegt der Tiefpunkt?",
+   "answer": 2,
+   "tolerance": 0.001,
+   "hint": "f′(x) = 2x − 4",
+   "explanation": "f′(x) = 2x − 4 = 0 ergibt x = 2. Wegen f″(x) = 2 > 0 ist es ein Tiefpunkt."
+  },
+  {
+   "id": "ma-294",
+   "topicId": "ma13-funktionsscharen",
+   "grade": 13,
+   "difficulty": 3,
+   "competency": "extrempunkte",
+   "type": "numeric",
+   "prompt": "Die Schar f_k(x) = x² − 2x. An welcher Stelle liegt der Tiefpunkt?",
+   "answer": 1,
+   "tolerance": 0.001,
+   "hint": "f′(x) = 2x − 2",
+   "explanation": "f′(x) = 2x − 2 = 0 ergibt x = 1. Wegen f″(x) = 2 > 0 ist es ein Tiefpunkt."
+  },
+  {
+   "id": "ma-295",
+   "topicId": "ma13-funktionsscharen",
+   "grade": 13,
+   "difficulty": 3,
+   "competency": "extrempunkte",
+   "type": "numeric",
+   "prompt": "Die Schar f_k(x) = x² − 8x. An welcher Stelle liegt der Tiefpunkt?",
+   "answer": 4,
+   "tolerance": 0.001,
+   "hint": "f′(x) = 2x − 8",
+   "explanation": "f′(x) = 2x − 8 = 0 ergibt x = 4. Wegen f″(x) = 2 > 0 ist es ein Tiefpunkt."
+  },
+  {
+   "id": "ma-296",
+   "topicId": "ma13-funktionsscharen",
+   "grade": 13,
+   "difficulty": 3,
+   "competency": "extrempunkte",
+   "type": "numeric",
+   "prompt": "Die Schar f_k(x) = x² − 8x. An welcher Stelle liegt der Tiefpunkt?",
+   "answer": 4,
+   "tolerance": 0.001,
+   "hint": "f′(x) = 2x − 8",
+   "explanation": "f′(x) = 2x − 8 = 0 ergibt x = 4. Wegen f″(x) = 2 > 0 ist es ein Tiefpunkt."
+  },
+  {
+   "id": "ma-297",
+   "topicId": "ma13-funktionsscharen",
+   "grade": 13,
+   "difficulty": 3,
+   "competency": "extrempunkte",
+   "type": "mc",
+   "prompt": "Was ist eine Ortskurve einer Funktionsschar?",
+   "options": [
+    {
+     "id": "a",
+     "text": "Die Menge aller Nullstellen"
+    },
+    {
+     "id": "b",
+     "text": "Die gemeinsame Asymptote"
+    },
+    {
+     "id": "c",
+     "text": "Der Graph für k = 1"
+    },
+    {
+     "id": "d",
+     "text": "Die Kurve, auf der alle Extrempunkte der Schar liegen"
+    }
+   ],
+   "answer": "d",
+   "explanation": "Man drückt x und y der Extrempunkte durch k aus und eliminiert k."
+  },
+  {
+   "id": "ma-298",
+   "topicId": "ma13-funktionsscharen",
+   "grade": 13,
+   "difficulty": 3,
+   "competency": "extrempunkte",
+   "type": "order",
+   "prompt": "Ordne die Schritte einer Extremwertaufgabe.",
+   "items": [
+    "Zielgrösse benennen",
+    "Nebenbedingung aufstellen",
+    "Zielfunktion mit einer Variablen bilden",
+    "Ableiten und null setzen",
+    "Randwerte prüfen und Ergebnis deuten"
+   ],
+   "explanation": "Ohne Nebenbedingung lässt sich die Zielgrösse nicht auf eine Variable bringen."
+  },
+  {
+   "id": "ma-299",
+   "topicId": "ma13-abstaende",
+   "grade": 13,
+   "difficulty": 3,
+   "competency": "vektoren",
+   "type": "numeric",
+   "prompt": "Berechne den Abstand des Punktes (3 | 2 | 5) von der Ebene 1x + 2y + 2z = 6. Zwei Nachkommastellen.",
+   "answer": 3.6666666666666665,
+   "tolerance": 0.02,
+   "hint": "Hesse-Normalform: |n⃗·x⃗ − d| / |n⃗|",
+   "explanation": "Zähler: |1·3 + 2·2 + 2·5 − 6| = 11; Nenner: |n⃗| ≈ 3; Abstand ≈ 3,666667."
+  },
+  {
+   "id": "ma-300",
+   "topicId": "ma13-abstaende",
+   "grade": 13,
+   "difficulty": 3,
+   "competency": "vektoren",
+   "type": "numeric",
+   "prompt": "Berechne den Abstand des Punktes (2 | 5 | 3) von der Ebene 3x + 3y + 2z = 6. Zwei Nachkommastellen.",
+   "answer": 4.477215043467819,
+   "tolerance": 0.02,
+   "hint": "Hesse-Normalform: |n⃗·x⃗ − d| / |n⃗|",
+   "explanation": "Zähler: |3·2 + 3·5 + 2·3 − 6| = 21; Nenner: |n⃗| ≈ 4,690416; Abstand ≈ 4,477215."
+  },
+  {
+   "id": "ma-301",
+   "topicId": "ma13-abstaende",
+   "grade": 13,
+   "difficulty": 3,
+   "competency": "vektoren",
+   "type": "numeric",
+   "prompt": "Berechne den Abstand des Punktes (2 | 5 | 1) von der Ebene 3x + 3y + 1z = 6. Zwei Nachkommastellen.",
+   "answer": 3.670651741928988,
+   "tolerance": 0.02,
+   "hint": "Hesse-Normalform: |n⃗·x⃗ − d| / |n⃗|",
+   "explanation": "Zähler: |3·2 + 3·5 + 1·1 − 6| = 16; Nenner: |n⃗| ≈ 4,358899; Abstand ≈ 3,670652."
+  },
+  {
+   "id": "ma-302",
+   "topicId": "ma13-abstaende",
+   "grade": 13,
+   "difficulty": 3,
+   "competency": "vektoren",
+   "type": "numeric",
+   "prompt": "Berechne den Abstand des Punktes (4 | 1 | 5) von der Ebene 1x + 2y + 3z = 5. Zwei Nachkommastellen.",
+   "answer": 4.27617987059879,
+   "tolerance": 0.02,
+   "hint": "Hesse-Normalform: |n⃗·x⃗ − d| / |n⃗|",
+   "explanation": "Zähler: |1·4 + 2·1 + 3·5 − 5| = 16; Nenner: |n⃗| ≈ 3,741657; Abstand ≈ 4,27618."
+  },
+  {
+   "id": "ma-303",
+   "topicId": "ma13-abstaende",
+   "grade": 13,
+   "difficulty": 3,
+   "competency": "vektoren",
+   "type": "mc",
+   "prompt": "Wozu dient das Kreuzprodukt zweier Vektoren?",
+   "options": [
+    {
+     "id": "a",
+     "text": "Es liefert den Winkel zwischen ihnen"
+    },
+    {
+     "id": "b",
+     "text": "Es liefert ihre Summe"
+    },
+    {
+     "id": "c",
+     "text": "Es liefert einen Vektor, der auf beiden senkrecht steht"
+    },
+    {
+     "id": "d",
+     "text": "Es liefert ihren Abstand"
+    }
+   ],
+   "answer": "c",
+   "explanation": "Deshalb gewinnt man daraus den Normalenvektor einer Ebene."
+  },
+  {
+   "id": "ma-304",
+   "topicId": "ma13-abstaende",
+   "grade": 13,
+   "difficulty": 3,
+   "competency": "vektoren",
+   "type": "truefalse",
+   "prompt": "Der Schnittwinkel zweier Ebenen lässt sich über ihre Normalenvektoren bestimmen.",
+   "answer": true,
+   "explanation": "cos φ = |n⃗₁ · n⃗₂| / (|n⃗₁|·|n⃗₂|)."
+  },
+  {
+   "id": "ma-305",
+   "topicId": "ma13-hypothesentest",
+   "grade": 13,
+   "difficulty": 3,
+   "competency": "wahrscheinlichkeit",
+   "type": "match",
+   "prompt": "Ordne die Sigma-Regeln ihren Wahrscheinlichkeiten zu.",
+   "pairs": [
+    {
+     "left": "1σ-Umgebung",
+     "right": "rund 68 %"
+    },
+    {
+     "left": "2σ-Umgebung",
+     "right": "rund 95,4 %"
+    },
+    {
+     "left": "3σ-Umgebung",
+     "right": "rund 99,7 %"
+    },
+    {
+     "left": "1,96σ-Umgebung",
+     "right": "genau 95 %"
+    }
+   ],
+   "explanation": "Die Sigma-Regeln gelten für hinreichend grosse n auch näherungsweise für die Binomialverteilung."
+  },
+  {
+   "id": "ma-306",
+   "topicId": "ma13-hypothesentest",
+   "grade": 13,
+   "difficulty": 3,
+   "competency": "wahrscheinlichkeit",
+   "type": "mc",
+   "prompt": "Was ist ein Fehler 1. Art?",
+   "options": [
+    {
+     "id": "a",
+     "text": "Der Erwartungswert wurde falsch berechnet"
+    },
+    {
+     "id": "b",
+     "text": "Die Nullhypothese wird abgelehnt, obwohl sie zutrifft"
+    },
+    {
+     "id": "c",
+     "text": "Die Nullhypothese wird beibehalten, obwohl sie falsch ist"
+    },
+    {
+     "id": "d",
+     "text": "Die Stichprobe ist zu klein"
+    }
+   ],
+   "answer": "b",
+   "explanation": "Das Signifikanzniveau begrenzt genau diesen Fehler."
+  },
+  {
+   "id": "ma-307",
+   "topicId": "ma13-hypothesentest",
+   "grade": 13,
+   "difficulty": 3,
+   "competency": "wahrscheinlichkeit",
+   "type": "numeric",
+   "prompt": "Eine Binomialverteilung hat n = 100 und p = 0,25. Berechne die Standardabweichung σ auf zwei Nachkommastellen.",
+   "answer": 4.330127018922194,
+   "tolerance": 0.02,
+   "hint": "σ = √(n·p·(1−p))",
+   "explanation": "σ = √(100 · 0,25 · 0,75) = √18,75 ≈ 4,330127."
+  },
+  {
+   "id": "ma-308",
+   "topicId": "ma13-hypothesentest",
+   "grade": 13,
+   "difficulty": 3,
+   "competency": "wahrscheinlichkeit",
+   "type": "numeric",
+   "prompt": "Eine Binomialverteilung hat n = 100 und p = 0,5. Berechne die Standardabweichung σ auf zwei Nachkommastellen.",
+   "answer": 5,
+   "tolerance": 0.02,
+   "hint": "σ = √(n·p·(1−p))",
+   "explanation": "σ = √(100 · 0,5 · 0,5) = √25 ≈ 5."
+  },
+  {
+   "id": "ma-309",
+   "topicId": "ma13-hypothesentest",
+   "grade": 13,
+   "difficulty": 3,
+   "competency": "wahrscheinlichkeit",
+   "type": "numeric",
+   "prompt": "Eine Binomialverteilung hat n = 400 und p = 0,25. Berechne die Standardabweichung σ auf zwei Nachkommastellen.",
+   "answer": 8.660254037844387,
+   "tolerance": 0.02,
+   "hint": "σ = √(n·p·(1−p))",
+   "explanation": "σ = √(400 · 0,25 · 0,75) = √75 ≈ 8,660254."
+  },
+  {
+   "id": "ma-310",
+   "topicId": "ma13-hypothesentest",
+   "grade": 13,
+   "difficulty": 3,
+   "competency": "wahrscheinlichkeit",
+   "type": "order",
+   "prompt": "Ordne die Schritte eines einseitigen Hypothesentests.",
+   "items": [
+    "Nullhypothese formulieren",
+    "Signifikanzniveau festlegen",
+    "Prüfgrösse und Verteilung bestimmen",
+    "Ablehnungsbereich berechnen",
+    "Stichprobenergebnis einordnen und entscheiden"
+   ],
+   "explanation": "Der Ablehnungsbereich steht fest, bevor man das Ergebnis kennt — sonst ist der Test wertlos."
   }
  ]
 };

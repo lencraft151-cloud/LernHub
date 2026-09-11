@@ -2,7 +2,7 @@
  * AUTOMATISCH GENERIERT — nicht von Hand bearbeiten.
  * Neu erzeugen mit: node tools/build-exercises.mjs
  *
- * Übungspool politik: 103 Aufgaben.
+ * Übungspool politik: 111 Aufgaben.
  */
 
 export default {
@@ -2719,6 +2719,249 @@ export default {
     }
    ],
    "explanation": "Aufschwung: Produktion und Beschäftigung nehmen zu · Hochkonjunktur: Kapazitäten sind ausgelastet, Preise steigen · Abschwung: Nachfrage und Investitionen gehen zurück · Rezession: die Wirtschaftsleistung schrumpft, Arbeitslosigkeit steigt"
+  },
+  {
+   "id": "pw-104",
+   "topicId": "pw12-ungleichheit",
+   "grade": 12,
+   "difficulty": 3,
+   "competency": "sozialstaat",
+   "type": "match",
+   "prompt": "Ordne die Begriffe der Ungleichheitsforschung zu.",
+   "pairs": [
+    {
+     "left": "Armutsgefährdungsquote",
+     "right": "Anteil mit weniger als 60 % des mittleren Einkommens"
+    },
+    {
+     "left": "Gini-Koeffizient",
+     "right": "Mass für die Ungleichheit der Verteilung"
+    },
+    {
+     "left": "Soziale Mobilität",
+     "right": "Möglichkeit des Auf- und Abstiegs"
+    },
+    {
+     "left": "Bildungsvererbung",
+     "right": "Abschluss der Kinder hängt vom Elternhaus ab"
+    }
+   ],
+   "explanation": "Der Gini-Koeffizient reicht von 0 (gleich verteilt) bis 1 (alles bei einem)."
+  },
+  {
+   "id": "pw-105",
+   "topicId": "pw12-ungleichheit",
+   "grade": 12,
+   "difficulty": 3,
+   "competency": "sozialstaat",
+   "type": "mc",
+   "prompt": "Was bedeutet relative Armut?",
+   "options": [
+    {
+     "id": "a",
+     "text": "Ein Einkommen deutlich unter dem gesellschaftlichen Durchschnitt"
+    },
+    {
+     "id": "b",
+     "text": "Kein Einkommen"
+    },
+    {
+     "id": "c",
+     "text": "Kein Zugang zu Trinkwasser"
+    },
+    {
+     "id": "d",
+     "text": "Arbeitslosigkeit"
+    }
+   ],
+   "answer": "a",
+   "explanation": "Absolute Armut misst das Existenzminimum, relative Armut die Teilhabe."
+  },
+  {
+   "id": "pw-106",
+   "topicId": "pw12-ungleichheit",
+   "grade": 12,
+   "difficulty": 3,
+   "competency": "sozialstaat",
+   "type": "multi",
+   "prompt": "Mit welchen Mitteln wirkt der Sozialstaat der Ungleichheit entgegen?",
+   "options": [
+    {
+     "id": "a",
+     "text": "Transferleistungen"
+    },
+    {
+     "id": "b",
+     "text": "Abschaffung des Mindestlohns"
+    },
+    {
+     "id": "c",
+     "text": "Sozialversicherungen"
+    },
+    {
+     "id": "d",
+     "text": "Gebührenfreie Bildung"
+    },
+    {
+     "id": "e",
+     "text": "Progressive Besteuerung"
+    },
+    {
+     "id": "f",
+     "text": "Erhöhung der Mehrwertsteuer auf Grundnahrungsmittel"
+    }
+   ],
+   "answer": [
+    "a",
+    "c",
+    "d",
+    "e"
+   ],
+   "explanation": "Umverteilung wirkt über Steuern und über Leistungen — beides zusammen."
+  },
+  {
+   "id": "pw-107",
+   "topicId": "pw12-ungleichheit",
+   "grade": 12,
+   "difficulty": 3,
+   "competency": "grundrechte",
+   "type": "mc",
+   "prompt": "Welches Prinzip verlangt das Grundgesetz vom Staat?",
+   "options": [
+    {
+     "id": "a",
+     "text": "Das Sozialstaatsprinzip (Art. 20 GG)"
+    },
+    {
+     "id": "b",
+     "text": "Ein festes Einkommen für alle"
+    },
+    {
+     "id": "c",
+     "text": "Die Abschaffung des Eigentums"
+    },
+    {
+     "id": "d",
+     "text": "Das Prinzip der Gleichverteilung aller Vermögen"
+    }
+   ],
+   "answer": "a",
+   "explanation": "Das Sozialstaatsprinzip verpflichtet zum sozialen Ausgleich, schreibt aber kein bestimmtes Mittel vor."
+  },
+  {
+   "id": "pw-108",
+   "topicId": "pw13-globalisierung",
+   "grade": 13,
+   "difficulty": 3,
+   "competency": "marktwirtschaft",
+   "type": "match",
+   "prompt": "Ordne die Institutionen ihrer Aufgabe zu.",
+   "pairs": [
+    {
+     "left": "WTO",
+     "right": "Regeln des Welthandels"
+    },
+    {
+     "left": "IWF",
+     "right": "Stabilität des Währungssystems"
+    },
+    {
+     "left": "Weltbank",
+     "right": "Entwicklungsfinanzierung"
+    },
+    {
+     "left": "UN",
+     "right": "Friedenssicherung und internationale Zusammenarbeit"
+    }
+   ],
+   "explanation": "Die drei Wirtschaftsinstitutionen gehen auf die Konferenz von Bretton Woods 1944 zurück."
+  },
+  {
+   "id": "pw-109",
+   "topicId": "pw13-globalisierung",
+   "grade": 13,
+   "difficulty": 3,
+   "competency": "marktwirtschaft",
+   "type": "multi",
+   "prompt": "Welche Folgen hat die Globalisierung?",
+   "options": [
+    {
+     "id": "a",
+     "text": "Druck auf nationale Standards"
+    },
+    {
+     "id": "b",
+     "text": "Internationale Arbeitsteilung"
+    },
+    {
+     "id": "c",
+     "text": "Ende des internationalen Handels"
+    },
+    {
+     "id": "d",
+     "text": "Abschaffung der Nationalstaaten"
+    },
+    {
+     "id": "e",
+     "text": "Wachsender Wohlstand in vielen Schwellenländern"
+    },
+    {
+     "id": "f",
+     "text": "Grössere Abhängigkeit von Lieferketten"
+    }
+   ],
+   "answer": [
+    "a",
+    "b",
+    "e",
+    "f"
+   ],
+   "explanation": "Chancen und Risiken treten gemeinsam auf — die Bewertung hängt vom Blickwinkel ab."
+  },
+  {
+   "id": "pw-110",
+   "topicId": "pw13-globalisierung",
+   "grade": 13,
+   "difficulty": 3,
+   "competency": "marktwirtschaft",
+   "type": "mc",
+   "prompt": "Was beschreibt der Begriff „Global Governance\"?",
+   "options": [
+    {
+     "id": "a",
+     "text": "Die Herrschaft der grössten Konzerne"
+    },
+    {
+     "id": "b",
+     "text": "Eine Weltregierung"
+    },
+    {
+     "id": "c",
+     "text": "Ein Handelsabkommen"
+    },
+    {
+     "id": "d",
+     "text": "Das Zusammenwirken von Staaten, Organisationen und NGOs bei globalen Problemen"
+    }
+   ],
+   "answer": "d",
+   "explanation": "Es gibt keine Weltregierung — deshalb braucht es Koordination ohne zentrale Instanz."
+  },
+  {
+   "id": "pw-111",
+   "topicId": "pw13-globalisierung",
+   "grade": 13,
+   "difficulty": 3,
+   "competency": "eu",
+   "type": "order",
+   "prompt": "Ordne die Stufen der wirtschaftlichen Integration.",
+   "items": [
+    "Freihandelszone",
+    "Zollunion",
+    "Binnenmarkt",
+    "Währungsunion"
+   ],
+   "explanation": "Die EU hat alle vier Stufen durchlaufen — die Währungsunion gilt aber nicht für alle Mitglieder."
   }
  ]
 };

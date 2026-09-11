@@ -2,7 +2,7 @@
  * AUTOMATISCH GENERIERT — nicht von Hand bearbeiten.
  * Neu erzeugen mit: node tools/build-exercises.mjs
  *
- * Übungspool franzoesisch: 108 Aufgaben.
+ * Übungspool franzoesisch: 143 Aufgaben.
  */
 
 export default {
@@ -2618,6 +2618,872 @@ export default {
    ],
    "answer": "b",
    "explanation": "Das Plural-s bleibt stumm — der Plural ist meist nur am Artikel hörbar: le livre → les livres."
+  },
+  {
+   "id": "fr-109",
+   "topicId": "fr11-jeunesse",
+   "grade": 11,
+   "difficulty": 3,
+   "competency": "vokabeln",
+   "type": "cloze",
+   "prompt": "Wie heißt „die Jugend\" auf Französisch?",
+   "segments": [
+    "",
+    {
+     "blank": "a",
+     "accept": [
+      "la jeunesse"
+     ]
+    },
+    ""
+   ],
+   "explanation": "„die Jugend\" heißt la jeunesse."
+  },
+  {
+   "id": "fr-110",
+   "topicId": "fr11-jeunesse",
+   "grade": 11,
+   "difficulty": 3,
+   "competency": "vokabeln",
+   "type": "mc",
+   "prompt": "Was bedeutet „la jeunesse\" auf Deutsch?",
+   "options": [
+    {
+     "id": "a",
+     "text": "die Jugend"
+    },
+    {
+     "id": "b",
+     "text": "die Ausbildung"
+    },
+    {
+     "id": "c",
+     "text": "die Freizeit"
+    },
+    {
+     "id": "d",
+     "text": "der Praktikumsplatz"
+    }
+   ],
+   "answer": "a",
+   "explanation": "„la jeunesse\" bedeutet „die Jugend\"."
+  },
+  {
+   "id": "fr-111",
+   "topicId": "fr11-jeunesse",
+   "grade": 11,
+   "difficulty": 3,
+   "competency": "vokabeln",
+   "type": "cloze",
+   "prompt": "Wie heißt „die Ausbildung\" auf Französisch?",
+   "segments": [
+    "",
+    {
+     "blank": "a",
+     "accept": [
+      "la formation"
+     ]
+    },
+    ""
+   ],
+   "explanation": "„die Ausbildung\" heißt la formation."
+  },
+  {
+   "id": "fr-112",
+   "topicId": "fr11-jeunesse",
+   "grade": 11,
+   "difficulty": 3,
+   "competency": "vokabeln",
+   "type": "cloze",
+   "prompt": "Wie heißt „der Praktikumsplatz\" auf Französisch?",
+   "segments": [
+    "",
+    {
+     "blank": "a",
+     "accept": [
+      "le stage"
+     ]
+    },
+    ""
+   ],
+   "explanation": "„der Praktikumsplatz\" heißt le stage."
+  },
+  {
+   "id": "fr-113",
+   "topicId": "fr11-jeunesse",
+   "grade": 11,
+   "difficulty": 3,
+   "competency": "vokabeln",
+   "type": "mc",
+   "prompt": "Was bedeutet „le stage\" auf Deutsch?",
+   "options": [
+    {
+     "id": "a",
+     "text": "die Freizeit"
+    },
+    {
+     "id": "b",
+     "text": "die Ausbildung"
+    },
+    {
+     "id": "c",
+     "text": "die Jugend"
+    },
+    {
+     "id": "d",
+     "text": "der Praktikumsplatz"
+    }
+   ],
+   "answer": "d",
+   "explanation": "„le stage\" bedeutet „der Praktikumsplatz\"."
+  },
+  {
+   "id": "fr-114",
+   "topicId": "fr11-jeunesse",
+   "grade": 11,
+   "difficulty": 3,
+   "competency": "vokabeln",
+   "type": "cloze",
+   "prompt": "Wie heißt „die Freizeit\" auf Französisch?",
+   "segments": [
+    "",
+    {
+     "blank": "a",
+     "accept": [
+      "le temps libre"
+     ]
+    },
+    ""
+   ],
+   "explanation": "„die Freizeit\" heißt le temps libre."
+  },
+  {
+   "id": "fr-115",
+   "topicId": "fr11-jeunesse",
+   "grade": 11,
+   "difficulty": 3,
+   "competency": "vokabeln",
+   "type": "cloze",
+   "prompt": "Wie heißt „die Arbeitslosigkeit\" auf Französisch?",
+   "segments": [
+    "",
+    {
+     "blank": "a",
+     "accept": [
+      "le chômage"
+     ]
+    },
+    ""
+   ],
+   "explanation": "„die Arbeitslosigkeit\" heißt le chômage."
+  },
+  {
+   "id": "fr-116",
+   "topicId": "fr11-jeunesse",
+   "grade": 11,
+   "difficulty": 3,
+   "competency": "vokabeln",
+   "type": "mc",
+   "prompt": "Was bedeutet „le chômage\" auf Deutsch?",
+   "options": [
+    {
+     "id": "a",
+     "text": "die Jugend"
+    },
+    {
+     "id": "b",
+     "text": "der Praktikumsplatz"
+    },
+    {
+     "id": "c",
+     "text": "die Arbeitslosigkeit"
+    },
+    {
+     "id": "d",
+     "text": "die Ausbildung"
+    }
+   ],
+   "answer": "c",
+   "explanation": "„le chômage\" bedeutet „die Arbeitslosigkeit\"."
+  },
+  {
+   "id": "fr-117",
+   "topicId": "fr11-jeunesse",
+   "grade": 11,
+   "difficulty": 3,
+   "competency": "vokabeln",
+   "type": "cloze",
+   "prompt": "Wie heißt „das Engagement\" auf Französisch?",
+   "segments": [
+    "",
+    {
+     "blank": "a",
+     "accept": [
+      "l'engagement"
+     ]
+    },
+    ""
+   ],
+   "explanation": "„das Engagement\" heißt l'engagement."
+  },
+  {
+   "id": "fr-118",
+   "topicId": "fr11-jeunesse",
+   "grade": 11,
+   "difficulty": 3,
+   "competency": "vokabeln",
+   "type": "cloze",
+   "prompt": "Wie heißt „die Zukunft\" auf Französisch?",
+   "segments": [
+    "",
+    {
+     "blank": "a",
+     "accept": [
+      "l'avenir"
+     ]
+    },
+    ""
+   ],
+   "explanation": "„die Zukunft\" heißt l'avenir."
+  },
+  {
+   "id": "fr-119",
+   "topicId": "fr11-jeunesse",
+   "grade": 11,
+   "difficulty": 3,
+   "competency": "vokabeln",
+   "type": "mc",
+   "prompt": "Was bedeutet „l'avenir\" auf Deutsch?",
+   "options": [
+    {
+     "id": "a",
+     "text": "der Praktikumsplatz"
+    },
+    {
+     "id": "b",
+     "text": "die Zukunft"
+    },
+    {
+     "id": "c",
+     "text": "die Jugend"
+    },
+    {
+     "id": "d",
+     "text": "die Ausbildung"
+    }
+   ],
+   "answer": "b",
+   "explanation": "„l'avenir\" bedeutet „die Zukunft\"."
+  },
+  {
+   "id": "fr-120",
+   "topicId": "fr11-jeunesse",
+   "grade": 11,
+   "difficulty": 3,
+   "competency": "vokabeln",
+   "type": "cloze",
+   "prompt": "Wie heißt „die Gesellschaft\" auf Französisch?",
+   "segments": [
+    "",
+    {
+     "blank": "a",
+     "accept": [
+      "la société"
+     ]
+    },
+    ""
+   ],
+   "explanation": "„die Gesellschaft\" heißt la société."
+  },
+  {
+   "id": "fr-121",
+   "topicId": "fr11-jeunesse",
+   "grade": 11,
+   "difficulty": 3,
+   "competency": "vokabeln",
+   "type": "match",
+   "prompt": "Ordne jedem deutschen Wort die Französische Entsprechung zu.",
+   "pairs": [
+    {
+     "left": "die Jugend",
+     "right": "la jeunesse"
+    },
+    {
+     "left": "die Ausbildung",
+     "right": "la formation"
+    },
+    {
+     "left": "der Praktikumsplatz",
+     "right": "le stage"
+    },
+    {
+     "left": "die Freizeit",
+     "right": "le temps libre"
+    }
+   ],
+   "explanation": "Vokabeln lernt man am besten in beide Richtungen."
+  },
+  {
+   "id": "fr-122",
+   "topicId": "fr11-jeunesse",
+   "grade": 11,
+   "difficulty": 3,
+   "competency": "vokabeln",
+   "type": "match",
+   "prompt": "Ordne jedem deutschen Wort die Französische Entsprechung zu.",
+   "pairs": [
+    {
+     "left": "die Arbeitslosigkeit",
+     "right": "le chômage"
+    },
+    {
+     "left": "das Engagement",
+     "right": "l'engagement"
+    },
+    {
+     "left": "die Zukunft",
+     "right": "l'avenir"
+    },
+    {
+     "left": "die Gesellschaft",
+     "right": "la société"
+    }
+   ],
+   "explanation": "Vokabeln lernt man am besten in beide Richtungen."
+  },
+  {
+   "id": "fr-123",
+   "topicId": "fr11-jeunesse",
+   "grade": 11,
+   "difficulty": 3,
+   "competency": "frankophonie",
+   "type": "mc",
+   "prompt": "Was bezeichnet „le baccalauréat\"?",
+   "options": [
+    {
+     "id": "a",
+     "text": "Den französischen Schulabschluss, vergleichbar dem Abitur"
+    },
+    {
+     "id": "b",
+     "text": "Einen Studienabschluss"
+    },
+    {
+     "id": "c",
+     "text": "Ein Praktikum"
+    },
+    {
+     "id": "d",
+     "text": "Die Grundschule"
+    }
+   ],
+   "answer": "a",
+   "explanation": "Das „bac\" schliesst das „lycée\" ab und öffnet den Weg zur Universität."
+  },
+  {
+   "id": "fr-124",
+   "topicId": "fr11-jeunesse",
+   "grade": 11,
+   "difficulty": 3,
+   "competency": "frankophonie",
+   "type": "match",
+   "prompt": "Ordne die französischen Schulstufen zu.",
+   "pairs": [
+    {
+     "left": "l'école primaire",
+     "right": "Grundschule"
+    },
+    {
+     "left": "le collège",
+     "right": "Klassen 6 bis 3 (Sekundarstufe I)"
+    },
+    {
+     "left": "le lycée",
+     "right": "Klassen 2 bis Terminale"
+    },
+    {
+     "left": "la fac",
+     "right": "Universität (umgangssprachlich)"
+    }
+   ],
+   "explanation": "In Frankreich zählen die Klassenstufen rückwärts — die Terminale ist das Abschlussjahr."
+  },
+  {
+   "id": "fr-125",
+   "topicId": "fr11-jeunesse",
+   "grade": 11,
+   "difficulty": 3,
+   "competency": "vokabeln",
+   "type": "category",
+   "prompt": "Ordne die Wörter dem passenden Bereich zu.",
+   "categories": [
+    "l'école",
+    "la société"
+   ],
+   "items": [
+    {
+     "text": "le stage",
+     "category": "l'école"
+    },
+    {
+     "text": "la formation",
+     "category": "l'école"
+    },
+    {
+     "text": "le bac",
+     "category": "l'école"
+    },
+    {
+     "text": "le chômage",
+     "category": "la société"
+    },
+    {
+     "text": "l'engagement",
+     "category": "la société"
+    },
+    {
+     "text": "la solidarité",
+     "category": "la société"
+    }
+   ],
+   "explanation": "Themenwortschatz lernt man in Feldern — so steht er im Aufsatz bereit."
+  },
+  {
+   "id": "fr-126",
+   "topicId": "fr11-jeunesse",
+   "grade": 11,
+   "difficulty": 3,
+   "competency": "vokabeln",
+   "type": "sentence",
+   "prompt": "Baue den Satz: „Die Jugendlichen engagieren sich für die Umwelt.\"",
+   "words": [
+    "Les",
+    "jeunes",
+    "s'engagent",
+    "pour",
+    "l'environnement"
+   ],
+   "accept": [],
+   "explanation": "Reflexive Verben behalten das Pronomen vor dem Verb."
+  },
+  {
+   "id": "fr-127",
+   "topicId": "fr12-litterature",
+   "grade": 12,
+   "difficulty": 3,
+   "competency": "textarbeit",
+   "type": "cloze",
+   "prompt": "Wie heißt „der Roman\" auf Französisch?",
+   "segments": [
+    "",
+    {
+     "blank": "a",
+     "accept": [
+      "le roman"
+     ]
+    },
+    ""
+   ],
+   "explanation": "„der Roman\" heißt le roman."
+  },
+  {
+   "id": "fr-128",
+   "topicId": "fr12-litterature",
+   "grade": 12,
+   "difficulty": 3,
+   "competency": "textarbeit",
+   "type": "mc",
+   "prompt": "Was bedeutet „le roman\" auf Deutsch?",
+   "options": [
+    {
+     "id": "a",
+     "text": "der Roman"
+    },
+    {
+     "id": "b",
+     "text": "die Figur"
+    },
+    {
+     "id": "c",
+     "text": "der Erzähler"
+    },
+    {
+     "id": "d",
+     "text": "die Novelle"
+    }
+   ],
+   "answer": "a",
+   "explanation": "„le roman\" bedeutet „der Roman\"."
+  },
+  {
+   "id": "fr-129",
+   "topicId": "fr12-litterature",
+   "grade": 12,
+   "difficulty": 3,
+   "competency": "textarbeit",
+   "type": "cloze",
+   "prompt": "Wie heißt „die Novelle\" auf Französisch?",
+   "segments": [
+    "",
+    {
+     "blank": "a",
+     "accept": [
+      "la nouvelle"
+     ]
+    },
+    ""
+   ],
+   "explanation": "„die Novelle\" heißt la nouvelle."
+  },
+  {
+   "id": "fr-130",
+   "topicId": "fr12-litterature",
+   "grade": 12,
+   "difficulty": 3,
+   "competency": "textarbeit",
+   "type": "cloze",
+   "prompt": "Wie heißt „der Erzähler\" auf Französisch?",
+   "segments": [
+    "",
+    {
+     "blank": "a",
+     "accept": [
+      "le narrateur"
+     ]
+    },
+    ""
+   ],
+   "explanation": "„der Erzähler\" heißt le narrateur."
+  },
+  {
+   "id": "fr-131",
+   "topicId": "fr12-litterature",
+   "grade": 12,
+   "difficulty": 3,
+   "competency": "textarbeit",
+   "type": "mc",
+   "prompt": "Was bedeutet „le narrateur\" auf Deutsch?",
+   "options": [
+    {
+     "id": "a",
+     "text": "der Roman"
+    },
+    {
+     "id": "b",
+     "text": "die Figur"
+    },
+    {
+     "id": "c",
+     "text": "der Erzähler"
+    },
+    {
+     "id": "d",
+     "text": "die Novelle"
+    }
+   ],
+   "answer": "c",
+   "explanation": "„le narrateur\" bedeutet „der Erzähler\"."
+  },
+  {
+   "id": "fr-132",
+   "topicId": "fr12-litterature",
+   "grade": 12,
+   "difficulty": 3,
+   "competency": "textarbeit",
+   "type": "cloze",
+   "prompt": "Wie heißt „die Figur\" auf Französisch?",
+   "segments": [
+    "",
+    {
+     "blank": "a",
+     "accept": [
+      "le personnage"
+     ]
+    },
+    ""
+   ],
+   "explanation": "„die Figur\" heißt le personnage."
+  },
+  {
+   "id": "fr-133",
+   "topicId": "fr12-litterature",
+   "grade": 12,
+   "difficulty": 3,
+   "competency": "textarbeit",
+   "type": "cloze",
+   "prompt": "Wie heißt „die Handlung\" auf Französisch?",
+   "segments": [
+    "",
+    {
+     "blank": "a",
+     "accept": [
+      "l'intrigue"
+     ]
+    },
+    ""
+   ],
+   "explanation": "„die Handlung\" heißt l'intrigue."
+  },
+  {
+   "id": "fr-134",
+   "topicId": "fr12-litterature",
+   "grade": 12,
+   "difficulty": 3,
+   "competency": "textarbeit",
+   "type": "mc",
+   "prompt": "Was bedeutet „l'intrigue\" auf Deutsch?",
+   "options": [
+    {
+     "id": "a",
+     "text": "der Erzähler"
+    },
+    {
+     "id": "b",
+     "text": "der Roman"
+    },
+    {
+     "id": "c",
+     "text": "die Handlung"
+    },
+    {
+     "id": "d",
+     "text": "die Novelle"
+    }
+   ],
+   "answer": "c",
+   "explanation": "„l'intrigue\" bedeutet „die Handlung\"."
+  },
+  {
+   "id": "fr-135",
+   "topicId": "fr12-litterature",
+   "grade": 12,
+   "difficulty": 3,
+   "competency": "textarbeit",
+   "type": "cloze",
+   "prompt": "Wie heißt „das Kapitel\" auf Französisch?",
+   "segments": [
+    "",
+    {
+     "blank": "a",
+     "accept": [
+      "le chapitre"
+     ]
+    },
+    ""
+   ],
+   "explanation": "„das Kapitel\" heißt le chapitre."
+  },
+  {
+   "id": "fr-136",
+   "topicId": "fr12-litterature",
+   "grade": 12,
+   "difficulty": 3,
+   "competency": "textarbeit",
+   "type": "match",
+   "prompt": "Ordne jedem deutschen Wort die Französische Entsprechung zu.",
+   "pairs": [
+    {
+     "left": "der Roman",
+     "right": "le roman"
+    },
+    {
+     "left": "die Novelle",
+     "right": "la nouvelle"
+    },
+    {
+     "left": "der Erzähler",
+     "right": "le narrateur"
+    },
+    {
+     "left": "die Figur",
+     "right": "le personnage"
+    }
+   ],
+   "explanation": "Vokabeln lernt man am besten in beide Richtungen."
+  },
+  {
+   "id": "fr-137",
+   "topicId": "fr12-litterature",
+   "grade": 12,
+   "difficulty": 3,
+   "competency": "textarbeit",
+   "type": "match",
+   "prompt": "Ordne die Autoren ihren Werken zu.",
+   "pairs": [
+    {
+     "left": "Albert Camus",
+     "right": "L'Étranger"
+    },
+    {
+     "left": "Antoine de Saint-Exupéry",
+     "right": "Le Petit Prince"
+    },
+    {
+     "left": "Victor Hugo",
+     "right": "Les Misérables"
+    },
+    {
+     "left": "Molière",
+     "right": "Le Malade imaginaire"
+    }
+   ],
+   "explanation": "Diese vier Werke gehören zum Kanon des Französischunterrichts."
+  },
+  {
+   "id": "fr-138",
+   "topicId": "fr12-litterature",
+   "grade": 12,
+   "difficulty": 3,
+   "competency": "textarbeit",
+   "type": "order",
+   "prompt": "Ordne den Aufbau einer „analyse de texte\".",
+   "items": [
+    "Introduction: auteur, œuvre, thème",
+    "Résumé bref",
+    "Analyse de la structure",
+    "Analyse du style",
+    "Conclusion et interprétation"
+   ],
+   "explanation": "Die französische Textanalyse folgt einem festen Dreischritt aus Einleitung, Analyse und Schluss."
+  },
+  {
+   "id": "fr-139",
+   "topicId": "fr12-litterature",
+   "grade": 12,
+   "difficulty": 3,
+   "competency": "textarbeit",
+   "type": "multi",
+   "prompt": "Welche Zeitformen braucht man beim Erzählen im Französischen?",
+   "options": [
+    {
+     "id": "a",
+     "text": "l'imparfait"
+    },
+    {
+     "id": "b",
+     "text": "le passé composé"
+    },
+    {
+     "id": "c",
+     "text": "le futur simple als Erzählzeit"
+    },
+    {
+     "id": "d",
+     "text": "l'impératif"
+    },
+    {
+     "id": "e",
+     "text": "le plus-que-parfait"
+    }
+   ],
+   "answer": [
+    "a",
+    "b",
+    "e"
+   ],
+   "explanation": "Passé composé treibt die Handlung, Imparfait beschreibt den Hintergrund."
+  },
+  {
+   "id": "fr-140",
+   "topicId": "fr13-abitur",
+   "grade": 13,
+   "difficulty": 3,
+   "competency": "textarbeit",
+   "type": "order",
+   "prompt": "Ordne die Schritte einer Abituraufgabe im Fach Französisch.",
+   "items": [
+    "Consignes lesen und Operatoren markieren",
+    "Text überfliegen",
+    "Text genau lesen und notieren",
+    "Gliederung anlegen",
+    "Antwort schreiben und prüfen"
+   ],
+   "explanation": "Wie im Englischen gilt: Der Operator bestimmt die Textsorte der Antwort."
+  },
+  {
+   "id": "fr-141",
+   "topicId": "fr13-abitur",
+   "grade": 13,
+   "difficulty": 3,
+   "competency": "textarbeit",
+   "type": "match",
+   "prompt": "Ordne die Operatoren ihrer Bedeutung zu.",
+   "pairs": [
+    {
+     "left": "résumer",
+     "right": "zusammenfassen"
+    },
+    {
+     "left": "analyser",
+     "right": "untersuchen, wie der Text wirkt"
+    },
+    {
+     "left": "commenter",
+     "right": "begründet Stellung nehmen"
+    },
+    {
+     "left": "comparer",
+     "right": "gegenüberstellen"
+    }
+   ],
+   "explanation": "Die Operatoren entsprechen denen der anderen Fremdsprachen."
+  },
+  {
+   "id": "fr-142",
+   "topicId": "fr13-abitur",
+   "grade": 13,
+   "difficulty": 3,
+   "competency": "textarbeit",
+   "type": "multi",
+   "prompt": "Was gehört zu einer guten „prise de position\"?",
+   "options": [
+    {
+     "id": "a",
+     "text": "Eine Nacherzählung des Textes"
+    },
+    {
+     "id": "b",
+     "text": "Eine Liste von Vokabeln"
+    },
+    {
+     "id": "c",
+     "text": "Ein Fazit"
+    },
+    {
+     "id": "d",
+     "text": "Eine klare These"
+    },
+    {
+     "id": "e",
+     "text": "Argumente mit Beispielen"
+    }
+   ],
+   "answer": [
+    "c",
+    "d",
+    "e"
+   ],
+   "explanation": "Die Stellungnahme argumentiert, sie referiert nicht."
+  },
+  {
+   "id": "fr-143",
+   "topicId": "fr13-abitur",
+   "grade": 13,
+   "difficulty": 3,
+   "competency": "textarbeit",
+   "type": "cloze",
+   "prompt": "Vervollständige die Redewendung für eine Stellungnahme: „À mon ___, cette idée est convaincante.\"",
+   "segments": [
+    "À mon ",
+    {
+     "blank": "a",
+     "accept": [
+      "avis"
+     ]
+    },
+    ", cette idée est convaincante."
+   ],
+   "explanation": "„À mon avis\" heisst „meiner Meinung nach\"."
   }
  ]
 };

@@ -2,7 +2,7 @@
  * AUTOMATISCH GENERIERT — nicht von Hand bearbeiten.
  * Neu erzeugen mit: node tools/build-exercises.mjs
  *
- * Übungspool sport: 101 Aufgaben.
+ * Übungspool sport: 106 Aufgaben.
  */
 
 export default {
@@ -2635,6 +2635,164 @@ export default {
    "prompt": "Pausentage gehören zum Training dazu.",
    "answer": true,
    "explanation": "Richtig. Die Anpassung des Körpers findet in der Erholungsphase statt — ohne Pausen bleibt der Trainingseffekt aus."
+  },
+  {
+   "id": "sp-102",
+   "topicId": "sp13-pruefung",
+   "grade": 13,
+   "difficulty": 3,
+   "competency": "prinzipien",
+   "type": "match",
+   "prompt": "Ordne die Trainingsprinzipien ihrer Aussage zu.",
+   "pairs": [
+    {
+     "left": "Prinzip des wirksamen Reizes",
+     "right": "Der Reiz muss eine Schwelle überschreiten"
+    },
+    {
+     "left": "Prinzip der Progression",
+     "right": "Die Belastung muss allmählich steigen"
+    },
+    {
+     "left": "Prinzip der Variation",
+     "right": "Wechselnde Reize verhindern Stagnation"
+    },
+    {
+     "left": "Prinzip der Regeneration",
+     "right": "Anpassung geschieht in der Erholung"
+    }
+   ],
+   "explanation": "Ohne Erholung gibt es keine Superkompensation — Training allein reicht nicht."
+  },
+  {
+   "id": "sp-103",
+   "topicId": "sp13-pruefung",
+   "grade": 13,
+   "difficulty": 3,
+   "competency": "methoden",
+   "type": "multi",
+   "prompt": "Was gehört in eine sporttheoretische Prüfungsantwort?",
+   "options": [
+    {
+     "id": "a",
+     "text": "Bezug auf Trainingsprinzipien"
+    },
+    {
+     "id": "b",
+     "text": "Fachbegriffe"
+    },
+    {
+     "id": "c",
+     "text": "Konkrete Beispiele aus einer Sportart"
+    },
+    {
+     "id": "d",
+     "text": "Eine Nacherzählung des Unterrichts"
+    },
+    {
+     "id": "e",
+     "text": "Begründete Bewertung"
+    },
+    {
+     "id": "f",
+     "text": "Eine Liste eigener Bestzeiten ohne Bezug"
+    }
+   ],
+   "answer": [
+    "a",
+    "b",
+    "c",
+    "e"
+   ],
+   "explanation": "Theorie und Praxisbeispiel müssen zusammenkommen."
+  },
+  {
+   "id": "sp-104",
+   "topicId": "sp13-pruefung",
+   "grade": 13,
+   "difficulty": 3,
+   "competency": "methoden",
+   "type": "order",
+   "prompt": "Ordne den Aufbau einer Trainingsplanung.",
+   "items": [
+    "Ausgangslage und Leistungsdiagnostik",
+    "Ziel festlegen",
+    "Methode und Belastungsnormative wählen",
+    "Trainingsplan aufstellen",
+    "Überprüfen und anpassen"
+   ],
+   "explanation": "Ohne Diagnostik am Anfang lässt sich am Ende kein Fortschritt belegen."
+  },
+  {
+   "id": "sp-105",
+   "topicId": "sp13-pruefung",
+   "grade": 13,
+   "difficulty": 3,
+   "competency": "ausdauer",
+   "type": "mc",
+   "prompt": "Welche Belastungsnormative beschreiben ein Training vollständig?",
+   "options": [
+    {
+     "id": "a",
+     "text": "Nur die Dauer"
+    },
+    {
+     "id": "b",
+     "text": "Gewicht und Grösse des Sportlers"
+    },
+    {
+     "id": "c",
+     "text": "Nur die Intensität"
+    },
+    {
+     "id": "d",
+     "text": "Intensität, Dauer, Umfang, Dichte und Häufigkeit"
+    }
+   ],
+   "answer": "d",
+   "explanation": "Erst alle fünf Grössen zusammen machen eine Trainingseinheit vergleichbar."
+  },
+  {
+   "id": "sp-106",
+   "topicId": "sp13-pruefung",
+   "grade": 13,
+   "difficulty": 3,
+   "competency": "gesellschaft",
+   "type": "multi",
+   "prompt": "Welche Themen gehören zur Sportsoziologie in der Oberstufe?",
+   "options": [
+    {
+     "id": "a",
+     "text": "Kommerzialisierung des Sports"
+    },
+    {
+     "id": "b",
+     "text": "Doping und Fairness"
+    },
+    {
+     "id": "c",
+     "text": "Sport und Gesundheit"
+    },
+    {
+     "id": "d",
+     "text": "Inklusion und Teilhabe"
+    },
+    {
+     "id": "e",
+     "text": "Die Regeln des Schachs"
+    },
+    {
+     "id": "f",
+     "text": "Die Geschichte der Buchdruckkunst"
+    }
+   ],
+   "answer": [
+    "a",
+    "b",
+    "c",
+    "d"
+   ],
+   "explanation": "Sport wird als gesellschaftliches Feld betrachtet, nicht nur als Bewegung."
   }
  ]
 };

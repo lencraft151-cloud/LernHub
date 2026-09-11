@@ -1,5 +1,5 @@
 /** Übungspool Französisch, Klasse 6–10. */
-import { mc, tf, cloze, match, order, multi, factQuestions, vocabQuestions } from './_helpers.mjs';
+import { mc, tf, cloze, match, order, multi, factQuestions, vocabQuestions, mark, sentence, category } from './_helpers.mjs';
 
 export const competencies = {
   praesens: 'Présent',
@@ -207,6 +207,119 @@ export default function build() {
     correct: 'durch Anhängen von -s, das nicht gesprochen wird',
     wrong: ['durch Anhängen von -en', 'durch Umlaut', 'gar nicht'],
     explanation: 'Das Plural-s bleibt stumm — der Plural ist meist nur am Artikel hörbar: le livre → les livres.',
+  }));
+
+  /* ================================================================== *
+   * Ausbau: Oberstufe und sprachliche Aufgabenformen
+   * ================================================================== */
+
+  push(vocabQuestions({
+    prefix: P, topicId: 'fr11-jeunesse', grade: 11, competency: 'vokabeln', difficulty: 3,
+    toLabel: 'Französisch', fromLabel: 'Deutsch',
+    pairs: [
+      ['die Jugend', 'la jeunesse'], ['die Ausbildung', 'la formation'],
+      ['der Praktikumsplatz', 'le stage'], ['die Freizeit', 'le temps libre'],
+      ['die Arbeitslosigkeit', 'le chômage'], ['das Engagement', "l'engagement"],
+      ['die Zukunft', "l'avenir"], ['die Gesellschaft', 'la société'],
+    ],
+  }));
+  add(mc({
+    prefix: P, topicId: 'fr11-jeunesse', grade: 11, difficulty: 3, competency: 'frankophonie',
+    prompt: 'Was bezeichnet „le baccalauréat"?',
+    correct: 'Den französischen Schulabschluss, vergleichbar dem Abitur',
+    wrong: ['Ein Praktikum', 'Die Grundschule', 'Einen Studienabschluss'],
+    explanation: 'Das „bac" schliesst das „lycée" ab und öffnet den Weg zur Universität.',
+  }));
+  add(match({
+    prefix: P, topicId: 'fr11-jeunesse', grade: 11, difficulty: 3, competency: 'frankophonie',
+    prompt: 'Ordne die französischen Schulstufen zu.',
+    pairs: [
+      { left: "l'école primaire", right: 'Grundschule' },
+      { left: 'le collège', right: 'Klassen 6 bis 3 (Sekundarstufe I)' },
+      { left: 'le lycée', right: 'Klassen 2 bis Terminale' },
+      { left: 'la fac', right: 'Universität (umgangssprachlich)' },
+    ],
+    explanation: 'In Frankreich zählen die Klassenstufen rückwärts — die Terminale ist das Abschlussjahr.',
+  }));
+  add(category({
+    prefix: P, topicId: 'fr11-jeunesse', grade: 11, difficulty: 3, competency: 'vokabeln',
+    prompt: 'Ordne die Wörter dem passenden Bereich zu.',
+    groups: {
+      "l'école": ['le stage', 'la formation', 'le bac'],
+      'la société': ['le chômage', "l'engagement", 'la solidarité'],
+    },
+    explanation: 'Themenwortschatz lernt man in Feldern — so steht er im Aufsatz bereit.',
+  }));
+  add(sentence({
+    prefix: P, topicId: 'fr11-jeunesse', grade: 11, difficulty: 3, competency: 'vokabeln',
+    prompt: 'Baue den Satz: „Die Jugendlichen engagieren sich für die Umwelt."',
+    sentence: "Les jeunes s'engagent pour l'environnement",
+    explanation: 'Reflexive Verben behalten das Pronomen vor dem Verb.',
+  }));
+
+  push(vocabQuestions({
+    prefix: P, topicId: 'fr12-litterature', grade: 12, competency: 'textarbeit', difficulty: 3,
+    toLabel: 'Französisch', fromLabel: 'Deutsch',
+    pairs: [
+      ['der Roman', 'le roman'], ['die Novelle', 'la nouvelle'],
+      ['der Erzähler', 'le narrateur'], ['die Figur', 'le personnage'],
+      ['die Handlung', "l'intrigue"], ['das Kapitel', 'le chapitre'],
+    ],
+  }));
+  add(match({
+    prefix: P, topicId: 'fr12-litterature', grade: 12, difficulty: 3, competency: 'textarbeit',
+    prompt: 'Ordne die Autoren ihren Werken zu.',
+    pairs: [
+      { left: 'Albert Camus', right: "L'Étranger" },
+      { left: 'Antoine de Saint-Exupéry', right: 'Le Petit Prince' },
+      { left: 'Victor Hugo', right: 'Les Misérables' },
+      { left: 'Molière', right: 'Le Malade imaginaire' },
+    ],
+    explanation: 'Diese vier Werke gehören zum Kanon des Französischunterrichts.',
+  }));
+  add(order({
+    prefix: P, topicId: 'fr12-litterature', grade: 12, difficulty: 3, competency: 'textarbeit',
+    prompt: "Ordne den Aufbau einer „analyse de texte\".",
+    items: ['Introduction: auteur, œuvre, thème', 'Résumé bref', "Analyse de la structure", 'Analyse du style', 'Conclusion et interprétation'],
+    explanation: 'Die französische Textanalyse folgt einem festen Dreischritt aus Einleitung, Analyse und Schluss.',
+  }));
+  add(multi({
+    prefix: P, topicId: 'fr12-litterature', grade: 12, difficulty: 3, competency: 'textarbeit',
+    prompt: 'Welche Zeitformen braucht man beim Erzählen im Französischen?',
+    correct: ['le passé composé', "l'imparfait", 'le plus-que-parfait'],
+    wrong: ['le futur simple als Erzählzeit', "l'impératif"],
+    explanation: 'Passé composé treibt die Handlung, Imparfait beschreibt den Hintergrund.',
+  }));
+
+  add(order({
+    prefix: P, topicId: 'fr13-abitur', grade: 13, difficulty: 3, competency: 'textarbeit',
+    prompt: 'Ordne die Schritte einer Abituraufgabe im Fach Französisch.',
+    items: ['Consignes lesen und Operatoren markieren', 'Text überfliegen', 'Text genau lesen und notieren', 'Gliederung anlegen', 'Antwort schreiben und prüfen'],
+    explanation: 'Wie im Englischen gilt: Der Operator bestimmt die Textsorte der Antwort.',
+  }));
+  add(match({
+    prefix: P, topicId: 'fr13-abitur', grade: 13, difficulty: 3, competency: 'textarbeit',
+    prompt: 'Ordne die Operatoren ihrer Bedeutung zu.',
+    pairs: [
+      { left: 'résumer', right: 'zusammenfassen' },
+      { left: 'analyser', right: 'untersuchen, wie der Text wirkt' },
+      { left: 'commenter', right: 'begründet Stellung nehmen' },
+      { left: 'comparer', right: 'gegenüberstellen' },
+    ],
+    explanation: 'Die Operatoren entsprechen denen der anderen Fremdsprachen.',
+  }));
+  add(multi({
+    prefix: P, topicId: 'fr13-abitur', grade: 13, difficulty: 3, competency: 'textarbeit',
+    prompt: 'Was gehört zu einer guten „prise de position"?',
+    correct: ['Eine klare These', 'Argumente mit Beispielen', 'Ein Fazit'],
+    wrong: ['Eine Nacherzählung des Textes', 'Eine Liste von Vokabeln'],
+    explanation: 'Die Stellungnahme argumentiert, sie referiert nicht.',
+  }));
+  add(cloze({
+    prefix: P, topicId: 'fr13-abitur', grade: 13, difficulty: 3, competency: 'textarbeit',
+    prompt: 'Vervollständige die Redewendung für eine Stellungnahme: „À mon ___, cette idée est convaincante."',
+    segments: ['À mon ', { blank: 'a', accept: ['avis'] }, ', cette idée est convaincante.'],
+    explanation: '„À mon avis" heisst „meiner Meinung nach".',
   }));
 
   return out;

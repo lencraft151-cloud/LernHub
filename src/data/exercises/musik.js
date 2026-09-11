@@ -2,7 +2,7 @@
  * AUTOMATISCH GENERIERT — nicht von Hand bearbeiten.
  * Neu erzeugen mit: node tools/build-exercises.mjs
  *
- * Übungspool musik: 100 Aufgaben.
+ * Übungspool musik: 112 Aufgaben.
  */
 
 export default {
@@ -2445,6 +2445,343 @@ export default {
    ],
    "answer": "b",
    "explanation": "Die Zauberflöte entstand 1791, im Todesjahr Mozarts."
+  },
+  {
+   "id": "mu-101",
+   "topicId": "mu11-werkanalyse",
+   "grade": 11,
+   "difficulty": 3,
+   "competency": "formen",
+   "type": "order",
+   "prompt": "Ordne die Schritte einer Werkanalyse.",
+   "items": [
+    "Werk und Komponist einordnen",
+    "Formteile bestimmen",
+    "Melodik, Harmonik und Rhythmik untersuchen",
+    "Instrumentation beschreiben",
+    "Wirkung deuten"
+   ],
+   "explanation": "Erst die Form, dann die Mittel, zuletzt die Deutung."
+  },
+  {
+   "id": "mu-102",
+   "topicId": "mu11-werkanalyse",
+   "grade": 11,
+   "difficulty": 3,
+   "competency": "formen",
+   "type": "match",
+   "prompt": "Ordne die musikalischen Formen ihrem Aufbau zu.",
+   "pairs": [
+    {
+     "left": "Sonatenhauptsatzform",
+     "right": "Exposition — Durchführung — Reprise"
+    },
+    {
+     "left": "Rondo",
+     "right": "Refrain wechselt mit Couplets: A-B-A-C-A"
+    },
+    {
+     "left": "Variationen",
+     "right": "Ein Thema wird mehrfach verändert wiederholt"
+    },
+    {
+     "left": "Fuge",
+     "right": "Ein Thema wandert imitierend durch alle Stimmen"
+    }
+   ],
+   "explanation": "Die Form gibt dem Hören Orientierung — deshalb steht sie am Anfang jeder Analyse."
+  },
+  {
+   "id": "mu-103",
+   "topicId": "mu11-werkanalyse",
+   "grade": 11,
+   "difficulty": 3,
+   "competency": "formen",
+   "type": "multi",
+   "prompt": "Welche Parameter untersucht eine Werkanalyse?",
+   "options": [
+    {
+     "id": "a",
+     "text": "Preis der Aufnahme"
+    },
+    {
+     "id": "b",
+     "text": "Instrumentation"
+    },
+    {
+     "id": "c",
+     "text": "Dynamik"
+    },
+    {
+     "id": "d",
+     "text": "Melodik"
+    },
+    {
+     "id": "e",
+     "text": "Länge des Booklets"
+    },
+    {
+     "id": "f",
+     "text": "Rhythmik"
+    },
+    {
+     "id": "g",
+     "text": "Harmonik"
+    }
+   ],
+   "answer": [
+    "b",
+    "c",
+    "d",
+    "f",
+    "g"
+   ],
+   "explanation": "Die fünf Parameter decken zusammen fast jede Beobachtung ab."
+  },
+  {
+   "id": "mu-104",
+   "topicId": "mu11-werkanalyse",
+   "grade": 11,
+   "difficulty": 3,
+   "competency": "formen",
+   "type": "mc",
+   "prompt": "Was geschieht in der Durchführung eines Sonatenhauptsatzes?",
+   "options": [
+    {
+     "id": "a",
+     "text": "Die Themen werden zum ersten Mal vorgestellt"
+    },
+    {
+     "id": "b",
+     "text": "Das Stück endet"
+    },
+    {
+     "id": "c",
+     "text": "Ein neues Thema ersetzt die alten"
+    },
+    {
+     "id": "d",
+     "text": "Die Themen werden verarbeitet, moduliert und zerlegt"
+    }
+   ],
+   "answer": "d",
+   "explanation": "Die Durchführung ist der dramatische Kern — die Reprise bringt Beruhigung."
+  },
+  {
+   "id": "mu-105",
+   "topicId": "mu12-musik-gesellschaft",
+   "grade": 12,
+   "difficulty": 3,
+   "competency": "popmusik",
+   "type": "match",
+   "prompt": "Ordne die Funktionen von Musik zu.",
+   "pairs": [
+    {
+     "left": "Kultische Funktion",
+     "right": "Musik im religiösen Ritual"
+    },
+    {
+     "left": "Politische Funktion",
+     "right": "Musik als Protest oder Propaganda"
+    },
+    {
+     "left": "Kommerzielle Funktion",
+     "right": "Musik als Ware und Werbemittel"
+    },
+    {
+     "left": "Identitätsstiftende Funktion",
+     "right": "Musik als Zeichen der Zugehörigkeit"
+    }
+   ],
+   "explanation": "Dieselbe Musik kann je nach Verwendung mehrere Funktionen erfüllen."
+  },
+  {
+   "id": "mu-106",
+   "topicId": "mu12-musik-gesellschaft",
+   "grade": 12,
+   "difficulty": 3,
+   "competency": "popmusik",
+   "type": "multi",
+   "prompt": "Wodurch hat die Digitalisierung die Musikwirtschaft verändert?",
+   "options": [
+    {
+     "id": "a",
+     "text": "Streaming statt Tonträgerverkauf"
+    },
+    {
+     "id": "b",
+     "text": "Direkte Veröffentlichung ohne Label"
+    },
+    {
+     "id": "c",
+     "text": "Ende des Urheberrechts"
+    },
+    {
+     "id": "d",
+     "text": "Verschwinden von Konzerten"
+    },
+    {
+     "id": "e",
+     "text": "Neue Formen der Vergütung"
+    }
+   ],
+   "answer": [
+    "a",
+    "b",
+    "e"
+   ],
+   "explanation": "Die Verteilung der Einnahmen ist dabei die umstrittenste Frage."
+  },
+  {
+   "id": "mu-107",
+   "topicId": "mu12-musik-gesellschaft",
+   "grade": 12,
+   "difficulty": 3,
+   "competency": "epochen",
+   "type": "mc",
+   "prompt": "Was versteht man unter „Gebrauchsmusik\"?",
+   "options": [
+    {
+     "id": "a",
+     "text": "Musik, die für einen bestimmten Zweck oder Anlass geschrieben ist"
+    },
+    {
+     "id": "b",
+     "text": "Alte Musik"
+    },
+    {
+     "id": "c",
+     "text": "Musik ohne Noten"
+    },
+    {
+     "id": "d",
+     "text": "Musik ohne Komponist"
+    }
+   ],
+   "answer": "a",
+   "explanation": "Der Begriff stammt aus den 1920er-Jahren und wendet sich gegen die reine „Kunstmusik\"."
+  },
+  {
+   "id": "mu-108",
+   "topicId": "mu12-musik-gesellschaft",
+   "grade": 12,
+   "difficulty": 2,
+   "competency": "popmusik",
+   "type": "truefalse",
+   "prompt": "Musik wurde in Diktaturen sowohl zur Propaganda als auch zum Widerstand genutzt.",
+   "answer": true,
+   "explanation": "Dasselbe Medium kann beiden Seiten dienen — das macht die Analyse des Kontexts nötig."
+  },
+  {
+   "id": "mu-109",
+   "topicId": "mu13-pruefung",
+   "grade": 13,
+   "difficulty": 3,
+   "competency": "formen",
+   "type": "order",
+   "prompt": "Ordne die Schritte einer Höranalyse in der Prüfung.",
+   "items": [
+    "Erster Höreindruck notieren",
+    "Besetzung und Gattung bestimmen",
+    "Formteile markieren",
+    "Auffälligkeiten in Melodik und Harmonik notieren",
+    "Ergebnisse zusammenfassen"
+   ],
+   "explanation": "Beim ersten Hören das Grosse, beim zweiten die Details."
+  },
+  {
+   "id": "mu-110",
+   "topicId": "mu13-pruefung",
+   "grade": 13,
+   "difficulty": 3,
+   "competency": "epochen",
+   "type": "match",
+   "prompt": "Ordne die Epochen ihren Merkmalen zu.",
+   "pairs": [
+    {
+     "left": "Barock",
+     "right": "Generalbass, Terrassendynamik, Polyphonie"
+    },
+    {
+     "left": "Klassik",
+     "right": "Periodenbau, klare Harmonik, Sonatenform"
+    },
+    {
+     "left": "Romantik",
+     "right": "Erweiterte Harmonik, Programmmusik, grosses Orchester"
+    },
+    {
+     "left": "Moderne",
+     "right": "Auflösung der Tonalität, neue Klangfarben"
+    }
+   ],
+   "explanation": "Für die Höranalyse reichen zwei bis drei Merkmale je Epoche zur Einordnung."
+  },
+  {
+   "id": "mu-111",
+   "topicId": "mu13-pruefung",
+   "grade": 13,
+   "difficulty": 3,
+   "competency": "formen",
+   "type": "multi",
+   "prompt": "Was gehört in eine gute schriftliche Analyse?",
+   "options": [
+    {
+     "id": "a",
+     "text": "Persönliche Geschmacksurteile ohne Begründung"
+    },
+    {
+     "id": "b",
+     "text": "Fachbegriffe"
+    },
+    {
+     "id": "c",
+     "text": "Eine Nacherzählung des Textes im Booklet"
+    },
+    {
+     "id": "d",
+     "text": "Takt- oder Zeitangaben als Beleg"
+    },
+    {
+     "id": "e",
+     "text": "Deutung der Wirkung"
+    }
+   ],
+   "answer": [
+    "b",
+    "d",
+    "e"
+   ],
+   "explanation": "Beobachtung und Deutung müssen unterscheidbar bleiben — und belegt sein."
+  },
+  {
+   "id": "mu-112",
+   "topicId": "mu13-pruefung",
+   "grade": 13,
+   "difficulty": 2,
+   "competency": "formen",
+   "type": "mc",
+   "prompt": "Wie belegt man eine Beobachtung in einer Musikanalyse?",
+   "options": [
+    {
+     "id": "a",
+     "text": "Mit Takt- oder Zeitangabe"
+    },
+    {
+     "id": "b",
+     "text": "Mit dem Namen der Aufnahme"
+    },
+    {
+     "id": "c",
+     "text": "Mit der Seitenzahl im Schulbuch"
+    },
+    {
+     "id": "d",
+     "text": "Gar nicht"
+    }
+   ],
+   "answer": "a",
+   "explanation": "Erst die Stellenangabe macht die Beobachtung nachprüfbar."
   }
  ]
 };

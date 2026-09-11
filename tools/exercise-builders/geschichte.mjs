@@ -273,5 +273,184 @@ export default function build() {
     explanation: 'Aus der wirtschaftlichen Zusammenarbeit wurde schrittweise eine politische Union mit gemeinsamer Währung.',
   }));
 
+  /* ================================================================== *
+   * Ausbau: Mittelalter und Oberstufe
+   * ================================================================== */
+
+  add(mc({
+    prefix: P, topicId: 'ge7-kirche', grade: 7, difficulty: 2, competency: 'kirche',
+    prompt: 'Worum ging es im Investiturstreit?',
+    correct: 'Um das Recht, Bischöfe einzusetzen',
+    wrong: ['Um die Höhe der Kirchensteuer', 'Um die Sprache der Messe', 'Um den Bau von Kathedralen'],
+    explanation: 'Kaiser und Papst stritten darum, wer die geistlichen Ämter vergeben darf.',
+  }));
+  add(mc({
+    prefix: P, topicId: 'ge7-kirche', grade: 7, difficulty: 2, competency: 'kirche',
+    prompt: 'Wer ging 1077 nach Canossa?',
+    correct: 'Kaiser Heinrich IV.', wrong: ['Papst Gregor VII.', 'Karl der Große', 'Friedrich Barbarossa'],
+    explanation: 'Heinrich IV. tat Busse, um den Kirchenbann aufheben zu lassen.',
+  }));
+  add(match({
+    prefix: P, topicId: 'ge7-kirche', grade: 7, difficulty: 3, competency: 'kirche',
+    prompt: 'Ordne den mittelalterlichen Begriffen ihre Bedeutung zu.',
+    pairs: [
+      { left: 'Kirchenbann', right: 'Ausschluss aus der Kirchengemeinschaft' },
+      { left: 'Investitur', right: 'Einsetzung in ein geistliches Amt' },
+      { left: 'Zehnt', right: 'Abgabe eines Zehntels des Ertrags' },
+      { left: 'Kloster', right: 'Gemeinschaft von Mönchen oder Nonnen' },
+    ],
+    explanation: 'Der Bann traf einen Herrscher hart: Seine Untertanen waren vom Treueid entbunden.',
+  }));
+  add(multi({
+    prefix: P, topicId: 'ge7-kirche', grade: 7, difficulty: 3, competency: 'kirche',
+    prompt: 'Welche Aufgaben hatten mittelalterliche Klöster?',
+    correct: ['Abschreiben von Büchern', 'Krankenpflege', 'Landwirtschaft', 'Schulunterricht'],
+    wrong: ['Münzprägung für den Kaiser', 'Führung von Heeren'],
+    explanation: 'Klöster waren Bildungs-, Wirtschafts- und Sozialzentren zugleich.',
+  }));
+  push(yearQuestions({
+    prefix: P, topicId: 'ge7-kirche', grade: 7, competency: 'kirche', difficulty: 2,
+    events: [
+      [1077, 'Gang nach Canossa'],
+      [1096, 'Erster Kreuzzug beginnt'],
+      [1122, 'Wormser Konkordat'],
+    ],
+  }));
+
+  add(order({
+    prefix: P, topicId: 'ge11-menschenrechte', grade: 11, difficulty: 3, competency: 'begriffe',
+    prompt: 'Ordne die Meilensteine der Menschenrechte chronologisch.',
+    items: ['Magna Carta (1215)', 'Virginia Bill of Rights (1776)', 'Erklärung der Menschen- und Bürgerrechte (1789)', 'Allgemeine Erklärung der Menschenrechte (1948)', 'Europäische Menschenrechtskonvention (1950)'],
+    explanation: 'Die Idee wächst über Jahrhunderte — von Standesrechten zu universellen Rechten.',
+  }));
+  add(mc({
+    prefix: P, topicId: 'ge11-menschenrechte', grade: 11, difficulty: 3, competency: 'begriffe',
+    prompt: 'Was kennzeichnet Menschenrechte im modernen Verständnis?',
+    correct: 'Sie gelten jedem Menschen allein aufgrund seines Menschseins',
+    wrong: ['Sie gelten nur für Staatsbürger', 'Sie müssen verdient werden', 'Sie gelten nur in Demokratien'],
+    explanation: 'Universalität, Unveräusserlichkeit und Unteilbarkeit sind ihre drei Kennzeichen.',
+  }));
+  add(multi({
+    prefix: P, topicId: 'ge11-menschenrechte', grade: 11, difficulty: 3, competency: 'begriffe',
+    prompt: 'Welche Generationen von Menschenrechten unterscheidet man?',
+    correct: ['Bürgerliche und politische Rechte', 'Wirtschaftliche und soziale Rechte', 'Kollektive Rechte wie das Recht auf Entwicklung'],
+    wrong: ['Rechte von Unternehmen', 'Rechte von Maschinen'],
+    explanation: 'Die drei Generationen entstanden nacheinander und ergänzen einander.',
+  }));
+  add(tf({
+    prefix: P, topicId: 'ge11-menschenrechte', grade: 11, difficulty: 2, competency: 'begriffe',
+    prompt: 'Die Allgemeine Erklärung der Menschenrechte von 1948 ist völkerrechtlich bindend.',
+    answer: false,
+    explanation: 'Sie ist eine Resolution der UN-Generalversammlung; bindend wurden Teile erst durch die Pakte von 1966.',
+  }));
+
+  add(match({
+    prefix: P, topicId: 'ge11-migration', grade: 11, difficulty: 3, competency: 'begriffe',
+    prompt: 'Ordne die Migrationsbegriffe zu.',
+    pairs: [
+      { left: 'Emigration', right: 'Auswanderung aus einem Land' },
+      { left: 'Immigration', right: 'Einwanderung in ein Land' },
+      { left: 'Flucht', right: 'Erzwungene Migration wegen Verfolgung oder Krieg' },
+      { left: 'Arbeitsmigration', right: 'Wanderung aus wirtschaftlichen Gründen' },
+    ],
+    explanation: 'Die Unterscheidung von freiwilliger und erzwungener Wanderung prägt auch das Recht.',
+  }));
+  add(order({
+    prefix: P, topicId: 'ge11-migration', grade: 11, difficulty: 3, competency: 'begriffe',
+    prompt: 'Ordne die Migrationsbewegungen in der deutschen Geschichte chronologisch.',
+    items: ['Auswanderung nach Amerika im 19. Jahrhundert', 'Flucht und Vertreibung nach 1945', 'Anwerbeabkommen ab 1955', 'Spätaussiedler nach 1990', 'Fluchtbewegungen ab 2015'],
+    explanation: 'Deutschland war lange Auswanderungs-, dann Einwanderungsland.',
+  }));
+  add(multi({
+    prefix: P, topicId: 'ge11-migration', grade: 11, difficulty: 3, competency: 'begriffe',
+    prompt: 'Welche Ursachen hat Migration?',
+    correct: ['Krieg und Verfolgung', 'Wirtschaftliche Not', 'Umweltkatastrophen', 'Familienzusammenführung'],
+    wrong: ['Die Erfindung des Buchdrucks', 'Die Zahl der Feiertage'],
+    explanation: 'Man unterscheidet Push- und Pull-Faktoren.',
+  }));
+
+  add(match({
+    prefix: P, topicId: 'ge12-diktaturvergleich', grade: 12, difficulty: 3, competency: 'ns',
+    prompt: 'Ordne die Merkmale ihrer Herrschaftsform zu.',
+    pairs: [
+      { left: 'Totalitäre Diktatur', right: 'Durchdringt alle Lebensbereiche mit einer Ideologie' },
+      { left: 'Autoritäre Diktatur', right: 'Unterdrückt Opposition, lässt Privates aber weitgehend frei' },
+      { left: 'Demokratie', right: 'Gewaltenteilung, freie Wahlen, Grundrechte' },
+    ],
+    explanation: 'Das Totalitarismusmodell nach Friedrich und Brzezinski nennt sechs Merkmale.',
+  }));
+  add(multi({
+    prefix: P, topicId: 'ge12-diktaturvergleich', grade: 12, difficulty: 3, competency: 'ns',
+    prompt: 'Welche Merkmale nennt das Totalitarismusmodell?',
+    correct: ['Einheitsideologie', 'Einparteiensystem', 'Terrorsystem', 'Medienmonopol', 'Waffenmonopol'],
+    wrong: ['Föderalismus', 'Unabhängige Gerichte'],
+    explanation: 'Das Modell erlaubt den Vergleich, verwischt aber Unterschiede — das ist die Hauptkritik.',
+  }));
+  add(mc({
+    prefix: P, topicId: 'ge12-diktaturvergleich', grade: 12, difficulty: 3, competency: 'ns',
+    prompt: 'Was ist der stärkste Einwand gegen einen Vergleich von NS-Staat und DDR?',
+    correct: 'Er kann den Völkermord relativieren, wenn Unterschiede verwischt werden',
+    wrong: ['Beide Staaten lagen in Deutschland', 'Beide hatten eine Verfassung', 'Vergleiche sind grundsätzlich unzulässig'],
+    explanation: 'Vergleichen heisst Gemeinsamkeiten und Unterschiede herausarbeiten — nicht gleichsetzen.',
+  }));
+
+  add(mc({
+    prefix: P, topicId: 'ge12-erinnerungskultur', grade: 12, difficulty: 3, competency: 'ns',
+    prompt: 'Was versteht man unter Erinnerungskultur?',
+    correct: 'Die Art, wie eine Gesellschaft öffentlich mit ihrer Vergangenheit umgeht',
+    wrong: ['Die Forschung von Historikern', 'Das Sammeln von Antiquitäten', 'Der Geschichtsunterricht allein'],
+    explanation: 'Denkmäler, Gedenktage, Museen und Debatten gehören dazu.',
+  }));
+  add(match({
+    prefix: P, topicId: 'ge12-erinnerungskultur', grade: 12, difficulty: 3, competency: 'ns',
+    prompt: 'Ordne die Erinnerungsorte ihrer Bedeutung zu.',
+    pairs: [
+      { left: 'Stolpersteine', right: 'Dezentrales Gedenken an einzelne Opfer' },
+      { left: 'Gedenkstätte eines Konzentrationslagers', right: 'Authentischer Ort des Verbrechens' },
+      { left: '9. November', right: 'Datum mehrerer Wendepunkte deutscher Geschichte' },
+      { left: 'Denkmal für die ermordeten Juden Europas', right: 'Zentrales nationales Mahnmal' },
+    ],
+    explanation: 'Erinnerung geschieht an Orten und an Daten.',
+  }));
+  add(multi({
+    prefix: P, topicId: 'ge12-erinnerungskultur', grade: 12, difficulty: 3, competency: 'ns',
+    prompt: 'Warum wird Erinnerungskultur immer wieder neu verhandelt?',
+    correct: ['Zeitzeugen sterben aus', 'Die Gesellschaft verändert sich', 'Neue Quellen werden zugänglich'],
+    wrong: ['Die Ereignisse ändern sich', 'Historiker wechseln die Meinung willkürlich'],
+    explanation: 'Nicht die Vergangenheit ändert sich, sondern die Fragen, die man an sie stellt.',
+  }));
+
+  add(order({
+    prefix: P, topicId: 'ge13-quellenanalyse', grade: 13, difficulty: 3, competency: 'begriffe',
+    prompt: 'Ordne die Schritte einer Quellenanalyse.',
+    items: ['Quelle formal beschreiben (Autor, Datum, Textsorte)', 'Historischen Kontext klären', 'Inhalt zusammenfassen', 'Sprache und Absicht analysieren', 'Aussagekraft beurteilen'],
+    explanation: 'Erst einordnen, dann verstehen, zuletzt bewerten.',
+  }));
+  add(match({
+    prefix: P, topicId: 'ge13-quellenanalyse', grade: 13, difficulty: 3, competency: 'begriffe',
+    prompt: 'Ordne die Quellenarten zu.',
+    pairs: [
+      { left: 'Primärquelle', right: 'Stammt aus der untersuchten Zeit' },
+      { left: 'Sekundärliteratur', right: 'Spätere Darstellung von Historikern' },
+      { left: 'Sachquelle', right: 'Gegenstand, etwa eine Münze' },
+      { left: 'Tradierte Quelle', right: 'Bewusst für die Nachwelt verfasst' },
+    ],
+    explanation: 'Überreste entstanden ohne Absicht auf Überlieferung — sie gelten als besonders aussagekräftig.',
+  }));
+  add(multi({
+    prefix: P, topicId: 'ge13-quellenanalyse', grade: 13, difficulty: 3, competency: 'begriffe',
+    prompt: 'Was prüft die Quellenkritik?',
+    correct: ['Echtheit', 'Entstehungszusammenhang', 'Absicht des Verfassers', 'Adressat'],
+    wrong: ['Die Länge des Textes', 'Die Schriftart'],
+    explanation: 'Erst die Kritik entscheidet, wofür eine Quelle überhaupt als Beleg taugen kann.',
+  }));
+  add(mc({
+    prefix: P, topicId: 'ge13-quellenanalyse', grade: 13, difficulty: 3, competency: 'begriffe',
+    prompt: 'Was bedeutet „Perspektivität" von Quellen?',
+    correct: 'Jede Quelle gibt einen bestimmten Standpunkt wieder',
+    wrong: ['Quellen sind immer falsch', 'Quellen sind immer objektiv', 'Quellen haben keinen Autor'],
+    explanation: 'Deshalb braucht man mehrere Quellen mit verschiedenen Standpunkten.',
+  }));
+
   return out;
 }

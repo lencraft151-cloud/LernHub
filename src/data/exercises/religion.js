@@ -2,7 +2,7 @@
  * AUTOMATISCH GENERIERT — nicht von Hand bearbeiten.
  * Neu erzeugen mit: node tools/build-exercises.mjs
  *
- * Übungspool religion: 101 Aufgaben.
+ * Übungspool religion: 110 Aufgaben.
  */
 
 export default {
@@ -2807,6 +2807,263 @@ export default {
    "prompt": "Judentum, Christentum und Islam berufen sich alle auf Abraham.",
    "answer": true,
    "explanation": "Richtig. Deshalb heißen sie die drei abrahamitischen Religionen."
+  },
+  {
+   "id": "rel-102",
+   "topicId": "rel12-diskursethik",
+   "grade": 12,
+   "difficulty": 3,
+   "competency": "ethik",
+   "type": "match",
+   "prompt": "Ordne die ethischen Ansätze ihrem Grundgedanken zu.",
+   "pairs": [
+    {
+     "left": "Diskursethik (Habermas)",
+     "right": "Gültig ist, worauf alle Betroffenen in einem herrschaftsfreien Diskurs zustimmen könnten"
+    },
+    {
+     "left": "Deontologie (Kant)",
+     "right": "Die Pflicht entscheidet, nicht die Folge"
+    },
+    {
+     "left": "Utilitarismus (Mill)",
+     "right": "Richtig ist, was den Nutzen für die meisten maximiert"
+    },
+    {
+     "left": "Gerechtigkeitstheorie (Rawls)",
+     "right": "Gerecht ist, was man hinter dem Schleier des Nichtwissens wählen würde"
+    }
+   ],
+   "explanation": "Die Ansätze unterscheiden sich darin, woran sie das Richtige bemessen: Verfahren, Pflicht, Folgen oder Fairness."
+  },
+  {
+   "id": "rel-103",
+   "topicId": "rel12-diskursethik",
+   "grade": 12,
+   "difficulty": 3,
+   "competency": "ethik",
+   "type": "mc",
+   "prompt": "Was meint Rawls mit dem „Schleier des Nichtwissens\"?",
+   "options": [
+    {
+     "id": "a",
+     "text": "Man handelt im Verborgenen"
+    },
+    {
+     "id": "b",
+     "text": "Man entscheidet über Regeln, ohne die eigene spätere Position zu kennen"
+    },
+    {
+     "id": "c",
+     "text": "Man kennt die Regeln nicht"
+    },
+    {
+     "id": "d",
+     "text": "Man verzichtet auf Wissen über Naturgesetze"
+    }
+   ],
+   "answer": "b",
+   "explanation": "Wer nicht weiss, ob er arm oder reich sein wird, wählt Regeln, die auch für die Schwächsten tragbar sind."
+  },
+  {
+   "id": "rel-104",
+   "topicId": "rel12-diskursethik",
+   "grade": 12,
+   "difficulty": 3,
+   "competency": "ethik",
+   "type": "multi",
+   "prompt": "Welche Bedingungen verlangt ein idealer Diskurs nach Habermas?",
+   "options": [
+    {
+     "id": "a",
+     "text": "Fachleute entscheiden allein"
+    },
+    {
+     "id": "b",
+     "text": "Jeder darf jede Behauptung prüfen"
+    },
+    {
+     "id": "c",
+     "text": "Es herrscht kein Zwang ausser dem des besseren Arguments"
+    },
+    {
+     "id": "d",
+     "text": "Alle Betroffenen dürfen teilnehmen"
+    },
+    {
+     "id": "e",
+     "text": "Die Mehrheit entscheidet sofort"
+    }
+   ],
+   "answer": [
+    "b",
+    "c",
+    "d"
+   ],
+   "explanation": "Die Diskursethik verlagert die Begründung vom Inhalt auf das Verfahren."
+  },
+  {
+   "id": "rel-105",
+   "topicId": "rel12-diskursethik",
+   "grade": 12,
+   "difficulty": 3,
+   "competency": "gerechtigkeit",
+   "type": "mc",
+   "prompt": "Was besagt Rawls’ Differenzprinzip?",
+   "options": [
+    {
+     "id": "a",
+     "text": "Ungleichheit ist immer ungerecht"
+    },
+    {
+     "id": "b",
+     "text": "Leistung allein entscheidet"
+    },
+    {
+     "id": "c",
+     "text": "Ungleichheiten sind nur gerecht, wenn sie den Schlechtestgestellten nützen"
+    },
+    {
+     "id": "d",
+     "text": "Alle müssen gleich viel besitzen"
+    }
+   ],
+   "answer": "c",
+   "explanation": "Rawls erlaubt Ungleichheit — aber nur unter dieser Bedingung."
+  },
+  {
+   "id": "rel-106",
+   "topicId": "rel12-diskursethik",
+   "grade": 12,
+   "difficulty": 2,
+   "competency": "ethik",
+   "type": "truefalse",
+   "prompt": "Die Diskursethik legt die konkreten Normen selbst fest.",
+   "answer": false,
+   "explanation": "Sie nennt nur das Verfahren, in dem sich Normen als gültig erweisen müssen."
+  },
+  {
+   "id": "rel-107",
+   "topicId": "rel13-zukunftsethik",
+   "grade": 13,
+   "difficulty": 3,
+   "competency": "ethik",
+   "type": "mc",
+   "prompt": "Wie lautet Hans Jonas’ „ökologischer Imperativ\"?",
+   "options": [
+    {
+     "id": "a",
+     "text": "Handle so, wie alle handeln"
+    },
+    {
+     "id": "b",
+     "text": "Handle so, dass es dir selbst nützt"
+    },
+    {
+     "id": "c",
+     "text": "Handle so, dass die Wirkungen deiner Handlung verträglich sind mit dem Fortbestand echten menschlichen Lebens"
+    },
+    {
+     "id": "d",
+     "text": "Handle nur mit Zustimmung der Mehrheit"
+    }
+   ],
+   "answer": "c",
+   "explanation": "Jonas erweitert Kants Imperativ um die Verantwortung für künftige Generationen."
+  },
+  {
+   "id": "rel-108",
+   "topicId": "rel13-zukunftsethik",
+   "grade": 13,
+   "difficulty": 3,
+   "competency": "ethik",
+   "type": "multi",
+   "prompt": "Welche Probleme wirft die Verantwortung für künftige Generationen auf?",
+   "options": [
+    {
+     "id": "a",
+     "text": "Heutige Kosten stehen künftigem Nutzen gegenüber"
+    },
+    {
+     "id": "b",
+     "text": "Die Folgen sind unsicher"
+    },
+    {
+     "id": "c",
+     "text": "Die Zukunft ist vollständig berechenbar"
+    },
+    {
+     "id": "d",
+     "text": "Künftige Menschen haben keine Interessen"
+    },
+    {
+     "id": "e",
+     "text": "Die Betroffenen können nicht mitreden"
+    }
+   ],
+   "answer": [
+    "a",
+    "b",
+    "e"
+   ],
+   "explanation": "Genau deshalb rät Jonas zur „Heuristik der Furcht\": im Zweifel die schlechtere Prognose ernst nehmen."
+  },
+  {
+   "id": "rel-109",
+   "topicId": "rel13-zukunftsethik",
+   "grade": 13,
+   "difficulty": 3,
+   "competency": "gerechtigkeit",
+   "type": "match",
+   "prompt": "Ordne die Gerechtigkeitsformen zu.",
+   "pairs": [
+    {
+     "left": "Intergenerationelle Gerechtigkeit",
+     "right": "Zwischen heutigen und künftigen Generationen"
+    },
+    {
+     "left": "Globale Gerechtigkeit",
+     "right": "Zwischen Ländern und Weltregionen"
+    },
+    {
+     "left": "Verteilungsgerechtigkeit",
+     "right": "Wie Güter zugeteilt werden"
+    },
+    {
+     "left": "Verfahrensgerechtigkeit",
+     "right": "Wie über Verteilung entschieden wird"
+    }
+   ],
+   "explanation": "Beim Klimaschutz überlagern sich alle vier Formen."
+  },
+  {
+   "id": "rel-110",
+   "topicId": "rel13-zukunftsethik",
+   "grade": 13,
+   "difficulty": 3,
+   "competency": "schoepfung",
+   "type": "mc",
+   "prompt": "Wie versteht die christliche Theologie den Auftrag „Macht euch die Erde untertan\"?",
+   "options": [
+    {
+     "id": "a",
+     "text": "Als Verbot jeder Nutzung"
+    },
+    {
+     "id": "b",
+     "text": "Als Erlaubnis zu unbegrenzter Ausbeutung"
+    },
+    {
+     "id": "c",
+     "text": "Als Aufforderung zum Rückzug aus der Natur"
+    },
+    {
+     "id": "d",
+     "text": "Heute überwiegend als Auftrag zur Bewahrung der Schöpfung"
+    }
+   ],
+   "answer": "d",
+   "explanation": "Das hebräische Wort meint ein Hüten und Bebauen, nicht ein Verbrauchen."
   }
  ]
 };

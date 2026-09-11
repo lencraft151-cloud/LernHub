@@ -2,7 +2,7 @@
  * AUTOMATISCH GENERIERT — nicht von Hand bearbeiten.
  * Neu erzeugen mit: node tools/build-exercises.mjs
  *
- * Übungspool physik: 110 Aufgaben.
+ * Übungspool physik: 146 Aufgaben.
  */
 
 export default {
@@ -1859,6 +1859,714 @@ export default {
     "e"
    ],
    "explanation": "Der Energieerhaltungssatz gilt immer; „Energieverbrauch\" meint in Wahrheit Entwertung zu Wärme. Leistung ist Energie pro Zeit."
+  },
+  {
+   "id": "ph-111",
+   "topicId": "ph11-kinematik",
+   "grade": 11,
+   "difficulty": 2,
+   "competency": "beschleunigung",
+   "type": "numeric",
+   "prompt": "Ein Körper startet aus der Ruhe und wird mit 4 m/s² beschleunigt. Welche Geschwindigkeit hat er nach 5 s?",
+   "answer": 20,
+   "tolerance": 0.001,
+   "unit": "m/s",
+   "hint": "v = a · t",
+   "explanation": "v = 4 m/s² · 5 s = 20 m/s."
+  },
+  {
+   "id": "ph-112",
+   "topicId": "ph11-kinematik",
+   "grade": 11,
+   "difficulty": 2,
+   "competency": "beschleunigung",
+   "type": "numeric",
+   "prompt": "Ein Körper startet aus der Ruhe und wird mit 4 m/s² beschleunigt. Welche Geschwindigkeit hat er nach 6 s?",
+   "answer": 24,
+   "tolerance": 0.001,
+   "unit": "m/s",
+   "hint": "v = a · t",
+   "explanation": "v = 4 m/s² · 6 s = 24 m/s."
+  },
+  {
+   "id": "ph-113",
+   "topicId": "ph11-kinematik",
+   "grade": 11,
+   "difficulty": 2,
+   "competency": "beschleunigung",
+   "type": "numeric",
+   "prompt": "Ein Körper startet aus der Ruhe und wird mit 3 m/s² beschleunigt. Welche Geschwindigkeit hat er nach 2 s?",
+   "answer": 6,
+   "tolerance": 0.001,
+   "unit": "m/s",
+   "hint": "v = a · t",
+   "explanation": "v = 3 m/s² · 2 s = 6 m/s."
+  },
+  {
+   "id": "ph-114",
+   "topicId": "ph11-kinematik",
+   "grade": 11,
+   "difficulty": 2,
+   "competency": "beschleunigung",
+   "type": "numeric",
+   "prompt": "Ein Körper startet aus der Ruhe und wird mit 2 m/s² beschleunigt. Welche Geschwindigkeit hat er nach 4 s?",
+   "answer": 8,
+   "tolerance": 0.001,
+   "unit": "m/s",
+   "hint": "v = a · t",
+   "explanation": "v = 2 m/s² · 4 s = 8 m/s."
+  },
+  {
+   "id": "ph-115",
+   "topicId": "ph11-kinematik",
+   "grade": 11,
+   "difficulty": 3,
+   "competency": "beschleunigung",
+   "type": "numeric",
+   "prompt": "Welchen Weg legt ein aus der Ruhe mit 2 m/s² beschleunigter Körper in 5 s zurück?",
+   "answer": 25,
+   "tolerance": 0.01,
+   "unit": "m",
+   "hint": "s = ½ · a · t²",
+   "explanation": "s = 0,5 · 2 · 5² = 25 m."
+  },
+  {
+   "id": "ph-116",
+   "topicId": "ph11-kinematik",
+   "grade": 11,
+   "difficulty": 3,
+   "competency": "beschleunigung",
+   "type": "numeric",
+   "prompt": "Welchen Weg legt ein aus der Ruhe mit 4 m/s² beschleunigter Körper in 3 s zurück?",
+   "answer": 18,
+   "tolerance": 0.01,
+   "unit": "m",
+   "hint": "s = ½ · a · t²",
+   "explanation": "s = 0,5 · 4 · 3² = 18 m."
+  },
+  {
+   "id": "ph-117",
+   "topicId": "ph11-kinematik",
+   "grade": 11,
+   "difficulty": 3,
+   "competency": "beschleunigung",
+   "type": "numeric",
+   "prompt": "Welchen Weg legt ein aus der Ruhe mit 5 m/s² beschleunigter Körper in 2 s zurück?",
+   "answer": 10,
+   "tolerance": 0.01,
+   "unit": "m",
+   "hint": "s = ½ · a · t²",
+   "explanation": "s = 0,5 · 5 · 2² = 10 m."
+  },
+  {
+   "id": "ph-118",
+   "topicId": "ph11-kinematik",
+   "grade": 11,
+   "difficulty": 3,
+   "competency": "kraft",
+   "type": "match",
+   "prompt": "Ordne die newtonschen Axiome ihrer Aussage zu.",
+   "pairs": [
+    {
+     "left": "1. Axiom (Trägheit)",
+     "right": "Ohne Kraft bleibt der Bewegungszustand erhalten"
+    },
+    {
+     "left": "2. Axiom (Grundgleichung)",
+     "right": "F = m · a"
+    },
+    {
+     "left": "3. Axiom (Wechselwirkung)",
+     "right": "actio = reactio"
+    }
+   ],
+   "explanation": "Die drei Axiome tragen die gesamte klassische Mechanik."
+  },
+  {
+   "id": "ph-119",
+   "topicId": "ph11-kinematik",
+   "grade": 11,
+   "difficulty": 3,
+   "competency": "kraft",
+   "type": "mc",
+   "prompt": "Ein Körper bewegt sich mit konstanter Geschwindigkeit auf einer Kreisbahn. Wirkt eine Kraft?",
+   "options": [
+    {
+     "id": "a",
+     "text": "Ja, die Zentripetalkraft ändert ständig die Richtung"
+    },
+    {
+     "id": "b",
+     "text": "Nur die Gewichtskraft"
+    },
+    {
+     "id": "c",
+     "text": "Nein, die Geschwindigkeit ist konstant"
+    },
+    {
+     "id": "d",
+     "text": "Nur beim Start"
+    }
+   ],
+   "answer": "a",
+   "explanation": "Beschleunigung heisst Änderung der Geschwindigkeit — nach Betrag oder Richtung."
+  },
+  {
+   "id": "ph-120",
+   "topicId": "ph11-felder",
+   "grade": 11,
+   "difficulty": 3,
+   "competency": "stromkreis",
+   "type": "numeric",
+   "prompt": "Ein Plattenkondensator liegt an 100 V, der Plattenabstand beträgt 0,05 m. Wie gross ist die Feldstärke?",
+   "answer": 2000,
+   "tolerance": 0.5,
+   "unit": "V/m",
+   "hint": "E = U / d",
+   "explanation": "E = 100 V / 0,05 m = 2000 V/m."
+  },
+  {
+   "id": "ph-121",
+   "topicId": "ph11-felder",
+   "grade": 11,
+   "difficulty": 3,
+   "competency": "stromkreis",
+   "type": "numeric",
+   "prompt": "Ein Plattenkondensator liegt an 200 V, der Plattenabstand beträgt 0,02 m. Wie gross ist die Feldstärke?",
+   "answer": 10000,
+   "tolerance": 0.5,
+   "unit": "V/m",
+   "hint": "E = U / d",
+   "explanation": "E = 200 V / 0,02 m = 10000 V/m."
+  },
+  {
+   "id": "ph-122",
+   "topicId": "ph11-felder",
+   "grade": 11,
+   "difficulty": 3,
+   "competency": "stromkreis",
+   "type": "numeric",
+   "prompt": "Ein Plattenkondensator liegt an 500 V, der Plattenabstand beträgt 0,1 m. Wie gross ist die Feldstärke?",
+   "answer": 5000,
+   "tolerance": 0.5,
+   "unit": "V/m",
+   "hint": "E = U / d",
+   "explanation": "E = 500 V / 0,1 m = 5000 V/m."
+  },
+  {
+   "id": "ph-123",
+   "topicId": "ph11-felder",
+   "grade": 11,
+   "difficulty": 3,
+   "competency": "magnetismus",
+   "type": "match",
+   "prompt": "Ordne die Felder ihrer Quelle zu.",
+   "pairs": [
+    {
+     "left": "Elektrisches Feld",
+     "right": "Ruhende Ladungen"
+    },
+    {
+     "left": "Magnetfeld",
+     "right": "Bewegte Ladungen und Ströme"
+    },
+    {
+     "left": "Gravitationsfeld",
+     "right": "Massen"
+    }
+   ],
+   "explanation": "Felder beschreiben Kraftwirkungen ohne Berührung."
+  },
+  {
+   "id": "ph-124",
+   "topicId": "ph11-felder",
+   "grade": 11,
+   "difficulty": 3,
+   "competency": "magnetismus",
+   "type": "mc",
+   "prompt": "Wie verläuft die Lorentzkraft auf ein bewegtes geladenes Teilchen?",
+   "options": [
+    {
+     "id": "a",
+     "text": "Senkrecht zu Geschwindigkeit und Magnetfeld"
+    },
+    {
+     "id": "b",
+     "text": "Parallel zum Magnetfeld"
+    },
+    {
+     "id": "c",
+     "text": "Immer nach unten"
+    },
+    {
+     "id": "d",
+     "text": "Entgegen der Geschwindigkeit"
+    }
+   ],
+   "answer": "a",
+   "explanation": "Die Drei-Finger-Regel gibt die Richtung; deshalb entstehen Kreisbahnen."
+  },
+  {
+   "id": "ph-125",
+   "topicId": "ph11-felder",
+   "grade": 11,
+   "difficulty": 2,
+   "competency": "magnetismus",
+   "type": "truefalse",
+   "prompt": "Feldlinien elektrischer Felder beginnen bei positiven und enden bei negativen Ladungen.",
+   "answer": true,
+   "explanation": "Magnetische Feldlinien dagegen sind immer geschlossen — es gibt keine magnetischen Monopole."
+  },
+  {
+   "id": "ph-126",
+   "topicId": "ph12-schwingungen",
+   "grade": 12,
+   "difficulty": 2,
+   "competency": "schall",
+   "type": "numeric",
+   "prompt": "Eine Schwingung hat die Periodendauer 4 s. Wie gross ist ihre Frequenz?",
+   "answer": 0.25,
+   "tolerance": 0.01,
+   "unit": "Hz",
+   "hint": "f = 1 / T",
+   "explanation": "f = 1 / 4 s = 0,25 Hz."
+  },
+  {
+   "id": "ph-127",
+   "topicId": "ph12-schwingungen",
+   "grade": 12,
+   "difficulty": 2,
+   "competency": "schall",
+   "type": "numeric",
+   "prompt": "Eine Schwingung hat die Periodendauer 2 s. Wie gross ist ihre Frequenz?",
+   "answer": 0.5,
+   "tolerance": 0.01,
+   "unit": "Hz",
+   "hint": "f = 1 / T",
+   "explanation": "f = 1 / 2 s = 0,5 Hz."
+  },
+  {
+   "id": "ph-128",
+   "topicId": "ph12-schwingungen",
+   "grade": 12,
+   "difficulty": 2,
+   "competency": "schall",
+   "type": "numeric",
+   "prompt": "Eine Schwingung hat die Periodendauer 4 s. Wie gross ist ihre Frequenz?",
+   "answer": 0.25,
+   "tolerance": 0.01,
+   "unit": "Hz",
+   "hint": "f = 1 / T",
+   "explanation": "f = 1 / 4 s = 0,25 Hz."
+  },
+  {
+   "id": "ph-129",
+   "topicId": "ph12-schwingungen",
+   "grade": 12,
+   "difficulty": 2,
+   "competency": "schall",
+   "type": "numeric",
+   "prompt": "Eine Schwingung hat die Periodendauer 0,25 s. Wie gross ist ihre Frequenz?",
+   "answer": 4,
+   "tolerance": 0.01,
+   "unit": "Hz",
+   "hint": "f = 1 / T",
+   "explanation": "f = 1 / 0,25 s = 4 Hz."
+  },
+  {
+   "id": "ph-130",
+   "topicId": "ph12-schwingungen",
+   "grade": 12,
+   "difficulty": 3,
+   "competency": "schall",
+   "type": "numeric",
+   "prompt": "Eine Schallwelle hat die Frequenz 100 Hz. Wie gross ist ihre Wellenlänge bei 340 m/s? Zwei Nachkommastellen.",
+   "answer": 3.4,
+   "tolerance": 0.02,
+   "unit": "m",
+   "hint": "λ = c / f",
+   "explanation": "λ = 340 m/s / 100 Hz ≈ 3,4 m."
+  },
+  {
+   "id": "ph-131",
+   "topicId": "ph12-schwingungen",
+   "grade": 12,
+   "difficulty": 3,
+   "competency": "schall",
+   "type": "numeric",
+   "prompt": "Eine Schallwelle hat die Frequenz 50 Hz. Wie gross ist ihre Wellenlänge bei 340 m/s? Zwei Nachkommastellen.",
+   "answer": 6.8,
+   "tolerance": 0.02,
+   "unit": "m",
+   "hint": "λ = c / f",
+   "explanation": "λ = 340 m/s / 50 Hz ≈ 6,8 m."
+  },
+  {
+   "id": "ph-132",
+   "topicId": "ph12-schwingungen",
+   "grade": 12,
+   "difficulty": 3,
+   "competency": "schall",
+   "type": "numeric",
+   "prompt": "Eine Schallwelle hat die Frequenz 50 Hz. Wie gross ist ihre Wellenlänge bei 340 m/s? Zwei Nachkommastellen.",
+   "answer": 6.8,
+   "tolerance": 0.02,
+   "unit": "m",
+   "hint": "λ = c / f",
+   "explanation": "λ = 340 m/s / 50 Hz ≈ 6,8 m."
+  },
+  {
+   "id": "ph-133",
+   "topicId": "ph12-schwingungen",
+   "grade": 12,
+   "difficulty": 3,
+   "competency": "schall",
+   "type": "match",
+   "prompt": "Ordne die Wellenbegriffe zu.",
+   "pairs": [
+    {
+     "left": "Amplitude",
+     "right": "Grösste Auslenkung"
+    },
+    {
+     "left": "Periodendauer",
+     "right": "Dauer einer vollständigen Schwingung"
+    },
+    {
+     "left": "Wellenlänge",
+     "right": "Abstand zweier gleichphasiger Punkte"
+    },
+    {
+     "left": "Interferenz",
+     "right": "Überlagerung zweier Wellen"
+    }
+   ],
+   "explanation": "Die Grundgleichung c = λ · f verknüpft drei dieser Grössen."
+  },
+  {
+   "id": "ph-134",
+   "topicId": "ph12-schwingungen",
+   "grade": 12,
+   "difficulty": 3,
+   "competency": "schall",
+   "type": "mc",
+   "prompt": "Wann tritt bei Interferenz Auslöschung auf?",
+   "options": [
+    {
+     "id": "a",
+     "text": "Wenn der Gangunterschied ein ungerades Vielfaches von λ/2 beträgt"
+    },
+    {
+     "id": "b",
+     "text": "Wenn der Gangunterschied ein Vielfaches von λ ist"
+    },
+    {
+     "id": "c",
+     "text": "Immer bei zwei Wellen"
+    },
+    {
+     "id": "d",
+     "text": "Nur bei Schall"
+    }
+   ],
+   "answer": "a",
+   "explanation": "Bei gegenphasiger Überlagerung heben sich die Auslenkungen auf."
+  },
+  {
+   "id": "ph-135",
+   "topicId": "ph12-quanten",
+   "grade": 12,
+   "difficulty": 3,
+   "competency": "strahlung",
+   "type": "mc",
+   "prompt": "Was zeigt der photoelektrische Effekt?",
+   "options": [
+    {
+     "id": "a",
+     "text": "Licht ist nur eine Welle"
+    },
+    {
+     "id": "b",
+     "text": "Elektronen haben keine Masse"
+    },
+    {
+     "id": "c",
+     "text": "Die Intensität bestimmt die Elektronenenergie"
+    },
+    {
+     "id": "d",
+     "text": "Licht überträgt Energie in Portionen, die von der Frequenz abhängen"
+    }
+   ],
+   "answer": "d",
+   "explanation": "E = h · f — unterhalb der Grenzfrequenz treten keine Elektronen aus, egal wie hell das Licht ist."
+  },
+  {
+   "id": "ph-136",
+   "topicId": "ph12-quanten",
+   "grade": 12,
+   "difficulty": 3,
+   "competency": "strahlung",
+   "type": "match",
+   "prompt": "Ordne die Experimente ihrer Aussage zu.",
+   "pairs": [
+    {
+     "left": "Photoeffekt",
+     "right": "Licht hat Teilchencharakter"
+    },
+    {
+     "left": "Doppelspaltversuch",
+     "right": "Licht hat Wellencharakter"
+    },
+    {
+     "left": "Elektronenbeugung",
+     "right": "Auch Materie hat Wellencharakter"
+    },
+    {
+     "left": "Franck-Hertz-Versuch",
+     "right": "Atome nehmen Energie nur portionsweise auf"
+    }
+   ],
+   "explanation": "Der Welle-Teilchen-Dualismus gilt für Licht und Materie gleichermassen."
+  },
+  {
+   "id": "ph-137",
+   "topicId": "ph12-quanten",
+   "grade": 12,
+   "difficulty": 3,
+   "competency": "strahlung",
+   "type": "multi",
+   "prompt": "Was gilt für ein Photon?",
+   "options": [
+    {
+     "id": "a",
+     "text": "Seine Energie hängt von der Helligkeit ab"
+    },
+    {
+     "id": "b",
+     "text": "Es bewegt sich mit Lichtgeschwindigkeit"
+    },
+    {
+     "id": "c",
+     "text": "Es hat keine Ruhemasse"
+    },
+    {
+     "id": "d",
+     "text": "Es hat eine elektrische Ladung"
+    },
+    {
+     "id": "e",
+     "text": "Es hat die Energie E = h · f"
+    }
+   ],
+   "answer": [
+    "b",
+    "c",
+    "e"
+   ],
+   "explanation": "Die Helligkeit bestimmt die Zahl der Photonen, nicht die Energie eines einzelnen."
+  },
+  {
+   "id": "ph-138",
+   "topicId": "ph12-quanten",
+   "grade": 12,
+   "difficulty": 3,
+   "competency": "strahlung",
+   "type": "truefalse",
+   "prompt": "Nach der Unschärferelation lassen sich Ort und Impuls eines Teilchens nicht gleichzeitig beliebig genau bestimmen.",
+   "answer": true,
+   "explanation": "Δx · Δp ≥ ℏ/2 — das ist keine Messungenauigkeit, sondern eine Eigenschaft der Natur."
+  },
+  {
+   "id": "ph-139",
+   "topicId": "ph13-atommodelle",
+   "grade": 13,
+   "difficulty": 3,
+   "competency": "strahlung",
+   "type": "order",
+   "prompt": "Ordne die Atommodelle chronologisch.",
+   "items": [
+    "Dalton: unteilbare Kugeln",
+    "Thomson: Rosinenkuchen",
+    "Rutherford: Kern und Hülle",
+    "Bohr: Schalen mit festen Energien",
+    "Orbitalmodell: Aufenthaltswahrscheinlichkeiten"
+   ],
+   "explanation": "Jedes Modell erklärt Beobachtungen, an denen das vorherige scheiterte."
+  },
+  {
+   "id": "ph-140",
+   "topicId": "ph13-atommodelle",
+   "grade": 13,
+   "difficulty": 3,
+   "competency": "strahlung",
+   "type": "mc",
+   "prompt": "Was zeigte der Rutherfordsche Streuversuch?",
+   "options": [
+    {
+     "id": "a",
+     "text": "Atome haben keine Ladung"
+    },
+    {
+     "id": "b",
+     "text": "Elektronen sind gleichmässig verteilt"
+    },
+    {
+     "id": "c",
+     "text": "Atome sind unteilbar"
+    },
+    {
+     "id": "d",
+     "text": "Die Masse des Atoms ist in einem winzigen Kern konzentriert"
+    }
+   ],
+   "answer": "d",
+   "explanation": "Die wenigen stark abgelenkten Alphateilchen verrieten den kleinen, massiven Kern."
+  },
+  {
+   "id": "ph-141",
+   "topicId": "ph13-atommodelle",
+   "grade": 13,
+   "difficulty": 3,
+   "competency": "strahlung",
+   "type": "mc",
+   "prompt": "Wie entstehen Linienspektren?",
+   "options": [
+    {
+     "id": "a",
+     "text": "Das Atom wird erhitzt und leuchtet gleichmässig"
+    },
+    {
+     "id": "b",
+     "text": "Elektronen verlassen das Atom"
+    },
+    {
+     "id": "c",
+     "text": "Elektronen wechseln zwischen festen Energieniveaus und senden dabei Photonen aus"
+    },
+    {
+     "id": "d",
+     "text": "Der Kern zerfällt"
+    }
+   ],
+   "answer": "c",
+   "explanation": "Die Energiedifferenz bestimmt die Frequenz: ΔE = h · f."
+  },
+  {
+   "id": "ph-142",
+   "topicId": "ph13-atommodelle",
+   "grade": 13,
+   "difficulty": 2,
+   "competency": "strahlung",
+   "type": "truefalse",
+   "prompt": "Jedes Element hat ein eigenes, charakteristisches Linienspektrum.",
+   "answer": true,
+   "explanation": "Deshalb lässt sich die Zusammensetzung von Sternen aus ihrem Licht bestimmen."
+  },
+  {
+   "id": "ph-143",
+   "topicId": "ph13-relativitaet",
+   "grade": 13,
+   "difficulty": 3,
+   "competency": "geschwindigkeit",
+   "type": "multi",
+   "prompt": "Auf welchen zwei Postulaten beruht die spezielle Relativitätstheorie?",
+   "options": [
+    {
+     "id": "a",
+     "text": "Massen sind unveränderlich"
+    },
+    {
+     "id": "b",
+     "text": "In allen Inertialsystemen gelten dieselben physikalischen Gesetze"
+    },
+    {
+     "id": "c",
+     "text": "Die Lichtgeschwindigkeit im Vakuum ist für alle Beobachter gleich"
+    },
+    {
+     "id": "d",
+     "text": "Die Zeit ist absolut"
+    },
+    {
+     "id": "e",
+     "text": "Der Raum ist euklidisch"
+    }
+   ],
+   "answer": [
+    "b",
+    "c"
+   ],
+   "explanation": "Aus diesen beiden Sätzen folgen Zeitdilatation und Längenkontraktion zwingend."
+  },
+  {
+   "id": "ph-144",
+   "topicId": "ph13-relativitaet",
+   "grade": 13,
+   "difficulty": 3,
+   "competency": "geschwindigkeit",
+   "type": "mc",
+   "prompt": "Was besagt die Zeitdilatation?",
+   "options": [
+    {
+     "id": "a",
+     "text": "Die Zeit ist für alle gleich"
+    },
+    {
+     "id": "b",
+     "text": "Uhren gehen im Weltall schneller"
+    },
+    {
+     "id": "c",
+     "text": "Die Zeit steht bei hoher Geschwindigkeit still"
+    },
+    {
+     "id": "d",
+     "text": "Bewegte Uhren gehen aus Sicht eines ruhenden Beobachters langsamer"
+    }
+   ],
+   "answer": "d",
+   "explanation": "Der Effekt ist nachgewiesen — etwa an Myonen aus der Höhenstrahlung."
+  },
+  {
+   "id": "ph-145",
+   "topicId": "ph13-relativitaet",
+   "grade": 13,
+   "difficulty": 3,
+   "competency": "energieformen",
+   "type": "mc",
+   "prompt": "Was besagt E = m · c²?",
+   "options": [
+    {
+     "id": "a",
+     "text": "Masse und Energie sind ineinander umwandelbar"
+    },
+    {
+     "id": "b",
+     "text": "Masse nimmt mit der Zeit ab"
+    },
+    {
+     "id": "c",
+     "text": "Licht hat Masse"
+    },
+    {
+     "id": "d",
+     "text": "Energie ist proportional zur Geschwindigkeit"
+    }
+   ],
+   "answer": "a",
+   "explanation": "Der Massendefekt bei der Kernspaltung ist die praktische Folge."
+  },
+  {
+   "id": "ph-146",
+   "topicId": "ph13-relativitaet",
+   "grade": 13,
+   "difficulty": 3,
+   "competency": "geschwindigkeit",
+   "type": "truefalse",
+   "prompt": "Ein Objekt mit Ruhemasse kann die Lichtgeschwindigkeit nicht erreichen.",
+   "answer": true,
+   "explanation": "Die nötige Energie würde gegen unendlich gehen."
   }
  ]
 };

@@ -2,7 +2,7 @@
  * AUTOMATISCH GENERIERT — nicht von Hand bearbeiten.
  * Neu erzeugen mit: node tools/build-exercises.mjs
  *
- * Übungspool biologie: 113 Aufgaben.
+ * Übungspool biologie: 142 Aufgaben.
  */
 
 export default {
@@ -3124,6 +3124,782 @@ export default {
     }
    ],
    "explanation": "Speiseröhre: transportiert den Bissen in den Magen · Magen: durchmischt die Nahrung mit Magensaft · Dünndarm: nimmt die Nährstoffe ins Blut auf · Dickdarm: entzieht dem Nahrungsbrei Wasser"
+  },
+  {
+   "id": "bio-114",
+   "topicId": "bio11-enzyme",
+   "grade": 11,
+   "difficulty": 2,
+   "competency": "zelle",
+   "type": "mc",
+   "prompt": "Was bewirkt ein Enzym in einer Reaktion?",
+   "options": [
+    {
+     "id": "a",
+     "text": "Es liefert Energie"
+    },
+    {
+     "id": "b",
+     "text": "Es senkt die Aktivierungsenergie"
+    },
+    {
+     "id": "c",
+     "text": "Es verschiebt das Gleichgewicht"
+    },
+    {
+     "id": "d",
+     "text": "Es wird dabei verbraucht"
+    }
+   ],
+   "answer": "b",
+   "explanation": "Enzyme beschleunigen Reaktionen, ohne selbst verbraucht zu werden oder die Lage des Gleichgewichts zu ändern."
+  },
+  {
+   "id": "bio-115",
+   "topicId": "bio11-enzyme",
+   "grade": 11,
+   "difficulty": 3,
+   "competency": "zelle",
+   "type": "match",
+   "prompt": "Ordne die Begriffe der Enzymatik zu.",
+   "pairs": [
+    {
+     "left": "Substrat",
+     "right": "Der Stoff, der umgesetzt wird"
+    },
+    {
+     "left": "Aktives Zentrum",
+     "right": "Bindungsstelle am Enzym"
+    },
+    {
+     "left": "Kompetitive Hemmung",
+     "right": "Hemmstoff blockiert das aktive Zentrum"
+    },
+    {
+     "left": "Allosterische Hemmung",
+     "right": "Hemmstoff bindet an anderer Stelle und verformt das Enzym"
+    }
+   ],
+   "explanation": "Kompetitive Hemmung lässt sich durch mehr Substrat aufheben, allosterische nicht."
+  },
+  {
+   "id": "bio-116",
+   "topicId": "bio11-enzyme",
+   "grade": 11,
+   "difficulty": 3,
+   "competency": "zelle",
+   "type": "multi",
+   "prompt": "Wovon hängt die Enzymaktivität ab?",
+   "options": [
+    {
+     "id": "a",
+     "text": "Der Farbe des Gefässes"
+    },
+    {
+     "id": "b",
+     "text": "Hemmstoffe"
+    },
+    {
+     "id": "c",
+     "text": "Substratkonzentration"
+    },
+    {
+     "id": "d",
+     "text": "Temperatur"
+    },
+    {
+     "id": "e",
+     "text": "pH-Wert"
+    },
+    {
+     "id": "f",
+     "text": "Der Tageszeit"
+    }
+   ],
+   "answer": [
+    "b",
+    "c",
+    "d",
+    "e"
+   ],
+   "explanation": "Jedes Enzym hat ein Temperatur- und ein pH-Optimum."
+  },
+  {
+   "id": "bio-117",
+   "topicId": "bio11-enzyme",
+   "grade": 11,
+   "difficulty": 2,
+   "competency": "zelle",
+   "type": "truefalse",
+   "prompt": "Über dem Temperaturoptimum sinkt die Enzymaktivität, weil das Protein denaturiert.",
+   "answer": true,
+   "explanation": "Die Raumstruktur zerfällt — das aktive Zentrum passt nicht mehr zum Substrat."
+  },
+  {
+   "id": "bio-118",
+   "topicId": "bio11-enzyme",
+   "grade": 11,
+   "difficulty": 3,
+   "competency": "zelle",
+   "type": "mc",
+   "prompt": "Was beschreibt das Schlüssel-Schloss-Prinzip?",
+   "options": [
+    {
+     "id": "a",
+     "text": "Die Öffnung der Zellmembran"
+    },
+    {
+     "id": "b",
+     "text": "Die Passgenauigkeit von Substrat und aktivem Zentrum"
+    },
+    {
+     "id": "c",
+     "text": "Den Transport im Blut"
+    },
+    {
+     "id": "d",
+     "text": "Die Verdopplung der DNA"
+    }
+   ],
+   "answer": "b",
+   "explanation": "Moderner spricht man vom „induced fit\" — das Enzym passt sich beim Binden an."
+  },
+  {
+   "id": "bio-119",
+   "topicId": "bio11-membran",
+   "grade": 11,
+   "difficulty": 2,
+   "competency": "zelle",
+   "type": "mc",
+   "prompt": "Wie ist eine Biomembran grundsätzlich aufgebaut?",
+   "options": [
+    {
+     "id": "a",
+     "text": "Als Zellwand aus Cellulose"
+    },
+    {
+     "id": "b",
+     "text": "Als Gitter aus DNA"
+    },
+    {
+     "id": "c",
+     "text": "Als Doppelschicht aus Phospholipiden mit eingelagerten Proteinen"
+    },
+    {
+     "id": "d",
+     "text": "Als einfache Proteinschicht"
+    }
+   ],
+   "answer": "c",
+   "explanation": "Das Flüssig-Mosaik-Modell beschreibt die Membran als bewegliche Lipiddoppelschicht."
+  },
+  {
+   "id": "bio-120",
+   "topicId": "bio11-membran",
+   "grade": 11,
+   "difficulty": 3,
+   "competency": "zelle",
+   "type": "match",
+   "prompt": "Ordne die Transportarten ihrer Beschreibung zu.",
+   "pairs": [
+    {
+     "left": "Diffusion",
+     "right": "Ausgleich entlang des Gefälles, ohne Energie"
+    },
+    {
+     "left": "Osmose",
+     "right": "Diffusion von Wasser durch eine Membran"
+    },
+    {
+     "left": "Erleichterte Diffusion",
+     "right": "Durch Kanalproteine, ohne Energie"
+    },
+    {
+     "left": "Aktiver Transport",
+     "right": "Gegen das Gefälle, unter ATP-Verbrauch"
+    }
+   ],
+   "explanation": "Nur der aktive Transport kostet Energie — er arbeitet gegen das Konzentrationsgefälle."
+  },
+  {
+   "id": "bio-121",
+   "topicId": "bio11-membran",
+   "grade": 11,
+   "difficulty": 3,
+   "competency": "zelle",
+   "type": "multi",
+   "prompt": "Welche Aufgaben hat die Zellmembran?",
+   "options": [
+    {
+     "id": "a",
+     "text": "Stoffaustausch steuern"
+    },
+    {
+     "id": "b",
+     "text": "Zellen erkennen"
+    },
+    {
+     "id": "c",
+     "text": "Proteine herstellen"
+    },
+    {
+     "id": "d",
+     "text": "Erbinformation speichern"
+    },
+    {
+     "id": "e",
+     "text": "Signale empfangen"
+    },
+    {
+     "id": "f",
+     "text": "Abgrenzung nach aussen"
+    }
+   ],
+   "answer": [
+    "a",
+    "b",
+    "e",
+    "f"
+   ],
+   "explanation": "Die Membran ist selektiv permeabel — sie entscheidet, was hinein- und hinausgelangt."
+  },
+  {
+   "id": "bio-122",
+   "topicId": "bio11-membran",
+   "grade": 11,
+   "difficulty": 2,
+   "competency": "zelle",
+   "type": "truefalse",
+   "prompt": "Bei der Osmose wandert Wasser in die Lösung mit der höheren Teilchenkonzentration.",
+   "answer": true,
+   "explanation": "Das Wasser folgt dem Konzentrationsgefälle der gelösten Teilchen."
+  },
+  {
+   "id": "bio-123",
+   "topicId": "bio12-genregulation",
+   "grade": 12,
+   "difficulty": 3,
+   "competency": "dna",
+   "type": "mc",
+   "prompt": "Was beschreibt das Operon-Modell?",
+   "options": [
+    {
+     "id": "a",
+     "text": "Wie DNA verdoppelt wird"
+    },
+    {
+     "id": "b",
+     "text": "Wie Proteine abgebaut werden"
+    },
+    {
+     "id": "c",
+     "text": "Wie Bakterien die Ablesung mehrerer Gene gemeinsam steuern"
+    },
+    {
+     "id": "d",
+     "text": "Wie Zellen sich teilen"
+    }
+   ],
+   "answer": "c",
+   "explanation": "Jacob und Monod beschrieben es am lac-Operon von E. coli."
+  },
+  {
+   "id": "bio-124",
+   "topicId": "bio12-genregulation",
+   "grade": 12,
+   "difficulty": 3,
+   "competency": "dna",
+   "type": "match",
+   "prompt": "Ordne die Bestandteile des Operons ihrer Funktion zu.",
+   "pairs": [
+    {
+     "left": "Promotor",
+     "right": "Bindungsstelle der RNA-Polymerase"
+    },
+    {
+     "left": "Operator",
+     "right": "Bindungsstelle des Repressors"
+    },
+    {
+     "left": "Strukturgene",
+     "right": "Codieren die Enzyme"
+    },
+    {
+     "left": "Regulatorgen",
+     "right": "Codiert den Repressor"
+    }
+   ],
+   "explanation": "Bindet der Repressor am Operator, kann die Polymerase nicht ablesen."
+  },
+  {
+   "id": "bio-125",
+   "topicId": "bio12-genregulation",
+   "grade": 12,
+   "difficulty": 3,
+   "competency": "dna",
+   "type": "mc",
+   "prompt": "Warum wird das lac-Operon als „Substratinduktion\" bezeichnet?",
+   "options": [
+    {
+     "id": "a",
+     "text": "Lactose schaltet die Gene an, die zu ihrem Abbau nötig sind"
+    },
+    {
+     "id": "b",
+     "text": "Lactose schaltet die Gene ab"
+    },
+    {
+     "id": "c",
+     "text": "Es wird immer abgelesen"
+    },
+    {
+     "id": "d",
+     "text": "Es reagiert auf Temperatur"
+    }
+   ],
+   "answer": "a",
+   "explanation": "Ohne Lactose wären die Abbau-Enzyme unnötig — die Zelle spart Energie."
+  },
+  {
+   "id": "bio-126",
+   "topicId": "bio12-genregulation",
+   "grade": 12,
+   "difficulty": 3,
+   "competency": "dna",
+   "type": "truefalse",
+   "prompt": "Alle Körperzellen eines Menschen enthalten dieselbe DNA, lesen aber unterschiedliche Gene ab.",
+   "answer": true,
+   "explanation": "Genau das ist Differenzierung: dieselbe Bauanleitung, verschiedene Kapitel."
+  },
+  {
+   "id": "bio-127",
+   "topicId": "bio12-gentechnik",
+   "grade": 12,
+   "difficulty": 3,
+   "competency": "dna",
+   "type": "match",
+   "prompt": "Ordne jedem Werkzeug seine Aufgabe zu.",
+   "pairs": [
+    {
+     "left": "Restriktionsenzym",
+     "right": "Schneidet DNA an bestimmten Sequenzen"
+    },
+    {
+     "left": "Ligase",
+     "right": "Verknüpft DNA-Stücke"
+    },
+    {
+     "left": "Plasmid",
+     "right": "Ringförmiger Genfähre in Bakterien"
+    },
+    {
+     "left": "PCR",
+     "right": "Vervielfältigt DNA-Abschnitte"
+    }
+   ],
+   "explanation": "Schneiden, einsetzen, verkleben, vermehren — das ist der Kern der Gentechnik."
+  },
+  {
+   "id": "bio-128",
+   "topicId": "bio12-gentechnik",
+   "grade": 12,
+   "difficulty": 3,
+   "competency": "dna",
+   "type": "order",
+   "prompt": "Ordne die Schritte der PCR.",
+   "items": [
+    "Denaturierung bei etwa 95 °C",
+    "Primerhybridisierung bei etwa 55 °C",
+    "Elongation bei etwa 72 °C",
+    "Zyklus wiederholen"
+   ],
+   "explanation": "Jeder Zyklus verdoppelt die Zahl der Kopien — nach 30 Zyklen sind es rund eine Milliarde."
+  },
+  {
+   "id": "bio-129",
+   "topicId": "bio12-gentechnik",
+   "grade": 12,
+   "difficulty": 3,
+   "competency": "dna",
+   "type": "numeric",
+   "prompt": "Wie viele DNA-Kopien entstehen aus einem Molekül nach 5 PCR-Zyklen?",
+   "answer": 32,
+   "tolerance": 0.001,
+   "hint": "Jeder Zyklus verdoppelt.",
+   "explanation": "2⁵ = 32."
+  },
+  {
+   "id": "bio-130",
+   "topicId": "bio12-gentechnik",
+   "grade": 12,
+   "difficulty": 3,
+   "competency": "dna",
+   "type": "multi",
+   "prompt": "Wofür wird Gentechnik eingesetzt?",
+   "options": [
+    {
+     "id": "a",
+     "text": "Züchtung resistenter Pflanzen"
+    },
+    {
+     "id": "b",
+     "text": "Gendiagnostik"
+    },
+    {
+     "id": "c",
+     "text": "Insulinherstellung"
+    },
+    {
+     "id": "d",
+     "text": "Wettervorhersage"
+    },
+    {
+     "id": "e",
+     "text": "Metallgewinnung"
+    }
+   ],
+   "answer": [
+    "a",
+    "b",
+    "c"
+   ],
+   "explanation": "Humaninsulin aus Bakterien war die erste grosstechnische Anwendung."
+  },
+  {
+   "id": "bio-131",
+   "topicId": "bio12-neurophysiologie",
+   "grade": 12,
+   "difficulty": 3,
+   "competency": "nerven",
+   "type": "mc",
+   "prompt": "Was hält das Ruhepotential aufrecht?",
+   "options": [
+    {
+     "id": "a",
+     "text": "Die Synapse"
+    },
+    {
+     "id": "b",
+     "text": "Der Zellkern"
+    },
+    {
+     "id": "c",
+     "text": "Die Myelinscheide"
+    },
+    {
+     "id": "d",
+     "text": "Die Natrium-Kalium-Pumpe und die selektive Kaliumdurchlässigkeit"
+    }
+   ],
+   "answer": "d",
+   "explanation": "Das Ruhepotential liegt bei etwa −70 mV und kostet ständig ATP."
+  },
+  {
+   "id": "bio-132",
+   "topicId": "bio12-neurophysiologie",
+   "grade": 12,
+   "difficulty": 3,
+   "competency": "nerven",
+   "type": "order",
+   "prompt": "Ordne die Phasen des Aktionspotentials.",
+   "items": [
+    "Überschreiten des Schwellenwerts",
+    "Depolarisation durch Na⁺-Einstrom",
+    "Repolarisation durch K⁺-Ausstrom",
+    "Hyperpolarisation",
+    "Rückkehr zum Ruhepotential"
+   ],
+   "explanation": "Während der Refraktärzeit kann kein neues Aktionspotential entstehen — das sichert die Richtung."
+  },
+  {
+   "id": "bio-133",
+   "topicId": "bio12-neurophysiologie",
+   "grade": 12,
+   "difficulty": 3,
+   "competency": "nerven",
+   "type": "match",
+   "prompt": "Ordne die Teile der Synapse ihrer Aufgabe zu.",
+   "pairs": [
+    {
+     "left": "Präsynapse",
+     "right": "Speichert und entlässt den Transmitter"
+    },
+    {
+     "left": "Synaptischer Spalt",
+     "right": "Der Transmitter diffundiert hindurch"
+    },
+    {
+     "left": "Postsynapse",
+     "right": "Trägt die Rezeptoren"
+    },
+    {
+     "left": "Transmitter",
+     "right": "Überträgt das Signal chemisch"
+    }
+   ],
+   "explanation": "Die chemische Übertragung macht die Erregungsleitung einsinnig."
+  },
+  {
+   "id": "bio-134",
+   "topicId": "bio12-neurophysiologie",
+   "grade": 12,
+   "difficulty": 3,
+   "competency": "nerven",
+   "type": "truefalse",
+   "prompt": "Myelinisierte Axone leiten Erregungen schneller als unmyelinisierte.",
+   "answer": true,
+   "explanation": "Die saltatorische Erregungsleitung springt von Schnürring zu Schnürring."
+  },
+  {
+   "id": "bio-135",
+   "topicId": "bio13-oekologie-vertieft",
+   "grade": 13,
+   "difficulty": 3,
+   "competency": "oekosystem",
+   "type": "match",
+   "prompt": "Ordne die ökologischen Begriffe zu.",
+   "pairs": [
+    {
+     "left": "Biotop",
+     "right": "Der Lebensraum"
+    },
+    {
+     "left": "Biozönose",
+     "right": "Die Lebensgemeinschaft"
+    },
+    {
+     "left": "Ökologische Nische",
+     "right": "Die Gesamtheit der Ansprüche einer Art"
+    },
+    {
+     "left": "Sukzession",
+     "right": "Zeitliche Abfolge von Lebensgemeinschaften"
+    }
+   ],
+   "explanation": "Biotop und Biozönose bilden zusammen das Ökosystem."
+  },
+  {
+   "id": "bio-136",
+   "topicId": "bio13-oekologie-vertieft",
+   "grade": 13,
+   "difficulty": 3,
+   "competency": "nahrungskette",
+   "type": "mc",
+   "prompt": "Wie viel Energie wird von einer Trophiestufe zur nächsten etwa weitergegeben?",
+   "options": [
+    {
+     "id": "a",
+     "text": "Rund 50 Prozent"
+    },
+    {
+     "id": "b",
+     "text": "Die gesamte Energie"
+    },
+    {
+     "id": "c",
+     "text": "Rund 90 Prozent"
+    },
+    {
+     "id": "d",
+     "text": "Rund 10 Prozent"
+    }
+   ],
+   "answer": "d",
+   "explanation": "Der Rest geht als Wärme und für den Eigenstoffwechsel verloren — daher die Pyramidenform."
+  },
+  {
+   "id": "bio-137",
+   "topicId": "bio13-oekologie-vertieft",
+   "grade": 13,
+   "difficulty": 3,
+   "competency": "oekosystem",
+   "type": "multi",
+   "prompt": "Was macht ein Ökosystem stabil?",
+   "options": [
+    {
+     "id": "a",
+     "text": "Hohe Artenvielfalt"
+    },
+    {
+     "id": "b",
+     "text": "Viele Nahrungsbeziehungen"
+    },
+    {
+     "id": "c",
+     "text": "Redundante Funktionen"
+    },
+    {
+     "id": "d",
+     "text": "Vollständige Abschottung"
+    },
+    {
+     "id": "e",
+     "text": "Eine einzige dominierende Art"
+    }
+   ],
+   "answer": [
+    "a",
+    "b",
+    "c"
+   ],
+   "explanation": "Je mehr Verknüpfungen, desto eher kann eine Art den Ausfall einer anderen auffangen."
+  },
+  {
+   "id": "bio-138",
+   "topicId": "bio13-oekologie-vertieft",
+   "grade": 13,
+   "difficulty": 3,
+   "competency": "oekosystem",
+   "type": "mc",
+   "prompt": "Was beschreibt der Begriff „Nachhaltigkeit\" ursprünglich?",
+   "options": [
+    {
+     "id": "a",
+     "text": "Möglichst viel zu produzieren"
+    },
+    {
+     "id": "b",
+     "text": "Ressourcen vollständig zu schonen"
+    },
+    {
+     "id": "c",
+     "text": "Auf Nutzung zu verzichten"
+    },
+    {
+     "id": "d",
+     "text": "Nur so viel zu entnehmen, wie nachwachsen kann"
+    }
+   ],
+   "answer": "d",
+   "explanation": "Der Begriff stammt aus der Forstwirtschaft des 18. Jahrhunderts."
+  },
+  {
+   "id": "bio-139",
+   "topicId": "bio13-evolution-vertieft",
+   "grade": 13,
+   "difficulty": 3,
+   "competency": "evolution",
+   "type": "match",
+   "prompt": "Ordne die Evolutionsfaktoren ihrer Wirkung zu.",
+   "pairs": [
+    {
+     "left": "Mutation",
+     "right": "Erzeugt neue Varianten"
+    },
+    {
+     "left": "Rekombination",
+     "right": "Mischt vorhandene Varianten neu"
+    },
+    {
+     "left": "Selektion",
+     "right": "Verändert Häufigkeiten gerichtet"
+    },
+    {
+     "left": "Gendrift",
+     "right": "Verändert Häufigkeiten zufällig"
+    }
+   ],
+   "explanation": "Nur Mutation schafft Neues — alles andere arbeitet mit dem Vorhandenen."
+  },
+  {
+   "id": "bio-140",
+   "topicId": "bio13-evolution-vertieft",
+   "grade": 13,
+   "difficulty": 3,
+   "competency": "evolution",
+   "type": "mc",
+   "prompt": "Was versteht man unter Gendrift?",
+   "options": [
+    {
+     "id": "a",
+     "text": "Wanderung von Individuen"
+    },
+    {
+     "id": "b",
+     "text": "Zufällige Änderung der Allelhäufigkeit, besonders in kleinen Populationen"
+    },
+    {
+     "id": "c",
+     "text": "Verdopplung des Erbguts"
+    },
+    {
+     "id": "d",
+     "text": "Gerichtete Auslese durch die Umwelt"
+    }
+   ],
+   "answer": "b",
+   "explanation": "In kleinen Populationen kann ein Allel allein durch Zufall verschwinden."
+  },
+  {
+   "id": "bio-141",
+   "topicId": "bio13-evolution-vertieft",
+   "grade": 13,
+   "difficulty": 3,
+   "competency": "belege",
+   "type": "multi",
+   "prompt": "Welche Belege stützen die Evolutionstheorie?",
+   "options": [
+    {
+     "id": "a",
+     "text": "Analoge Organe als Verwandtschaftsbeleg"
+    },
+    {
+     "id": "b",
+     "text": "Homologe Organe"
+    },
+    {
+     "id": "c",
+     "text": "Fossilfunde"
+    },
+    {
+     "id": "d",
+     "text": "Molekulare Ähnlichkeiten der DNA"
+    },
+    {
+     "id": "e",
+     "text": "Beobachtete Resistenzbildung"
+    },
+    {
+     "id": "f",
+     "text": "Die Grösse einer Art"
+    }
+   ],
+   "answer": [
+    "b",
+    "c",
+    "d",
+    "e"
+   ],
+   "explanation": "Analogien entstehen durch ähnliche Anforderungen, nicht durch Verwandtschaft."
+  },
+  {
+   "id": "bio-142",
+   "topicId": "bio13-evolution-vertieft",
+   "grade": 13,
+   "difficulty": 3,
+   "competency": "evolution",
+   "type": "mc",
+   "prompt": "Wie entsteht eine neue Art nach dem Modell der allopatrischen Artbildung?",
+   "options": [
+    {
+     "id": "a",
+     "text": "Durch Anpassung innerhalb einer Generation"
+    },
+    {
+     "id": "b",
+     "text": "Durch geografische Trennung und anschliessende getrennte Entwicklung"
+    },
+    {
+     "id": "c",
+     "text": "Durch Kreuzung zweier Gattungen"
+    },
+    {
+     "id": "d",
+     "text": "Durch eine einzelne Mutation"
+    }
+   ],
+   "answer": "b",
+   "explanation": "Erst die Isolation, dann die Divergenz, zuletzt die reproduktive Trennung."
   }
  ]
 };

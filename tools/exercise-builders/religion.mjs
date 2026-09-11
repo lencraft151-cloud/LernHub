@@ -347,5 +347,82 @@ export default function build() {
     explanation: 'Richtig. Deshalb heißen sie die drei abrahamitischen Religionen.',
   }));
 
+
+  /* ================================================================== *
+   * Oberstufe — Diskursethik und Zukunftsethik
+   * ================================================================== */
+
+  add(match({
+    prefix: P, topicId: 'rel12-diskursethik', grade: 12, difficulty: 3, competency: 'ethik',
+    prompt: 'Ordne die ethischen Ansätze ihrem Grundgedanken zu.',
+    pairs: [
+      { left: 'Diskursethik (Habermas)', right: 'Gültig ist, worauf alle Betroffenen in einem herrschaftsfreien Diskurs zustimmen könnten' },
+      { left: 'Deontologie (Kant)', right: 'Die Pflicht entscheidet, nicht die Folge' },
+      { left: 'Utilitarismus (Mill)', right: 'Richtig ist, was den Nutzen für die meisten maximiert' },
+      { left: 'Gerechtigkeitstheorie (Rawls)', right: 'Gerecht ist, was man hinter dem Schleier des Nichtwissens wählen würde' },
+    ],
+    explanation: 'Die Ansätze unterscheiden sich darin, woran sie das Richtige bemessen: Verfahren, Pflicht, Folgen oder Fairness.',
+  }));
+  add(mc({
+    prefix: P, topicId: 'rel12-diskursethik', grade: 12, difficulty: 3, competency: 'ethik',
+    prompt: 'Was meint Rawls mit dem „Schleier des Nichtwissens"?',
+    correct: 'Man entscheidet über Regeln, ohne die eigene spätere Position zu kennen',
+    wrong: ['Man kennt die Regeln nicht', 'Man handelt im Verborgenen', 'Man verzichtet auf Wissen über Naturgesetze'],
+    explanation: 'Wer nicht weiss, ob er arm oder reich sein wird, wählt Regeln, die auch für die Schwächsten tragbar sind.',
+  }));
+  add(multi({
+    prefix: P, topicId: 'rel12-diskursethik', grade: 12, difficulty: 3, competency: 'ethik',
+    prompt: 'Welche Bedingungen verlangt ein idealer Diskurs nach Habermas?',
+    correct: ['Alle Betroffenen dürfen teilnehmen', 'Jeder darf jede Behauptung prüfen', 'Es herrscht kein Zwang ausser dem des besseren Arguments'],
+    wrong: ['Die Mehrheit entscheidet sofort', 'Fachleute entscheiden allein'],
+    explanation: 'Die Diskursethik verlagert die Begründung vom Inhalt auf das Verfahren.',
+  }));
+  add(mc({
+    prefix: P, topicId: 'rel12-diskursethik', grade: 12, difficulty: 3, competency: 'gerechtigkeit',
+    prompt: 'Was besagt Rawls’ Differenzprinzip?',
+    correct: 'Ungleichheiten sind nur gerecht, wenn sie den Schlechtestgestellten nützen',
+    wrong: ['Alle müssen gleich viel besitzen', 'Leistung allein entscheidet', 'Ungleichheit ist immer ungerecht'],
+    explanation: 'Rawls erlaubt Ungleichheit — aber nur unter dieser Bedingung.',
+  }));
+  add(tf({
+    prefix: P, topicId: 'rel12-diskursethik', grade: 12, difficulty: 2, competency: 'ethik',
+    prompt: 'Die Diskursethik legt die konkreten Normen selbst fest.',
+    answer: false,
+    explanation: 'Sie nennt nur das Verfahren, in dem sich Normen als gültig erweisen müssen.',
+  }));
+
+  add(mc({
+    prefix: P, topicId: 'rel13-zukunftsethik', grade: 13, difficulty: 3, competency: 'ethik',
+    prompt: 'Wie lautet Hans Jonas’ „ökologischer Imperativ"?',
+    correct: 'Handle so, dass die Wirkungen deiner Handlung verträglich sind mit dem Fortbestand echten menschlichen Lebens',
+    wrong: ['Handle so, dass es dir selbst nützt', 'Handle so, wie alle handeln', 'Handle nur mit Zustimmung der Mehrheit'],
+    explanation: 'Jonas erweitert Kants Imperativ um die Verantwortung für künftige Generationen.',
+  }));
+  add(multi({
+    prefix: P, topicId: 'rel13-zukunftsethik', grade: 13, difficulty: 3, competency: 'ethik',
+    prompt: 'Welche Probleme wirft die Verantwortung für künftige Generationen auf?',
+    correct: ['Die Betroffenen können nicht mitreden', 'Die Folgen sind unsicher', 'Heutige Kosten stehen künftigem Nutzen gegenüber'],
+    wrong: ['Künftige Menschen haben keine Interessen', 'Die Zukunft ist vollständig berechenbar'],
+    explanation: 'Genau deshalb rät Jonas zur „Heuristik der Furcht": im Zweifel die schlechtere Prognose ernst nehmen.',
+  }));
+  add(match({
+    prefix: P, topicId: 'rel13-zukunftsethik', grade: 13, difficulty: 3, competency: 'gerechtigkeit',
+    prompt: 'Ordne die Gerechtigkeitsformen zu.',
+    pairs: [
+      { left: 'Intergenerationelle Gerechtigkeit', right: 'Zwischen heutigen und künftigen Generationen' },
+      { left: 'Globale Gerechtigkeit', right: 'Zwischen Ländern und Weltregionen' },
+      { left: 'Verteilungsgerechtigkeit', right: 'Wie Güter zugeteilt werden' },
+      { left: 'Verfahrensgerechtigkeit', right: 'Wie über Verteilung entschieden wird' },
+    ],
+    explanation: 'Beim Klimaschutz überlagern sich alle vier Formen.',
+  }));
+  add(mc({
+    prefix: P, topicId: 'rel13-zukunftsethik', grade: 13, difficulty: 3, competency: 'schoepfung',
+    prompt: 'Wie versteht die christliche Theologie den Auftrag „Macht euch die Erde untertan"?',
+    correct: 'Heute überwiegend als Auftrag zur Bewahrung der Schöpfung',
+    wrong: ['Als Erlaubnis zu unbegrenzter Ausbeutung', 'Als Verbot jeder Nutzung', 'Als Aufforderung zum Rückzug aus der Natur'],
+    explanation: 'Das hebräische Wort meint ein Hüten und Bebauen, nicht ein Verbrauchen.',
+  }));
+
   return out;
 }

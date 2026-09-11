@@ -2,7 +2,7 @@
  * AUTOMATISCH GENERIERT — nicht von Hand bearbeiten.
  * Neu erzeugen mit: node tools/build-exercises.mjs
  *
- * Übungspool informatik: 102 Aufgaben.
+ * Übungspool informatik: 123 Aufgaben.
  */
 
 export default {
@@ -1870,6 +1870,569 @@ export default {
    ],
    "answer": "c",
    "explanation": "Ohne return liefert die Funktion keinen Wert — je nach Sprache heißt das null, None oder undefined."
+  },
+  {
+   "id": "if-103",
+   "topicId": "if11-datenstrukturen",
+   "grade": 11,
+   "difficulty": 3,
+   "competency": "liste",
+   "type": "match",
+   "prompt": "Ordne die Datenstrukturen ihrem Zugriffsprinzip zu.",
+   "pairs": [
+    {
+     "left": "Stapel (Stack)",
+     "right": "LIFO — zuletzt hinein, zuerst hinaus"
+    },
+    {
+     "left": "Schlange (Queue)",
+     "right": "FIFO — zuerst hinein, zuerst hinaus"
+    },
+    {
+     "left": "Liste",
+     "right": "Zugriff an beliebiger Position"
+    },
+    {
+     "left": "Feld (Array)",
+     "right": "Direkter Zugriff über einen Index"
+    }
+   ],
+   "explanation": "Die Zugriffsart entscheidet, welche Struktur zum Problem passt."
+  },
+  {
+   "id": "if-104",
+   "topicId": "if11-datenstrukturen",
+   "grade": 11,
+   "difficulty": 3,
+   "competency": "liste",
+   "type": "mc",
+   "prompt": "Welche Datenstruktur eignet sich, um die Rücktaste eines Editors umzusetzen?",
+   "options": [
+    {
+     "id": "a",
+     "text": "Eine Schlange"
+    },
+    {
+     "id": "b",
+     "text": "Ein Feld fester Länge"
+    },
+    {
+     "id": "c",
+     "text": "Ein Stapel"
+    },
+    {
+     "id": "d",
+     "text": "Eine Datenbank"
+    }
+   ],
+   "answer": "c",
+   "explanation": "Die zuletzt gemachte Änderung wird zuerst rückgängig gemacht — genau LIFO."
+  },
+  {
+   "id": "if-105",
+   "topicId": "if11-datenstrukturen",
+   "grade": 11,
+   "difficulty": 3,
+   "competency": "liste",
+   "type": "mc",
+   "prompt": "Welche Datenstruktur beschreibt eine Druckerwarteschlange?",
+   "options": [
+    {
+     "id": "a",
+     "text": "Eine Schlange"
+    },
+    {
+     "id": "b",
+     "text": "Ein Stapel"
+    },
+    {
+     "id": "c",
+     "text": "Eine Menge"
+    },
+    {
+     "id": "d",
+     "text": "Ein Baum"
+    }
+   ],
+   "answer": "a",
+   "explanation": "Wer zuerst druckt, wird zuerst bedient — FIFO."
+  },
+  {
+   "id": "if-106",
+   "topicId": "if11-datenstrukturen",
+   "grade": 11,
+   "difficulty": 3,
+   "competency": "liste",
+   "type": "order",
+   "prompt": "Ein Stapel ist leer. Ausgeführt werden: push(A), push(B), pop(), push(C). Was liegt danach von unten nach oben im Stapel?",
+   "items": [
+    "A",
+    "C"
+   ],
+   "explanation": "push(A), push(B) legt A unten und B oben; pop() entfernt B; push(C) legt C oben auf A."
+  },
+  {
+   "id": "if-107",
+   "topicId": "if11-datenstrukturen",
+   "grade": 11,
+   "difficulty": 3,
+   "competency": "liste",
+   "type": "multi",
+   "prompt": "Welche Operationen bietet ein Stapel?",
+   "options": [
+    {
+     "id": "a",
+     "text": "isEmpty"
+    },
+    {
+     "id": "b",
+     "text": "sort"
+    },
+    {
+     "id": "c",
+     "text": "insertAt"
+    },
+    {
+     "id": "d",
+     "text": "push"
+    },
+    {
+     "id": "e",
+     "text": "pop"
+    },
+    {
+     "id": "f",
+     "text": "top / peek"
+    }
+   ],
+   "answer": [
+    "a",
+    "d",
+    "e",
+    "f"
+   ],
+   "explanation": "Ein Stapel ist bewusst eingeschränkt — das macht ihn leicht überprüfbar."
+  },
+  {
+   "id": "if-108",
+   "topicId": "if12-automaten",
+   "grade": 12,
+   "difficulty": 3,
+   "competency": "logik",
+   "type": "mc",
+   "prompt": "Woraus besteht ein endlicher Automat?",
+   "options": [
+    {
+     "id": "a",
+     "text": "Aus Zuständen, einem Eingabealphabet, Übergängen, Start- und Endzuständen"
+    },
+    {
+     "id": "b",
+     "text": "Aus Tabellen und Abfragen"
+    },
+    {
+     "id": "c",
+     "text": "Aus Klassen und Objekten"
+    },
+    {
+     "id": "d",
+     "text": "Aus Variablen und Schleifen"
+    }
+   ],
+   "answer": "a",
+   "explanation": "Der Automat verarbeitet Eingaben Zeichen für Zeichen und wechselt dabei den Zustand."
+  },
+  {
+   "id": "if-109",
+   "topicId": "if12-automaten",
+   "grade": 12,
+   "difficulty": 3,
+   "competency": "logik",
+   "type": "match",
+   "prompt": "Ordne die Begriffe der formalen Sprachen zu.",
+   "pairs": [
+    {
+     "left": "Alphabet",
+     "right": "Menge der erlaubten Zeichen"
+    },
+    {
+     "left": "Wort",
+     "right": "Endliche Folge von Zeichen"
+    },
+    {
+     "left": "Sprache",
+     "right": "Menge von Wörtern"
+    },
+    {
+     "left": "Grammatik",
+     "right": "Regelsystem zur Erzeugung von Wörtern"
+    }
+   ],
+   "explanation": "Automaten erkennen Sprachen, Grammatiken erzeugen sie."
+  },
+  {
+   "id": "if-110",
+   "topicId": "if12-automaten",
+   "grade": 12,
+   "difficulty": 3,
+   "competency": "logik",
+   "type": "truefalse",
+   "prompt": "Ein endlicher Automat kann beliebig viele Zeichen zählen.",
+   "answer": false,
+   "explanation": "Er hat nur endlich viele Zustände — Sprachen wie aⁿbⁿ erkennt er deshalb nicht."
+  },
+  {
+   "id": "if-111",
+   "topicId": "if12-automaten",
+   "grade": 12,
+   "difficulty": 3,
+   "competency": "logik",
+   "type": "multi",
+   "prompt": "Wo werden endliche Automaten in der Praxis eingesetzt?",
+   "options": [
+    {
+     "id": "a",
+     "text": "Lexikalische Analyse in Compilern"
+    },
+    {
+     "id": "b",
+     "text": "Ampel- und Aufzugsteuerungen"
+    },
+    {
+     "id": "c",
+     "text": "Reguläre Ausdrücke"
+    },
+    {
+     "id": "d",
+     "text": "Verschlüsselung mit RSA"
+    },
+    {
+     "id": "e",
+     "text": "Protokollzustände im Netzwerk"
+    },
+    {
+     "id": "f",
+     "text": "Sortieren grosser Datenmengen"
+    }
+   ],
+   "answer": [
+    "a",
+    "b",
+    "c",
+    "e"
+   ],
+   "explanation": "Überall dort, wo ein System endlich viele klar unterscheidbare Zustände hat."
+  },
+  {
+   "id": "if-112",
+   "topicId": "if12-baeume",
+   "grade": 12,
+   "difficulty": 3,
+   "competency": "liste",
+   "type": "match",
+   "prompt": "Ordne die Begriffe der Baumstruktur zu.",
+   "pairs": [
+    {
+     "left": "Wurzel",
+     "right": "Der Knoten ohne Vorgänger"
+    },
+    {
+     "left": "Blatt",
+     "right": "Knoten ohne Nachfolger"
+    },
+    {
+     "left": "Tiefe",
+     "right": "Abstand eines Knotens zur Wurzel"
+    },
+    {
+     "left": "Grad",
+     "right": "Zahl der Kinder eines Knotens"
+    }
+   ],
+   "explanation": "Ein Baum ist ein zusammenhängender Graph ohne Zyklen."
+  },
+  {
+   "id": "if-113",
+   "topicId": "if12-baeume",
+   "grade": 12,
+   "difficulty": 3,
+   "competency": "liste",
+   "type": "numeric",
+   "prompt": "Wie viele Knoten hat ein vollständiger Binärbaum der Höhe 3 (Wurzel hat Höhe 0)?",
+   "answer": 15,
+   "tolerance": 0.001,
+   "hint": "2⁰ + 2¹ + 2² + 2³",
+   "explanation": "1 + 2 + 4 + 8 = 15 Knoten."
+  },
+  {
+   "id": "if-114",
+   "topicId": "if12-baeume",
+   "grade": 12,
+   "difficulty": 3,
+   "competency": "algorithmus",
+   "type": "order",
+   "prompt": "Ordne die Schritte der Tiefensuche (Preorder) in einem Baum.",
+   "items": [
+    "Knoten besuchen",
+    "Linken Teilbaum rekursiv durchlaufen",
+    "Rechten Teilbaum rekursiv durchlaufen"
+   ],
+   "explanation": "Preorder besucht die Wurzel zuerst, Inorder in der Mitte, Postorder zuletzt."
+  },
+  {
+   "id": "if-115",
+   "topicId": "if12-baeume",
+   "grade": 12,
+   "difficulty": 3,
+   "competency": "algorithmus",
+   "type": "mc",
+   "prompt": "Welche Suchzeit hat ein ausgeglichener binärer Suchbaum mit n Elementen?",
+   "options": [
+    {
+     "id": "a",
+     "text": "O(n)"
+    },
+    {
+     "id": "b",
+     "text": "O(log n)"
+    },
+    {
+     "id": "c",
+     "text": "O(n²)"
+    },
+    {
+     "id": "d",
+     "text": "O(1)"
+    }
+   ],
+   "answer": "b",
+   "explanation": "Jeder Vergleich halbiert den Suchraum — entartet der Baum zur Liste, wird es O(n)."
+  },
+  {
+   "id": "if-116",
+   "topicId": "if13-projekt",
+   "grade": 13,
+   "difficulty": 3,
+   "competency": "programm",
+   "type": "order",
+   "prompt": "Ordne die Phasen eines Softwareprojekts.",
+   "items": [
+    "Anforderungen erheben",
+    "Entwurf und Modellierung",
+    "Implementierung",
+    "Test",
+    "Auslieferung und Wartung"
+   ],
+   "explanation": "Fehler in den Anforderungen sind am teuersten — sie ziehen sich durch alle Phasen."
+  },
+  {
+   "id": "if-117",
+   "topicId": "if13-projekt",
+   "grade": 13,
+   "difficulty": 3,
+   "competency": "oop",
+   "type": "match",
+   "prompt": "Ordne die UML-Diagramme ihrem Zweck zu.",
+   "pairs": [
+    {
+     "left": "Klassendiagramm",
+     "right": "Struktur der Klassen und Beziehungen"
+    },
+    {
+     "left": "Sequenzdiagramm",
+     "right": "Zeitlicher Ablauf von Nachrichten"
+    },
+    {
+     "left": "Anwendungsfalldiagramm",
+     "right": "Was Nutzer mit dem System tun können"
+    },
+    {
+     "left": "Zustandsdiagramm",
+     "right": "Zustände eines Objekts und ihre Übergänge"
+    }
+   ],
+   "explanation": "UML trennt Struktur- von Verhaltensdiagrammen."
+  },
+  {
+   "id": "if-118",
+   "topicId": "if13-projekt",
+   "grade": 13,
+   "difficulty": 3,
+   "competency": "programm",
+   "type": "multi",
+   "prompt": "Was gehört zu guter Softwarequalität?",
+   "options": [
+    {
+     "id": "a",
+     "text": "Automatisierte Tests"
+    },
+    {
+     "id": "b",
+     "text": "Lesbarer Code"
+    },
+    {
+     "id": "c",
+     "text": "Dokumentation"
+    },
+    {
+     "id": "d",
+     "text": "Verzicht auf Kommentare"
+    },
+    {
+     "id": "e",
+     "text": "Versionsverwaltung"
+    },
+    {
+     "id": "f",
+     "text": "Möglichst viele Codezeilen"
+    }
+   ],
+   "answer": [
+    "a",
+    "b",
+    "c",
+    "e"
+   ],
+   "explanation": "Software wird öfter gelesen als geschrieben — Lesbarkeit ist keine Kür."
+  },
+  {
+   "id": "if-119",
+   "topicId": "if13-projekt",
+   "grade": 13,
+   "difficulty": 3,
+   "competency": "oop",
+   "type": "mc",
+   "prompt": "Was bedeutet Kapselung in der objektorientierten Programmierung?",
+   "options": [
+    {
+     "id": "a",
+     "text": "Methoden werden verkürzt"
+    },
+    {
+     "id": "b",
+     "text": "Daten und Methoden liegen zusammen, der Zugriff läuft über definierte Schnittstellen"
+    },
+    {
+     "id": "c",
+     "text": "Klassen werden in Dateien gespeichert"
+    },
+    {
+     "id": "d",
+     "text": "Objekte werden kopiert"
+    }
+   ],
+   "answer": "b",
+   "explanation": "Dadurch lässt sich die innere Umsetzung ändern, ohne den übrigen Code zu brechen."
+  },
+  {
+   "id": "if-120",
+   "topicId": "if13-gesellschaft",
+   "grade": 13,
+   "difficulty": 3,
+   "competency": "datenschutz",
+   "type": "multi",
+   "prompt": "Welche Grundsätze nennt die Datenschutz-Grundverordnung?",
+   "options": [
+    {
+     "id": "a",
+     "text": "Datenminimierung"
+    },
+    {
+     "id": "b",
+     "text": "Weitergabe ohne Einwilligung"
+    },
+    {
+     "id": "c",
+     "text": "Maximale Datensammlung"
+    },
+    {
+     "id": "d",
+     "text": "Transparenz"
+    },
+    {
+     "id": "e",
+     "text": "Zweckbindung"
+    },
+    {
+     "id": "f",
+     "text": "Speicherbegrenzung"
+    }
+   ],
+   "answer": [
+    "a",
+    "d",
+    "e",
+    "f"
+   ],
+   "explanation": "Verarbeitet werden darf nur, was für den angegebenen Zweck nötig ist."
+  },
+  {
+   "id": "if-121",
+   "topicId": "if13-gesellschaft",
+   "grade": 13,
+   "difficulty": 3,
+   "competency": "datenschutz",
+   "type": "mc",
+   "prompt": "Was versteht man unter algorithmischer Verzerrung („bias\")?",
+   "options": [
+    {
+     "id": "a",
+     "text": "Ein Fehler in der Hardware"
+    },
+    {
+     "id": "b",
+     "text": "Ein System übernimmt und verstärkt Ungleichheiten aus den Trainingsdaten"
+    },
+    {
+     "id": "c",
+     "text": "Ein Programmierfehler im Code"
+    },
+    {
+     "id": "d",
+     "text": "Eine langsame Berechnung"
+    }
+   ],
+   "answer": "b",
+   "explanation": "Das System ist nicht neutraler als die Daten, aus denen es gelernt hat."
+  },
+  {
+   "id": "if-122",
+   "topicId": "if13-gesellschaft",
+   "grade": 13,
+   "difficulty": 3,
+   "competency": "datenschutz",
+   "type": "match",
+   "prompt": "Ordne die Begriffe der digitalen Gesellschaft zu.",
+   "pairs": [
+    {
+     "left": "Digitale Spaltung",
+     "right": "Ungleicher Zugang zu Technik und Kompetenz"
+    },
+    {
+     "left": "Urheberrecht",
+     "right": "Schutz geistiger Werke"
+    },
+    {
+     "left": "Freie Software",
+     "right": "Nutzen, verstehen, verändern und weitergeben erlaubt"
+    },
+    {
+     "left": "Barrierefreiheit",
+     "right": "Nutzbarkeit unabhängig von Einschränkungen"
+    }
+   ],
+   "explanation": "Technische Entscheidungen sind immer auch gesellschaftliche."
+  },
+  {
+   "id": "if-123",
+   "topicId": "if13-gesellschaft",
+   "grade": 13,
+   "difficulty": 2,
+   "competency": "datenschutz",
+   "type": "truefalse",
+   "prompt": "Anonymisierte Daten fallen nicht mehr unter die DSGVO.",
+   "answer": true,
+   "explanation": "Sobald kein Personenbezug mehr herstellbar ist, greift der Schutz nicht mehr — bei Pseudonymisierung dagegen schon."
   }
  ]
 };

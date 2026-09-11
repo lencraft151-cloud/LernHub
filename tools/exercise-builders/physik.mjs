@@ -534,5 +534,218 @@ export default function build() {
     explanation: 'Der Energieerhaltungssatz gilt immer; „Energieverbrauch" meint in Wahrheit Entwertung zu Wärme. Leistung ist Energie pro Zeit.',
   }));
 
+  /* ================================================================== *
+   * Oberstufe — Mechanik, Felder, Schwingungen, Quanten, Atombau
+   * ================================================================== */
+
+  /* --------------- Kinematik und Dynamik (Klasse 11) -------------- */
+  for (let i = 0; i < 4; i += 1) {
+    const a = int(r, 2, 6);
+    const t = int(r, 2, 6);
+    add(numeric({
+      prefix: P, topicId: 'ph11-kinematik', grade: 11, difficulty: 2, competency: 'beschleunigung',
+      prompt: `Ein Körper startet aus der Ruhe und wird mit ${a} m/s² beschleunigt. Welche Geschwindigkeit hat er nach ${t} s?`,
+      answer: a * t, unit: 'm/s',
+      hint: 'v = a · t',
+      explanation: `v = ${a} m/s² · ${t} s = ${a * t} m/s.`,
+    }));
+  }
+  for (let i = 0; i < 3; i += 1) {
+    const a = int(r, 2, 5);
+    const t = int(r, 2, 5);
+    const s = 0.5 * a * t * t;
+    add(numeric({
+      prefix: P, topicId: 'ph11-kinematik', grade: 11, difficulty: 3, competency: 'beschleunigung',
+      prompt: `Welchen Weg legt ein aus der Ruhe mit ${a} m/s² beschleunigter Körper in ${t} s zurück?`,
+      answer: s, tolerance: 0.01, unit: 'm',
+      hint: 's = ½ · a · t²',
+      explanation: `s = 0,5 · ${a} · ${t}² = ${num(s)} m.`,
+    }));
+  }
+  add(match({
+    prefix: P, topicId: 'ph11-kinematik', grade: 11, difficulty: 3, competency: 'kraft',
+    prompt: 'Ordne die newtonschen Axiome ihrer Aussage zu.',
+    pairs: [
+      { left: '1. Axiom (Trägheit)', right: 'Ohne Kraft bleibt der Bewegungszustand erhalten' },
+      { left: '2. Axiom (Grundgleichung)', right: 'F = m · a' },
+      { left: '3. Axiom (Wechselwirkung)', right: 'actio = reactio' },
+    ],
+    explanation: 'Die drei Axiome tragen die gesamte klassische Mechanik.',
+  }));
+  add(mc({
+    prefix: P, topicId: 'ph11-kinematik', grade: 11, difficulty: 3, competency: 'kraft',
+    prompt: 'Ein Körper bewegt sich mit konstanter Geschwindigkeit auf einer Kreisbahn. Wirkt eine Kraft?',
+    correct: 'Ja, die Zentripetalkraft ändert ständig die Richtung',
+    wrong: ['Nein, die Geschwindigkeit ist konstant', 'Nur beim Start', 'Nur die Gewichtskraft'],
+    explanation: 'Beschleunigung heisst Änderung der Geschwindigkeit — nach Betrag oder Richtung.',
+  }));
+
+  /* --------------------- Felder (Klasse 11) ----------------------- */
+  for (let i = 0; i < 3; i += 1) {
+    const u = pick(r, [100, 200, 500, 1000]);
+    const d = pick(r, [0.02, 0.05, 0.1]);
+    add(numeric({
+      prefix: P, topicId: 'ph11-felder', grade: 11, difficulty: 3, competency: 'stromkreis',
+      prompt: `Ein Plattenkondensator liegt an ${u} V, der Plattenabstand beträgt ${num(d)} m. Wie gross ist die Feldstärke?`,
+      answer: u / d, tolerance: 0.5, unit: 'V/m',
+      hint: 'E = U / d',
+      explanation: `E = ${u} V / ${num(d)} m = ${num(u / d)} V/m.`,
+    }));
+  }
+  add(match({
+    prefix: P, topicId: 'ph11-felder', grade: 11, difficulty: 3, competency: 'magnetismus',
+    prompt: 'Ordne die Felder ihrer Quelle zu.',
+    pairs: [
+      { left: 'Elektrisches Feld', right: 'Ruhende Ladungen' },
+      { left: 'Magnetfeld', right: 'Bewegte Ladungen und Ströme' },
+      { left: 'Gravitationsfeld', right: 'Massen' },
+    ],
+    explanation: 'Felder beschreiben Kraftwirkungen ohne Berührung.',
+  }));
+  add(mc({
+    prefix: P, topicId: 'ph11-felder', grade: 11, difficulty: 3, competency: 'magnetismus',
+    prompt: 'Wie verläuft die Lorentzkraft auf ein bewegtes geladenes Teilchen?',
+    correct: 'Senkrecht zu Geschwindigkeit und Magnetfeld',
+    wrong: ['Parallel zum Magnetfeld', 'Entgegen der Geschwindigkeit', 'Immer nach unten'],
+    explanation: 'Die Drei-Finger-Regel gibt die Richtung; deshalb entstehen Kreisbahnen.',
+  }));
+  add(tf({
+    prefix: P, topicId: 'ph11-felder', grade: 11, difficulty: 2, competency: 'magnetismus',
+    prompt: 'Feldlinien elektrischer Felder beginnen bei positiven und enden bei negativen Ladungen.',
+    answer: true,
+    explanation: 'Magnetische Feldlinien dagegen sind immer geschlossen — es gibt keine magnetischen Monopole.',
+  }));
+
+  /* --------- Schwingungen und Wellen (Klasse 12) ------------------ */
+  for (let i = 0; i < 4; i += 1) {
+    const t = pick(r, [0.5, 0.25, 2, 4]);
+    add(numeric({
+      prefix: P, topicId: 'ph12-schwingungen', grade: 12, difficulty: 2, competency: 'schall',
+      prompt: `Eine Schwingung hat die Periodendauer ${num(t)} s. Wie gross ist ihre Frequenz?`,
+      answer: 1 / t, tolerance: 0.01, unit: 'Hz',
+      hint: 'f = 1 / T',
+      explanation: `f = 1 / ${num(t)} s = ${num(1 / t)} Hz.`,
+    }));
+  }
+  for (let i = 0; i < 3; i += 1) {
+    const f = pick(r, [50, 100, 200, 440]);
+    const c = 340;
+    add(numeric({
+      prefix: P, topicId: 'ph12-schwingungen', grade: 12, difficulty: 3, competency: 'schall',
+      prompt: `Eine Schallwelle hat die Frequenz ${f} Hz. Wie gross ist ihre Wellenlänge bei 340 m/s? Zwei Nachkommastellen.`,
+      answer: c / f, tolerance: 0.02, unit: 'm',
+      hint: 'λ = c / f',
+      explanation: `λ = 340 m/s / ${f} Hz ≈ ${num(c / f)} m.`,
+    }));
+  }
+  add(match({
+    prefix: P, topicId: 'ph12-schwingungen', grade: 12, difficulty: 3, competency: 'schall',
+    prompt: 'Ordne die Wellenbegriffe zu.',
+    pairs: [
+      { left: 'Amplitude', right: 'Grösste Auslenkung' },
+      { left: 'Periodendauer', right: 'Dauer einer vollständigen Schwingung' },
+      { left: 'Wellenlänge', right: 'Abstand zweier gleichphasiger Punkte' },
+      { left: 'Interferenz', right: 'Überlagerung zweier Wellen' },
+    ],
+    explanation: 'Die Grundgleichung c = λ · f verknüpft drei dieser Grössen.',
+  }));
+  add(mc({
+    prefix: P, topicId: 'ph12-schwingungen', grade: 12, difficulty: 3, competency: 'schall',
+    prompt: 'Wann tritt bei Interferenz Auslöschung auf?',
+    correct: 'Wenn der Gangunterschied ein ungerades Vielfaches von λ/2 beträgt',
+    wrong: ['Wenn der Gangunterschied ein Vielfaches von λ ist', 'Immer bei zwei Wellen', 'Nur bei Schall'],
+    explanation: 'Bei gegenphasiger Überlagerung heben sich die Auslenkungen auf.',
+  }));
+
+  /* ------------------ Quantenphysik (Klasse 12) ------------------- */
+  add(mc({
+    prefix: P, topicId: 'ph12-quanten', grade: 12, difficulty: 3, competency: 'strahlung',
+    prompt: 'Was zeigt der photoelektrische Effekt?',
+    correct: 'Licht überträgt Energie in Portionen, die von der Frequenz abhängen',
+    wrong: ['Licht ist nur eine Welle', 'Die Intensität bestimmt die Elektronenenergie', 'Elektronen haben keine Masse'],
+    explanation: 'E = h · f — unterhalb der Grenzfrequenz treten keine Elektronen aus, egal wie hell das Licht ist.',
+  }));
+  add(match({
+    prefix: P, topicId: 'ph12-quanten', grade: 12, difficulty: 3, competency: 'strahlung',
+    prompt: 'Ordne die Experimente ihrer Aussage zu.',
+    pairs: [
+      { left: 'Photoeffekt', right: 'Licht hat Teilchencharakter' },
+      { left: 'Doppelspaltversuch', right: 'Licht hat Wellencharakter' },
+      { left: 'Elektronenbeugung', right: 'Auch Materie hat Wellencharakter' },
+      { left: 'Franck-Hertz-Versuch', right: 'Atome nehmen Energie nur portionsweise auf' },
+    ],
+    explanation: 'Der Welle-Teilchen-Dualismus gilt für Licht und Materie gleichermassen.',
+  }));
+  add(multi({
+    prefix: P, topicId: 'ph12-quanten', grade: 12, difficulty: 3, competency: 'strahlung',
+    prompt: 'Was gilt für ein Photon?',
+    correct: ['Es hat die Energie E = h · f', 'Es bewegt sich mit Lichtgeschwindigkeit', 'Es hat keine Ruhemasse'],
+    wrong: ['Es hat eine elektrische Ladung', 'Seine Energie hängt von der Helligkeit ab'],
+    explanation: 'Die Helligkeit bestimmt die Zahl der Photonen, nicht die Energie eines einzelnen.',
+  }));
+  add(tf({
+    prefix: P, topicId: 'ph12-quanten', grade: 12, difficulty: 3, competency: 'strahlung',
+    prompt: 'Nach der Unschärferelation lassen sich Ort und Impuls eines Teilchens nicht gleichzeitig beliebig genau bestimmen.',
+    answer: true,
+    explanation: 'Δx · Δp ≥ ℏ/2 — das ist keine Messungenauigkeit, sondern eine Eigenschaft der Natur.',
+  }));
+
+  /* -------- Atommodelle und Spektren (Klasse 13) ------------------ */
+  add(order({
+    prefix: P, topicId: 'ph13-atommodelle', grade: 13, difficulty: 3, competency: 'strahlung',
+    prompt: 'Ordne die Atommodelle chronologisch.',
+    items: ['Dalton: unteilbare Kugeln', 'Thomson: Rosinenkuchen', 'Rutherford: Kern und Hülle', 'Bohr: Schalen mit festen Energien', 'Orbitalmodell: Aufenthaltswahrscheinlichkeiten'],
+    explanation: 'Jedes Modell erklärt Beobachtungen, an denen das vorherige scheiterte.',
+  }));
+  add(mc({
+    prefix: P, topicId: 'ph13-atommodelle', grade: 13, difficulty: 3, competency: 'strahlung',
+    prompt: 'Was zeigte der Rutherfordsche Streuversuch?',
+    correct: 'Die Masse des Atoms ist in einem winzigen Kern konzentriert',
+    wrong: ['Elektronen sind gleichmässig verteilt', 'Atome sind unteilbar', 'Atome haben keine Ladung'],
+    explanation: 'Die wenigen stark abgelenkten Alphateilchen verrieten den kleinen, massiven Kern.',
+  }));
+  add(mc({
+    prefix: P, topicId: 'ph13-atommodelle', grade: 13, difficulty: 3, competency: 'strahlung',
+    prompt: 'Wie entstehen Linienspektren?',
+    correct: 'Elektronen wechseln zwischen festen Energieniveaus und senden dabei Photonen aus',
+    wrong: ['Der Kern zerfällt', 'Das Atom wird erhitzt und leuchtet gleichmässig', 'Elektronen verlassen das Atom'],
+    explanation: 'Die Energiedifferenz bestimmt die Frequenz: ΔE = h · f.',
+  }));
+  add(tf({
+    prefix: P, topicId: 'ph13-atommodelle', grade: 13, difficulty: 2, competency: 'strahlung',
+    prompt: 'Jedes Element hat ein eigenes, charakteristisches Linienspektrum.',
+    answer: true,
+    explanation: 'Deshalb lässt sich die Zusammensetzung von Sternen aus ihrem Licht bestimmen.',
+  }));
+
+  /* ------ Spezielle Relativitätstheorie (Klasse 13) --------------- */
+  add(multi({
+    prefix: P, topicId: 'ph13-relativitaet', grade: 13, difficulty: 3, competency: 'geschwindigkeit',
+    prompt: 'Auf welchen zwei Postulaten beruht die spezielle Relativitätstheorie?',
+    correct: ['In allen Inertialsystemen gelten dieselben physikalischen Gesetze', 'Die Lichtgeschwindigkeit im Vakuum ist für alle Beobachter gleich'],
+    wrong: ['Die Zeit ist absolut', 'Massen sind unveränderlich', 'Der Raum ist euklidisch'],
+    explanation: 'Aus diesen beiden Sätzen folgen Zeitdilatation und Längenkontraktion zwingend.',
+  }));
+  add(mc({
+    prefix: P, topicId: 'ph13-relativitaet', grade: 13, difficulty: 3, competency: 'geschwindigkeit',
+    prompt: 'Was besagt die Zeitdilatation?',
+    correct: 'Bewegte Uhren gehen aus Sicht eines ruhenden Beobachters langsamer',
+    wrong: ['Uhren gehen im Weltall schneller', 'Die Zeit steht bei hoher Geschwindigkeit still', 'Die Zeit ist für alle gleich'],
+    explanation: 'Der Effekt ist nachgewiesen — etwa an Myonen aus der Höhenstrahlung.',
+  }));
+  add(mc({
+    prefix: P, topicId: 'ph13-relativitaet', grade: 13, difficulty: 3, competency: 'energieformen',
+    prompt: 'Was besagt E = m · c²?',
+    correct: 'Masse und Energie sind ineinander umwandelbar',
+    wrong: ['Energie ist proportional zur Geschwindigkeit', 'Masse nimmt mit der Zeit ab', 'Licht hat Masse'],
+    explanation: 'Der Massendefekt bei der Kernspaltung ist die praktische Folge.',
+  }));
+  add(tf({
+    prefix: P, topicId: 'ph13-relativitaet', grade: 13, difficulty: 3, competency: 'geschwindigkeit',
+    prompt: 'Ein Objekt mit Ruhemasse kann die Lichtgeschwindigkeit nicht erreichen.',
+    answer: true,
+    explanation: 'Die nötige Energie würde gegen unendlich gehen.',
+  }));
+
   return out;
 }

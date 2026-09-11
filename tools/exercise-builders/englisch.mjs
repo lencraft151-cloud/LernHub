@@ -1,5 +1,5 @@
 /** Übungspool Englisch, Klasse 3–10. */
-import { rng, mc, tf, numeric, cloze, match, order, multi, factQuestions, vocabQuestions } from './_helpers.mjs';
+import { rng, mc, tf, numeric, cloze, match, order, multi, factQuestions, vocabQuestions, mark, sentence, category } from './_helpers.mjs';
 
 export const competencies = {
   greetings: 'Greetings',
@@ -265,6 +265,290 @@ export default function build() {
     prompt: 'Was drückt „I wish I had studied harder" aus?',
     correct: 'Bedauern über etwas Vergangenes', wrong: ['einen Plan für die Zukunft', 'eine Gewohnheit', 'eine Bitte'],
     explanation: 'Nach „I wish" mit Past Perfect steht das Bedauern über eine vergangene, nicht mehr änderbare Situation.',
+  }));
+
+  /* ================================================================== *
+   * Ausbau: Wortschatz, Oberstufe und sprachliche Aufgabenformen
+   * ================================================================== */
+
+  /* --------------------- Wortfeld school and family ----------------- */
+  push(vocabQuestions({
+    prefix: P, topicId: 'en5-vocab-school', grade: 5, competency: 'school', difficulty: 1,
+    pairs: [
+      ['die Tafel', 'the blackboard'], ['der Stundenplan', 'the timetable'],
+      ['die Pause', 'the break'], ['das Zeugnis', 'the report'],
+      ['der Klassenraum', 'the classroom'], ['die Hausaufgaben', 'the homework'],
+      ['der Schulhof', 'the schoolyard'], ['die Turnhalle', 'the gym'],
+    ],
+  }));
+  push(vocabQuestions({
+    prefix: P, topicId: 'en5-vocab-school', grade: 5, competency: 'family', difficulty: 1,
+    pairs: [
+      ['die Tante', 'the aunt'], ['der Onkel', 'the uncle'],
+      ['die Cousine', 'the cousin'], ['die Großeltern', 'the grandparents'],
+      ['der Neffe', 'the nephew'], ['die Nichte', 'the niece'],
+    ],
+  }));
+  add(category({
+    prefix: P, topicId: 'en5-vocab-school', grade: 5, difficulty: 2, competency: 'school',
+    prompt: 'Sort the words: school or family?',
+    groups: {
+      school: ['timetable', 'break', 'classroom'],
+      family: ['aunt', 'cousin', 'grandparents'],
+    },
+    explanation: 'Wortfelder helfen beim Behalten: Man lernt Wörter in Gruppen, nicht einzeln.',
+  }));
+  add(sentence({
+    prefix: P, topicId: 'en5-vocab-school', grade: 5, difficulty: 2, competency: 'school',
+    prompt: 'Build the sentence: „Mein Stundenplan beginnt um acht Uhr."',
+    sentence: 'My timetable starts at eight o clock',
+    explanation: 'Im Englischen steht die Zeitangabe am Satzende.',
+  }));
+  add(mark({
+    prefix: P, topicId: 'en5-vocab-school', grade: 5, difficulty: 2, competency: 'family',
+    prompt: 'Mark the family words.',
+    sentence: 'My aunt and my cousin visited our school last Friday.',
+    targets: ['aunt', 'cousin'],
+    explanation: '„School" und „Friday" gehören nicht zum Wortfeld Familie.',
+  }));
+
+  /* ------------------------ Participle (Klasse 9) ------------------- */
+  add(mc({
+    prefix: P, topicId: 'en9-participle', grade: 9, difficulty: 3, competency: 'gerund',
+    prompt: 'Which sentence uses a participle construction correctly?',
+    correct: 'Opening the door, she saw the parcel.',
+    wrong: ['Open the door, she saw the parcel.', 'She opening the door saw the parcel.', 'To open the door, she saw the parcel.'],
+    explanation: 'Das Present Participle verkürzt „While she opened the door, …".',
+  }));
+  add(match({
+    prefix: P, topicId: 'en9-participle', grade: 9, difficulty: 3, competency: 'gerund',
+    prompt: 'Match each participle form with its meaning.',
+    pairs: [
+      { left: 'Present Participle (-ing)', right: 'aktiv, gleichzeitig' },
+      { left: 'Past Participle (-ed / 3. Form)', right: 'passiv' },
+      { left: 'Perfect Participle (having + PP)', right: 'vorzeitig' },
+      { left: 'Gerund (-ing als Nomen)', right: 'Tätigkeit als Substantiv' },
+    ],
+    explanation: 'Gerund und Present Participle sehen gleich aus, haben aber verschiedene Funktionen.',
+  }));
+  const participlePaare = [
+    ['While he was waiting for the bus, he read a book.', 'Waiting for the bus, he read a book.'],
+    ['Because she was tired, she went to bed.', 'Being tired, she went to bed.'],
+    ['After he had finished his work, he left.', 'Having finished his work, he left.'],
+  ];
+  for (const [lang, kurz] of participlePaare) {
+    add(cloze({
+      prefix: P, topicId: 'en9-participle', grade: 9, difficulty: 3, competency: 'gerund',
+      prompt: `Shorten with a participle: „${lang}"`,
+      segments: ['', { blank: 'a', accept: [kurz, kurz.replace(/\.$/, '')] }, ''],
+      explanation: `Die Kurzform lautet: ${kurz}`,
+    }));
+  }
+  add(multi({
+    prefix: P, topicId: 'en9-participle', grade: 9, difficulty: 3, competency: 'gerund',
+    prompt: 'When can you shorten a clause with a participle?',
+    correct: ['Both clauses have the same subject', 'The relationship is time, reason or manner'],
+    wrong: ['The clauses have different subjects', 'The main clause is a question'],
+    explanation: 'Bei verschiedenen Subjekten entsteht ein „dangling participle" — grammatisch falsch.',
+  }));
+
+  /* ------------------------ Mediation (Klasse 10) ------------------- */
+  add(mc({
+    prefix: P, topicId: 'en10-mediation', grade: 10, difficulty: 2, competency: 'writing',
+    prompt: 'What does mediation mean in an English exam?',
+    correct: 'Den sinngemässen Inhalt eines Textes in die andere Sprache übertragen',
+    wrong: ['Wort für Wort übersetzen', 'Einen Text auswendig lernen', 'Eine Diskussion führen'],
+    explanation: 'Mediation ist Sinnvermittlung für einen bestimmten Adressaten — keine Übersetzung.',
+  }));
+  add(multi({
+    prefix: P, topicId: 'en10-mediation', grade: 10, difficulty: 3, competency: 'writing',
+    prompt: 'What belongs in a good mediation?',
+    correct: ['Nur die für den Adressaten wichtigen Informationen', 'Eigene Formulierungen', 'Hinweis auf Quelle und Textsorte'],
+    wrong: ['Alle Details des Ausgangstextes', 'Wörtliche Übersetzung ganzer Sätze'],
+    explanation: 'Die Auswahl richtet sich nach der Frage: Was braucht der Adressat?',
+  }));
+  add(order({
+    prefix: P, topicId: 'en10-mediation', grade: 10, difficulty: 3, competency: 'writing',
+    prompt: 'Put the steps of a mediation task in order.',
+    items: ['Aufgabenstellung und Adressat klären', 'Ausgangstext lesen und Relevantes markieren', 'Informationen ordnen', 'In der Zielsprache formulieren', 'Auf Adressatenbezug prüfen'],
+    explanation: 'Der Adressat steht am Anfang und am Ende — er bestimmt die Auswahl.',
+  }));
+  add(category({
+    prefix: P, topicId: 'en10-mediation', grade: 10, difficulty: 3, competency: 'writing',
+    prompt: 'Mediation or translation?',
+    groups: {
+      Mediation: ['Summarise the key points for a British exchange student', 'Explain the German school system to a friend'],
+      Translation: ['Translate this sentence word by word', 'Give the exact English equivalent of each term'],
+    },
+    explanation: 'Mediation fragt nach dem Zweck, Übersetzung nach der Entsprechung.',
+  }));
+
+  /* -------------------- Shakespeare (Klasse 11) --------------------- */
+  add(mc({
+    prefix: P, topicId: 'en11-shakespeare', grade: 11, difficulty: 3, competency: 'analysis',
+    prompt: 'What is a soliloquy?',
+    correct: 'A speech in which a character speaks their thoughts alone on stage',
+    wrong: ['A dialogue between two characters', 'The opening song of a play', 'A stage direction'],
+    explanation: 'Der Monolog öffnet dem Publikum das Innere der Figur — Hamlets „To be, or not to be".',
+  }));
+  add(match({
+    prefix: P, topicId: 'en11-shakespeare', grade: 11, difficulty: 3, competency: 'analysis',
+    prompt: 'Match the terms of drama analysis.',
+    pairs: [
+      { left: 'Exposition', right: 'Introduces characters and conflict' },
+      { left: 'Climax', right: 'Turning point of the action' },
+      { left: 'Catastrophe', right: 'Final outcome of a tragedy' },
+      { left: 'Aside', right: 'Remark only the audience hears' },
+    ],
+    explanation: 'Shakespeares Dramen folgen dem fünfaktigen Aufbau nach Freytag.',
+  }));
+  add(multi({
+    prefix: P, topicId: 'en11-shakespeare', grade: 11, difficulty: 3, competency: 'analysis',
+    prompt: 'Which features are typical of Shakespearean drama?',
+    correct: ['Blank verse (iambic pentameter)', 'Five acts', 'A mix of noble and common characters'],
+    wrong: ['Strict unity of place in every play', 'Prose only'],
+    explanation: 'Shakespeare mischt Vers und Prosa und hält sich nicht an die drei Einheiten.',
+  }));
+  add(order({
+    prefix: P, topicId: 'en11-shakespeare', grade: 11, difficulty: 3, competency: 'analysis',
+    prompt: 'Put the five acts of a Shakespearean tragedy in order.',
+    items: ['Exposition', 'Rising action', 'Climax', 'Falling action', 'Catastrophe'],
+    explanation: 'Der Höhepunkt liegt in der Mitte — danach ist der Untergang unaufhaltsam.',
+  }));
+
+  /* ----------------------- Media (Klasse 11) ------------------------ */
+  push(vocabQuestions({
+    prefix: P, topicId: 'en11-media', grade: 11, competency: 'vocab', difficulty: 3,
+    pairs: [
+      ['die Schlagzeile', 'the headline'], ['der Leitartikel', 'the editorial'],
+      ['die Quelle', 'the source'], ['die Falschmeldung', 'fake news'],
+      ['die Pressefreiheit', 'freedom of the press'], ['die Reichweite', 'the reach'],
+    ],
+  }));
+  add(multi({
+    prefix: P, topicId: 'en11-media', grade: 11, difficulty: 3, competency: 'analysis',
+    prompt: 'How can you check whether a news item is trustworthy?',
+    correct: ['Check the source', 'Look for other independent reports', 'Check the date', 'Distinguish fact from opinion'],
+    wrong: ['Count the likes', 'Trust it if it confirms your view'],
+    explanation: 'Reichweite ist kein Wahrheitsbeleg — unabhängige Bestätigung schon.',
+  }));
+  add(category({
+    prefix: P, topicId: 'en11-media', grade: 11, difficulty: 3, competency: 'analysis',
+    prompt: 'Fact or opinion?',
+    groups: {
+      Fact: ['The report was published in 2023', 'The company employs 400 people'],
+      Opinion: ['This is the best decision ever made', 'The plan is clearly a disaster'],
+    },
+    explanation: 'Fakten sind überprüfbar, Meinungen begründbar — beides muss unterscheidbar bleiben.',
+  }));
+  add(mc({
+    prefix: P, topicId: 'en11-media', grade: 11, difficulty: 3, competency: 'analysis',
+    prompt: 'What is a „filter bubble"?',
+    correct: 'A state in which algorithms only show you content matching your views',
+    wrong: ['A tool for removing spam', 'A privacy setting', 'A kind of headline'],
+    explanation: 'Die Filterblase verstärkt bestehende Überzeugungen, weil Widerspruch seltener auftaucht.',
+  }));
+
+  /* ------------- Post-colonial cultures (Klasse 12) ------------------ */
+  add(mc({
+    prefix: P, topicId: 'en12-postcolonial', grade: 12, difficulty: 3, competency: 'landeskunde',
+    prompt: 'What does the term „Commonwealth of Nations" describe?',
+    correct: 'An association of states, most of them former British colonies',
+    wrong: ['A military alliance', 'The parliament of the United Kingdom', 'A trade zone within the EU'],
+    explanation: 'Das Commonwealth verbindet über 50 Staaten, meist ehemalige Kolonien.',
+  }));
+  add(match({
+    prefix: P, topicId: 'en12-postcolonial', grade: 12, difficulty: 3, competency: 'landeskunde',
+    prompt: 'Match the key terms of post-colonial studies.',
+    pairs: [
+      { left: 'Hybridity', right: 'Mixing of cultures into something new' },
+      { left: 'Diaspora', right: 'Community living away from its homeland' },
+      { left: 'Identity', right: 'Sense of who one is between cultures' },
+      { left: 'Othering', right: 'Constructing another group as fundamentally different' },
+    ],
+    explanation: 'Diese Begriffe strukturieren die Analyse postkolonialer Texte.',
+  }));
+  add(multi({
+    prefix: P, topicId: 'en12-postcolonial', grade: 12, difficulty: 3, competency: 'landeskunde',
+    prompt: 'Which effects of colonialism are still visible today?',
+    correct: ['English as an official language in many countries', 'Borders drawn by colonial powers', 'Economic dependencies'],
+    wrong: ['Identical school systems worldwide', 'A single global currency'],
+    explanation: 'Sprache, Grenzen und Wirtschaftsstrukturen wirken über die Unabhängigkeit hinaus.',
+  }));
+  add(tf({
+    prefix: P, topicId: 'en12-postcolonial', grade: 12, difficulty: 2, competency: 'landeskunde',
+    prompt: 'Indian English is a recognised variety of English with its own rules.',
+    answer: true,
+    explanation: 'Es gibt nicht ein „richtiges" Englisch — Varietäten haben eigene Normen.',
+  }));
+
+  /* --------------- The American Dream (Klasse 12) ------------------- */
+  add(mc({
+    prefix: P, topicId: 'en12-american-dream', grade: 12, difficulty: 2, competency: 'landeskunde',
+    prompt: 'Which idea is at the core of the American Dream?',
+    correct: 'Everyone can rise through their own effort',
+    wrong: ['The state provides for everyone', 'Wealth is inherited', 'Only education matters'],
+    explanation: '„From rags to riches" — der Aufstieg aus eigener Kraft ist der Kern des Mythos.',
+  }));
+  add(match({
+    prefix: P, topicId: 'en12-american-dream', grade: 12, difficulty: 3, competency: 'landeskunde',
+    prompt: 'Match each document with its contribution to the American Dream.',
+    pairs: [
+      { left: 'Declaration of Independence (1776)', right: '„Life, Liberty and the pursuit of Happiness"' },
+      { left: 'Frontier thesis', right: 'The West as a space of opportunity' },
+      { left: 'Martin Luther King (1963)', right: '„I have a dream" — equality for all' },
+      { left: 'The Great Gatsby', right: 'The Dream as an illusion' },
+    ],
+    explanation: 'Der Traum wird immer wieder neu formuliert — und immer wieder in Frage gestellt.',
+  }));
+  add(multi({
+    prefix: P, topicId: 'en12-american-dream', grade: 12, difficulty: 3, competency: 'landeskunde',
+    prompt: 'Which arguments question the American Dream today?',
+    correct: ['Social mobility has declined', 'Wealth is increasingly inherited', 'Access to education depends on income'],
+    wrong: ['The USA has no constitution', 'Immigration has stopped completely'],
+    explanation: 'Die Kritik setzt an der Chancengleichheit an, nicht an der Idee selbst.',
+  }));
+  add(category({
+    prefix: P, topicId: 'en12-american-dream', grade: 12, difficulty: 3, competency: 'landeskunde',
+    prompt: 'Does the statement support or challenge the American Dream?',
+    groups: {
+      supports: ['Immigrants still start successful businesses', 'Anyone can run for office'],
+      challenges: ['Child poverty remains high', 'Top universities cost more than average income'],
+    },
+    explanation: 'Für eine Erörterung braucht man beide Seiten mit Belegen.',
+  }));
+
+  /* ------------------- Exam skills (Klasse 13) ---------------------- */
+  add(order({
+    prefix: P, topicId: 'en13-exam-skills', grade: 13, difficulty: 3, competency: 'essay',
+    prompt: 'Put the steps of answering an analysis task in order.',
+    items: ['Read the task and underline the operator', 'Skim the text for structure', 'Read closely and take notes', 'Plan the answer', 'Write and check'],
+    explanation: 'Der Operator steuert alles — „analyse" verlangt etwas anderes als „comment".',
+  }));
+  add(match({
+    prefix: P, topicId: 'en13-exam-skills', grade: 13, difficulty: 3, competency: 'essay',
+    prompt: 'Match each operator with what it asks for.',
+    pairs: [
+      { left: 'outline', right: 'Give the main points briefly' },
+      { left: 'analyse', right: 'Examine how the text works and why' },
+      { left: 'comment on', right: 'Give your own reasoned opinion' },
+      { left: 'compare', right: 'Point out similarities and differences' },
+    ],
+    explanation: 'Operatoren sind in allen Bundesländern verbindlich definiert.',
+  }));
+  add(multi({
+    prefix: P, topicId: 'en13-exam-skills', grade: 13, difficulty: 3, competency: 'essay',
+    prompt: 'What makes a strong exam answer?',
+    correct: ['Clear structure with paragraphs', 'Quotations with line references', 'Linking words', 'A conclusion that answers the task'],
+    wrong: ['Retelling the whole text', 'Listing devices without explaining their effect'],
+    explanation: 'Ein Stilmittel zählt erst, wenn seine Wirkung erklärt ist.',
+  }));
+  add(mc({
+    prefix: P, topicId: 'en13-exam-skills', grade: 13, difficulty: 2, competency: 'essay',
+    prompt: 'How do you quote correctly in an English exam?',
+    correct: 'In quotation marks with line reference, e.g. (l. 12)',
+    wrong: ['In italics without reference', 'Only paraphrased', 'With the page number of the textbook'],
+    explanation: 'Zeilenangaben machen Belege überprüfbar.',
   }));
 
   return out;

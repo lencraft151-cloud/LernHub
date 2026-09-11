@@ -361,5 +361,49 @@ export default function build() {
     explanation: 'Richtig. Die Anpassung des Körpers findet in der Erholungsphase statt — ohne Pausen bleibt der Trainingseffekt aus.',
   }));
 
+
+  /* ================================================================== *
+   * Oberstufe — Prüfungsformate
+   * ================================================================== */
+
+  add(match({
+    prefix: P, topicId: 'sp13-pruefung', grade: 13, difficulty: 3, competency: 'prinzipien',
+    prompt: 'Ordne die Trainingsprinzipien ihrer Aussage zu.',
+    pairs: [
+      { left: 'Prinzip des wirksamen Reizes', right: 'Der Reiz muss eine Schwelle überschreiten' },
+      { left: 'Prinzip der Progression', right: 'Die Belastung muss allmählich steigen' },
+      { left: 'Prinzip der Variation', right: 'Wechselnde Reize verhindern Stagnation' },
+      { left: 'Prinzip der Regeneration', right: 'Anpassung geschieht in der Erholung' },
+    ],
+    explanation: 'Ohne Erholung gibt es keine Superkompensation — Training allein reicht nicht.',
+  }));
+  add(multi({
+    prefix: P, topicId: 'sp13-pruefung', grade: 13, difficulty: 3, competency: 'methoden',
+    prompt: 'Was gehört in eine sporttheoretische Prüfungsantwort?',
+    correct: ['Fachbegriffe', 'Bezug auf Trainingsprinzipien', 'Konkrete Beispiele aus einer Sportart', 'Begründete Bewertung'],
+    wrong: ['Eine Liste eigener Bestzeiten ohne Bezug', 'Eine Nacherzählung des Unterrichts'],
+    explanation: 'Theorie und Praxisbeispiel müssen zusammenkommen.',
+  }));
+  add(order({
+    prefix: P, topicId: 'sp13-pruefung', grade: 13, difficulty: 3, competency: 'methoden',
+    prompt: 'Ordne den Aufbau einer Trainingsplanung.',
+    items: ['Ausgangslage und Leistungsdiagnostik', 'Ziel festlegen', 'Methode und Belastungsnormative wählen', 'Trainingsplan aufstellen', 'Überprüfen und anpassen'],
+    explanation: 'Ohne Diagnostik am Anfang lässt sich am Ende kein Fortschritt belegen.',
+  }));
+  add(mc({
+    prefix: P, topicId: 'sp13-pruefung', grade: 13, difficulty: 3, competency: 'ausdauer',
+    prompt: 'Welche Belastungsnormative beschreiben ein Training vollständig?',
+    correct: 'Intensität, Dauer, Umfang, Dichte und Häufigkeit',
+    wrong: ['Nur die Intensität', 'Nur die Dauer', 'Gewicht und Grösse des Sportlers'],
+    explanation: 'Erst alle fünf Grössen zusammen machen eine Trainingseinheit vergleichbar.',
+  }));
+  add(multi({
+    prefix: P, topicId: 'sp13-pruefung', grade: 13, difficulty: 3, competency: 'gesellschaft',
+    prompt: 'Welche Themen gehören zur Sportsoziologie in der Oberstufe?',
+    correct: ['Doping und Fairness', 'Kommerzialisierung des Sports', 'Inklusion und Teilhabe', 'Sport und Gesundheit'],
+    wrong: ['Die Regeln des Schachs', 'Die Geschichte der Buchdruckkunst'],
+    explanation: 'Sport wird als gesellschaftliches Feld betrachtet, nicht nur als Bewegung.',
+  }));
+
   return out;
 }

@@ -8,7 +8,7 @@
 
 export const EXERCISE_META = {
  "biologie": {
-  "total": 113,
+  "total": 142,
   "byTopic": {
    "bio5-kennzeichen": 1,
    "bio5-wirbeltiere": 6,
@@ -29,7 +29,14 @@ export const EXERCISE_META = {
    "bio9-sexualbiologie": 1,
    "bio10-evolution": 11,
    "bio10-menschwerdung": 1,
-   "bio10-hormone": 2
+   "bio10-hormone": 2,
+   "bio11-enzyme": 5,
+   "bio11-membran": 4,
+   "bio12-genregulation": 4,
+   "bio12-gentechnik": 4,
+   "bio12-neurophysiologie": 4,
+   "bio13-oekologie-vertieft": 4,
+   "bio13-evolution-vertieft": 4
   },
   "competencies": {
    "bio5-kennzeichen": [
@@ -215,6 +222,56 @@ export const EXERCISE_META = {
      "id": "hormone",
      "title": "Hormone"
     }
+   ],
+   "bio11-enzyme": [
+    {
+     "id": "zelle",
+     "title": "Zellbestandteile"
+    }
+   ],
+   "bio11-membran": [
+    {
+     "id": "zelle",
+     "title": "Zellbestandteile"
+    }
+   ],
+   "bio12-genregulation": [
+    {
+     "id": "dna",
+     "title": "DNA-Aufbau"
+    }
+   ],
+   "bio12-gentechnik": [
+    {
+     "id": "dna",
+     "title": "DNA-Aufbau"
+    }
+   ],
+   "bio12-neurophysiologie": [
+    {
+     "id": "nerven",
+     "title": "Nervensystem"
+    }
+   ],
+   "bio13-oekologie-vertieft": [
+    {
+     "id": "oekosystem",
+     "title": "Ökosysteme"
+    },
+    {
+     "id": "nahrungskette",
+     "title": "Nahrungsketten"
+    }
+   ],
+   "bio13-evolution-vertieft": [
+    {
+     "id": "evolution",
+     "title": "Evolutionstheorie"
+    },
+    {
+     "id": "belege",
+     "title": "Belege der Evolution"
+    }
    ]
   },
   "counts": {
@@ -293,11 +350,34 @@ export const EXERCISE_META = {
    },
    "bio10-hormone": {
     "hormone": 2
+   },
+   "bio11-enzyme": {
+    "zelle": 5
+   },
+   "bio11-membran": {
+    "zelle": 4
+   },
+   "bio12-genregulation": {
+    "dna": 4
+   },
+   "bio12-gentechnik": {
+    "dna": 4
+   },
+   "bio12-neurophysiologie": {
+    "nerven": 4
+   },
+   "bio13-oekologie-vertieft": {
+    "oekosystem": 3,
+    "nahrungskette": 1
+   },
+   "bio13-evolution-vertieft": {
+    "evolution": 3,
+    "belege": 1
    }
   }
  },
  "chemie": {
-  "total": 101,
+  "total": 135,
   "byTopic": {
    "ch7-stoffeigenschaften": 5,
    "ch7-trennverfahren": 3,
@@ -320,7 +400,14 @@ export const EXERCISE_META = {
    "ch10-alkohole": 3,
    "ch10-carbonsaeuren": 2,
    "ch10-energetik": 2,
-   "ch10-gleichgewicht": 2
+   "ch10-gleichgewicht": 2,
+   "ch11-mechanismen": 5,
+   "ch11-aromaten": 4,
+   "ch12-galvanische-zellen": 6,
+   "ch12-elektrolyse": 4,
+   "ch12-pks": 7,
+   "ch13-naturstoffe": 4,
+   "ch13-analytik": 4
   },
   "competencies": {
    "ch7-stoffeigenschaften": [
@@ -494,6 +581,52 @@ export const EXERCISE_META = {
      "id": "gleichgewicht",
      "title": "Chemisches Gleichgewicht"
     }
+   ],
+   "ch11-mechanismen": [
+    {
+     "id": "alkane",
+     "title": "Alkane"
+    }
+   ],
+   "ch11-aromaten": [
+    {
+     "id": "molekuel",
+     "title": "Elektronenpaarbindung"
+    }
+   ],
+   "ch12-galvanische-zellen": [
+    {
+     "id": "redox",
+     "title": "Oxidation und Reduktion"
+    }
+   ],
+   "ch12-elektrolyse": [
+    {
+     "id": "redox",
+     "title": "Oxidation und Reduktion"
+    }
+   ],
+   "ch12-pks": [
+    {
+     "id": "saeure",
+     "title": "Säuren"
+    }
+   ],
+   "ch13-naturstoffe": [
+    {
+     "id": "carbon",
+     "title": "Carbonsäuren und Ester"
+    }
+   ],
+   "ch13-analytik": [
+    {
+     "id": "indikator",
+     "title": "Indikatoren"
+    },
+    {
+     "id": "titration",
+     "title": "Titration"
+    }
    ]
   },
   "counts": {
@@ -572,11 +705,33 @@ export const EXERCISE_META = {
    },
    "ch10-gleichgewicht": {
     "gleichgewicht": 2
+   },
+   "ch11-mechanismen": {
+    "alkane": 5
+   },
+   "ch11-aromaten": {
+    "molekuel": 4
+   },
+   "ch12-galvanische-zellen": {
+    "redox": 6
+   },
+   "ch12-elektrolyse": {
+    "redox": 4
+   },
+   "ch12-pks": {
+    "saeure": 7
+   },
+   "ch13-naturstoffe": {
+    "carbon": 4
+   },
+   "ch13-analytik": {
+    "indikator": 2,
+    "titration": 2
    }
   }
  },
  "deutsch": {
-  "total": 127,
+  "total": 203,
   "byTopic": {
    "de1-laute-buchstaben": 5,
    "de1-silben": 5,
@@ -613,7 +768,26 @@ export const EXERCISE_META = {
    "de10-roman": 1,
    "de9-medienkritik": 1,
    "de8-satzbau": 1,
-   "de10-textinterpretation": 2
+   "de10-textinterpretation": 2,
+   "de3-erzaehlen": 5,
+   "de4-perfekt-futur": 7,
+   "de5-rechtschreibung": 7,
+   "de5-erzaehlen": 3,
+   "de5-beschreiben": 4,
+   "de6-berichten": 4,
+   "de6-jugendbuch": 4,
+   "de6-lyrik-einstieg": 4,
+   "de7-argumentieren": 4,
+   "de8-kurzgeschichte": 4,
+   "de9-sprachwandel": 4,
+   "de10-materialgestuetzt": 3,
+   "de10-lyrik-vergleich": 3,
+   "de11-rhetorik-analyse": 4,
+   "de11-spracherwerb": 3,
+   "de12-faust": 4,
+   "de12-expressionismus": 3,
+   "de13-vergleichende-analyse": 3,
+   "de13-erörterung-literarisch": 3
   },
   "competencies": {
    "de1-laute-buchstaben": [
@@ -831,6 +1005,120 @@ export const EXERCISE_META = {
      "id": "interpretation",
      "title": "Interpretation"
     }
+   ],
+   "de3-erzaehlen": [
+    {
+     "id": "erzaehlen",
+     "title": "Erzählen"
+    }
+   ],
+   "de4-perfekt-futur": [
+    {
+     "id": "zeitformen",
+     "title": "Zeitformen"
+    }
+   ],
+   "de5-rechtschreibung": [
+    {
+     "id": "strategien",
+     "title": "Rechtschreibstrategien"
+    }
+   ],
+   "de5-erzaehlen": [
+    {
+     "id": "erzaehlen",
+     "title": "Erzählen"
+    }
+   ],
+   "de5-beschreiben": [
+    {
+     "id": "beschreiben",
+     "title": "Beschreiben"
+    }
+   ],
+   "de6-berichten": [
+    {
+     "id": "bericht",
+     "title": "Bericht"
+    }
+   ],
+   "de6-jugendbuch": [
+    {
+     "id": "analyse",
+     "title": "Textanalyse"
+    }
+   ],
+   "de6-lyrik-einstieg": [
+    {
+     "id": "lyrik",
+     "title": "Gedichte"
+    }
+   ],
+   "de7-argumentieren": [
+    {
+     "id": "argumentieren",
+     "title": "Argumentieren"
+    }
+   ],
+   "de8-kurzgeschichte": [
+    {
+     "id": "analyse",
+     "title": "Textanalyse"
+    }
+   ],
+   "de9-sprachwandel": [
+    {
+     "id": "stil",
+     "title": "Satzbau und Stil"
+    }
+   ],
+   "de10-materialgestuetzt": [
+    {
+     "id": "sachtext",
+     "title": "Sachtextanalyse"
+    }
+   ],
+   "de10-lyrik-vergleich": [
+    {
+     "id": "lyrik",
+     "title": "Gedichte"
+    }
+   ],
+   "de11-rhetorik-analyse": [
+    {
+     "id": "mittel",
+     "title": "Sprachliche Mittel"
+    }
+   ],
+   "de11-spracherwerb": [
+    {
+     "id": "analyse",
+     "title": "Textanalyse"
+    }
+   ],
+   "de12-faust": [
+    {
+     "id": "drama",
+     "title": "Drama"
+    }
+   ],
+   "de12-expressionismus": [
+    {
+     "id": "epochen",
+     "title": "Literaturepochen"
+    }
+   ],
+   "de13-vergleichende-analyse": [
+    {
+     "id": "interpretation",
+     "title": "Interpretation"
+    }
+   ],
+   "de13-erörterung-literarisch": [
+    {
+     "id": "eroerterung",
+     "title": "Erörterung"
+    }
    ]
   },
   "counts": {
@@ -941,11 +1229,68 @@ export const EXERCISE_META = {
    },
    "de10-textinterpretation": {
     "interpretation": 2
+   },
+   "de3-erzaehlen": {
+    "erzaehlen": 5
+   },
+   "de4-perfekt-futur": {
+    "zeitformen": 7
+   },
+   "de5-rechtschreibung": {
+    "strategien": 7
+   },
+   "de5-erzaehlen": {
+    "erzaehlen": 3
+   },
+   "de5-beschreiben": {
+    "beschreiben": 4
+   },
+   "de6-berichten": {
+    "bericht": 4
+   },
+   "de6-jugendbuch": {
+    "analyse": 4
+   },
+   "de6-lyrik-einstieg": {
+    "lyrik": 4
+   },
+   "de7-argumentieren": {
+    "argumentieren": 4
+   },
+   "de8-kurzgeschichte": {
+    "analyse": 4
+   },
+   "de9-sprachwandel": {
+    "stil": 4
+   },
+   "de10-materialgestuetzt": {
+    "sachtext": 3
+   },
+   "de10-lyrik-vergleich": {
+    "lyrik": 3
+   },
+   "de11-rhetorik-analyse": {
+    "mittel": 4
+   },
+   "de11-spracherwerb": {
+    "analyse": 3
+   },
+   "de12-faust": {
+    "drama": 4
+   },
+   "de12-expressionismus": {
+    "epochen": 3
+   },
+   "de13-vergleichende-analyse": {
+    "interpretation": 3
+   },
+   "de13-erörterung-literarisch": {
+    "eroerterung": 3
    }
   }
  },
  "englisch": {
-  "total": 106,
+  "total": 172,
   "byTopic": {
    "en3-greetings": 7,
    "en3-numbers-colours": 10,
@@ -973,7 +1318,15 @@ export const EXERCISE_META = {
    "en6-reading": 1,
    "en8-writing-email": 1,
    "en9-tenses-review": 1,
-   "en10-advanced-structures": 1
+   "en10-advanced-structures": 1,
+   "en5-vocab-school": 27,
+   "en9-participle": 6,
+   "en10-mediation": 4,
+   "en11-shakespeare": 4,
+   "en11-media": 13,
+   "en12-postcolonial": 4,
+   "en12-american-dream": 4,
+   "en13-exam-skills": 4
   },
   "competencies": {
    "en3-greetings": [
@@ -1137,6 +1490,62 @@ export const EXERCISE_META = {
      "id": "tenses",
      "title": "Zeitenüberblick"
     }
+   ],
+   "en5-vocab-school": [
+    {
+     "id": "school",
+     "title": "School"
+    },
+    {
+     "id": "family",
+     "title": "Family"
+    }
+   ],
+   "en9-participle": [
+    {
+     "id": "gerund",
+     "title": "Gerund und Infinitiv"
+    }
+   ],
+   "en10-mediation": [
+    {
+     "id": "writing",
+     "title": "Schreiben"
+    }
+   ],
+   "en11-shakespeare": [
+    {
+     "id": "analysis",
+     "title": "Textanalyse"
+    }
+   ],
+   "en11-media": [
+    {
+     "id": "vocab",
+     "title": "Wortschatz"
+    },
+    {
+     "id": "analysis",
+     "title": "Textanalyse"
+    }
+   ],
+   "en12-postcolonial": [
+    {
+     "id": "landeskunde",
+     "title": "Landeskunde"
+    }
+   ],
+   "en12-american-dream": [
+    {
+     "id": "landeskunde",
+     "title": "Landeskunde"
+    }
+   ],
+   "en13-exam-skills": [
+    {
+     "id": "essay",
+     "title": "Essay"
+    }
    ]
   },
   "counts": {
@@ -1220,11 +1629,37 @@ export const EXERCISE_META = {
    },
    "en10-advanced-structures": {
     "tenses": 1
+   },
+   "en5-vocab-school": {
+    "school": 16,
+    "family": 11
+   },
+   "en9-participle": {
+    "gerund": 6
+   },
+   "en10-mediation": {
+    "writing": 4
+   },
+   "en11-shakespeare": {
+    "analysis": 4
+   },
+   "en11-media": {
+    "vocab": 10,
+    "analysis": 3
+   },
+   "en12-postcolonial": {
+    "landeskunde": 4
+   },
+   "en12-american-dream": {
+    "landeskunde": 4
+   },
+   "en13-exam-skills": {
+    "essay": 4
    }
   }
  },
  "erdkunde": {
-  "total": 100,
+  "total": 112,
   "byTopic": {
    "ek5-karten": 8,
    "ek5-deutschland": 18,
@@ -1242,7 +1677,10 @@ export const EXERCISE_META = {
    "ek9-disparitaeten": 2,
    "ek9-globalisierung": 9,
    "ek10-klimawandel": 2,
-   "ek10-ressourcen": 2
+   "ek10-ressourcen": 2,
+   "ek11-raumanalyse": 4,
+   "ek12-stadtmodelle": 4,
+   "ek13-syndrome": 4
   },
   "competencies": {
    "ek5-karten": [
@@ -1366,6 +1804,28 @@ export const EXERCISE_META = {
      "id": "ressourcen",
      "title": "Ressourcen und Energie"
     }
+   ],
+   "ek11-raumanalyse": [
+    {
+     "id": "diagramm",
+     "title": "Klimadiagramme"
+    }
+   ],
+   "ek12-stadtmodelle": [
+    {
+     "id": "stadt",
+     "title": "Verstädterung"
+    }
+   ],
+   "ek13-syndrome": [
+    {
+     "id": "klimawandel",
+     "title": "Klimawandel"
+    },
+    {
+     "id": "ressourcen",
+     "title": "Ressourcen und Energie"
+    }
    ]
   },
   "counts": {
@@ -1424,11 +1884,21 @@ export const EXERCISE_META = {
    },
    "ek10-ressourcen": {
     "ressourcen": 2
+   },
+   "ek11-raumanalyse": {
+    "diagramm": 4
+   },
+   "ek12-stadtmodelle": {
+    "stadt": 4
+   },
+   "ek13-syndrome": {
+    "klimawandel": 3,
+    "ressourcen": 1
    }
   }
  },
  "franzoesisch": {
-  "total": 108,
+  "total": 143,
   "byTopic": {
    "fr6-artikel": 13,
    "fr6-praesens": 31,
@@ -1441,7 +1911,10 @@ export const EXERCISE_META = {
    "fr9-relativsaetze": 1,
    "fr10-conditionnel": 1,
    "fr9-frankophonie": 14,
-   "fr10-textarbeit": 1
+   "fr10-textarbeit": 1,
+   "fr11-jeunesse": 18,
+   "fr12-litterature": 13,
+   "fr13-abitur": 4
   },
   "competencies": {
    "fr6-artikel": [
@@ -1551,6 +2024,28 @@ export const EXERCISE_META = {
      "id": "textarbeit",
      "title": "Textarbeit"
     }
+   ],
+   "fr11-jeunesse": [
+    {
+     "id": "vokabeln",
+     "title": "Wortschatz"
+    },
+    {
+     "id": "frankophonie",
+     "title": "Frankophonie"
+    }
+   ],
+   "fr12-litterature": [
+    {
+     "id": "textarbeit",
+     "title": "Textarbeit"
+    }
+   ],
+   "fr13-abitur": [
+    {
+     "id": "textarbeit",
+     "title": "Textarbeit"
+    }
    ]
   },
   "counts": {
@@ -1598,11 +2093,21 @@ export const EXERCISE_META = {
    },
    "fr10-textarbeit": {
     "textarbeit": 1
+   },
+   "fr11-jeunesse": {
+    "vokabeln": 16,
+    "frankophonie": 2
+   },
+   "fr12-litterature": {
+    "textarbeit": 13
+   },
+   "fr13-abitur": {
+    "textarbeit": 4
    }
   }
  },
  "geschichte": {
-  "total": 123,
+  "total": 148,
   "byTopic": {
    "ge8-franzoesische-revolution": 10,
    "ge9-erster-weltkrieg": 9,
@@ -1623,7 +2128,13 @@ export const EXERCISE_META = {
    "ge7-reformation": 2,
    "ge8-1848": 1,
    "ge8-kaiserreich": 1,
-   "ge10-europa": 2
+   "ge10-europa": 2,
+   "ge7-kirche": 8,
+   "ge11-menschenrechte": 4,
+   "ge11-migration": 3,
+   "ge12-diktaturvergleich": 3,
+   "ge12-erinnerungskultur": 3,
+   "ge13-quellenanalyse": 4
   },
   "competencies": {
    "ge8-franzoesische-revolution": [
@@ -1745,6 +2256,42 @@ export const EXERCISE_META = {
      "id": "europa",
      "title": "Europäische Einigung"
     }
+   ],
+   "ge7-kirche": [
+    {
+     "id": "kirche",
+     "title": "Kirche und Herrschaft"
+    }
+   ],
+   "ge11-menschenrechte": [
+    {
+     "id": "begriffe",
+     "title": "Fachbegriffe"
+    }
+   ],
+   "ge11-migration": [
+    {
+     "id": "begriffe",
+     "title": "Fachbegriffe"
+    }
+   ],
+   "ge12-diktaturvergleich": [
+    {
+     "id": "ns",
+     "title": "Nationalsozialismus"
+    }
+   ],
+   "ge12-erinnerungskultur": [
+    {
+     "id": "ns",
+     "title": "Nationalsozialismus"
+    }
+   ],
+   "ge13-quellenanalyse": [
+    {
+     "id": "begriffe",
+     "title": "Fachbegriffe"
+    }
    ]
   },
   "counts": {
@@ -1807,11 +2354,29 @@ export const EXERCISE_META = {
    },
    "ge10-europa": {
     "europa": 2
+   },
+   "ge7-kirche": {
+    "kirche": 8
+   },
+   "ge11-menschenrechte": {
+    "begriffe": 4
+   },
+   "ge11-migration": {
+    "begriffe": 3
+   },
+   "ge12-diktaturvergleich": {
+    "ns": 3
+   },
+   "ge12-erinnerungskultur": {
+    "ns": 3
+   },
+   "ge13-quellenanalyse": {
+    "begriffe": 4
    }
   }
  },
  "informatik": {
-  "total": 102,
+  "total": 123,
   "byTopic": {
    "if5-hardware": 4,
    "if5-dateien": 9,
@@ -1827,7 +2392,12 @@ export const EXERCISE_META = {
    "if9-verschluesselung": 3,
    "if10-datenbanken": 3,
    "if10-oop": 2,
-   "if11-sortieren": 5
+   "if11-sortieren": 5,
+   "if11-datenstrukturen": 5,
+   "if12-automaten": 4,
+   "if12-baeume": 4,
+   "if13-projekt": 4,
+   "if13-gesellschaft": 4
   },
   "competencies": {
    "if5-hardware": [
@@ -1963,6 +2533,44 @@ export const EXERCISE_META = {
      "id": "algorithmus",
      "title": "Algorithmusbegriff"
     }
+   ],
+   "if11-datenstrukturen": [
+    {
+     "id": "liste",
+     "title": "Listen"
+    }
+   ],
+   "if12-automaten": [
+    {
+     "id": "logik",
+     "title": "Logische Verknüpfungen"
+    }
+   ],
+   "if12-baeume": [
+    {
+     "id": "liste",
+     "title": "Listen"
+    },
+    {
+     "id": "algorithmus",
+     "title": "Algorithmusbegriff"
+    }
+   ],
+   "if13-projekt": [
+    {
+     "id": "programm",
+     "title": "Programme lesen"
+    },
+    {
+     "id": "oop",
+     "title": "Objektorientierung"
+    }
+   ],
+   "if13-gesellschaft": [
+    {
+     "id": "datenschutz",
+     "title": "Datenschutz"
+    }
    ]
   },
   "counts": {
@@ -2021,11 +2629,28 @@ export const EXERCISE_META = {
    },
    "if11-sortieren": {
     "algorithmus": 5
+   },
+   "if11-datenstrukturen": {
+    "liste": 5
+   },
+   "if12-automaten": {
+    "logik": 4
+   },
+   "if12-baeume": {
+    "liste": 2,
+    "algorithmus": 2
+   },
+   "if13-projekt": {
+    "programm": 2,
+    "oop": 2
+   },
+   "if13-gesellschaft": {
+    "datenschutz": 4
    }
   }
  },
  "kunst": {
-  "total": 101,
+  "total": 106,
   "byTopic": {
    "ku1-farben-mischen": 5,
    "ku5-farbenlehre": 20,
@@ -2040,7 +2665,8 @@ export const EXERCISE_META = {
    "ku10-design": 8,
    "ku12-gegenwart": 8,
    "ku4-kuenstler": 2,
-   "ku11-methoden": 7
+   "ku11-methoden": 7,
+   "ku13-pruefung": 5
   },
   "competencies": {
    "ku1-farben-mischen": [
@@ -2162,6 +2788,20 @@ export const EXERCISE_META = {
      "id": "bildanalyse",
      "title": "Bildanalyse"
     }
+   ],
+   "ku13-pruefung": [
+    {
+     "id": "bildanalyse",
+     "title": "Bildanalyse"
+    },
+    {
+     "id": "komposition",
+     "title": "Komposition"
+    },
+    {
+     "id": "gegenwart",
+     "title": "Gegenwartskunst"
+    }
    ]
   },
   "counts": {
@@ -2215,11 +2855,16 @@ export const EXERCISE_META = {
    },
    "ku11-methoden": {
     "bildanalyse": 7
+   },
+   "ku13-pruefung": {
+    "bildanalyse": 3,
+    "komposition": 1,
+    "gegenwart": 1
    }
   }
  },
  "latein": {
-  "total": 106,
+  "total": 148,
   "byTopic": {
    "la6-deklination": 24,
    "la6-praesens": 17,
@@ -2230,7 +2875,10 @@ export const EXERCISE_META = {
    "la9-ablativus-absolutus": 1,
    "la9-konjunktiv": 1,
    "la9-roemisches-leben": 15,
-   "la10-caesar": 8
+   "la10-caesar": 8,
+   "la10-ovid": 14,
+   "la11-cicero": 14,
+   "la12-seneca": 14
   },
   "competencies": {
    "la6-deklination": [
@@ -2320,6 +2968,56 @@ export const EXERCISE_META = {
      "id": "uebersetzen",
      "title": "Übersetzen"
     }
+   ],
+   "la10-ovid": [
+    {
+     "id": "vokabeln",
+     "title": "Wortschatz"
+    },
+    {
+     "id": "autoren",
+     "title": "Lateinische Autoren"
+    },
+    {
+     "id": "uebersetzen",
+     "title": "Übersetzen"
+    }
+   ],
+   "la11-cicero": [
+    {
+     "id": "vokabeln",
+     "title": "Wortschatz"
+    },
+    {
+     "id": "autoren",
+     "title": "Lateinische Autoren"
+    },
+    {
+     "id": "uebersetzen",
+     "title": "Übersetzen"
+    },
+    {
+     "id": "kultur",
+     "title": "Römisches Leben"
+    }
+   ],
+   "la12-seneca": [
+    {
+     "id": "vokabeln",
+     "title": "Wortschatz"
+    },
+    {
+     "id": "autoren",
+     "title": "Lateinische Autoren"
+    },
+    {
+     "id": "uebersetzen",
+     "title": "Übersetzen"
+    },
+    {
+     "id": "kultur",
+     "title": "Römisches Leben"
+    }
    ]
   },
   "counts": {
@@ -2359,11 +3057,28 @@ export const EXERCISE_META = {
    "la10-caesar": {
     "autoren": 7,
     "uebersetzen": 1
+   },
+   "la10-ovid": {
+    "vokabeln": 10,
+    "autoren": 2,
+    "uebersetzen": 2
+   },
+   "la11-cicero": {
+    "vokabeln": 10,
+    "autoren": 2,
+    "uebersetzen": 1,
+    "kultur": 1
+   },
+   "la12-seneca": {
+    "vokabeln": 10,
+    "autoren": 2,
+    "uebersetzen": 1,
+    "kultur": 1
    }
   }
  },
  "mathematik": {
-  "total": 223,
+  "total": 310,
   "byTopic": {
    "ma1-zahlenraum-20": 5,
    "ma1-plus-minus-20": 6,
@@ -2429,7 +3144,19 @@ export const EXERCISE_META = {
    "ma10-exponentialfunktionen": 3,
    "ma10-logarithmus": 2,
    "ma10-potenzfunktionen": 1,
-   "ma10-bedingte-wahrscheinlichkeit": 1
+   "ma10-bedingte-wahrscheinlichkeit": 1,
+   "ma11-aenderungsrate": 7,
+   "ma11-ableitung": 9,
+   "ma11-kurvendiskussion": 7,
+   "ma11-vektoren": 8,
+   "ma12-produkt-kettenregel": 8,
+   "ma12-e-funktion": 8,
+   "ma12-integral": 8,
+   "ma12-geraden": 6,
+   "ma12-binomialverteilung": 8,
+   "ma13-funktionsscharen": 6,
+   "ma13-abstaende": 6,
+   "ma13-hypothesentest": 6
   },
   "competencies": {
    "ma1-zahlenraum-20": [
@@ -2961,6 +3688,78 @@ export const EXERCISE_META = {
      "id": "bedingt",
      "title": "Bedingte Wahrscheinlichkeit"
     }
+   ],
+   "ma11-aenderungsrate": [
+    {
+     "id": "aenderungsrate",
+     "title": "Änderungsrate"
+    }
+   ],
+   "ma11-ableitung": [
+    {
+     "id": "ableitung",
+     "title": "Ableiten"
+    }
+   ],
+   "ma11-kurvendiskussion": [
+    {
+     "id": "extrempunkte",
+     "title": "Extrem- und Wendepunkte"
+    }
+   ],
+   "ma11-vektoren": [
+    {
+     "id": "vektoren",
+     "title": "Vektoren und Ebenen"
+    }
+   ],
+   "ma12-produkt-kettenregel": [
+    {
+     "id": "ableitung",
+     "title": "Ableiten"
+    }
+   ],
+   "ma12-e-funktion": [
+    {
+     "id": "exponential",
+     "title": "Exponential- und Logarithmusfunktion"
+    }
+   ],
+   "ma12-integral": [
+    {
+     "id": "integral",
+     "title": "Integralrechnung"
+    }
+   ],
+   "ma12-geraden": [
+    {
+     "id": "vektoren",
+     "title": "Vektoren und Ebenen"
+    }
+   ],
+   "ma12-binomialverteilung": [
+    {
+     "id": "wahrscheinlichkeit",
+     "title": "Wahrscheinlichkeitsrechnung"
+    }
+   ],
+   "ma13-funktionsscharen": [
+    {
+     "id": "extrempunkte",
+     "title": "Extrem- und Wendepunkte"
+    }
+   ],
+   "ma13-abstaende": [
+    {
+     "id": "vektoren",
+     "title": "Vektoren und Ebenen"
+    }
+   ],
+   "ma13-hypothesentest": [
+    {
+     "id": "wahrscheinlichkeit",
+     "title": "Wahrscheinlichkeitsrechnung"
+    }
    ]
   },
   "counts": {
@@ -3193,11 +3992,47 @@ export const EXERCISE_META = {
    },
    "ma10-bedingte-wahrscheinlichkeit": {
     "bedingt": 1
+   },
+   "ma11-aenderungsrate": {
+    "aenderungsrate": 7
+   },
+   "ma11-ableitung": {
+    "ableitung": 9
+   },
+   "ma11-kurvendiskussion": {
+    "extrempunkte": 7
+   },
+   "ma11-vektoren": {
+    "vektoren": 8
+   },
+   "ma12-produkt-kettenregel": {
+    "ableitung": 8
+   },
+   "ma12-e-funktion": {
+    "exponential": 8
+   },
+   "ma12-integral": {
+    "integral": 8
+   },
+   "ma12-geraden": {
+    "vektoren": 6
+   },
+   "ma12-binomialverteilung": {
+    "wahrscheinlichkeit": 8
+   },
+   "ma13-funktionsscharen": {
+    "extrempunkte": 6
+   },
+   "ma13-abstaende": {
+    "vektoren": 6
+   },
+   "ma13-hypothesentest": {
+    "wahrscheinlichkeit": 6
    }
   }
  },
  "musik": {
-  "total": 100,
+  "total": 112,
   "byTopic": {
    "mu1-lieder": 2,
    "mu2-rhythmus": 3,
@@ -3210,7 +4045,10 @@ export const EXERCISE_META = {
    "mu8-barock-klassik": 15,
    "mu9-formen": 9,
    "mu9-popmusik": 2,
-   "mu10-moderne": 8
+   "mu10-moderne": 8,
+   "mu11-werkanalyse": 4,
+   "mu12-musik-gesellschaft": 4,
+   "mu13-pruefung": 4
   },
   "competencies": {
    "mu1-lieder": [
@@ -3324,6 +4162,32 @@ export const EXERCISE_META = {
      "id": "moderne",
      "title": "Neue Musik und Filmmusik"
     }
+   ],
+   "mu11-werkanalyse": [
+    {
+     "id": "formen",
+     "title": "Musikalische Formen"
+    }
+   ],
+   "mu12-musik-gesellschaft": [
+    {
+     "id": "popmusik",
+     "title": "Popmusik"
+    },
+    {
+     "id": "epochen",
+     "title": "Musikepochen"
+    }
+   ],
+   "mu13-pruefung": [
+    {
+     "id": "formen",
+     "title": "Musikalische Formen"
+    },
+    {
+     "id": "epochen",
+     "title": "Musikepochen"
+    }
    ]
   },
   "counts": {
@@ -3372,11 +4236,22 @@ export const EXERCISE_META = {
    },
    "mu10-moderne": {
     "moderne": 8
+   },
+   "mu11-werkanalyse": {
+    "formen": 4
+   },
+   "mu12-musik-gesellschaft": {
+    "popmusik": 3,
+    "epochen": 1
+   },
+   "mu13-pruefung": {
+    "formen": 3,
+    "epochen": 1
    }
   }
  },
  "physik": {
-  "total": 110,
+  "total": 146,
   "byTopic": {
    "ph6-messen": 12,
    "ph6-temperatur": 4,
@@ -3394,7 +4269,13 @@ export const EXERCISE_META = {
    "ph10-induktion": 2,
    "ph10-radioaktivitaet": 5,
    "ph10-kernenergie": 1,
-   "ph10-waermelehre": 2
+   "ph10-waermelehre": 2,
+   "ph11-kinematik": 9,
+   "ph11-felder": 6,
+   "ph12-schwingungen": 9,
+   "ph12-quanten": 4,
+   "ph13-atommodelle": 4,
+   "ph13-relativitaet": 4
   },
   "competencies": {
    "ph6-messen": [
@@ -3594,6 +4475,54 @@ export const EXERCISE_META = {
      "id": "waerme",
      "title": "Wärme und Energie"
     }
+   ],
+   "ph11-kinematik": [
+    {
+     "id": "beschleunigung",
+     "title": "Beschleunigung"
+    },
+    {
+     "id": "kraft",
+     "title": "Kräfte"
+    }
+   ],
+   "ph11-felder": [
+    {
+     "id": "stromkreis",
+     "title": "Stromkreis"
+    },
+    {
+     "id": "magnetismus",
+     "title": "Magnetismus"
+    }
+   ],
+   "ph12-schwingungen": [
+    {
+     "id": "schall",
+     "title": "Schall"
+    }
+   ],
+   "ph12-quanten": [
+    {
+     "id": "strahlung",
+     "title": "Radioaktive Strahlung"
+    }
+   ],
+   "ph13-atommodelle": [
+    {
+     "id": "strahlung",
+     "title": "Radioaktive Strahlung"
+    }
+   ],
+   "ph13-relativitaet": [
+    {
+     "id": "geschwindigkeit",
+     "title": "Geschwindigkeit"
+    },
+    {
+     "id": "energieformen",
+     "title": "Energieformen"
+    }
    ]
   },
   "counts": {
@@ -3671,11 +4600,32 @@ export const EXERCISE_META = {
    "ph10-waermelehre": {
     "energieumwandlung": 1,
     "waerme": 1
+   },
+   "ph11-kinematik": {
+    "beschleunigung": 7,
+    "kraft": 2
+   },
+   "ph11-felder": {
+    "stromkreis": 3,
+    "magnetismus": 3
+   },
+   "ph12-schwingungen": {
+    "schall": 9
+   },
+   "ph12-quanten": {
+    "strahlung": 4
+   },
+   "ph13-atommodelle": {
+    "strahlung": 4
+   },
+   "ph13-relativitaet": {
+    "geschwindigkeit": 3,
+    "energieformen": 1
    }
   }
  },
  "politik": {
-  "total": 103,
+  "total": 111,
   "byTopic": {
    "pw9-verfassungsorgane": 10,
    "pw9-wahlen": 23,
@@ -3689,7 +4639,9 @@ export const EXERCISE_META = {
    "pw8-verbraucher": 5,
    "pw10-eu": 8,
    "pw10-un": 2,
-   "pw11-konjunktur": 7
+   "pw11-konjunktur": 7,
+   "pw12-ungleichheit": 4,
+   "pw13-globalisierung": 4
   },
   "competencies": {
    "pw9-verfassungsorgane": [
@@ -3777,6 +4729,26 @@ export const EXERCISE_META = {
      "id": "marktwirtschaft",
      "title": "Soziale Marktwirtschaft"
     }
+   ],
+   "pw12-ungleichheit": [
+    {
+     "id": "sozialstaat",
+     "title": "Sozialstaat"
+    },
+    {
+     "id": "grundrechte",
+     "title": "Grundrechte"
+    }
+   ],
+   "pw13-globalisierung": [
+    {
+     "id": "marktwirtschaft",
+     "title": "Soziale Marktwirtschaft"
+    },
+    {
+     "id": "eu",
+     "title": "Europäische Union"
+    }
    ]
   },
   "counts": {
@@ -3820,11 +4792,19 @@ export const EXERCISE_META = {
    },
    "pw11-konjunktur": {
     "marktwirtschaft": 7
+   },
+   "pw12-ungleichheit": {
+    "sozialstaat": 3,
+    "grundrechte": 1
+   },
+   "pw13-globalisierung": {
+    "marktwirtschaft": 3,
+    "eu": 1
    }
   }
  },
  "religion": {
-  "total": 101,
+  "total": 110,
   "byTopic": {
    "rel1-feste": 8,
    "rel2-schoepfung": 3,
@@ -3842,7 +4822,9 @@ export const EXERCISE_META = {
    "rel9-theodizee": 1,
    "rel10-freiheit": 1,
    "rel10-erkenntnis": 4,
-   "rel11-menschenbild": 3
+   "rel11-menschenbild": 3,
+   "rel12-diskursethik": 5,
+   "rel13-zukunftsethik": 4
   },
   "competencies": {
    "rel1-feste": [
@@ -3946,6 +4928,30 @@ export const EXERCISE_META = {
      "id": "menschenbild",
      "title": "Menschenbilder"
     }
+   ],
+   "rel12-diskursethik": [
+    {
+     "id": "ethik",
+     "title": "Ethische Entscheidungen"
+    },
+    {
+     "id": "gerechtigkeit",
+     "title": "Gerechtigkeit"
+    }
+   ],
+   "rel13-zukunftsethik": [
+    {
+     "id": "ethik",
+     "title": "Ethische Entscheidungen"
+    },
+    {
+     "id": "gerechtigkeit",
+     "title": "Gerechtigkeit"
+    },
+    {
+     "id": "schoepfung",
+     "title": "Schöpfung"
+    }
    ]
   },
   "counts": {
@@ -3999,6 +5005,15 @@ export const EXERCISE_META = {
    },
    "rel11-menschenbild": {
     "menschenbild": 3
+   },
+   "rel12-diskursethik": {
+    "ethik": 4,
+    "gerechtigkeit": 1
+   },
+   "rel13-zukunftsethik": {
+    "ethik": 2,
+    "gerechtigkeit": 1,
+    "schoepfung": 1
    }
   }
  },
@@ -4202,7 +5217,7 @@ export const EXERCISE_META = {
   }
  },
  "sport": {
-  "total": 101,
+  "total": 106,
   "byTopic": {
    "sp1-spielregeln": 9,
    "sp2-aufwaermen": 2,
@@ -4217,7 +5232,8 @@ export const EXERCISE_META = {
    "sp9-doping": 2,
    "sp10-sport-gesellschaft": 2,
    "sp11-bewegungsanalyse": 1,
-   "sp12-periodisierung": 1
+   "sp12-periodisierung": 1,
+   "sp13-pruefung": 5
   },
   "competencies": {
    "sp1-spielregeln": [
@@ -4331,6 +5347,24 @@ export const EXERCISE_META = {
      "id": "prinzipien",
      "title": "Trainingsprinzipien"
     }
+   ],
+   "sp13-pruefung": [
+    {
+     "id": "prinzipien",
+     "title": "Trainingsprinzipien"
+    },
+    {
+     "id": "methoden",
+     "title": "Trainingsmethoden"
+    },
+    {
+     "id": "ausdauer",
+     "title": "Ausdauer"
+    },
+    {
+     "id": "gesellschaft",
+     "title": "Sport und Gesellschaft"
+    }
    ]
   },
   "counts": {
@@ -4382,6 +5416,12 @@ export const EXERCISE_META = {
    },
    "sp12-periodisierung": {
     "prinzipien": 1
+   },
+   "sp13-pruefung": {
+    "prinzipien": 1,
+    "methoden": 2,
+    "ausdauer": 1,
+    "gesellschaft": 1
    }
   }
  }
@@ -4417,6 +5457,6 @@ export const hasExercises = (topicId) => exerciseCount(topicId) > 0;
 
 export const EXERCISE_TOTALS = {
   subjects: 17,
-  exercises: 1934,
-  topics: 350,
+  exercises: 2436,
+  topics: 438,
 };

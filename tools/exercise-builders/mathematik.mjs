@@ -4,6 +4,13 @@ import { rng, int, pick, sample, num, gcd, mc, tf, numeric, cloze, match, order,
 
 /** Kompetenzbezeichnungen für die Auswertung (jede ID braucht einen Titel). */
 export const competencies = {
+  'ableitung': 'Ableiten',
+  'wahrscheinlichkeit': 'Wahrscheinlichkeitsrechnung',
+  'exponential': 'Exponential- und Logarithmusfunktion',
+  'integral': 'Integralrechnung',
+  'aenderungsrate': 'Änderungsrate',
+  'extrempunkte': 'Extrem- und Wendepunkte',
+  'vektoren': 'Vektoren und Ebenen',
   'addieren': 'Addieren',
   'antiproportional': 'Antiproportionale Zuordnung',
   'ausreisser': 'Ausreißer erkennen',
@@ -1148,6 +1155,429 @@ export default function build() {
     answer: 30, tolerance: 0.05, unit: '%',
     hint: 'Pfadregel: 0,6 · 0,5',
     explanation: '0,6 · 0,5 = 0,3 = 30 %.',
+  }));
+
+  /* ================================================================== *
+   * Oberstufe — Analysis, Geometrie, Stochastik
+   *
+   * Alle Zahlenwerte rechnet der Generator aus, damit in keiner
+   * Musterlösung ein Rechenfehler stehen kann.
+   * ================================================================== */
+
+  /* ------------------ Änderungsrate (Klasse 11) ------------------ */
+  for (let i = 0; i < 4; i += 1) {
+    const a = int(r, 1, 3);
+    const x1 = int(r, 1, 3);
+    const x2 = x1 + int(r, 1, 3);
+    const f = (x) => a * x * x;
+    const rate = (f(x2) - f(x1)) / (x2 - x1);
+    add(numeric({
+      prefix: P, topicId: 'ma11-aenderungsrate', grade: 11, difficulty: 2, competency: 'aenderungsrate',
+      prompt: `Berechne die mittlere Änderungsrate von f(x) = ${a}x² im Intervall [${x1}; ${x2}].`,
+      answer: rate, tolerance: 0.01,
+      hint: 'Differenzenquotient: (f(x₂) − f(x₁)) / (x₂ − x₁)',
+      explanation: `f(${x2}) − f(${x1}) = ${f(x2)} − ${f(x1)} = ${f(x2) - f(x1)}; geteilt durch ${x2 - x1} ergibt ${num(rate)}.`,
+    }));
+  }
+  add(mc({
+    prefix: P, topicId: 'ma11-aenderungsrate', grade: 11, difficulty: 2, competency: 'aenderungsrate',
+    prompt: 'Was beschreibt der Differenzenquotient geometrisch?',
+    correct: 'Die Steigung der Sekante durch zwei Punkte des Graphen',
+    wrong: ['Die Steigung der Tangente in einem Punkt', 'Den Flächeninhalt unter dem Graphen', 'Den Abstand zweier Punkte'],
+    explanation: 'Erst der Grenzübergang x₂ → x₁ macht aus der Sekante die Tangente.',
+  }));
+  add(mc({
+    prefix: P, topicId: 'ma11-aenderungsrate', grade: 11, difficulty: 3, competency: 'aenderungsrate',
+    prompt: 'Wie entsteht aus der mittleren die lokale Änderungsrate?',
+    correct: 'Durch den Grenzübergang h → 0 im Differenzenquotienten',
+    wrong: ['Durch Verdoppeln des Intervalls', 'Durch Mitteln mehrerer Intervalle', 'Durch Einsetzen von x = 0'],
+    explanation: 'f′(x) = lim_(h→0) (f(x+h) − f(x)) / h.',
+  }));
+  add(tf({
+    prefix: P, topicId: 'ma11-aenderungsrate', grade: 11, difficulty: 2, competency: 'aenderungsrate',
+    prompt: 'Bei einer linearen Funktion sind mittlere und lokale Änderungsrate überall gleich.',
+    answer: true,
+    explanation: 'Die Steigung einer Geraden ändert sich nicht — Sekante und Tangente fallen zusammen.',
+  }));
+
+  /* ------------------- Ableitung (Klasse 11) --------------------- */
+  for (let i = 0; i < 5; i += 1) {
+    const a = int(r, 2, 6);
+    const n = int(r, 2, 5);
+    const x0 = int(r, 1, 3);
+    const wert = a * n * x0 ** (n - 1);
+    add(numeric({
+      prefix: P, topicId: 'ma11-ableitung', grade: 11, difficulty: 2, competency: 'ableitung',
+      prompt: `Gegeben ist f(x) = ${a}x^${n}. Berechne f′(${x0}).`,
+      answer: wert,
+      hint: 'Potenzregel: aus xⁿ wird n·xⁿ⁻¹.',
+      explanation: `f′(x) = ${a * n}x^${n - 1}, also f′(${x0}) = ${a * n} · ${x0 ** (n - 1)} = ${wert}.`,
+    }));
+  }
+  for (let i = 0; i < 3; i += 1) {
+    const m = int(r, 2, 5);
+    const b = int(r, 1, 6);
+    const x0 = int(r, 1, 4);
+    const y0 = m * x0 * x0 + b;
+    const steigung = 2 * m * x0;
+    const achse = y0 - steigung * x0;
+    add(numeric({
+      prefix: P, topicId: 'ma11-ableitung', grade: 11, difficulty: 3, competency: 'ableitung',
+      prompt: `f(x) = ${m}x² + ${b}. Welche Steigung hat die Tangente an der Stelle x = ${x0}?`,
+      answer: steigung,
+      explanation: `f′(x) = ${2 * m}x, also f′(${x0}) = ${steigung}. Die Tangente lautet y = ${steigung}x ${achse < 0 ? '−' : '+'} ${Math.abs(achse)}.`,
+    }));
+  }
+  add(match({
+    prefix: P, topicId: 'ma11-ableitung', grade: 11, difficulty: 2, competency: 'ableitung',
+    prompt: 'Ordne jeder Funktion ihre Ableitung zu.',
+    pairs: [
+      { left: 'f(x) = x³', right: 'f′(x) = 3x²' },
+      { left: 'f(x) = 5x', right: 'f′(x) = 5' },
+      { left: 'f(x) = 7', right: 'f′(x) = 0' },
+      { left: 'f(x) = x² + x', right: 'f′(x) = 2x + 1' },
+    ],
+    explanation: 'Potenzregel, Faktorregel und Summenregel reichen für ganzrationale Funktionen.',
+  }));
+
+  /* --------------- Kurvendiskussion (Klasse 11) ------------------ */
+  for (let i = 0; i < 4; i += 1) {
+    const p = int(r, 1, 5);
+    // f(x) = x³ − 3p²x hat Extremstellen bei x = ±p
+    add(numeric({
+      prefix: P, topicId: 'ma11-kurvendiskussion', grade: 11, difficulty: 3, competency: 'extrempunkte',
+      prompt: `f(x) = x³ − ${3 * p * p}x. An welcher positiven Stelle liegt ein lokales Minimum?`,
+      answer: p,
+      hint: 'Notwendige Bedingung: f′(x) = 0.',
+      explanation: `f′(x) = 3x² − ${3 * p * p} = 0 ergibt x = ±${p}. Wegen f″(x) = 6x ist f″(${p}) > 0 — dort liegt das Minimum.`,
+    }));
+  }
+  add(order({
+    prefix: P, topicId: 'ma11-kurvendiskussion', grade: 11, difficulty: 3, competency: 'extrempunkte',
+    prompt: 'Ordne die Schritte einer Kurvendiskussion.',
+    items: ['Definitionsbereich bestimmen', 'Nullstellen berechnen', 'Ableitungen bilden', 'Extrempunkte bestimmen', 'Wendepunkte bestimmen', 'Graph skizzieren'],
+    explanation: 'Erst die Funktion selbst, dann ihre Ableitungen, zuletzt das Bild.',
+  }));
+  add(mc({
+    prefix: P, topicId: 'ma11-kurvendiskussion', grade: 11, difficulty: 3, competency: 'extrempunkte',
+    prompt: 'Welche Bedingung kennzeichnet einen Wendepunkt?',
+    correct: 'f″(x) = 0 und f‴(x) ≠ 0',
+    wrong: ['f′(x) = 0 und f″(x) > 0', 'f(x) = 0', 'f′(x) = 0 und f″(x) < 0'],
+    explanation: 'Im Wendepunkt wechselt die Krümmung — das zeigt der Vorzeichenwechsel von f″.',
+  }));
+  add(multi({
+    prefix: P, topicId: 'ma11-kurvendiskussion', grade: 11, difficulty: 3, competency: 'extrempunkte',
+    prompt: 'Woran erkennt man einen Hochpunkt?',
+    correct: ['f′(x₀) = 0', 'f″(x₀) < 0', 'Vorzeichenwechsel von f′ von + nach −'],
+    wrong: ['f(x₀) = 0', 'f″(x₀) > 0'],
+    explanation: 'Die Bedingung f″ < 0 bedeutet Rechtskrümmung — der Graph ist nach unten geöffnet.',
+  }));
+
+  /* ------------------- Vektoren (Klasse 11) ---------------------- */
+  for (let i = 0; i < 4; i += 1) {
+    const v = [int(r, 1, 6), int(r, 1, 6), int(r, 1, 6)];
+    const betragQuadrat = v[0] ** 2 + v[1] ** 2 + v[2] ** 2;
+    add(numeric({
+      prefix: P, topicId: 'ma11-vektoren', grade: 11, difficulty: 2, competency: 'vektoren',
+      prompt: `Berechne den Betrag des Vektors (${v.join(' | ')}). Gib das Ergebnis auf zwei Nachkommastellen an.`,
+      answer: Math.sqrt(betragQuadrat), tolerance: 0.02,
+      hint: '|v| = √(x² + y² + z²)',
+      explanation: `${v[0]}² + ${v[1]}² + ${v[2]}² = ${betragQuadrat}; √${betragQuadrat} ≈ ${num(Math.sqrt(betragQuadrat))}.`,
+    }));
+  }
+  for (let i = 0; i < 3; i += 1) {
+    const a = [int(r, 1, 5), int(r, 1, 5), int(r, 1, 5)];
+    const b = [int(r, 1, 5), int(r, 1, 5), int(r, 1, 5)];
+    const skalar = a[0] * b[0] + a[1] * b[1] + a[2] * b[2];
+    add(numeric({
+      prefix: P, topicId: 'ma11-vektoren', grade: 11, difficulty: 2, competency: 'vektoren',
+      prompt: `Berechne das Skalarprodukt von (${a.join(' | ')}) und (${b.join(' | ')}).`,
+      answer: skalar,
+      explanation: `${a[0]}·${b[0]} + ${a[1]}·${b[1]} + ${a[2]}·${b[2]} = ${skalar}.`,
+    }));
+  }
+  add(mc({
+    prefix: P, topicId: 'ma11-vektoren', grade: 11, difficulty: 3, competency: 'vektoren',
+    prompt: 'Wann sind zwei Vektoren kollinear?',
+    correct: 'Wenn einer ein Vielfaches des anderen ist',
+    wrong: ['Wenn ihr Skalarprodukt 0 ist', 'Wenn sie denselben Betrag haben', 'Wenn beide im Ursprung beginnen'],
+    explanation: 'Kollinear heisst parallel: a = k · b. Ein Skalarprodukt von 0 bedeutet dagegen orthogonal.',
+  }));
+
+  /* -------- Produkt- und Kettenregel (Klasse 12) ----------------- */
+  add(match({
+    prefix: P, topicId: 'ma12-produkt-kettenregel', grade: 12, difficulty: 3, competency: 'ableitung',
+    prompt: 'Ordne jeder Regel ihre Formel zu.',
+    pairs: [
+      { left: 'Produktregel', right: '(u·v)′ = u′v + uv′' },
+      { left: 'Quotientenregel', right: '(u/v)′ = (u′v − uv′) / v²' },
+      { left: 'Kettenregel', right: '(u(v(x)))′ = u′(v(x)) · v′(x)' },
+      { left: 'Faktorregel', right: '(c·u)′ = c·u′' },
+    ],
+    explanation: 'Die Kettenregel heisst umgangssprachlich „äussere mal innere Ableitung".',
+  }));
+  for (let i = 0; i < 4; i += 1) {
+    const a = int(r, 2, 5);
+    const b = int(r, 1, 6);
+    const x0 = int(r, 1, 3);
+    // f(x) = (ax + b)²  →  f'(x) = 2a(ax+b)
+    const wert = 2 * a * (a * x0 + b);
+    add(numeric({
+      prefix: P, topicId: 'ma12-produkt-kettenregel', grade: 12, difficulty: 3, competency: 'ableitung',
+      prompt: `f(x) = (${a}x + ${b})². Berechne f′(${x0}) mit der Kettenregel.`,
+      answer: wert,
+      hint: 'Äussere Ableitung 2u, innere Ableitung ' + a + '.',
+      explanation: `f′(x) = 2·(${a}x + ${b})·${a}. Einsetzen: 2·(${a * x0 + b})·${a} = ${wert}.`,
+    }));
+  }
+  for (let i = 0; i < 3; i += 1) {
+    const a = int(r, 2, 4);
+    const x0 = int(r, 1, 3);
+    // f(x) = x^2 * a x = a x^3 → f'(x) = 3a x^2; als Produktregel-Übung
+    const wert = 3 * a * x0 * x0;
+    add(numeric({
+      prefix: P, topicId: 'ma12-produkt-kettenregel', grade: 12, difficulty: 3, competency: 'ableitung',
+      prompt: `f(x) = x² · ${a}x. Berechne f′(${x0}) mit der Produktregel.`,
+      answer: wert,
+      explanation: `u = x², v = ${a}x: f′(x) = 2x·${a}x + x²·${a} = ${3 * a}x². Einsetzen: ${3 * a}·${x0 * x0} = ${wert}.`,
+    }));
+  }
+
+  /* ------------------ e-Funktion (Klasse 12) --------------------- */
+  add(mc({
+    prefix: P, topicId: 'ma12-e-funktion', grade: 12, difficulty: 2, competency: 'exponential',
+    prompt: 'Was ist die Ableitung von f(x) = eˣ?',
+    correct: 'f′(x) = eˣ', wrong: ['f′(x) = x·eˣ⁻¹', 'f′(x) = e', 'f′(x) = ln(x)'],
+    explanation: 'Die e-Funktion ist die einzige Funktion, die ihre eigene Ableitung ist.',
+  }));
+  for (let i = 0; i < 3; i += 1) {
+    const k = int(r, 2, 5);
+    add(mc({
+      prefix: P, topicId: 'ma12-e-funktion', grade: 12, difficulty: 3, competency: 'exponential',
+      prompt: `Wie lautet die Ableitung von f(x) = e^(${k}x)?`,
+      correct: `f′(x) = ${k}·e^(${k}x)`,
+      wrong: [`f′(x) = e^(${k}x)`, `f′(x) = ${k}x·e^(${k}x)`, `f′(x) = e^(${k}x)/${k}`],
+      explanation: `Kettenregel: äussere Ableitung e^(${k}x), innere Ableitung ${k}.`,
+    }));
+  }
+  for (let i = 0; i < 3; i += 1) {
+    const e = int(r, 1, 5);
+    add(numeric({
+      prefix: P, topicId: 'ma12-e-funktion', grade: 12, difficulty: 2, competency: 'exponential',
+      prompt: `Berechne ln(e^${e}).`,
+      answer: e,
+      explanation: `Der natürliche Logarithmus ist die Umkehrfunktion der e-Funktion: ln(e^${e}) = ${e}.`,
+    }));
+  }
+  add(tf({
+    prefix: P, topicId: 'ma12-e-funktion', grade: 12, difficulty: 2, competency: 'exponential',
+    prompt: 'Die e-Funktion nimmt für kein x den Wert 0 an.',
+    answer: true,
+    explanation: 'eˣ > 0 für alle x — die x-Achse ist waagerechte Asymptote.',
+  }));
+
+  /* ----------------- Integralrechnung (Klasse 12) ---------------- */
+  for (let i = 0; i < 5; i += 1) {
+    const a = int(r, 1, 4);
+    const o = int(r, 2, 4);
+    // ∫₀^o a x² dx = a·o³/3
+    const wert = (a * o ** 3) / 3;
+    add(numeric({
+      prefix: P, topicId: 'ma12-integral', grade: 12, difficulty: 3, competency: 'integral',
+      prompt: `Berechne das bestimmte Integral von ${a}x² in den Grenzen 0 bis ${o}.`,
+      answer: wert, tolerance: 0.01,
+      hint: `Stammfunktion: F(x) = ${a}/3 · x³`,
+      explanation: `F(x) = ${num(a / 3)}x³; F(${o}) − F(0) = ${num(wert)} − 0 = ${num(wert)}.`,
+    }));
+  }
+  add(mc({
+    prefix: P, topicId: 'ma12-integral', grade: 12, difficulty: 2, competency: 'integral',
+    prompt: 'Was besagt der Hauptsatz der Differential- und Integralrechnung?',
+    correct: 'Integrieren und Differenzieren sind Umkehroperationen',
+    wrong: ['Jede Funktion ist integrierbar', 'Das Integral ist immer positiv', 'Die Ableitung einer Konstanten ist 1'],
+    explanation: 'Ist F eine Stammfunktion von f, so gilt ∫ₐᵇ f(x) dx = F(b) − F(a).',
+  }));
+  add(match({
+    prefix: P, topicId: 'ma12-integral', grade: 12, difficulty: 3, competency: 'integral',
+    prompt: 'Ordne jeder Funktion eine Stammfunktion zu.',
+    pairs: [
+      { left: 'f(x) = x²', right: 'F(x) = x³/3' },
+      { left: 'f(x) = 2x', right: 'F(x) = x²' },
+      { left: 'f(x) = eˣ', right: 'F(x) = eˣ' },
+      { left: 'f(x) = 1/x', right: 'F(x) = ln|x|' },
+    ],
+    explanation: 'Die Konstante C lässt man beim Zuordnen weg — sie ändert die Ableitung nicht.',
+  }));
+  add(tf({
+    prefix: P, topicId: 'ma12-integral', grade: 12, difficulty: 3, competency: 'integral',
+    prompt: 'Liegt der Graph unterhalb der x-Achse, ist das bestimmte Integral negativ.',
+    answer: true,
+    explanation: 'Für den Flächeninhalt muss man deshalb die Nullstellen als Teilgrenzen verwenden.',
+  }));
+
+  /* --------------- Geraden und Ebenen (Klasse 12) ---------------- */
+  add(mc({
+    prefix: P, topicId: 'ma12-geraden', grade: 12, difficulty: 2, competency: 'vektoren',
+    prompt: 'Wie lautet die Parameterform einer Geraden?',
+    correct: 'x⃗ = p⃗ + t · u⃗',
+    wrong: ['x⃗ · n⃗ = d', 'x⃗ = p⃗ · t', 'y = mx + b im Raum'],
+    explanation: 'p⃗ ist der Stützvektor, u⃗ der Richtungsvektor, t der Parameter.',
+  }));
+  add(match({
+    prefix: P, topicId: 'ma12-geraden', grade: 12, difficulty: 3, competency: 'vektoren',
+    prompt: 'Ordne die Lagebeziehungen zweier Geraden ihrer Bedingung zu.',
+    pairs: [
+      { left: 'identisch', right: 'Richtungsvektoren parallel, Stützpunkt liegt auf der anderen' },
+      { left: 'echt parallel', right: 'Richtungsvektoren parallel, kein gemeinsamer Punkt' },
+      { left: 'schneidend', right: 'Genau ein gemeinsamer Punkt' },
+      { left: 'windschief', right: 'Weder parallel noch schneidend' },
+    ],
+    explanation: 'Windschiefe Geraden gibt es nur im Raum, nicht in der Ebene.',
+  }));
+  for (let i = 0; i < 3; i += 1) {
+    const n = [int(r, 1, 4), int(r, 1, 4), int(r, 1, 4)];
+    const punkt = [int(r, 1, 4), int(r, 1, 4), int(r, 1, 4)];
+    const d = n[0] * punkt[0] + n[1] * punkt[1] + n[2] * punkt[2];
+    add(numeric({
+      prefix: P, topicId: 'ma12-geraden', grade: 12, difficulty: 3, competency: 'vektoren',
+      prompt: `Eine Ebene hat den Normalenvektor (${n.join(' | ')}) und enthält den Punkt (${punkt.join(' | ')}). Wie lautet d in der Koordinatenform ${n[0]}x + ${n[1]}y + ${n[2]}z = d?`,
+      answer: d,
+      explanation: `Punkt einsetzen: ${n[0]}·${punkt[0]} + ${n[1]}·${punkt[1]} + ${n[2]}·${punkt[2]} = ${d}.`,
+    }));
+  }
+  add(mc({
+    prefix: P, topicId: 'ma12-geraden', grade: 12, difficulty: 3, competency: 'vektoren',
+    prompt: 'Woran erkennt man, dass zwei Vektoren orthogonal sind?',
+    correct: 'Ihr Skalarprodukt ist 0',
+    wrong: ['Ihr Skalarprodukt ist 1', 'Sie haben denselben Betrag', 'Einer ist ein Vielfaches des anderen'],
+    explanation: 'a⃗ · b⃗ = |a⃗|·|b⃗|·cos φ; bei φ = 90° ist cos φ = 0.',
+  }));
+
+  /* -------------- Binomialverteilung (Klasse 12) ----------------- */
+  const fakultaet = (k) => (k <= 1 ? 1 : k * fakultaet(k - 1));
+  const binom = (n, k) => fakultaet(n) / (fakultaet(k) * fakultaet(n - k));
+  for (let i = 0; i < 4; i += 1) {
+    const n = int(r, 4, 8);
+    const nenner = pick(r, [2, 4, 5]);
+    const p = 1 / nenner;
+    const erwartung = n * p;
+    add(numeric({
+      prefix: P, topicId: 'ma12-binomialverteilung', grade: 12, difficulty: 2, competency: 'wahrscheinlichkeit',
+      prompt: `Ein Zufallsversuch mit p = 1/${nenner} wird ${n}-mal wiederholt. Wie gross ist der Erwartungswert?`,
+      answer: erwartung, tolerance: 0.01,
+      hint: 'E(X) = n · p',
+      explanation: `E(X) = ${n} · 1/${nenner} = ${num(erwartung)}.`,
+    }));
+  }
+  for (let i = 0; i < 3; i += 1) {
+    const n = int(r, 3, 6);
+    const k = int(r, 1, n - 1);
+    add(numeric({
+      prefix: P, topicId: 'ma12-binomialverteilung', grade: 12, difficulty: 3, competency: 'wahrscheinlichkeit',
+      prompt: `Wie viele Möglichkeiten gibt es, aus ${n} Versuchen genau ${k} Treffer auszuwählen? (Binomialkoeffizient)`,
+      answer: binom(n, k),
+      explanation: `C(${n}, ${k}) = ${n}! / (${k}! · ${n - k}!) = ${binom(n, k)}.`,
+    }));
+  }
+  add(multi({
+    prefix: P, topicId: 'ma12-binomialverteilung', grade: 12, difficulty: 3, competency: 'wahrscheinlichkeit',
+    prompt: 'Wann liegt eine Bernoulli-Kette vor?',
+    correct: ['Genau zwei mögliche Ausgänge je Versuch', 'Konstante Trefferwahrscheinlichkeit', 'Unabhängige Versuche'],
+    wrong: ['Mindestens drei Ausgänge', 'Ziehen ohne Zurücklegen'],
+    explanation: 'Ziehen ohne Zurücklegen ändert p von Zug zu Zug — dann hilft die hypergeometrische Verteilung.',
+  }));
+
+  /* ------------- Funktionsscharen (Klasse 13) -------------------- */
+  for (let i = 0; i < 4; i += 1) {
+    const k = int(r, 1, 5);
+    // f_k(x) = x² − 2kx hat Extremstelle bei x = k
+    add(numeric({
+      prefix: P, topicId: 'ma13-funktionsscharen', grade: 13, difficulty: 3, competency: 'extrempunkte',
+      prompt: `Die Schar f_k(x) = x² − ${2 * k}x. An welcher Stelle liegt der Tiefpunkt?`,
+      answer: k,
+      hint: 'f′(x) = 2x − ' + 2 * k,
+      explanation: `f′(x) = 2x − ${2 * k} = 0 ergibt x = ${k}. Wegen f″(x) = 2 > 0 ist es ein Tiefpunkt.`,
+    }));
+  }
+  add(mc({
+    prefix: P, topicId: 'ma13-funktionsscharen', grade: 13, difficulty: 3, competency: 'extrempunkte',
+    prompt: 'Was ist eine Ortskurve einer Funktionsschar?',
+    correct: 'Die Kurve, auf der alle Extrempunkte der Schar liegen',
+    wrong: ['Der Graph für k = 1', 'Die gemeinsame Asymptote', 'Die Menge aller Nullstellen'],
+    explanation: 'Man drückt x und y der Extrempunkte durch k aus und eliminiert k.',
+  }));
+  add(order({
+    prefix: P, topicId: 'ma13-funktionsscharen', grade: 13, difficulty: 3, competency: 'extrempunkte',
+    prompt: 'Ordne die Schritte einer Extremwertaufgabe.',
+    items: ['Zielgrösse benennen', 'Nebenbedingung aufstellen', 'Zielfunktion mit einer Variablen bilden', 'Ableiten und null setzen', 'Randwerte prüfen und Ergebnis deuten'],
+    explanation: 'Ohne Nebenbedingung lässt sich die Zielgrösse nicht auf eine Variable bringen.',
+  }));
+
+  /* ------------ Abstände und Winkel (Klasse 13) ------------------ */
+  for (let i = 0; i < 4; i += 1) {
+    const n = [int(r, 1, 3), int(r, 1, 3), int(r, 1, 3)];
+    const punkt = [int(r, 1, 5), int(r, 1, 5), int(r, 1, 5)];
+    const d = int(r, 1, 8);
+    const zaehler = Math.abs(n[0] * punkt[0] + n[1] * punkt[1] + n[2] * punkt[2] - d);
+    const betrag = Math.sqrt(n[0] ** 2 + n[1] ** 2 + n[2] ** 2);
+    add(numeric({
+      prefix: P, topicId: 'ma13-abstaende', grade: 13, difficulty: 3, competency: 'vektoren',
+      prompt: `Berechne den Abstand des Punktes (${punkt.join(' | ')}) von der Ebene ${n[0]}x + ${n[1]}y + ${n[2]}z = ${d}. Zwei Nachkommastellen.`,
+      answer: zaehler / betrag, tolerance: 0.02,
+      hint: 'Hesse-Normalform: |n⃗·x⃗ − d| / |n⃗|',
+      explanation: `Zähler: |${n[0]}·${punkt[0]} + ${n[1]}·${punkt[1]} + ${n[2]}·${punkt[2]} − ${d}| = ${zaehler}; Nenner: |n⃗| ≈ ${num(betrag)}; Abstand ≈ ${num(zaehler / betrag)}.`,
+    }));
+  }
+  add(mc({
+    prefix: P, topicId: 'ma13-abstaende', grade: 13, difficulty: 3, competency: 'vektoren',
+    prompt: 'Wozu dient das Kreuzprodukt zweier Vektoren?',
+    correct: 'Es liefert einen Vektor, der auf beiden senkrecht steht',
+    wrong: ['Es liefert den Winkel zwischen ihnen', 'Es liefert ihren Abstand', 'Es liefert ihre Summe'],
+    explanation: 'Deshalb gewinnt man daraus den Normalenvektor einer Ebene.',
+  }));
+  add(tf({
+    prefix: P, topicId: 'ma13-abstaende', grade: 13, difficulty: 3, competency: 'vektoren',
+    prompt: 'Der Schnittwinkel zweier Ebenen lässt sich über ihre Normalenvektoren bestimmen.',
+    answer: true,
+    explanation: 'cos φ = |n⃗₁ · n⃗₂| / (|n⃗₁|·|n⃗₂|).',
+  }));
+
+  /* ----------- Normalverteilung und Test (Klasse 13) ------------- */
+  add(match({
+    prefix: P, topicId: 'ma13-hypothesentest', grade: 13, difficulty: 3, competency: 'wahrscheinlichkeit',
+    prompt: 'Ordne die Sigma-Regeln ihren Wahrscheinlichkeiten zu.',
+    pairs: [
+      { left: '1σ-Umgebung', right: 'rund 68 %' },
+      { left: '2σ-Umgebung', right: 'rund 95,4 %' },
+      { left: '3σ-Umgebung', right: 'rund 99,7 %' },
+      { left: '1,96σ-Umgebung', right: 'genau 95 %' },
+    ],
+    explanation: 'Die Sigma-Regeln gelten für hinreichend grosse n auch näherungsweise für die Binomialverteilung.',
+  }));
+  add(mc({
+    prefix: P, topicId: 'ma13-hypothesentest', grade: 13, difficulty: 3, competency: 'wahrscheinlichkeit',
+    prompt: 'Was ist ein Fehler 1. Art?',
+    correct: 'Die Nullhypothese wird abgelehnt, obwohl sie zutrifft',
+    wrong: ['Die Nullhypothese wird beibehalten, obwohl sie falsch ist', 'Die Stichprobe ist zu klein', 'Der Erwartungswert wurde falsch berechnet'],
+    explanation: 'Das Signifikanzniveau begrenzt genau diesen Fehler.',
+  }));
+  for (let i = 0; i < 3; i += 1) {
+    const n = pick(r, [100, 200, 400]);
+    const p = pick(r, [0.5, 0.25, 0.2]);
+    const sigma = Math.sqrt(n * p * (1 - p));
+    add(numeric({
+      prefix: P, topicId: 'ma13-hypothesentest', grade: 13, difficulty: 3, competency: 'wahrscheinlichkeit',
+      prompt: `Eine Binomialverteilung hat n = ${n} und p = ${num(p)}. Berechne die Standardabweichung σ auf zwei Nachkommastellen.`,
+      answer: sigma, tolerance: 0.02,
+      hint: 'σ = √(n·p·(1−p))',
+      explanation: `σ = √(${n} · ${num(p)} · ${num(1 - p)}) = √${num(n * p * (1 - p))} ≈ ${num(sigma)}.`,
+    }));
+  }
+  add(order({
+    prefix: P, topicId: 'ma13-hypothesentest', grade: 13, difficulty: 3, competency: 'wahrscheinlichkeit',
+    prompt: 'Ordne die Schritte eines einseitigen Hypothesentests.',
+    items: ['Nullhypothese formulieren', 'Signifikanzniveau festlegen', 'Prüfgrösse und Verteilung bestimmen', 'Ablehnungsbereich berechnen', 'Stichprobenergebnis einordnen und entscheiden'],
+    explanation: 'Der Ablehnungsbereich steht fest, bevor man das Ergebnis kennt — sonst ist der Test wertlos.',
   }));
 
   return out;

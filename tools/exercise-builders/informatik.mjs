@@ -479,5 +479,174 @@ export default function build() {
     explanation: 'Ohne return liefert die Funktion keinen Wert — je nach Sprache heißt das null, None oder undefined.',
   }));
 
+
+  /* ================================================================== *
+   * Oberstufe — Datenstrukturen, Automaten, Projekte, Gesellschaft
+   * ================================================================== */
+
+  add(match({
+    prefix: P, topicId: 'if11-datenstrukturen', grade: 11, difficulty: 3, competency: 'liste',
+    prompt: 'Ordne die Datenstrukturen ihrem Zugriffsprinzip zu.',
+    pairs: [
+      { left: 'Stapel (Stack)', right: 'LIFO — zuletzt hinein, zuerst hinaus' },
+      { left: 'Schlange (Queue)', right: 'FIFO — zuerst hinein, zuerst hinaus' },
+      { left: 'Liste', right: 'Zugriff an beliebiger Position' },
+      { left: 'Feld (Array)', right: 'Direkter Zugriff über einen Index' },
+    ],
+    explanation: 'Die Zugriffsart entscheidet, welche Struktur zum Problem passt.',
+  }));
+  add(mc({
+    prefix: P, topicId: 'if11-datenstrukturen', grade: 11, difficulty: 3, competency: 'liste',
+    prompt: 'Welche Datenstruktur eignet sich, um die Rücktaste eines Editors umzusetzen?',
+    correct: 'Ein Stapel', wrong: ['Eine Schlange', 'Ein Feld fester Länge', 'Eine Datenbank'],
+    explanation: 'Die zuletzt gemachte Änderung wird zuerst rückgängig gemacht — genau LIFO.',
+  }));
+  add(mc({
+    prefix: P, topicId: 'if11-datenstrukturen', grade: 11, difficulty: 3, competency: 'liste',
+    prompt: 'Welche Datenstruktur beschreibt eine Druckerwarteschlange?',
+    correct: 'Eine Schlange', wrong: ['Ein Stapel', 'Ein Baum', 'Eine Menge'],
+    explanation: 'Wer zuerst druckt, wird zuerst bedient — FIFO.',
+  }));
+  add(order({
+    prefix: P, topicId: 'if11-datenstrukturen', grade: 11, difficulty: 3, competency: 'liste',
+    prompt: 'Ein Stapel ist leer. Ausgeführt werden: push(A), push(B), pop(), push(C). Was liegt danach von unten nach oben im Stapel?',
+    items: ['A', 'C'],
+    explanation: 'push(A), push(B) legt A unten und B oben; pop() entfernt B; push(C) legt C oben auf A.',
+  }));
+  add(multi({
+    prefix: P, topicId: 'if11-datenstrukturen', grade: 11, difficulty: 3, competency: 'liste',
+    prompt: 'Welche Operationen bietet ein Stapel?',
+    correct: ['push', 'pop', 'top / peek', 'isEmpty'],
+    wrong: ['sort', 'insertAt'],
+    explanation: 'Ein Stapel ist bewusst eingeschränkt — das macht ihn leicht überprüfbar.',
+  }));
+
+  add(mc({
+    prefix: P, topicId: 'if12-automaten', grade: 12, difficulty: 3, competency: 'logik',
+    prompt: 'Woraus besteht ein endlicher Automat?',
+    correct: 'Aus Zuständen, einem Eingabealphabet, Übergängen, Start- und Endzuständen',
+    wrong: ['Aus Variablen und Schleifen', 'Aus Tabellen und Abfragen', 'Aus Klassen und Objekten'],
+    explanation: 'Der Automat verarbeitet Eingaben Zeichen für Zeichen und wechselt dabei den Zustand.',
+  }));
+  add(match({
+    prefix: P, topicId: 'if12-automaten', grade: 12, difficulty: 3, competency: 'logik',
+    prompt: 'Ordne die Begriffe der formalen Sprachen zu.',
+    pairs: [
+      { left: 'Alphabet', right: 'Menge der erlaubten Zeichen' },
+      { left: 'Wort', right: 'Endliche Folge von Zeichen' },
+      { left: 'Sprache', right: 'Menge von Wörtern' },
+      { left: 'Grammatik', right: 'Regelsystem zur Erzeugung von Wörtern' },
+    ],
+    explanation: 'Automaten erkennen Sprachen, Grammatiken erzeugen sie.',
+  }));
+  add(tf({
+    prefix: P, topicId: 'if12-automaten', grade: 12, difficulty: 3, competency: 'logik',
+    prompt: 'Ein endlicher Automat kann beliebig viele Zeichen zählen.',
+    answer: false,
+    explanation: 'Er hat nur endlich viele Zustände — Sprachen wie aⁿbⁿ erkennt er deshalb nicht.',
+  }));
+  add(multi({
+    prefix: P, topicId: 'if12-automaten', grade: 12, difficulty: 3, competency: 'logik',
+    prompt: 'Wo werden endliche Automaten in der Praxis eingesetzt?',
+    correct: ['Lexikalische Analyse in Compilern', 'Reguläre Ausdrücke', 'Ampel- und Aufzugsteuerungen', 'Protokollzustände im Netzwerk'],
+    wrong: ['Sortieren grosser Datenmengen', 'Verschlüsselung mit RSA'],
+    explanation: 'Überall dort, wo ein System endlich viele klar unterscheidbare Zustände hat.',
+  }));
+
+  add(match({
+    prefix: P, topicId: 'if12-baeume', grade: 12, difficulty: 3, competency: 'liste',
+    prompt: 'Ordne die Begriffe der Baumstruktur zu.',
+    pairs: [
+      { left: 'Wurzel', right: 'Der Knoten ohne Vorgänger' },
+      { left: 'Blatt', right: 'Knoten ohne Nachfolger' },
+      { left: 'Tiefe', right: 'Abstand eines Knotens zur Wurzel' },
+      { left: 'Grad', right: 'Zahl der Kinder eines Knotens' },
+    ],
+    explanation: 'Ein Baum ist ein zusammenhängender Graph ohne Zyklen.',
+  }));
+  add(numeric({
+    prefix: P, topicId: 'if12-baeume', grade: 12, difficulty: 3, competency: 'liste',
+    prompt: 'Wie viele Knoten hat ein vollständiger Binärbaum der Höhe 3 (Wurzel hat Höhe 0)?',
+    answer: 15,
+    hint: '2⁰ + 2¹ + 2² + 2³',
+    explanation: '1 + 2 + 4 + 8 = 15 Knoten.',
+  }));
+  add(order({
+    prefix: P, topicId: 'if12-baeume', grade: 12, difficulty: 3, competency: 'algorithmus',
+    prompt: 'Ordne die Schritte der Tiefensuche (Preorder) in einem Baum.',
+    items: ['Knoten besuchen', 'Linken Teilbaum rekursiv durchlaufen', 'Rechten Teilbaum rekursiv durchlaufen'],
+    explanation: 'Preorder besucht die Wurzel zuerst, Inorder in der Mitte, Postorder zuletzt.',
+  }));
+  add(mc({
+    prefix: P, topicId: 'if12-baeume', grade: 12, difficulty: 3, competency: 'algorithmus',
+    prompt: 'Welche Suchzeit hat ein ausgeglichener binärer Suchbaum mit n Elementen?',
+    correct: 'O(log n)', wrong: ['O(n)', 'O(n²)', 'O(1)'],
+    explanation: 'Jeder Vergleich halbiert den Suchraum — entartet der Baum zur Liste, wird es O(n).',
+  }));
+
+  add(order({
+    prefix: P, topicId: 'if13-projekt', grade: 13, difficulty: 3, competency: 'programm',
+    prompt: 'Ordne die Phasen eines Softwareprojekts.',
+    items: ['Anforderungen erheben', 'Entwurf und Modellierung', 'Implementierung', 'Test', 'Auslieferung und Wartung'],
+    explanation: 'Fehler in den Anforderungen sind am teuersten — sie ziehen sich durch alle Phasen.',
+  }));
+  add(match({
+    prefix: P, topicId: 'if13-projekt', grade: 13, difficulty: 3, competency: 'oop',
+    prompt: 'Ordne die UML-Diagramme ihrem Zweck zu.',
+    pairs: [
+      { left: 'Klassendiagramm', right: 'Struktur der Klassen und Beziehungen' },
+      { left: 'Sequenzdiagramm', right: 'Zeitlicher Ablauf von Nachrichten' },
+      { left: 'Anwendungsfalldiagramm', right: 'Was Nutzer mit dem System tun können' },
+      { left: 'Zustandsdiagramm', right: 'Zustände eines Objekts und ihre Übergänge' },
+    ],
+    explanation: 'UML trennt Struktur- von Verhaltensdiagrammen.',
+  }));
+  add(multi({
+    prefix: P, topicId: 'if13-projekt', grade: 13, difficulty: 3, competency: 'programm',
+    prompt: 'Was gehört zu guter Softwarequalität?',
+    correct: ['Lesbarer Code', 'Automatisierte Tests', 'Dokumentation', 'Versionsverwaltung'],
+    wrong: ['Möglichst viele Codezeilen', 'Verzicht auf Kommentare'],
+    explanation: 'Software wird öfter gelesen als geschrieben — Lesbarkeit ist keine Kür.',
+  }));
+  add(mc({
+    prefix: P, topicId: 'if13-projekt', grade: 13, difficulty: 3, competency: 'oop',
+    prompt: 'Was bedeutet Kapselung in der objektorientierten Programmierung?',
+    correct: 'Daten und Methoden liegen zusammen, der Zugriff läuft über definierte Schnittstellen',
+    wrong: ['Klassen werden in Dateien gespeichert', 'Objekte werden kopiert', 'Methoden werden verkürzt'],
+    explanation: 'Dadurch lässt sich die innere Umsetzung ändern, ohne den übrigen Code zu brechen.',
+  }));
+
+  add(multi({
+    prefix: P, topicId: 'if13-gesellschaft', grade: 13, difficulty: 3, competency: 'datenschutz',
+    prompt: 'Welche Grundsätze nennt die Datenschutz-Grundverordnung?',
+    correct: ['Zweckbindung', 'Datenminimierung', 'Transparenz', 'Speicherbegrenzung'],
+    wrong: ['Maximale Datensammlung', 'Weitergabe ohne Einwilligung'],
+    explanation: 'Verarbeitet werden darf nur, was für den angegebenen Zweck nötig ist.',
+  }));
+  add(mc({
+    prefix: P, topicId: 'if13-gesellschaft', grade: 13, difficulty: 3, competency: 'datenschutz',
+    prompt: 'Was versteht man unter algorithmischer Verzerrung („bias")?',
+    correct: 'Ein System übernimmt und verstärkt Ungleichheiten aus den Trainingsdaten',
+    wrong: ['Ein Programmierfehler im Code', 'Eine langsame Berechnung', 'Ein Fehler in der Hardware'],
+    explanation: 'Das System ist nicht neutraler als die Daten, aus denen es gelernt hat.',
+  }));
+  add(match({
+    prefix: P, topicId: 'if13-gesellschaft', grade: 13, difficulty: 3, competency: 'datenschutz',
+    prompt: 'Ordne die Begriffe der digitalen Gesellschaft zu.',
+    pairs: [
+      { left: 'Digitale Spaltung', right: 'Ungleicher Zugang zu Technik und Kompetenz' },
+      { left: 'Urheberrecht', right: 'Schutz geistiger Werke' },
+      { left: 'Freie Software', right: 'Nutzen, verstehen, verändern und weitergeben erlaubt' },
+      { left: 'Barrierefreiheit', right: 'Nutzbarkeit unabhängig von Einschränkungen' },
+    ],
+    explanation: 'Technische Entscheidungen sind immer auch gesellschaftliche.',
+  }));
+  add(tf({
+    prefix: P, topicId: 'if13-gesellschaft', grade: 13, difficulty: 2, competency: 'datenschutz',
+    prompt: 'Anonymisierte Daten fallen nicht mehr unter die DSGVO.',
+    answer: true,
+    explanation: 'Sobald kein Personenbezug mehr herstellbar ist, greift der Schutz nicht mehr — bei Pseudonymisierung dagegen schon.',
+  }));
+
   return out;
 }

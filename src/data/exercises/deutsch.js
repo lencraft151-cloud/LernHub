@@ -2,7 +2,7 @@
  * AUTOMATISCH GENERIERT — nicht von Hand bearbeiten.
  * Neu erzeugen mit: node tools/build-exercises.mjs
  *
- * Übungspool deutsch: 127 Aufgaben.
+ * Übungspool deutsch: 203 Aufgaben.
  */
 
 export default {
@@ -3493,6 +3493,2030 @@ export default {
     }
    ],
    "explanation": "Der Vergleich nutzt „wie\" oder „als\", die Metapher setzt das Bild direkt, die Personifikation vermenschlicht."
+  },
+  {
+   "id": "de-128",
+   "topicId": "de3-erzaehlen",
+   "grade": 3,
+   "difficulty": 2,
+   "competency": "erzaehlen",
+   "type": "order",
+   "prompt": "Bringe die Teile einer Erzählung in die richtige Reihenfolge.",
+   "items": [
+    "Einleitung: Wer, wo, wann?",
+    "Hauptteil: Was passiert?",
+    "Höhepunkt: Der spannendste Moment",
+    "Schluss: Wie geht es aus?"
+   ],
+   "explanation": "Eine Erzählung steigert die Spannung bis zum Höhepunkt und kommt danach schnell zum Schluss."
+  },
+  {
+   "id": "de-129",
+   "topicId": "de3-erzaehlen",
+   "grade": 3,
+   "difficulty": 2,
+   "competency": "erzaehlen",
+   "type": "mc",
+   "prompt": "In welcher Zeitform erzählt man eine Geschichte normalerweise?",
+   "options": [
+    {
+     "id": "a",
+     "text": "Konjunktiv"
+    },
+    {
+     "id": "b",
+     "text": "Präteritum"
+    },
+    {
+     "id": "c",
+     "text": "Perfekt"
+    },
+    {
+     "id": "d",
+     "text": "Futur I"
+    }
+   ],
+   "answer": "b",
+   "explanation": "Erzählungen stehen im Präteritum: „Er ging\", „sie rief\"."
+  },
+  {
+   "id": "de-130",
+   "topicId": "de3-erzaehlen",
+   "grade": 3,
+   "difficulty": 3,
+   "competency": "erzaehlen",
+   "type": "multi",
+   "prompt": "Welche Mittel machen eine Erzählung spannend?",
+   "options": [
+    {
+     "id": "a",
+     "text": "Immer denselben Satzanfang"
+    },
+    {
+     "id": "b",
+     "text": "Möglichst viele Zahlen"
+    },
+    {
+     "id": "c",
+     "text": "Wörtliche Rede"
+    },
+    {
+     "id": "d",
+     "text": "Treffende Verben"
+    },
+    {
+     "id": "e",
+     "text": "Gefühle der Figuren beschreiben"
+    }
+   ],
+   "answer": [
+    "c",
+    "d",
+    "e"
+   ],
+   "explanation": "Abwechslung im Satzbau, starke Verben und wörtliche Rede halten die Spannung."
+  },
+  {
+   "id": "de-131",
+   "topicId": "de3-erzaehlen",
+   "grade": 3,
+   "difficulty": 2,
+   "competency": "erzaehlen",
+   "type": "mark",
+   "prompt": "Markiere die Verben, die die Erzählung lebendig machen.",
+   "words": [
+    "Lena",
+    "stürmte",
+    "durch",
+    "die",
+    "Tür",
+    "und",
+    "rief",
+    "aufgeregt",
+    "nach",
+    "ihrer",
+    "Mutter."
+   ],
+   "answer": [
+    1,
+    6
+   ],
+   "explanation": "„Stürmte\" und „rief\" sind treffender als „ging\" und „sagte\"."
+  },
+  {
+   "id": "de-132",
+   "topicId": "de3-erzaehlen",
+   "grade": 3,
+   "difficulty": 2,
+   "competency": "erzaehlen",
+   "type": "sentence",
+   "prompt": "Baue einen Einleitungssatz.",
+   "words": [
+    "An",
+    "einem",
+    "kalten",
+    "Wintermorgen",
+    "ging",
+    "Tim",
+    "zum",
+    "See"
+   ],
+   "accept": [],
+   "explanation": "Die Einleitung nennt Zeit, Ort und Person."
+  },
+  {
+   "id": "de-133",
+   "topicId": "de4-perfekt-futur",
+   "grade": 4,
+   "difficulty": 2,
+   "competency": "zeitformen",
+   "type": "cloze",
+   "prompt": "Setze „laufen\" ins Perfekt: Er ___ .",
+   "segments": [
+    "Er ",
+    {
+     "blank": "a",
+     "accept": [
+      "ist gelaufen"
+     ]
+    },
+    "."
+   ],
+   "explanation": "Das Perfekt von „laufen\" lautet „ist gelaufen\"."
+  },
+  {
+   "id": "de-134",
+   "topicId": "de4-perfekt-futur",
+   "grade": 4,
+   "difficulty": 2,
+   "competency": "zeitformen",
+   "type": "cloze",
+   "prompt": "Setze „essen\" ins Perfekt: Er ___ .",
+   "segments": [
+    "Er ",
+    {
+     "blank": "a",
+     "accept": [
+      "hat gegessen"
+     ]
+    },
+    "."
+   ],
+   "explanation": "Das Perfekt von „essen\" lautet „hat gegessen\"."
+  },
+  {
+   "id": "de-135",
+   "topicId": "de4-perfekt-futur",
+   "grade": 4,
+   "difficulty": 2,
+   "competency": "zeitformen",
+   "type": "cloze",
+   "prompt": "Setze „fahren\" ins Perfekt: Er ___ .",
+   "segments": [
+    "Er ",
+    {
+     "blank": "a",
+     "accept": [
+      "ist gefahren"
+     ]
+    },
+    "."
+   ],
+   "explanation": "Das Perfekt von „fahren\" lautet „ist gefahren\"."
+  },
+  {
+   "id": "de-136",
+   "topicId": "de4-perfekt-futur",
+   "grade": 4,
+   "difficulty": 2,
+   "competency": "zeitformen",
+   "type": "cloze",
+   "prompt": "Setze „schreiben\" ins Perfekt: Er ___ .",
+   "segments": [
+    "Er ",
+    {
+     "blank": "a",
+     "accept": [
+      "hat geschrieben"
+     ]
+    },
+    "."
+   ],
+   "explanation": "Das Perfekt von „schreiben\" lautet „hat geschrieben\"."
+  },
+  {
+   "id": "de-137",
+   "topicId": "de4-perfekt-futur",
+   "grade": 4,
+   "difficulty": 3,
+   "competency": "zeitformen",
+   "type": "category",
+   "prompt": "Bildet das Verb sein Perfekt mit „haben\" oder mit „sein\"?",
+   "categories": [
+    "mit haben",
+    "mit sein"
+   ],
+   "items": [
+    {
+     "text": "lesen",
+     "category": "mit haben"
+    },
+    {
+     "text": "kochen",
+     "category": "mit haben"
+    },
+    {
+     "text": "malen",
+     "category": "mit haben"
+    },
+    {
+     "text": "gehen",
+     "category": "mit sein"
+    },
+    {
+     "text": "fallen",
+     "category": "mit sein"
+    },
+    {
+     "text": "bleiben",
+     "category": "mit sein"
+    }
+   ],
+   "explanation": "Verben der Bewegung und der Zustandsänderung bilden das Perfekt mit „sein\"."
+  },
+  {
+   "id": "de-138",
+   "topicId": "de4-perfekt-futur",
+   "grade": 4,
+   "difficulty": 2,
+   "competency": "zeitformen",
+   "type": "mc",
+   "prompt": "Wie bildet man das Futur I?",
+   "options": [
+    {
+     "id": "a",
+     "text": "„haben\" + Partizip II"
+    },
+    {
+     "id": "b",
+     "text": "„werden\" + Grundform"
+    },
+    {
+     "id": "c",
+     "text": "„sein\" + Partizip II"
+    },
+    {
+     "id": "d",
+     "text": "„werden\" + Partizip II"
+    }
+   ],
+   "answer": "b",
+   "explanation": "Futur I: „Ich werde lernen.\" Das Vollverb bleibt in der Grundform."
+  },
+  {
+   "id": "de-139",
+   "topicId": "de4-perfekt-futur",
+   "grade": 4,
+   "difficulty": 2,
+   "competency": "zeitformen",
+   "type": "sentence",
+   "prompt": "Baue einen Satz im Futur I.",
+   "words": [
+    "Morgen",
+    "werde",
+    "ich",
+    "meine",
+    "Hausaufgaben",
+    "machen"
+   ],
+   "accept": [],
+   "explanation": "Futur I besteht aus einer Form von „werden\" und der Grundform des Verbs."
+  },
+  {
+   "id": "de-140",
+   "topicId": "de5-rechtschreibung",
+   "grade": 5,
+   "difficulty": 2,
+   "competency": "strategien",
+   "type": "cloze",
+   "prompt": "Welches verwandte Wort erklärt das ä in „Bäume\"?",
+   "segments": [
+    "",
+    {
+     "blank": "a",
+     "accept": [
+      "Baum",
+      "baum"
+     ]
+    },
+    ""
+   ],
+   "explanation": "„Bäume\" kommt von „Baum\" — deshalb ä und nicht e."
+  },
+  {
+   "id": "de-141",
+   "topicId": "de5-rechtschreibung",
+   "grade": 5,
+   "difficulty": 2,
+   "competency": "strategien",
+   "type": "cloze",
+   "prompt": "Welches verwandte Wort erklärt das ä in „läuft\"?",
+   "segments": [
+    "",
+    {
+     "blank": "a",
+     "accept": [
+      "laufen",
+      "laufen"
+     ]
+    },
+    ""
+   ],
+   "explanation": "„läuft\" kommt von „laufen\" — deshalb ä und nicht e."
+  },
+  {
+   "id": "de-142",
+   "topicId": "de5-rechtschreibung",
+   "grade": 5,
+   "difficulty": 2,
+   "competency": "strategien",
+   "type": "cloze",
+   "prompt": "Welches verwandte Wort erklärt das ä in „Häuser\"?",
+   "segments": [
+    "",
+    {
+     "blank": "a",
+     "accept": [
+      "Haus",
+      "haus"
+     ]
+    },
+    ""
+   ],
+   "explanation": "„Häuser\" kommt von „Haus\" — deshalb ä und nicht e."
+  },
+  {
+   "id": "de-143",
+   "topicId": "de5-rechtschreibung",
+   "grade": 5,
+   "difficulty": 2,
+   "competency": "strategien",
+   "type": "cloze",
+   "prompt": "Welches verwandte Wort erklärt das ä in „Wälder\"?",
+   "segments": [
+    "",
+    {
+     "blank": "a",
+     "accept": [
+      "Wald",
+      "wald"
+     ]
+    },
+    ""
+   ],
+   "explanation": "„Wälder\" kommt von „Wald\" — deshalb ä und nicht e."
+  },
+  {
+   "id": "de-144",
+   "topicId": "de5-rechtschreibung",
+   "grade": 5,
+   "difficulty": 2,
+   "competency": "strategien",
+   "type": "mc",
+   "prompt": "Welche Strategie hilft bei „Hunde\" oder „Hunte\"?",
+   "options": [
+    {
+     "id": "a",
+     "text": "Silben klatschen"
+    },
+    {
+     "id": "b",
+     "text": "Verlängern: „die Hunde\" zeigt das d"
+    },
+    {
+     "id": "c",
+     "text": "Auswendig lernen"
+    },
+    {
+     "id": "d",
+     "text": "Groß schreiben"
+    }
+   ],
+   "answer": "b",
+   "explanation": "Beim Verlängern wird der Auslaut hörbar: Hund → Hunde."
+  },
+  {
+   "id": "de-145",
+   "topicId": "de5-rechtschreibung",
+   "grade": 5,
+   "difficulty": 3,
+   "competency": "strategien",
+   "type": "category",
+   "prompt": "Welche Strategie passt zu welchem Wort?",
+   "categories": [
+    "Verlängern",
+    "Ableiten",
+    "Nachschlagen"
+   ],
+   "items": [
+    {
+     "text": "Kind → Kinder",
+     "category": "Verlängern"
+    },
+    {
+     "text": "Berg → Berge",
+     "category": "Verlängern"
+    },
+    {
+     "text": "Bäcker → backen",
+     "category": "Ableiten"
+    },
+    {
+     "text": "kälter → kalt",
+     "category": "Ableiten"
+    },
+    {
+     "text": "Rhythmus",
+     "category": "Nachschlagen"
+    },
+    {
+     "text": "Kaffee",
+     "category": "Nachschlagen"
+    }
+   ],
+   "explanation": "Verlängern klärt Auslaute, Ableiten klärt ä und äu, der Rest steht im Wörterbuch."
+  },
+  {
+   "id": "de-146",
+   "topicId": "de5-rechtschreibung",
+   "grade": 5,
+   "difficulty": 3,
+   "competency": "strategien",
+   "type": "mark",
+   "prompt": "Markiere die falsch geschriebenen Wörter.",
+   "words": [
+    "Der",
+    "Hunt",
+    "bellte",
+    "laut",
+    "und",
+    "der",
+    "Fogel",
+    "flog",
+    "davon."
+   ],
+   "answer": [
+    1,
+    6
+   ],
+   "explanation": "Richtig: „Hund\" (die Hunde) und „Vogel\" (die Vögel)."
+  },
+  {
+   "id": "de-147",
+   "topicId": "de5-erzaehlen",
+   "grade": 5,
+   "difficulty": 3,
+   "competency": "erzaehlen",
+   "type": "order",
+   "prompt": "Ordne die Spannungskurve einer Erlebniserzählung.",
+   "items": [
+    "Einleitung",
+    "Steigende Handlung",
+    "Höhepunkt",
+    "Abfallende Handlung",
+    "Schluss"
+   ],
+   "explanation": "Der Höhepunkt liegt spät; danach folgt nur noch ein kurzer Schluss."
+  },
+  {
+   "id": "de-148",
+   "topicId": "de5-erzaehlen",
+   "grade": 5,
+   "difficulty": 3,
+   "competency": "erzaehlen",
+   "type": "multi",
+   "prompt": "Was gehört in eine gelungene Erlebniserzählung?",
+   "options": [
+    {
+     "id": "a",
+     "text": "Eine Gliederung mit Nummern"
+    },
+    {
+     "id": "b",
+     "text": "Wörtliche Rede"
+    },
+    {
+     "id": "c",
+     "text": "Gedanken und Gefühle"
+    },
+    {
+     "id": "d",
+     "text": "Anschauliche Details"
+    },
+    {
+     "id": "e",
+     "text": "Eine Quellenangabe"
+    }
+   ],
+   "answer": [
+    "b",
+    "c",
+    "d"
+   ],
+   "explanation": "Details, Rede und Innensicht machen das Erlebte nachvollziehbar."
+  },
+  {
+   "id": "de-149",
+   "topicId": "de5-erzaehlen",
+   "grade": 5,
+   "difficulty": 2,
+   "competency": "erzaehlen",
+   "type": "mark",
+   "prompt": "Markiere die Wörter, die Spannung erzeugen.",
+   "words": [
+    "Plötzlich",
+    "knackte",
+    "es",
+    "hinter",
+    "mir",
+    "und",
+    "langsam",
+    "drehte",
+    "ich",
+    "mich",
+    "um."
+   ],
+   "answer": [
+    0,
+    1,
+    6
+   ],
+   "explanation": "Zeitadverbien und treffende Verben steuern das Tempo der Erzählung."
+  },
+  {
+   "id": "de-150",
+   "topicId": "de5-beschreiben",
+   "grade": 5,
+   "difficulty": 2,
+   "competency": "beschreiben",
+   "type": "mc",
+   "prompt": "In welcher Zeitform steht eine Gegenstandsbeschreibung?",
+   "options": [
+    {
+     "id": "a",
+     "text": "Futur I"
+    },
+    {
+     "id": "b",
+     "text": "Perfekt"
+    },
+    {
+     "id": "c",
+     "text": "Präsens"
+    },
+    {
+     "id": "d",
+     "text": "Präteritum"
+    }
+   ],
+   "answer": "c",
+   "explanation": "Beschreibungen stehen im Präsens, weil sie einen Zustand festhalten."
+  },
+  {
+   "id": "de-151",
+   "topicId": "de5-beschreiben",
+   "grade": 5,
+   "difficulty": 2,
+   "competency": "beschreiben",
+   "type": "order",
+   "prompt": "In welcher Reihenfolge beschreibt man einen Gegenstand?",
+   "items": [
+    "Oberbegriff nennen",
+    "Größe und Form",
+    "Farbe und Material",
+    "Besonderheiten",
+    "Verwendungszweck"
+   ],
+   "explanation": "Vom Allgemeinen zum Besonderen — so kann der Leser das Bild aufbauen."
+  },
+  {
+   "id": "de-152",
+   "topicId": "de5-beschreiben",
+   "grade": 5,
+   "difficulty": 3,
+   "competency": "beschreiben",
+   "type": "multi",
+   "prompt": "Was gehört NICHT in eine sachliche Beschreibung?",
+   "options": [
+    {
+     "id": "a",
+     "text": "Genaue Maße"
+    },
+    {
+     "id": "b",
+     "text": "Farbangaben"
+    },
+    {
+     "id": "c",
+     "text": "Spannungsbögen"
+    },
+    {
+     "id": "d",
+     "text": "Eigene Gefühle"
+    },
+    {
+     "id": "e",
+     "text": "Material"
+    }
+   ],
+   "answer": [
+    "c",
+    "d"
+   ],
+   "explanation": "Eine Beschreibung bleibt sachlich; Gefühle und Spannung gehören in die Erzählung."
+  },
+  {
+   "id": "de-153",
+   "topicId": "de5-beschreiben",
+   "grade": 5,
+   "difficulty": 3,
+   "competency": "beschreiben",
+   "type": "category",
+   "prompt": "Sachlich oder wertend?",
+   "categories": [
+    "sachlich",
+    "wertend"
+   ],
+   "items": [
+    {
+     "text": "Das Rad hat 28 Zoll",
+     "category": "sachlich"
+    },
+    {
+     "text": "Der Rahmen ist aus Aluminium",
+     "category": "sachlich"
+    },
+    {
+     "text": "Das Rad ist wunderschön",
+     "category": "wertend"
+    },
+    {
+     "text": "Ein grauenhaftes Design",
+     "category": "wertend"
+    }
+   ],
+   "explanation": "Sachliche Angaben sind überprüfbar, wertende geben eine Meinung wieder."
+  },
+  {
+   "id": "de-154",
+   "topicId": "de6-berichten",
+   "grade": 6,
+   "difficulty": 2,
+   "competency": "bericht",
+   "type": "order",
+   "prompt": "Ordne die W-Fragen eines Berichts.",
+   "items": [
+    "Was ist passiert?",
+    "Wer war beteiligt?",
+    "Wann war es?",
+    "Wo war es?",
+    "Wie kam es dazu?",
+    "Welche Folgen hat es?"
+   ],
+   "explanation": "Ein Bericht beantwortet die W-Fragen in dieser Reihenfolge — das Wichtigste zuerst."
+  },
+  {
+   "id": "de-155",
+   "topicId": "de6-berichten",
+   "grade": 6,
+   "difficulty": 2,
+   "competency": "bericht",
+   "type": "mc",
+   "prompt": "In welcher Zeitform steht ein Bericht?",
+   "options": [
+    {
+     "id": "a",
+     "text": "Futur I"
+    },
+    {
+     "id": "b",
+     "text": "Präsens"
+    },
+    {
+     "id": "c",
+     "text": "Präteritum"
+    },
+    {
+     "id": "d",
+     "text": "Konjunktiv II"
+    }
+   ],
+   "answer": "c",
+   "explanation": "Berichte stehen im Präteritum, weil sie Vergangenes sachlich festhalten."
+  },
+  {
+   "id": "de-156",
+   "topicId": "de6-berichten",
+   "grade": 6,
+   "difficulty": 3,
+   "competency": "bericht",
+   "type": "category",
+   "prompt": "Gehört der Satz in einen Bericht oder in eine Erzählung?",
+   "categories": [
+    "Bericht",
+    "Erzählung"
+   ],
+   "items": [
+    {
+     "text": "Um 7.40 Uhr stiess ein Radfahrer mit einem Auto zusammen",
+     "category": "Bericht"
+    },
+    {
+     "text": "Die Polizei nahm den Unfall auf",
+     "category": "Bericht"
+    },
+    {
+     "text": "Mir stockte der Atem, als es krachte",
+     "category": "Erzählung"
+    },
+    {
+     "text": "Endlos langsam kroch die Zeit dahin",
+     "category": "Erzählung"
+    }
+   ],
+   "explanation": "Der Bericht bleibt sachlich und knapp, die Erzählung darf ausschmücken."
+  },
+  {
+   "id": "de-157",
+   "topicId": "de6-berichten",
+   "grade": 6,
+   "difficulty": 3,
+   "competency": "bericht",
+   "type": "mark",
+   "prompt": "Markiere die Wörter, die in einem sachlichen Bericht nichts zu suchen haben.",
+   "words": [
+    "Der",
+    "furchtbare",
+    "Unfall",
+    "ereignete",
+    "sich",
+    "gegen",
+    "acht",
+    "Uhr",
+    "an",
+    "der",
+    "schrecklichen",
+    "Kreuzung."
+   ],
+   "answer": [
+    1,
+    10
+   ],
+   "explanation": "Wertende Adjektive machen aus dem Bericht einen Kommentar."
+  },
+  {
+   "id": "de-158",
+   "topicId": "de6-jugendbuch",
+   "grade": 6,
+   "difficulty": 2,
+   "competency": "analyse",
+   "type": "mc",
+   "prompt": "Was bezeichnet man in einem Roman als „Perspektive\"?",
+   "options": [
+    {
+     "id": "a",
+     "text": "Wo die Handlung spielt"
+    },
+    {
+     "id": "b",
+     "text": "Wie lang die Kapitel sind"
+    },
+    {
+     "id": "c",
+     "text": "Wann das Buch erschien"
+    },
+    {
+     "id": "d",
+     "text": "Aus wessen Sicht erzählt wird"
+    }
+   ],
+   "answer": "d",
+   "explanation": "Die Erzählperspektive bestimmt, was der Leser erfährt und was nicht."
+  },
+  {
+   "id": "de-159",
+   "topicId": "de6-jugendbuch",
+   "grade": 6,
+   "difficulty": 3,
+   "competency": "analyse",
+   "type": "match",
+   "prompt": "Ordne die Begriffe der Buchbesprechung ihrer Bedeutung zu.",
+   "pairs": [
+    {
+     "left": "Klappentext",
+     "right": "Kurzer Anreisstext auf dem Umschlag"
+    },
+    {
+     "left": "Protagonist",
+     "right": "Hauptfigur der Handlung"
+    },
+    {
+     "left": "Konflikt",
+     "right": "Der Gegensatz, der die Handlung antreibt"
+    },
+    {
+     "left": "Wendepunkt",
+     "right": "Stelle, an der die Handlung kippt"
+    }
+   ],
+   "explanation": "Diese vier Begriffe reichen für eine solide Buchvorstellung."
+  },
+  {
+   "id": "de-160",
+   "topicId": "de6-jugendbuch",
+   "grade": 6,
+   "difficulty": 3,
+   "competency": "analyse",
+   "type": "multi",
+   "prompt": "Was gehört in eine Buchvorstellung?",
+   "options": [
+    {
+     "id": "a",
+     "text": "Titel und Autor"
+    },
+    {
+     "id": "b",
+     "text": "Kurze Inhaltsangabe ohne Ende"
+    },
+    {
+     "id": "c",
+     "text": "Eigene begründete Einschätzung"
+    },
+    {
+     "id": "d",
+     "text": "Das Ende verraten"
+    },
+    {
+     "id": "e",
+     "text": "Die vollständige Handlung nacherzählen"
+    }
+   ],
+   "answer": [
+    "a",
+    "b",
+    "c"
+   ],
+   "explanation": "Eine Buchvorstellung macht neugierig — sie verrät das Ende nicht."
+  },
+  {
+   "id": "de-161",
+   "topicId": "de6-jugendbuch",
+   "grade": 6,
+   "difficulty": 2,
+   "competency": "analyse",
+   "type": "order",
+   "prompt": "Ordne den Aufbau einer Buchvorstellung.",
+   "items": [
+    "Titel, Autor, Verlag",
+    "Worum geht es?",
+    "Wer sind die Figuren?",
+    "Eine Leseprobe",
+    "Meine Einschätzung"
+   ],
+   "explanation": "Erst einordnen, dann neugierig machen, zuletzt bewerten."
+  },
+  {
+   "id": "de-162",
+   "topicId": "de6-lyrik-einstieg",
+   "grade": 6,
+   "difficulty": 2,
+   "competency": "lyrik",
+   "type": "mc",
+   "prompt": "Wie nennt man eine Zeile in einem Gedicht?",
+   "options": [
+    {
+     "id": "a",
+     "text": "Metrum"
+    },
+    {
+     "id": "b",
+     "text": "Vers"
+    },
+    {
+     "id": "c",
+     "text": "Reim"
+    },
+    {
+     "id": "d",
+     "text": "Strophe"
+    }
+   ],
+   "answer": "b",
+   "explanation": "Eine Zeile heisst Vers, mehrere Verse bilden eine Strophe."
+  },
+  {
+   "id": "de-163",
+   "topicId": "de6-lyrik-einstieg",
+   "grade": 6,
+   "difficulty": 3,
+   "competency": "lyrik",
+   "type": "match",
+   "prompt": "Ordne jedem Reimschema sein Muster zu.",
+   "pairs": [
+    {
+     "left": "Paarreim",
+     "right": "aabb"
+    },
+    {
+     "left": "Kreuzreim",
+     "right": "abab"
+    },
+    {
+     "left": "Umarmender Reim",
+     "right": "abba"
+    },
+    {
+     "left": "Waise",
+     "right": "Vers ohne Reimpartner"
+    }
+   ],
+   "explanation": "Das Schema notiert man Vers für Vers mit Buchstaben."
+  },
+  {
+   "id": "de-164",
+   "topicId": "de6-lyrik-einstieg",
+   "grade": 6,
+   "difficulty": 3,
+   "competency": "lyrik",
+   "type": "mark",
+   "prompt": "Markiere die beiden Wörter, die sich reimen.",
+   "words": [
+    "Der",
+    "Mond",
+    "ist",
+    "aufgegangen",
+    "die",
+    "goldnen",
+    "Sternlein",
+    "prangen"
+   ],
+   "answer": [
+    3,
+    7
+   ],
+   "explanation": "Der Reim liegt am Versende — hier ein Paarreim."
+  },
+  {
+   "id": "de-165",
+   "topicId": "de6-lyrik-einstieg",
+   "grade": 6,
+   "difficulty": 2,
+   "competency": "lyrik",
+   "type": "numeric",
+   "prompt": "Ein Gedicht hat vier Strophen zu je vier Versen. Wie viele Verse sind das?",
+   "answer": 16,
+   "tolerance": 0.001,
+   "explanation": "4 Strophen · 4 Verse = 16 Verse."
+  },
+  {
+   "id": "de-166",
+   "topicId": "de7-argumentieren",
+   "grade": 7,
+   "difficulty": 3,
+   "competency": "argumentieren",
+   "type": "match",
+   "prompt": "Ordne die Bausteine eines Arguments zu.",
+   "pairs": [
+    {
+     "left": "These",
+     "right": "Die Behauptung, die vertreten wird"
+    },
+    {
+     "left": "Begründung",
+     "right": "Warum die These gilt"
+    },
+    {
+     "left": "Beispiel",
+     "right": "Ein konkreter Beleg"
+    },
+    {
+     "left": "Schlusssatz",
+     "right": "Rückbindung an die These"
+    }
+   ],
+   "explanation": "These, Begründung, Beispiel, Rückbindung — das ist der Viererschritt."
+  },
+  {
+   "id": "de-167",
+   "topicId": "de7-argumentieren",
+   "grade": 7,
+   "difficulty": 3,
+   "competency": "argumentieren",
+   "type": "order",
+   "prompt": "Bringe ein vollständiges Argument in die richtige Reihenfolge.",
+   "items": [
+    "Handys gehören nicht in den Unterricht.",
+    "Denn sie lenken die Aufmerksamkeit ab.",
+    "In einer Studie sank die Merkleistung um 20 Prozent.",
+    "Deshalb sollte das Handy in der Tasche bleiben."
+   ],
+   "explanation": "These, Begründung, Beleg, Schluss."
+  },
+  {
+   "id": "de-168",
+   "topicId": "de7-argumentieren",
+   "grade": 7,
+   "difficulty": 3,
+   "competency": "argumentieren",
+   "type": "multi",
+   "prompt": "Welche Formulierungen leiten eine Begründung ein?",
+   "options": [
+    {
+     "id": "a",
+     "text": "trotzdem"
+    },
+    {
+     "id": "b",
+     "text": "weil"
+    },
+    {
+     "id": "c",
+     "text": "obwohl"
+    },
+    {
+     "id": "d",
+     "text": "denn"
+    },
+    {
+     "id": "e",
+     "text": "da"
+    }
+   ],
+   "answer": [
+    "b",
+    "d",
+    "e"
+   ],
+   "explanation": "„Obwohl\" und „trotzdem\" leiten einen Gegensatz ein, keine Begründung."
+  },
+  {
+   "id": "de-169",
+   "topicId": "de7-argumentieren",
+   "grade": 7,
+   "difficulty": 3,
+   "competency": "argumentieren",
+   "type": "mark",
+   "prompt": "Markiere die These im Abschnitt.",
+   "words": [
+    "Schulen",
+    "sollten",
+    "später",
+    "beginnen.",
+    "Jugendliche",
+    "brauchen",
+    "mehr",
+    "Schlaf.",
+    "Studien",
+    "belegen",
+    "das."
+   ],
+   "answer": [
+    0,
+    1,
+    2
+   ],
+   "explanation": "Die These steht hier am Anfang; alles Weitere stützt sie."
+  },
+  {
+   "id": "de-170",
+   "topicId": "de8-kurzgeschichte",
+   "grade": 8,
+   "difficulty": 2,
+   "competency": "analyse",
+   "type": "mc",
+   "prompt": "Was ist typisch für den Beginn einer Kurzgeschichte?",
+   "options": [
+    {
+     "id": "a",
+     "text": "Ein unvermittelter Einstieg mitten in die Handlung"
+    },
+    {
+     "id": "b",
+     "text": "Eine Moral am Anfang"
+    },
+    {
+     "id": "c",
+     "text": "Eine Beschreibung aller Figuren"
+    },
+    {
+     "id": "d",
+     "text": "Eine ausführliche Vorgeschichte"
+    }
+   ],
+   "answer": "a",
+   "explanation": "Kurzgeschichten beginnen unvermittelt und enden oft offen."
+  },
+  {
+   "id": "de-171",
+   "topicId": "de8-kurzgeschichte",
+   "grade": 8,
+   "difficulty": 3,
+   "competency": "analyse",
+   "type": "multi",
+   "prompt": "Welche Merkmale hat eine Kurzgeschichte?",
+   "options": [
+    {
+     "id": "a",
+     "text": "Wenige Figuren"
+    },
+    {
+     "id": "b",
+     "text": "Alltäglicher Ausschnitt"
+    },
+    {
+     "id": "c",
+     "text": "Ausführliche Ortsbeschreibungen"
+    },
+    {
+     "id": "d",
+     "text": "Offener Schluss"
+    },
+    {
+     "id": "e",
+     "text": "Keine Vorgeschichte"
+    },
+    {
+     "id": "f",
+     "text": "Ein Personenverzeichnis"
+    }
+   ],
+   "answer": [
+    "a",
+    "b",
+    "d",
+    "e"
+   ],
+   "explanation": "Die Kurzgeschichte zeigt einen Ausschnitt und überlässt die Deutung dem Leser."
+  },
+  {
+   "id": "de-172",
+   "topicId": "de8-kurzgeschichte",
+   "grade": 8,
+   "difficulty": 3,
+   "competency": "analyse",
+   "type": "order",
+   "prompt": "Ordne den Aufbau einer Kurzgeschichtenanalyse.",
+   "items": [
+    "Einleitung mit Titel, Autor, Thema",
+    "Inhaltsangabe in wenigen Sätzen",
+    "Analyse von Aufbau und Sprache",
+    "Deutung",
+    "Schluss mit eigener Einschätzung"
+   ],
+   "explanation": "Erst was dasteht, dann wie es gemacht ist, dann was es bedeutet."
+  },
+  {
+   "id": "de-173",
+   "topicId": "de8-kurzgeschichte",
+   "grade": 8,
+   "difficulty": 3,
+   "competency": "analyse",
+   "type": "match",
+   "prompt": "Ordne die Erzählformen zu.",
+   "pairs": [
+    {
+     "left": "Innerer Monolog",
+     "right": "Gedanken der Figur in der Ich-Form"
+    },
+    {
+     "left": "Erlebte Rede",
+     "right": "Gedanken der Figur in der dritten Person"
+    },
+    {
+     "left": "Auktorialer Erzähler",
+     "right": "Weiss alles, auch die Zukunft"
+    },
+    {
+     "left": "Personaler Erzähler",
+     "right": "Sieht nur, was eine Figur sieht"
+    }
+   ],
+   "explanation": "Die Erzählform steuert, wie nah der Leser an der Figur ist."
+  },
+  {
+   "id": "de-174",
+   "topicId": "de9-sprachwandel",
+   "grade": 9,
+   "difficulty": 3,
+   "competency": "stil",
+   "type": "match",
+   "prompt": "Ordne die Sprachvarietäten ihrer Beschreibung zu.",
+   "pairs": [
+    {
+     "left": "Dialekt",
+     "right": "Regional gebundene Sprachform"
+    },
+    {
+     "left": "Soziolekt",
+     "right": "Sprache einer sozialen Gruppe"
+    },
+    {
+     "left": "Fachsprache",
+     "right": "Sprache eines Sachgebiets"
+    },
+    {
+     "left": "Standardsprache",
+     "right": "Überregional gültige Norm"
+    }
+   ],
+   "explanation": "Varietäten unterscheiden sich nach Raum, Gruppe und Zweck."
+  },
+  {
+   "id": "de-175",
+   "topicId": "de9-sprachwandel",
+   "grade": 9,
+   "difficulty": 3,
+   "competency": "stil",
+   "type": "multi",
+   "prompt": "Welche Ursachen hat Sprachwandel?",
+   "options": [
+    {
+     "id": "a",
+     "text": "Kontakt mit anderen Sprachen"
+    },
+    {
+     "id": "b",
+     "text": "Verbot alter Wörter"
+    },
+    {
+     "id": "c",
+     "text": "Beschluss der Kultusministerkonferenz"
+    },
+    {
+     "id": "d",
+     "text": "Neue Technik braucht neue Wörter"
+    },
+    {
+     "id": "e",
+     "text": "Sprecher vereinfachen Formen"
+    }
+   ],
+   "answer": [
+    "a",
+    "d",
+    "e"
+   ],
+   "explanation": "Sprache verändert sich im Gebrauch, nicht auf Anordnung."
+  },
+  {
+   "id": "de-176",
+   "topicId": "de9-sprachwandel",
+   "grade": 9,
+   "difficulty": 3,
+   "competency": "stil",
+   "type": "category",
+   "prompt": "Ordne die Wörter nach ihrer Herkunft.",
+   "categories": [
+    "Anglizismus",
+    "Aus dem Lateinischen",
+    "Aus dem Französischen"
+   ],
+   "items": [
+    {
+     "text": "downloaden",
+     "category": "Anglizismus"
+    },
+    {
+     "text": "Meeting",
+     "category": "Anglizismus"
+    },
+    {
+     "text": "Fenster",
+     "category": "Aus dem Lateinischen"
+    },
+    {
+     "text": "Straße",
+     "category": "Aus dem Lateinischen"
+    },
+    {
+     "text": "Portemonnaie",
+     "category": "Aus dem Französischen"
+    },
+    {
+     "text": "Trottoir",
+     "category": "Aus dem Französischen"
+    }
+   ],
+   "explanation": "Lehnwörter zeigen, mit wem eine Sprachgemeinschaft Kontakt hatte."
+  },
+  {
+   "id": "de-177",
+   "topicId": "de9-sprachwandel",
+   "grade": 9,
+   "difficulty": 2,
+   "competency": "stil",
+   "type": "truefalse",
+   "prompt": "Jugendsprache ist eine Form von Soziolekt.",
+   "answer": true,
+   "explanation": "Jugendsprache bindet sich an eine soziale Gruppe, nicht an eine Region."
+  },
+  {
+   "id": "de-178",
+   "topicId": "de10-materialgestuetzt",
+   "grade": 10,
+   "difficulty": 3,
+   "competency": "sachtext",
+   "type": "order",
+   "prompt": "Ordne die Schritte des materialgestützten Schreibens.",
+   "items": [
+    "Schreibauftrag genau lesen",
+    "Material sichten und markieren",
+    "Informationen ordnen und gruppieren",
+    "Gliederung anlegen",
+    "Text schreiben und Quellen belegen"
+   ],
+   "explanation": "Ohne geordnetes Material entsteht nur eine Aneinanderreihung."
+  },
+  {
+   "id": "de-179",
+   "topicId": "de10-materialgestuetzt",
+   "grade": 10,
+   "difficulty": 3,
+   "competency": "sachtext",
+   "type": "multi",
+   "prompt": "Wie geht man mit Material korrekt um?",
+   "options": [
+    {
+     "id": "a",
+     "text": "Auf Quellenangaben verzichten"
+    },
+    {
+     "id": "b",
+     "text": "Quellen benennen"
+    },
+    {
+     "id": "c",
+     "text": "Zitate kennzeichnen"
+    },
+    {
+     "id": "d",
+     "text": "Aussagen in eigenen Worten zusammenfassen"
+    },
+    {
+     "id": "e",
+     "text": "Ganze Absätze unverändert übernehmen"
+    }
+   ],
+   "answer": [
+    "b",
+    "c",
+    "d"
+   ],
+   "explanation": "Wer Material nutzt, macht kenntlich, woher die Information stammt."
+  },
+  {
+   "id": "de-180",
+   "topicId": "de10-materialgestuetzt",
+   "grade": 10,
+   "difficulty": 2,
+   "competency": "sachtext",
+   "type": "mc",
+   "prompt": "Was unterscheidet materialgestütztes Schreiben von einer Erörterung?",
+   "options": [
+    {
+     "id": "a",
+     "text": "Es hat keinen Schlussteil"
+    },
+    {
+     "id": "b",
+     "text": "Die Argumente stützen sich auf vorgelegte Quellen"
+    },
+    {
+     "id": "c",
+     "text": "Es steht im Präteritum"
+    },
+    {
+     "id": "d",
+     "text": "Es ist kürzer"
+    }
+   ],
+   "answer": "b",
+   "explanation": "Die Materialbasis ist vorgegeben — die eigene Leistung liegt in Auswahl und Verknüpfung."
+  },
+  {
+   "id": "de-181",
+   "topicId": "de10-lyrik-vergleich",
+   "grade": 10,
+   "difficulty": 3,
+   "competency": "lyrik",
+   "type": "order",
+   "prompt": "Ordne den Aufbau eines Gedichtvergleichs.",
+   "items": [
+    "Einleitung mit beiden Gedichten und Vergleichsaspekt",
+    "Analyse des ersten Gedichts",
+    "Analyse des zweiten Gedichts",
+    "Systematischer Vergleich",
+    "Fazit"
+   ],
+   "explanation": "Der Vergleich darf nicht zwei getrennte Analysen bleiben — der vierte Schritt trägt die Arbeit."
+  },
+  {
+   "id": "de-182",
+   "topicId": "de10-lyrik-vergleich",
+   "grade": 10,
+   "difficulty": 3,
+   "competency": "lyrik",
+   "type": "multi",
+   "prompt": "Welche Aspekte eignen sich für einen Gedichtvergleich?",
+   "options": [
+    {
+     "id": "a",
+     "text": "Bildsprache"
+    },
+    {
+     "id": "b",
+     "text": "Motiv und Thema"
+    },
+    {
+     "id": "c",
+     "text": "Preis der Ausgabe"
+    },
+    {
+     "id": "d",
+     "text": "Anzahl der Druckseiten"
+    },
+    {
+     "id": "e",
+     "text": "Sprecherhaltung"
+    },
+    {
+     "id": "f",
+     "text": "Form und Metrum"
+    }
+   ],
+   "answer": [
+    "a",
+    "b",
+    "e",
+    "f"
+   ],
+   "explanation": "Verglichen wird, was beide Gedichte gestalten — nicht das Buch, in dem sie stehen."
+  },
+  {
+   "id": "de-183",
+   "topicId": "de10-lyrik-vergleich",
+   "grade": 10,
+   "difficulty": 3,
+   "competency": "lyrik",
+   "type": "mc",
+   "prompt": "Was ist ein Vergleichsaspekt?",
+   "options": [
+    {
+     "id": "a",
+     "text": "Der Name des Verlags"
+    },
+    {
+     "id": "b",
+     "text": "Die Frage, unter der beide Texte betrachtet werden"
+    },
+    {
+     "id": "c",
+     "text": "Die Länge der Gedichte"
+    },
+    {
+     "id": "d",
+     "text": "Das Erscheinungsjahr"
+    }
+   ],
+   "answer": "b",
+   "explanation": "Der Aspekt gibt dem Vergleich seine Richtung, etwa „Naturbild\" oder „Sprecherhaltung\"."
+  },
+  {
+   "id": "de-184",
+   "topicId": "de11-rhetorik-analyse",
+   "grade": 11,
+   "difficulty": 3,
+   "competency": "mittel",
+   "type": "match",
+   "prompt": "Ordne die rhetorischen Mittel ihrer Wirkung zu.",
+   "pairs": [
+    {
+     "left": "Anapher",
+     "right": "Wiederholung am Satzanfang — einprägsam"
+    },
+    {
+     "left": "Klimax",
+     "right": "Steigerung — treibt zum Höhepunkt"
+    },
+    {
+     "left": "Rhetorische Frage",
+     "right": "Scheinfrage — bindet das Publikum ein"
+    },
+    {
+     "left": "Trikolon",
+     "right": "Dreierfigur — wirkt geschlossen"
+    }
+   ],
+   "explanation": "In der Redeanalyse wird jedes Mittel mit seiner Wirkung belegt."
+  },
+  {
+   "id": "de-185",
+   "topicId": "de11-rhetorik-analyse",
+   "grade": 11,
+   "difficulty": 3,
+   "competency": "mittel",
+   "type": "multi",
+   "prompt": "Welche Überzeugungsmittel unterschied schon Aristoteles?",
+   "options": [
+    {
+     "id": "a",
+     "text": "Ethos — Glaubwürdigkeit des Redners"
+    },
+    {
+     "id": "b",
+     "text": "Logos — Sachargument"
+    },
+    {
+     "id": "c",
+     "text": "Topos — Ort der Rede"
+    },
+    {
+     "id": "d",
+     "text": "Pathos — Gefühl des Publikums"
+    },
+    {
+     "id": "e",
+     "text": "Chronos — Länge der Rede"
+    }
+   ],
+   "answer": [
+    "a",
+    "b",
+    "d"
+   ],
+   "explanation": "Ethos, Pathos, Logos bilden bis heute das Gerüst der Redeanalyse."
+  },
+  {
+   "id": "de-186",
+   "topicId": "de11-rhetorik-analyse",
+   "grade": 11,
+   "difficulty": 3,
+   "competency": "mittel",
+   "type": "order",
+   "prompt": "Ordne den Aufbau einer Redeanalyse.",
+   "items": [
+    "Einleitung: Redner, Anlass, Adressat",
+    "Inhaltliche Gliederung der Rede",
+    "Analyse der Argumentation",
+    "Analyse der sprachlichen Mittel",
+    "Beurteilung der Wirkung"
+   ],
+   "explanation": "Erst die Situation, dann der Aufbau, dann Argumentation und Sprache."
+  },
+  {
+   "id": "de-187",
+   "topicId": "de11-rhetorik-analyse",
+   "grade": 11,
+   "difficulty": 3,
+   "competency": "mittel",
+   "type": "mark",
+   "prompt": "Markiere die Wörter, die die Anapher bilden.",
+   "words": [
+    "Wir",
+    "fordern",
+    "Gerechtigkeit.",
+    "Wir",
+    "fordern",
+    "Freiheit.",
+    "Wir",
+    "fordern",
+    "Zukunft."
+   ],
+   "answer": [
+    0,
+    3,
+    6
+   ],
+   "explanation": "Die Anapher wiederholt den Satzanfang und verleiht der Forderung Nachdruck."
+  },
+  {
+   "id": "de-188",
+   "topicId": "de11-spracherwerb",
+   "grade": 11,
+   "difficulty": 3,
+   "competency": "analyse",
+   "type": "match",
+   "prompt": "Ordne die Spracherwerbstheorien ihren Vertretern zu.",
+   "pairs": [
+    {
+     "left": "Nativismus",
+     "right": "Chomsky: angeborene Universalgrammatik"
+    },
+    {
+     "left": "Behaviorismus",
+     "right": "Skinner: Nachahmung und Verstärkung"
+    },
+    {
+     "left": "Kognitivismus",
+     "right": "Piaget: Sprache folgt der Denkentwicklung"
+    },
+    {
+     "left": "Interaktionismus",
+     "right": "Bruner: Sprache entsteht im Dialog"
+    }
+   ],
+   "explanation": "Die vier Positionen unterscheiden sich darin, wie viel angeboren und wie viel gelernt ist."
+  },
+  {
+   "id": "de-189",
+   "topicId": "de11-spracherwerb",
+   "grade": 11,
+   "difficulty": 3,
+   "competency": "analyse",
+   "type": "order",
+   "prompt": "Ordne die Phasen des kindlichen Spracherwerbs.",
+   "items": [
+    "Schreien und Gurren",
+    "Lallphase",
+    "Einwortphase",
+    "Zweiwortphase",
+    "Mehrwortsätze"
+   ],
+   "explanation": "Der Erwerb verläuft bei allen Kindern in derselben Reihenfolge, aber verschieden schnell."
+  },
+  {
+   "id": "de-190",
+   "topicId": "de11-spracherwerb",
+   "grade": 11,
+   "difficulty": 3,
+   "competency": "analyse",
+   "type": "truefalse",
+   "prompt": "Übergeneralisierungen wie „gegeht\" sprechen für eine Regelbildung des Kindes.",
+   "answer": true,
+   "explanation": "Das Kind kann die Form nicht gehört haben — es bildet also selbst Regeln."
+  },
+  {
+   "id": "de-191",
+   "topicId": "de12-faust",
+   "grade": 12,
+   "difficulty": 3,
+   "competency": "drama",
+   "type": "mc",
+   "prompt": "Welche Wette schliessen Faust und Mephisto?",
+   "options": [
+    {
+     "id": "a",
+     "text": "Faust verliert, wenn er Gretchen heiratet"
+    },
+    {
+     "id": "b",
+     "text": "Faust gewinnt, wenn er Professor wird"
+    },
+    {
+     "id": "c",
+     "text": "Faust verliert seine Seele, wenn er einen Augenblick festhalten will"
+    },
+    {
+     "id": "d",
+     "text": "Faust gewinnt, wenn er reich wird"
+    }
+   ],
+   "answer": "c",
+   "explanation": "„Werd ich zum Augenblicke sagen: Verweile doch! du bist so schön!\" — dann ist die Wette verloren."
+  },
+  {
+   "id": "de-192",
+   "topicId": "de12-faust",
+   "grade": 12,
+   "difficulty": 3,
+   "competency": "drama",
+   "type": "match",
+   "prompt": "Ordne die Figuren ihrer Rolle zu.",
+   "pairs": [
+    {
+     "left": "Faust",
+     "right": "Gelehrter, der an den Grenzen des Wissens verzweifelt"
+    },
+    {
+     "left": "Mephisto",
+     "right": "Der Widersacher, der die Wette anbietet"
+    },
+    {
+     "left": "Gretchen",
+     "right": "Bürgerliches Mädchen, an dem die Tragödie sich vollzieht"
+    },
+    {
+     "left": "Wagner",
+     "right": "Famulus, der Gelehrsamkeit ohne Tiefe verkörpert"
+    }
+   ],
+   "explanation": "Faust und Mephisto bilden ein Gegensatzpaar, Wagner ist Fausts Kontrastfigur."
+  },
+  {
+   "id": "de-193",
+   "topicId": "de12-faust",
+   "grade": 12,
+   "difficulty": 3,
+   "competency": "drama",
+   "type": "multi",
+   "prompt": "Welche Merkmale der Weimarer Klassik zeigt „Faust I\"?",
+   "options": [
+    {
+     "id": "a",
+     "text": "Ablehnung jeder Bildung"
+    },
+    {
+     "id": "b",
+     "text": "Streben nach Harmonie von Geist und Sinnlichkeit"
+    },
+    {
+     "id": "c",
+     "text": "Verzicht auf Verse"
+    },
+    {
+     "id": "d",
+     "text": "Antike Formen und Motive"
+    },
+    {
+     "id": "e",
+     "text": "Das Ideal der Humanität"
+    }
+   ],
+   "answer": [
+    "b",
+    "d",
+    "e"
+   ],
+   "explanation": "Goethe verbindet klassische Form mit dem Ideal des sich bildenden Menschen."
+  },
+  {
+   "id": "de-194",
+   "topicId": "de12-faust",
+   "grade": 12,
+   "difficulty": 3,
+   "competency": "drama",
+   "type": "order",
+   "prompt": "Ordne die Szenen von „Faust I\" chronologisch.",
+   "items": [
+    "Prolog im Himmel",
+    "Nacht (Fausts Studierzimmer)",
+    "Auerbachs Keller",
+    "Gartenszene",
+    "Kerker"
+   ],
+   "explanation": "Die Gretchentragödie schliesst das Stück ab."
+  },
+  {
+   "id": "de-195",
+   "topicId": "de12-expressionismus",
+   "grade": 12,
+   "difficulty": 3,
+   "competency": "epochen",
+   "type": "match",
+   "prompt": "Ordne die Motive der Moderne ihrer Epoche zu.",
+   "pairs": [
+    {
+     "left": "Expressionismus",
+     "right": "Weltende, Grossstadt, Ich-Zerfall"
+    },
+    {
+     "left": "Naturalismus",
+     "right": "Elend, Milieu, exakte Wiedergabe"
+    },
+    {
+     "left": "Symbolismus",
+     "right": "Klang, Andeutung, Kunst um ihrer selbst willen"
+    },
+    {
+     "left": "Neue Sachlichkeit",
+     "right": "Nüchterner Blick auf den Alltag"
+    }
+   ],
+   "explanation": "Die Epochen um 1900 reagieren alle auf dieselbe Erfahrung der Moderne — mit gegensätzlichen Mitteln."
+  },
+  {
+   "id": "de-196",
+   "topicId": "de12-expressionismus",
+   "grade": 12,
+   "difficulty": 3,
+   "competency": "epochen",
+   "type": "multi",
+   "prompt": "Welche Merkmale kennzeichnen expressionistische Lyrik?",
+   "options": [
+    {
+     "id": "a",
+     "text": "Drastische Bilder"
+    },
+    {
+     "id": "b",
+     "text": "Zerfall der Syntax"
+    },
+    {
+     "id": "c",
+     "text": "Strenge Sonettform als Regel"
+    },
+    {
+     "id": "d",
+     "text": "Idyllische Naturbilder"
+    },
+    {
+     "id": "e",
+     "text": "Farbsymbolik"
+    },
+    {
+     "id": "f",
+     "text": "Reihungsstil"
+    }
+   ],
+   "answer": [
+    "a",
+    "b",
+    "e",
+    "f"
+   ],
+   "explanation": "Der Expressionismus sucht den Ausdruck, nicht die schöne Form."
+  },
+  {
+   "id": "de-197",
+   "topicId": "de12-expressionismus",
+   "grade": 12,
+   "difficulty": 3,
+   "competency": "epochen",
+   "type": "truefalse",
+   "prompt": "Jakob van Hoddis’ „Weltende\" gilt als Auftakt der expressionistischen Lyrik.",
+   "answer": true,
+   "explanation": "Das 1911 erschienene Gedicht bündelt Reihungsstil und Weltuntergangsmotiv."
+  },
+  {
+   "id": "de-198",
+   "topicId": "de13-vergleichende-analyse",
+   "grade": 13,
+   "difficulty": 3,
+   "competency": "interpretation",
+   "type": "order",
+   "prompt": "Ordne den Aufbau einer vergleichenden Textanalyse.",
+   "items": [
+    "Einleitung mit beiden Texten und Vergleichsfrage",
+    "Kurze Einordnung beider Texte",
+    "Analyse entlang gemeinsamer Kategorien",
+    "Herausarbeiten von Gemeinsamkeiten und Unterschieden",
+    "Fazit mit Antwort auf die Vergleichsfrage"
+   ],
+   "explanation": "Der verschränkte Aufbau ist dem nacheinander Abarbeiten überlegen."
+  },
+  {
+   "id": "de-199",
+   "topicId": "de13-vergleichende-analyse",
+   "grade": 13,
+   "difficulty": 3,
+   "competency": "interpretation",
+   "type": "mc",
+   "prompt": "Was ist ein „tertium comparationis\"?",
+   "options": [
+    {
+     "id": "a",
+     "text": "Die Schlussfolgerung"
+    },
+    {
+     "id": "b",
+     "text": "Der gemeinsame Bezugspunkt, unter dem verglichen wird"
+    },
+    {
+     "id": "c",
+     "text": "Ein drittes Vergleichswerk"
+    },
+    {
+     "id": "d",
+     "text": "Der dritte Absatz der Analyse"
+    }
+   ],
+   "answer": "b",
+   "explanation": "Ohne gemeinsamen Bezugspunkt ist ein Vergleich beliebig."
+  },
+  {
+   "id": "de-200",
+   "topicId": "de13-vergleichende-analyse",
+   "grade": 13,
+   "difficulty": 3,
+   "competency": "interpretation",
+   "type": "multi",
+   "prompt": "Welche Kategorien eignen sich für einen Textvergleich?",
+   "options": [
+    {
+     "id": "a",
+     "text": "Schriftart"
+    },
+    {
+     "id": "b",
+     "text": "Erzählperspektive"
+    },
+    {
+     "id": "c",
+     "text": "Historischer Kontext"
+    },
+    {
+     "id": "d",
+     "text": "Motiv"
+    },
+    {
+     "id": "e",
+     "text": "Seitenzahl"
+    },
+    {
+     "id": "f",
+     "text": "Sprachliche Gestaltung"
+    }
+   ],
+   "answer": [
+    "b",
+    "c",
+    "d",
+    "f"
+   ],
+   "explanation": "Verglichen wird, was den Text macht — nicht, wie er gedruckt ist."
+  },
+  {
+   "id": "de-201",
+   "topicId": "de13-erörterung-literarisch",
+   "grade": 13,
+   "difficulty": 3,
+   "competency": "eroerterung",
+   "type": "order",
+   "prompt": "Ordne den Aufbau einer literarischen Erörterung.",
+   "items": [
+    "Einleitung mit These und Werkbezug",
+    "Klärung der Fragestellung",
+    "Argumente mit Textbelegen",
+    "Gegenargumente prüfen",
+    "Begründetes Urteil"
+   ],
+   "explanation": "Die literarische Erörterung argumentiert am Text, nicht über ihn hinweg."
+  },
+  {
+   "id": "de-202",
+   "topicId": "de13-erörterung-literarisch",
+   "grade": 13,
+   "difficulty": 3,
+   "competency": "eroerterung",
+   "type": "mc",
+   "prompt": "Worin unterscheidet sich die literarische Erörterung von der Interpretation?",
+   "options": [
+    {
+     "id": "a",
+     "text": "Sie steht im Präteritum"
+    },
+    {
+     "id": "b",
+     "text": "Sie ist immer kürzer"
+    },
+    {
+     "id": "c",
+     "text": "Sie beantwortet eine strittige Frage zum Werk mit Argumenten"
+    },
+    {
+     "id": "d",
+     "text": "Sie verzichtet auf Textbelege"
+    }
+   ],
+   "answer": "c",
+   "explanation": "Die Interpretation deutet, die Erörterung wägt eine These ab — beide belegen am Text."
+  },
+  {
+   "id": "de-203",
+   "topicId": "de13-erörterung-literarisch",
+   "grade": 13,
+   "difficulty": 3,
+   "competency": "eroerterung",
+   "type": "multi",
+   "prompt": "Was macht einen Textbeleg gültig?",
+   "options": [
+    {
+     "id": "a",
+     "text": "Eine möglichst lange Passage"
+    },
+    {
+     "id": "b",
+     "text": "Erläuterung, was der Beleg zeigt"
+    },
+    {
+     "id": "c",
+     "text": "Wörtliches Zitat oder präzise Paraphrase"
+    },
+    {
+     "id": "d",
+     "text": "Genaue Stellenangabe"
+    },
+    {
+     "id": "e",
+     "text": "Ein Zitat ohne Kommentar"
+    }
+   ],
+   "answer": [
+    "b",
+    "c",
+    "d"
+   ],
+   "explanation": "Ein Beleg trägt erst dann, wenn erklärt wird, wofür er steht."
   }
  ]
 };

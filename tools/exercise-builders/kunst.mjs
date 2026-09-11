@@ -337,5 +337,49 @@ export default function build() {
     explanation: 'Der Blaue Reiter (München) und Die Brücke (Dresden) sind die beiden bekanntesten expressionistischen Gruppen.',
   }));
 
+
+  /* ================================================================== *
+   * Oberstufe — Prüfungsformate
+   * ================================================================== */
+
+  add(order({
+    prefix: P, topicId: 'ku13-pruefung', grade: 13, difficulty: 3, competency: 'bildanalyse',
+    prompt: 'Ordne die Schritte einer Bildanalyse in der Prüfung.',
+    items: ['Formale Beschreibung: Format, Technik, Motiv', 'Bildaufbau und Komposition', 'Farbe, Licht und Raum', 'Historische Einordnung', 'Deutung und Beurteilung'],
+    explanation: 'Beschreiben, analysieren, deuten — in dieser Reihenfolge und deutlich getrennt.',
+  }));
+  add(match({
+    prefix: P, topicId: 'ku13-pruefung', grade: 13, difficulty: 3, competency: 'bildanalyse',
+    prompt: 'Ordne die Operatoren ihrer Anforderung zu.',
+    pairs: [
+      { left: 'beschreiben', right: 'Sichtbares ohne Deutung wiedergeben' },
+      { left: 'analysieren', right: 'Bildmittel und ihre Wirkung untersuchen' },
+      { left: 'interpretieren', right: 'Eine begründete Gesamtdeutung entwickeln' },
+      { left: 'gestalten', right: 'Praktisch mit bildnerischen Mitteln arbeiten' },
+    ],
+    explanation: 'Der Operator bestimmt, wie viel Deutung erwartet wird.',
+  }));
+  add(multi({
+    prefix: P, topicId: 'ku13-pruefung', grade: 13, difficulty: 3, competency: 'komposition',
+    prompt: 'Welche Aspekte gehören zur Kompositionsanalyse?',
+    correct: ['Bildaufbau und Achsen', 'Blickführung', 'Verhältnis von Figur und Grund', 'Raumwirkung'],
+    wrong: ['Der Preis des Werks', 'Die Grösse des Museums'],
+    explanation: 'Die Komposition steuert, wohin der Blick wandert — und damit die Wirkung.',
+  }));
+  add(mc({
+    prefix: P, topicId: 'ku13-pruefung', grade: 13, difficulty: 3, competency: 'bildanalyse',
+    prompt: 'Wie belegt man eine Deutung in der Bildanalyse?',
+    correct: 'Durch den Verweis auf konkrete Bildelemente',
+    wrong: ['Durch das Zitieren eines Lexikons', 'Durch die eigene Stimmung', 'Gar nicht'],
+    explanation: 'Jede Deutung muss am Bild selbst nachvollziehbar sein.',
+  }));
+  add(multi({
+    prefix: P, topicId: 'ku13-pruefung', grade: 13, difficulty: 3, competency: 'gegenwart',
+    prompt: 'Was gehört zu einer praktischen Prüfungsarbeit?',
+    correct: ['Eine Konzeptskizze', 'Begründete Materialwahl', 'Eine schriftliche Reflexion'],
+    wrong: ['Ein möglichst grosses Format', 'Eine Kopie eines bekannten Werks'],
+    explanation: 'Bewertet wird nicht nur das Ergebnis, sondern auch der begründete Weg dorthin.',
+  }));
+
   return out;
 }

@@ -367,5 +367,111 @@ export default function build() {
     explanation: 'Das Uralgebirge gilt als Ostgrenze Europas; im Südosten bildet der Kaukasus einen Teil der Grenze.',
   }));
 
+
+  /* ================================================================== *
+   * Oberstufe — Raumanalyse, Stadtmodelle, globale Herausforderungen
+   * ================================================================== */
+
+  add(order({
+    prefix: P, topicId: 'ek11-raumanalyse', grade: 11, difficulty: 3, competency: 'diagramm',
+    prompt: 'Ordne die Schritte einer Raumanalyse.',
+    items: ['Raum abgrenzen und Fragestellung klären', 'Naturräumliche Grundlagen erfassen', 'Sozioökonomische Daten auswerten', 'Wechselwirkungen herausarbeiten', 'Entwicklungsperspektiven beurteilen'],
+    explanation: 'Die Raumanalyse verbindet Natur- und Humangeographie zu einem Gesamtbild.',
+  }));
+  add(match({
+    prefix: P, topicId: 'ek11-raumanalyse', grade: 11, difficulty: 3, competency: 'diagramm',
+    prompt: 'Ordne jeder Darstellungsform ihren besten Einsatz zu.',
+    pairs: [
+      { left: 'Klimadiagramm', right: 'Temperatur und Niederschlag im Jahresverlauf' },
+      { left: 'Thematische Karte', right: 'Räumliche Verteilung eines Merkmals' },
+      { left: 'Bevölkerungspyramide', right: 'Altersaufbau einer Bevölkerung' },
+      { left: 'Liniendiagramm', right: 'Entwicklung über die Zeit' },
+    ],
+    explanation: 'Die Darstellungsform folgt der Frage — nicht umgekehrt.',
+  }));
+  add(multi({
+    prefix: P, topicId: 'ek11-raumanalyse', grade: 11, difficulty: 3, competency: 'diagramm',
+    prompt: 'Welche Angaben braucht jede Kartenauswertung?',
+    correct: ['Titel und Thema', 'Massstab', 'Legende', 'Quelle und Jahr'],
+    wrong: ['Der Name des Druckers', 'Das Papierformat'],
+    explanation: 'Ohne Massstab und Legende lässt sich eine Karte nicht auswerten.',
+  }));
+  add(mc({
+    prefix: P, topicId: 'ek11-raumanalyse', grade: 11, difficulty: 3, competency: 'diagramm',
+    prompt: 'Was leistet ein Geoinformationssystem (GIS)?',
+    correct: 'Es verknüpft raumbezogene Daten in Schichten und wertet sie aus',
+    wrong: ['Es zeichnet nur Karten', 'Es misst die Erdanziehung', 'Es speichert Satellitenbilder ohne Bezug'],
+    explanation: 'Die Verknüpfung mehrerer Layer macht neue Zusammenhänge sichtbar.',
+  }));
+
+  add(match({
+    prefix: P, topicId: 'ek12-stadtmodelle', grade: 12, difficulty: 3, competency: 'stadt',
+    prompt: 'Ordne die Stadtmodelle ihrem Kulturraum zu.',
+    pairs: [
+      { left: 'Europäische Stadt', right: 'Historischer Kern, Marktplatz, kompakte Bauweise' },
+      { left: 'Nordamerikanische Stadt', right: 'Schachbrettgrundriss, Downtown mit Hochhäusern, Suburbs' },
+      { left: 'Lateinamerikanische Stadt', right: 'Plaza im Zentrum, Marginalsiedlungen am Rand' },
+      { left: 'Orientalische Stadt', right: 'Moschee, Basar, Sackgassenviertel' },
+    ],
+    explanation: 'Die Modelle sind Idealtypen — reale Städte mischen Elemente.',
+  }));
+  add(match({
+    prefix: P, topicId: 'ek12-stadtmodelle', grade: 12, difficulty: 3, competency: 'stadt',
+    prompt: 'Ordne die stadtgeographischen Prozesse zu.',
+    pairs: [
+      { left: 'Suburbanisierung', right: 'Abwanderung ins Umland' },
+      { left: 'Reurbanisierung', right: 'Rückkehr in die Innenstadt' },
+      { left: 'Gentrifizierung', right: 'Aufwertung eines Viertels, Verdrängung Ärmerer' },
+      { left: 'Segregation', right: 'Räumliche Trennung von Bevölkerungsgruppen' },
+    ],
+    explanation: 'Diese Prozesse laufen oft gleichzeitig in verschiedenen Stadtteilen ab.',
+  }));
+  add(multi({
+    prefix: P, topicId: 'ek12-stadtmodelle', grade: 12, difficulty: 3, competency: 'stadt',
+    prompt: 'Welche Folgen hat Gentrifizierung?',
+    correct: ['Steigende Mieten', 'Verdrängung einkommensschwacher Haushalte', 'Veränderung der Geschäftsstruktur'],
+    wrong: ['Sinkende Bodenpreise', 'Abnahme der Bevölkerungsdichte in jedem Fall'],
+    explanation: 'Aufwertung und Verdrängung sind zwei Seiten desselben Prozesses.',
+  }));
+  add(mc({
+    prefix: P, topicId: 'ek12-stadtmodelle', grade: 12, difficulty: 3, competency: 'stadt',
+    prompt: 'Was kennzeichnet eine „Megastadt"?',
+    correct: 'Mehr als 10 Millionen Einwohner',
+    wrong: ['Mehr als 1 Million Einwohner', 'Eine Hauptstadt', 'Eine Stadt mit Flughafen'],
+    explanation: 'Das Kriterium ist rein quantitativ; „Metropole" beschreibt dagegen die Funktion.',
+  }));
+
+  add(match({
+    prefix: P, topicId: 'ek13-syndrome', grade: 13, difficulty: 3, competency: 'klimawandel',
+    prompt: 'Ordne die globalen Syndrome ihrer Beschreibung zu.',
+    pairs: [
+      { left: 'Sahel-Syndrom', right: 'Übernutzung von Grenzertragsböden' },
+      { left: 'Raubbau-Syndrom', right: 'Ausbeutung natürlicher Ökosysteme' },
+      { left: 'Favela-Syndrom', right: 'Ungeregelte Verstädterung' },
+      { left: 'Dust-Bowl-Syndrom', right: 'Industrielle Landwirtschaft ohne Rücksicht auf den Boden' },
+    ],
+    explanation: 'Syndrome fassen typische Muster der Mensch-Umwelt-Beziehung zusammen.',
+  }));
+  add(multi({
+    prefix: P, topicId: 'ek13-syndrome', grade: 13, difficulty: 3, competency: 'klimawandel',
+    prompt: 'Welche Folgen des Klimawandels treffen besonders Entwicklungsländer?',
+    correct: ['Dürren und Ernteausfälle', 'Meeresspiegelanstieg', 'Wasserknappheit', 'Klimabedingte Migration'],
+    wrong: ['Rückgang des Welthandels', 'Abnahme der Erdrotation'],
+    explanation: 'Wer am wenigsten beigetragen hat, trägt oft die grössten Lasten.',
+  }));
+  add(mc({
+    prefix: P, topicId: 'ek13-syndrome', grade: 13, difficulty: 3, competency: 'ressourcen',
+    prompt: 'Was beschreibt der „ökologische Fussabdruck"?',
+    correct: 'Die Fläche, die ein Lebensstil dauerhaft benötigt',
+    wrong: ['Die Fläche eines Landes', 'Die Zahl der Einwohner', 'Den Ausstoss eines Kraftwerks'],
+    explanation: 'Er wird in globalen Hektar je Person angegeben und mit der Biokapazität verglichen.',
+  }));
+  add(order({
+    prefix: P, topicId: 'ek13-syndrome', grade: 13, difficulty: 3, competency: 'klimawandel',
+    prompt: 'Ordne die Nachhaltigkeitsdimensionen und ihre Leitfrage.',
+    items: ['Ökologisch: Bleiben die Ressourcen erhalten?', 'Ökonomisch: Ist es dauerhaft tragfähig?', 'Sozial: Ist es gerecht verteilt?'],
+    explanation: 'Nachhaltigkeit verlangt alle drei Dimensionen gleichzeitig — nicht nacheinander.',
+  }));
+
   return out;
 }

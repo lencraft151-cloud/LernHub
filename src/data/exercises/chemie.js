@@ -2,7 +2,7 @@
  * AUTOMATISCH GENERIERT — nicht von Hand bearbeiten.
  * Neu erzeugen mit: node tools/build-exercises.mjs
  *
- * Übungspool chemie: 101 Aufgaben.
+ * Übungspool chemie: 135 Aufgaben.
  */
 
 export default {
@@ -2069,6 +2069,806 @@ export default {
    "tolerance": 0.001,
    "hint": "CₙH₂ₙ₊₂",
    "explanation": "2 · 8 + 2 = 18 Wasserstoffatome."
+  },
+  {
+   "id": "ch-102",
+   "topicId": "ch11-mechanismen",
+   "grade": 11,
+   "difficulty": 3,
+   "competency": "alkane",
+   "type": "match",
+   "prompt": "Ordne jeden Reaktionstyp seiner Beschreibung zu.",
+   "pairs": [
+    {
+     "left": "Substitution",
+     "right": "Ein Atom wird gegen ein anderes ausgetauscht"
+    },
+    {
+     "left": "Addition",
+     "right": "Zwei Teilchen lagern sich an eine Doppelbindung an"
+    },
+    {
+     "left": "Elimination",
+     "right": "Zwei Atome werden abgespalten, eine Doppelbindung entsteht"
+    },
+    {
+     "left": "Kondensation",
+     "right": "Zwei Moleküle verbinden sich unter Wasserabspaltung"
+    }
+   ],
+   "explanation": "Der Reaktionstyp folgt aus der Struktur: Gesättigte Verbindungen substituieren, ungesättigte addieren."
+  },
+  {
+   "id": "ch-103",
+   "topicId": "ch11-mechanismen",
+   "grade": 11,
+   "difficulty": 3,
+   "competency": "alkane",
+   "type": "mc",
+   "prompt": "Welchen Mechanismus zeigt die Reaktion von Methan mit Chlor unter Licht?",
+   "options": [
+    {
+     "id": "a",
+     "text": "Elektrophile Addition"
+    },
+    {
+     "id": "b",
+     "text": "Eliminierung"
+    },
+    {
+     "id": "c",
+     "text": "Nucleophile Substitution"
+    },
+    {
+     "id": "d",
+     "text": "Radikalische Substitution"
+    }
+   ],
+   "answer": "d",
+   "explanation": "Licht spaltet Cl₂ homolytisch — es entstehen Radikale, die eine Kettenreaktion starten."
+  },
+  {
+   "id": "ch-104",
+   "topicId": "ch11-mechanismen",
+   "grade": 11,
+   "difficulty": 3,
+   "competency": "alkane",
+   "type": "order",
+   "prompt": "Ordne die Schritte der radikalischen Substitution.",
+   "items": [
+    "Kettenstart: Cl₂ → 2 Cl·",
+    "Kettenfortpflanzung: Cl· + CH₄ → HCl + CH₃·",
+    "Kettenfortpflanzung: CH₃· + Cl₂ → CH₃Cl + Cl·",
+    "Kettenabbruch: 2 Cl· → Cl₂"
+   ],
+   "explanation": "Erst der Kettenabbruch beendet die Reaktion — deshalb entstehen immer Nebenprodukte."
+  },
+  {
+   "id": "ch-105",
+   "topicId": "ch11-mechanismen",
+   "grade": 11,
+   "difficulty": 2,
+   "competency": "alkane",
+   "type": "truefalse",
+   "prompt": "Alkene reagieren bevorzugt durch Addition, Alkane durch Substitution.",
+   "answer": true,
+   "explanation": "Die Doppelbindung ist elektronenreich und damit Angriffspunkt für Elektrophile."
+  },
+  {
+   "id": "ch-106",
+   "topicId": "ch11-mechanismen",
+   "grade": 11,
+   "difficulty": 3,
+   "competency": "alkane",
+   "type": "multi",
+   "prompt": "Woran erkennt man eine Additionsreaktion?",
+   "options": [
+    {
+     "id": "a",
+     "text": "Es entsteht ein Gas als Nebenprodukt"
+    },
+    {
+     "id": "b",
+     "text": "Die Summenformel bleibt gleich"
+    },
+    {
+     "id": "c",
+     "text": "Es entsteht nur ein Produkt"
+    },
+    {
+     "id": "d",
+     "text": "Bromwasser entfärbt sich"
+    },
+    {
+     "id": "e",
+     "text": "Die Doppelbindung verschwindet"
+    }
+   ],
+   "answer": [
+    "c",
+    "d",
+    "e"
+   ],
+   "explanation": "Die Entfärbung von Bromwasser ist der klassische Nachweis für Mehrfachbindungen."
+  },
+  {
+   "id": "ch-107",
+   "topicId": "ch11-aromaten",
+   "grade": 11,
+   "difficulty": 3,
+   "competency": "molekuel",
+   "type": "mc",
+   "prompt": "Warum reagiert Benzol nicht wie ein typisches Alken?",
+   "options": [
+    {
+     "id": "a",
+     "text": "Die Elektronen sind über den ganzen Ring delokalisiert und dadurch stabilisiert"
+    },
+    {
+     "id": "b",
+     "text": "Es hat keine Doppelbindungen"
+    },
+    {
+     "id": "c",
+     "text": "Es ist nicht reaktiv, weil es flüssig ist"
+    },
+    {
+     "id": "d",
+     "text": "Es ist ein Salz"
+    }
+   ],
+   "answer": "a",
+   "explanation": "Die Mesomeriestabilisierung macht Substitution günstiger als Addition."
+  },
+  {
+   "id": "ch-108",
+   "topicId": "ch11-aromaten",
+   "grade": 11,
+   "difficulty": 2,
+   "competency": "molekuel",
+   "type": "numeric",
+   "prompt": "Wie viele Kohlenstoffatome hat ein Benzolmolekül?",
+   "answer": 6,
+   "tolerance": 0.001,
+   "explanation": "Benzol ist C₆H₆ — sechs C-Atome im Ring, je ein H-Atom daran."
+  },
+  {
+   "id": "ch-109",
+   "topicId": "ch11-aromaten",
+   "grade": 11,
+   "difficulty": 3,
+   "competency": "molekuel",
+   "type": "multi",
+   "prompt": "Welche Kriterien muss ein aromatisches System erfüllen?",
+   "options": [
+    {
+     "id": "a",
+     "text": "(4n+2) π-Elektronen"
+    },
+    {
+     "id": "b",
+     "text": "Durchgehend konjugiert"
+    },
+    {
+     "id": "c",
+     "text": "Eben gebaut"
+    },
+    {
+     "id": "d",
+     "text": "Ringförmig"
+    },
+    {
+     "id": "e",
+     "text": "Mindestens acht C-Atome"
+    },
+    {
+     "id": "f",
+     "text": "Ein Sauerstoffatom im Ring"
+    }
+   ],
+   "answer": [
+    "a",
+    "b",
+    "c",
+    "d"
+   ],
+   "explanation": "Die Hückel-Regel (4n+2) unterscheidet aromatisch von antiaromatisch."
+  },
+  {
+   "id": "ch-110",
+   "topicId": "ch11-aromaten",
+   "grade": 11,
+   "difficulty": 2,
+   "competency": "molekuel",
+   "type": "truefalse",
+   "prompt": "Alle C–C-Bindungen im Benzol sind gleich lang.",
+   "answer": true,
+   "explanation": "Sie liegen zwischen Einfach- und Doppelbindung — ein direkter Beleg für die Delokalisierung."
+  },
+  {
+   "id": "ch-111",
+   "topicId": "ch12-galvanische-zellen",
+   "grade": 12,
+   "difficulty": 3,
+   "competency": "redox",
+   "type": "mc",
+   "prompt": "Was geschieht in einer galvanischen Zelle an der Anode?",
+   "options": [
+    {
+     "id": "a",
+     "text": "Es fliesst Strom hinein"
+    },
+    {
+     "id": "b",
+     "text": "Reduktion — Elektronen werden aufgenommen"
+    },
+    {
+     "id": "c",
+     "text": "Oxidation — Elektronen werden abgegeben"
+    },
+    {
+     "id": "d",
+     "text": "Nichts, sie ist nur Kontakt"
+    }
+   ],
+   "answer": "c",
+   "explanation": "Merksatz: An der Anode findet die Oxidation statt („AnOx\")."
+  },
+  {
+   "id": "ch-112",
+   "topicId": "ch12-galvanische-zellen",
+   "grade": 12,
+   "difficulty": 3,
+   "competency": "redox",
+   "type": "numeric",
+   "prompt": "Berechne die Zellspannung einer Zelle aus Zn/Zn²⁺ (E⁰ = -0,76 V) und Ag/Ag⁺ (E⁰ = 0,8 V).",
+   "answer": 1.56,
+   "tolerance": 0.01,
+   "unit": "V",
+   "hint": "ΔE = E⁰(Kathode) − E⁰(Anode)",
+   "explanation": "0,8 V − (-0,76 V) = 1,56 V."
+  },
+  {
+   "id": "ch-113",
+   "topicId": "ch12-galvanische-zellen",
+   "grade": 12,
+   "difficulty": 3,
+   "competency": "redox",
+   "type": "numeric",
+   "prompt": "Berechne die Zellspannung einer Zelle aus Fe/Fe²⁺ (E⁰ = -0,44 V) und Ag/Ag⁺ (E⁰ = 0,8 V).",
+   "answer": 1.24,
+   "tolerance": 0.01,
+   "unit": "V",
+   "hint": "ΔE = E⁰(Kathode) − E⁰(Anode)",
+   "explanation": "0,8 V − (-0,44 V) = 1,24 V."
+  },
+  {
+   "id": "ch-114",
+   "topicId": "ch12-galvanische-zellen",
+   "grade": 12,
+   "difficulty": 3,
+   "competency": "redox",
+   "type": "numeric",
+   "prompt": "Berechne die Zellspannung einer Zelle aus Cu/Cu²⁺ (E⁰ = 0,34 V) und Ag/Ag⁺ (E⁰ = 0,8 V).",
+   "answer": 0.46,
+   "tolerance": 0.01,
+   "unit": "V",
+   "hint": "ΔE = E⁰(Kathode) − E⁰(Anode)",
+   "explanation": "0,8 V − (0,34 V) = 0,46 V."
+  },
+  {
+   "id": "ch-115",
+   "topicId": "ch12-galvanische-zellen",
+   "grade": 12,
+   "difficulty": 3,
+   "competency": "redox",
+   "type": "match",
+   "prompt": "Ordne die Bauteile der galvanischen Zelle ihrer Aufgabe zu.",
+   "pairs": [
+    {
+     "left": "Anode",
+     "right": "Ort der Oxidation, Minuspol"
+    },
+    {
+     "left": "Kathode",
+     "right": "Ort der Reduktion, Pluspol"
+    },
+    {
+     "left": "Elektrolyt",
+     "right": "Leitet Ionen"
+    },
+    {
+     "left": "Salzbrücke",
+     "right": "Gleicht die Ladungen aus"
+    }
+   ],
+   "explanation": "Ohne Salzbrücke bricht der Stromfluss sofort ab, weil sich Ladungen aufstauen."
+  },
+  {
+   "id": "ch-116",
+   "topicId": "ch12-galvanische-zellen",
+   "grade": 12,
+   "difficulty": 2,
+   "competency": "redox",
+   "type": "truefalse",
+   "prompt": "In einer galvanischen Zelle läuft die Reaktion freiwillig ab.",
+   "answer": true,
+   "explanation": "Sie wandelt chemische in elektrische Energie um — anders als die Elektrolyse."
+  },
+  {
+   "id": "ch-117",
+   "topicId": "ch12-elektrolyse",
+   "grade": 12,
+   "difficulty": 3,
+   "competency": "redox",
+   "type": "mc",
+   "prompt": "Worin unterscheidet sich die Elektrolyse von der galvanischen Zelle?",
+   "options": [
+    {
+     "id": "a",
+     "text": "Es entsteht kein Produkt"
+    },
+    {
+     "id": "b",
+     "text": "Elektrische Energie erzwingt eine sonst nicht freiwillige Reaktion"
+    },
+    {
+     "id": "c",
+     "text": "Es fliessen keine Elektronen"
+    },
+    {
+     "id": "d",
+     "text": "Es gibt keine Elektroden"
+    }
+   ],
+   "answer": "b",
+   "explanation": "Die Elektrolyse ist die Umkehrung der galvanischen Zelle."
+  },
+  {
+   "id": "ch-118",
+   "topicId": "ch12-elektrolyse",
+   "grade": 12,
+   "difficulty": 3,
+   "competency": "redox",
+   "type": "multi",
+   "prompt": "Wofür wird die Elektrolyse technisch genutzt?",
+   "options": [
+    {
+     "id": "a",
+     "text": "Betrieb einer Taschenlampe"
+    },
+    {
+     "id": "b",
+     "text": "Galvanisieren von Oberflächen"
+    },
+    {
+     "id": "c",
+     "text": "Antrieb eines Dieselmotors"
+    },
+    {
+     "id": "d",
+     "text": "Chlor-Alkali-Elektrolyse"
+    },
+    {
+     "id": "e",
+     "text": "Wasserstoffgewinnung"
+    },
+    {
+     "id": "f",
+     "text": "Aluminiumherstellung"
+    }
+   ],
+   "answer": [
+    "b",
+    "d",
+    "e",
+    "f"
+   ],
+   "explanation": "Überall dort, wo Stoffe getrennt oder abgeschieden werden sollen."
+  },
+  {
+   "id": "ch-119",
+   "topicId": "ch12-elektrolyse",
+   "grade": 12,
+   "difficulty": 3,
+   "competency": "redox",
+   "type": "numeric",
+   "prompt": "Bei der Wasserelektrolyse entstehen Wasserstoff und Sauerstoff. In welchem Volumenverhältnis steht H₂ zu O₂? Gib den Zahlenwert für H₂ an, wenn O₂ = 1 gesetzt wird.",
+   "answer": 2,
+   "tolerance": 0.001,
+   "explanation": "2 H₂O → 2 H₂ + O₂ — auf ein Teil Sauerstoff kommen zwei Teile Wasserstoff."
+  },
+  {
+   "id": "ch-120",
+   "topicId": "ch12-elektrolyse",
+   "grade": 12,
+   "difficulty": 3,
+   "competency": "redox",
+   "type": "order",
+   "prompt": "Ordne den Ablauf einer Elektrolyse.",
+   "items": [
+    "Gleichspannung anlegen",
+    "Ionen wandern zu den Elektroden",
+    "Kationen werden an der Kathode reduziert",
+    "Anionen werden an der Anode oxidiert",
+    "Produkte scheiden sich ab"
+   ],
+   "explanation": "Kationen wandern zur Kathode — das steckt schon in den Namen."
+  },
+  {
+   "id": "ch-121",
+   "topicId": "ch12-pks",
+   "grade": 12,
+   "difficulty": 3,
+   "competency": "saeure",
+   "type": "numeric",
+   "prompt": "Essigsäure hat den pKs-Wert 4,75. Welchen pKb-Wert hat die korrespondierende Base?",
+   "answer": 9.25,
+   "tolerance": 0.02,
+   "hint": "pKs + pKb = 14",
+   "explanation": "14 − 4,75 = 9,25."
+  },
+  {
+   "id": "ch-122",
+   "topicId": "ch12-pks",
+   "grade": 12,
+   "difficulty": 3,
+   "competency": "saeure",
+   "type": "numeric",
+   "prompt": "Kohlensäure hat den pKs-Wert 6,35. Welchen pKb-Wert hat die korrespondierende Base?",
+   "answer": 7.65,
+   "tolerance": 0.02,
+   "hint": "pKs + pKb = 14",
+   "explanation": "14 − 6,35 = 7,65."
+  },
+  {
+   "id": "ch-123",
+   "topicId": "ch12-pks",
+   "grade": 12,
+   "difficulty": 3,
+   "competency": "saeure",
+   "type": "numeric",
+   "prompt": "Ammonium hat den pKs-Wert 9,25. Welchen pKb-Wert hat die korrespondierende Base?",
+   "answer": 4.75,
+   "tolerance": 0.02,
+   "hint": "pKs + pKb = 14",
+   "explanation": "14 − 9,25 = 4,75."
+  },
+  {
+   "id": "ch-124",
+   "topicId": "ch12-pks",
+   "grade": 12,
+   "difficulty": 3,
+   "competency": "saeure",
+   "type": "numeric",
+   "prompt": "Flusssäure hat den pKs-Wert 3,17. Welchen pKb-Wert hat die korrespondierende Base?",
+   "answer": 10.83,
+   "tolerance": 0.02,
+   "hint": "pKs + pKb = 14",
+   "explanation": "14 − 3,17 = 10,83."
+  },
+  {
+   "id": "ch-125",
+   "topicId": "ch12-pks",
+   "grade": 12,
+   "difficulty": 3,
+   "competency": "saeure",
+   "type": "mc",
+   "prompt": "Was bedeutet ein kleiner pKs-Wert?",
+   "options": [
+    {
+     "id": "a",
+     "text": "Die Säure ist schwach"
+    },
+    {
+     "id": "b",
+     "text": "Die Säure ist stark und gibt ihr Proton leicht ab"
+    },
+    {
+     "id": "c",
+     "text": "Die Säure ist verdünnt"
+    },
+    {
+     "id": "d",
+     "text": "Die Lösung ist alkalisch"
+    }
+   ],
+   "answer": "b",
+   "explanation": "pKs = −lg Ks: Ein grosses Ks bedeutet einen kleinen pKs."
+  },
+  {
+   "id": "ch-126",
+   "topicId": "ch12-pks",
+   "grade": 12,
+   "difficulty": 3,
+   "competency": "saeure",
+   "type": "mc",
+   "prompt": "Wann puffert ein Puffersystem am besten?",
+   "options": [
+    {
+     "id": "a",
+     "text": "Wenn pH ≈ pKs, also Säure und Base in gleicher Konzentration vorliegen"
+    },
+    {
+     "id": "b",
+     "text": "Wenn nur die Säure vorliegt"
+    },
+    {
+     "id": "c",
+     "text": "Wenn pH = 7"
+    },
+    {
+     "id": "d",
+     "text": "Wenn die Lösung gesättigt ist"
+    }
+   ],
+   "answer": "a",
+   "explanation": "Die Henderson-Hasselbalch-Gleichung zeigt: Bei c(Säure) = c(Base) ist pH = pKs."
+  },
+  {
+   "id": "ch-127",
+   "topicId": "ch12-pks",
+   "grade": 12,
+   "difficulty": 3,
+   "competency": "saeure",
+   "type": "multi",
+   "prompt": "Woraus besteht ein Puffersystem?",
+   "options": [
+    {
+     "id": "a",
+     "text": "Einer starken Säure"
+    },
+    {
+     "id": "b",
+     "text": "Einem Edelgas"
+    },
+    {
+     "id": "c",
+     "text": "Destilliertem Wasser"
+    },
+    {
+     "id": "d",
+     "text": "Einer schwachen Säure"
+    },
+    {
+     "id": "e",
+     "text": "Ihrer korrespondierenden Base"
+    }
+   ],
+   "answer": [
+    "d",
+    "e"
+   ],
+   "explanation": "Starke Säuren puffern nicht — sie sind vollständig dissoziiert."
+  },
+  {
+   "id": "ch-128",
+   "topicId": "ch13-naturstoffe",
+   "grade": 13,
+   "difficulty": 3,
+   "competency": "carbon",
+   "type": "match",
+   "prompt": "Ordne jeden Naturstoff seinem Baustein zu.",
+   "pairs": [
+    {
+     "left": "Stärke",
+     "right": "Glucose"
+    },
+    {
+     "left": "Protein",
+     "right": "Aminosäuren"
+    },
+    {
+     "left": "Fett",
+     "right": "Glycerin und Fettsäuren"
+    },
+    {
+     "left": "DNA",
+     "right": "Nukleotide"
+    }
+   ],
+   "explanation": "Alle vier sind Makromoleküle aus wiederkehrenden Bausteinen."
+  },
+  {
+   "id": "ch-129",
+   "topicId": "ch13-naturstoffe",
+   "grade": 13,
+   "difficulty": 3,
+   "competency": "carbon",
+   "type": "mc",
+   "prompt": "Welche Bindung verknüpft Aminosäuren im Protein?",
+   "options": [
+    {
+     "id": "a",
+     "text": "Die Peptidbindung"
+    },
+    {
+     "id": "b",
+     "text": "Die glykosidische Bindung"
+    },
+    {
+     "id": "c",
+     "text": "Die Esterbindung"
+    },
+    {
+     "id": "d",
+     "text": "Die Ionenbindung"
+    }
+   ],
+   "answer": "a",
+   "explanation": "Die Peptidbindung entsteht durch Kondensation zwischen Carboxyl- und Aminogruppe."
+  },
+  {
+   "id": "ch-130",
+   "topicId": "ch13-naturstoffe",
+   "grade": 13,
+   "difficulty": 3,
+   "competency": "carbon",
+   "type": "match",
+   "prompt": "Ordne die Kunststoffarten ihrer Eigenschaft zu.",
+   "pairs": [
+    {
+     "left": "Thermoplast",
+     "right": "Lässt sich beim Erwärmen verformen"
+    },
+    {
+     "left": "Duroplast",
+     "right": "Bleibt beim Erwärmen hart, zersetzt sich"
+    },
+    {
+     "left": "Elastomer",
+     "right": "Elastisch, kehrt in die Ausgangsform zurück"
+    }
+   ],
+   "explanation": "Der Unterschied liegt im Vernetzungsgrad der Makromoleküle."
+  },
+  {
+   "id": "ch-131",
+   "topicId": "ch13-naturstoffe",
+   "grade": 13,
+   "difficulty": 3,
+   "competency": "carbon",
+   "type": "multi",
+   "prompt": "Welche Verfahren bilden Kunststoffe?",
+   "options": [
+    {
+     "id": "a",
+     "text": "Elektrolyse"
+    },
+    {
+     "id": "b",
+     "text": "Polyaddition"
+    },
+    {
+     "id": "c",
+     "text": "Polymerisation"
+    },
+    {
+     "id": "d",
+     "text": "Polykondensation"
+    },
+    {
+     "id": "e",
+     "text": "Destillation"
+    }
+   ],
+   "answer": [
+    "b",
+    "c",
+    "d"
+   ],
+   "explanation": "Bei der Polykondensation entsteht zusätzlich ein kleines Molekül, meist Wasser."
+  },
+  {
+   "id": "ch-132",
+   "topicId": "ch13-analytik",
+   "grade": 13,
+   "difficulty": 3,
+   "competency": "indikator",
+   "type": "match",
+   "prompt": "Ordne jedem Nachweis seinen Stoff zu.",
+   "pairs": [
+    {
+     "left": "Kalkwasser trübt sich",
+     "right": "Kohlenstoffdioxid"
+    },
+    {
+     "left": "Glimmspanprobe",
+     "right": "Sauerstoff"
+    },
+    {
+     "left": "Knallgasprobe",
+     "right": "Wasserstoff"
+    },
+    {
+     "left": "Fehling-Probe",
+     "right": "Reduzierende Zucker"
+    }
+   ],
+   "explanation": "Nachweisreaktionen sind spezifisch — deshalb taugen sie als Beleg."
+  },
+  {
+   "id": "ch-133",
+   "topicId": "ch13-analytik",
+   "grade": 13,
+   "difficulty": 3,
+   "competency": "indikator",
+   "type": "mc",
+   "prompt": "Worauf beruht die Flammenfärbung?",
+   "options": [
+    {
+     "id": "a",
+     "text": "Das Metall verbrennt farbig"
+    },
+    {
+     "id": "b",
+     "text": "Elektronen fallen aus angeregten Zuständen zurück und senden Licht aus"
+    },
+    {
+     "id": "c",
+     "text": "Die Flamme erhitzt die Luft"
+    },
+    {
+     "id": "d",
+     "text": "Das Salz schmilzt"
+    }
+   ],
+   "answer": "b",
+   "explanation": "Jedes Element hat ein charakteristisches Linienspektrum."
+  },
+  {
+   "id": "ch-134",
+   "topicId": "ch13-analytik",
+   "grade": 13,
+   "difficulty": 3,
+   "competency": "titration",
+   "type": "order",
+   "prompt": "Ordne die Schritte einer Titration.",
+   "items": [
+    "Probe abmessen",
+    "Indikator zugeben",
+    "Massslösung zutropfen",
+    "Farbumschlag beobachten",
+    "Verbrauch ablesen und Konzentration berechnen"
+   ],
+   "explanation": "Der Farbumschlag markiert den Äquivalenzpunkt, nicht das Ende des Zutropfens."
+  },
+  {
+   "id": "ch-135",
+   "topicId": "ch13-analytik",
+   "grade": 13,
+   "difficulty": 3,
+   "competency": "titration",
+   "type": "multi",
+   "prompt": "Welche Fehlerquellen verfälschen eine Titration?",
+   "options": [
+    {
+     "id": "a",
+     "text": "Zu viel Indikator"
+    },
+    {
+     "id": "b",
+     "text": "Die Raumtemperatur beträgt 20 °C"
+    },
+    {
+     "id": "c",
+     "text": "Die Bürette ist aus Glas"
+    },
+    {
+     "id": "d",
+     "text": "Über den Umschlagpunkt hinaus titrieren"
+    },
+    {
+     "id": "e",
+     "text": "Ungenaues Ablesen der Bürette"
+    }
+   ],
+   "answer": [
+    "a",
+    "d",
+    "e"
+   ],
+   "explanation": "Systematische Fehler erkennt man an mehreren Messungen, die alle in dieselbe Richtung abweichen."
   }
  ]
 };

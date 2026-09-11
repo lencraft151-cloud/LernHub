@@ -2,7 +2,7 @@
  * AUTOMATISCH GENERIERT — nicht von Hand bearbeiten.
  * Neu erzeugen mit: node tools/build-exercises.mjs
  *
- * Übungspool erdkunde: 100 Aufgaben.
+ * Übungspool erdkunde: 112 Aufgaben.
  */
 
 export default {
@@ -2563,6 +2563,358 @@ export default {
    ],
    "answer": "a",
    "explanation": "Das Uralgebirge gilt als Ostgrenze Europas; im Südosten bildet der Kaukasus einen Teil der Grenze."
+  },
+  {
+   "id": "ek-101",
+   "topicId": "ek11-raumanalyse",
+   "grade": 11,
+   "difficulty": 3,
+   "competency": "diagramm",
+   "type": "order",
+   "prompt": "Ordne die Schritte einer Raumanalyse.",
+   "items": [
+    "Raum abgrenzen und Fragestellung klären",
+    "Naturräumliche Grundlagen erfassen",
+    "Sozioökonomische Daten auswerten",
+    "Wechselwirkungen herausarbeiten",
+    "Entwicklungsperspektiven beurteilen"
+   ],
+   "explanation": "Die Raumanalyse verbindet Natur- und Humangeographie zu einem Gesamtbild."
+  },
+  {
+   "id": "ek-102",
+   "topicId": "ek11-raumanalyse",
+   "grade": 11,
+   "difficulty": 3,
+   "competency": "diagramm",
+   "type": "match",
+   "prompt": "Ordne jeder Darstellungsform ihren besten Einsatz zu.",
+   "pairs": [
+    {
+     "left": "Klimadiagramm",
+     "right": "Temperatur und Niederschlag im Jahresverlauf"
+    },
+    {
+     "left": "Thematische Karte",
+     "right": "Räumliche Verteilung eines Merkmals"
+    },
+    {
+     "left": "Bevölkerungspyramide",
+     "right": "Altersaufbau einer Bevölkerung"
+    },
+    {
+     "left": "Liniendiagramm",
+     "right": "Entwicklung über die Zeit"
+    }
+   ],
+   "explanation": "Die Darstellungsform folgt der Frage — nicht umgekehrt."
+  },
+  {
+   "id": "ek-103",
+   "topicId": "ek11-raumanalyse",
+   "grade": 11,
+   "difficulty": 3,
+   "competency": "diagramm",
+   "type": "multi",
+   "prompt": "Welche Angaben braucht jede Kartenauswertung?",
+   "options": [
+    {
+     "id": "a",
+     "text": "Der Name des Druckers"
+    },
+    {
+     "id": "b",
+     "text": "Quelle und Jahr"
+    },
+    {
+     "id": "c",
+     "text": "Massstab"
+    },
+    {
+     "id": "d",
+     "text": "Legende"
+    },
+    {
+     "id": "e",
+     "text": "Das Papierformat"
+    },
+    {
+     "id": "f",
+     "text": "Titel und Thema"
+    }
+   ],
+   "answer": [
+    "b",
+    "c",
+    "d",
+    "f"
+   ],
+   "explanation": "Ohne Massstab und Legende lässt sich eine Karte nicht auswerten."
+  },
+  {
+   "id": "ek-104",
+   "topicId": "ek11-raumanalyse",
+   "grade": 11,
+   "difficulty": 3,
+   "competency": "diagramm",
+   "type": "mc",
+   "prompt": "Was leistet ein Geoinformationssystem (GIS)?",
+   "options": [
+    {
+     "id": "a",
+     "text": "Es speichert Satellitenbilder ohne Bezug"
+    },
+    {
+     "id": "b",
+     "text": "Es zeichnet nur Karten"
+    },
+    {
+     "id": "c",
+     "text": "Es misst die Erdanziehung"
+    },
+    {
+     "id": "d",
+     "text": "Es verknüpft raumbezogene Daten in Schichten und wertet sie aus"
+    }
+   ],
+   "answer": "d",
+   "explanation": "Die Verknüpfung mehrerer Layer macht neue Zusammenhänge sichtbar."
+  },
+  {
+   "id": "ek-105",
+   "topicId": "ek12-stadtmodelle",
+   "grade": 12,
+   "difficulty": 3,
+   "competency": "stadt",
+   "type": "match",
+   "prompt": "Ordne die Stadtmodelle ihrem Kulturraum zu.",
+   "pairs": [
+    {
+     "left": "Europäische Stadt",
+     "right": "Historischer Kern, Marktplatz, kompakte Bauweise"
+    },
+    {
+     "left": "Nordamerikanische Stadt",
+     "right": "Schachbrettgrundriss, Downtown mit Hochhäusern, Suburbs"
+    },
+    {
+     "left": "Lateinamerikanische Stadt",
+     "right": "Plaza im Zentrum, Marginalsiedlungen am Rand"
+    },
+    {
+     "left": "Orientalische Stadt",
+     "right": "Moschee, Basar, Sackgassenviertel"
+    }
+   ],
+   "explanation": "Die Modelle sind Idealtypen — reale Städte mischen Elemente."
+  },
+  {
+   "id": "ek-106",
+   "topicId": "ek12-stadtmodelle",
+   "grade": 12,
+   "difficulty": 3,
+   "competency": "stadt",
+   "type": "match",
+   "prompt": "Ordne die stadtgeographischen Prozesse zu.",
+   "pairs": [
+    {
+     "left": "Suburbanisierung",
+     "right": "Abwanderung ins Umland"
+    },
+    {
+     "left": "Reurbanisierung",
+     "right": "Rückkehr in die Innenstadt"
+    },
+    {
+     "left": "Gentrifizierung",
+     "right": "Aufwertung eines Viertels, Verdrängung Ärmerer"
+    },
+    {
+     "left": "Segregation",
+     "right": "Räumliche Trennung von Bevölkerungsgruppen"
+    }
+   ],
+   "explanation": "Diese Prozesse laufen oft gleichzeitig in verschiedenen Stadtteilen ab."
+  },
+  {
+   "id": "ek-107",
+   "topicId": "ek12-stadtmodelle",
+   "grade": 12,
+   "difficulty": 3,
+   "competency": "stadt",
+   "type": "multi",
+   "prompt": "Welche Folgen hat Gentrifizierung?",
+   "options": [
+    {
+     "id": "a",
+     "text": "Steigende Mieten"
+    },
+    {
+     "id": "b",
+     "text": "Sinkende Bodenpreise"
+    },
+    {
+     "id": "c",
+     "text": "Veränderung der Geschäftsstruktur"
+    },
+    {
+     "id": "d",
+     "text": "Abnahme der Bevölkerungsdichte in jedem Fall"
+    },
+    {
+     "id": "e",
+     "text": "Verdrängung einkommensschwacher Haushalte"
+    }
+   ],
+   "answer": [
+    "a",
+    "c",
+    "e"
+   ],
+   "explanation": "Aufwertung und Verdrängung sind zwei Seiten desselben Prozesses."
+  },
+  {
+   "id": "ek-108",
+   "topicId": "ek12-stadtmodelle",
+   "grade": 12,
+   "difficulty": 3,
+   "competency": "stadt",
+   "type": "mc",
+   "prompt": "Was kennzeichnet eine „Megastadt\"?",
+   "options": [
+    {
+     "id": "a",
+     "text": "Mehr als 10 Millionen Einwohner"
+    },
+    {
+     "id": "b",
+     "text": "Mehr als 1 Million Einwohner"
+    },
+    {
+     "id": "c",
+     "text": "Eine Hauptstadt"
+    },
+    {
+     "id": "d",
+     "text": "Eine Stadt mit Flughafen"
+    }
+   ],
+   "answer": "a",
+   "explanation": "Das Kriterium ist rein quantitativ; „Metropole\" beschreibt dagegen die Funktion."
+  },
+  {
+   "id": "ek-109",
+   "topicId": "ek13-syndrome",
+   "grade": 13,
+   "difficulty": 3,
+   "competency": "klimawandel",
+   "type": "match",
+   "prompt": "Ordne die globalen Syndrome ihrer Beschreibung zu.",
+   "pairs": [
+    {
+     "left": "Sahel-Syndrom",
+     "right": "Übernutzung von Grenzertragsböden"
+    },
+    {
+     "left": "Raubbau-Syndrom",
+     "right": "Ausbeutung natürlicher Ökosysteme"
+    },
+    {
+     "left": "Favela-Syndrom",
+     "right": "Ungeregelte Verstädterung"
+    },
+    {
+     "left": "Dust-Bowl-Syndrom",
+     "right": "Industrielle Landwirtschaft ohne Rücksicht auf den Boden"
+    }
+   ],
+   "explanation": "Syndrome fassen typische Muster der Mensch-Umwelt-Beziehung zusammen."
+  },
+  {
+   "id": "ek-110",
+   "topicId": "ek13-syndrome",
+   "grade": 13,
+   "difficulty": 3,
+   "competency": "klimawandel",
+   "type": "multi",
+   "prompt": "Welche Folgen des Klimawandels treffen besonders Entwicklungsländer?",
+   "options": [
+    {
+     "id": "a",
+     "text": "Wasserknappheit"
+    },
+    {
+     "id": "b",
+     "text": "Rückgang des Welthandels"
+    },
+    {
+     "id": "c",
+     "text": "Dürren und Ernteausfälle"
+    },
+    {
+     "id": "d",
+     "text": "Meeresspiegelanstieg"
+    },
+    {
+     "id": "e",
+     "text": "Klimabedingte Migration"
+    },
+    {
+     "id": "f",
+     "text": "Abnahme der Erdrotation"
+    }
+   ],
+   "answer": [
+    "a",
+    "c",
+    "d",
+    "e"
+   ],
+   "explanation": "Wer am wenigsten beigetragen hat, trägt oft die grössten Lasten."
+  },
+  {
+   "id": "ek-111",
+   "topicId": "ek13-syndrome",
+   "grade": 13,
+   "difficulty": 3,
+   "competency": "ressourcen",
+   "type": "mc",
+   "prompt": "Was beschreibt der „ökologische Fussabdruck\"?",
+   "options": [
+    {
+     "id": "a",
+     "text": "Den Ausstoss eines Kraftwerks"
+    },
+    {
+     "id": "b",
+     "text": "Die Fläche eines Landes"
+    },
+    {
+     "id": "c",
+     "text": "Die Zahl der Einwohner"
+    },
+    {
+     "id": "d",
+     "text": "Die Fläche, die ein Lebensstil dauerhaft benötigt"
+    }
+   ],
+   "answer": "d",
+   "explanation": "Er wird in globalen Hektar je Person angegeben und mit der Biokapazität verglichen."
+  },
+  {
+   "id": "ek-112",
+   "topicId": "ek13-syndrome",
+   "grade": 13,
+   "difficulty": 3,
+   "competency": "klimawandel",
+   "type": "order",
+   "prompt": "Ordne die Nachhaltigkeitsdimensionen und ihre Leitfrage.",
+   "items": [
+    "Ökologisch: Bleiben die Ressourcen erhalten?",
+    "Ökonomisch: Ist es dauerhaft tragfähig?",
+    "Sozial: Ist es gerecht verteilt?"
+   ],
+   "explanation": "Nachhaltigkeit verlangt alle drei Dimensionen gleichzeitig — nicht nacheinander."
   }
  ]
 };

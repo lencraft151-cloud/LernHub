@@ -526,5 +526,247 @@ export default function build() {
     ],
   }));
 
+  /* ================================================================== *
+   * Oberstufe — Zellbiologie, Genetik, Neurobiologie, Ökologie
+   * ================================================================== */
+
+  /* ----------------------- Enzyme (Klasse 11) --------------------- */
+  add(mc({
+    prefix: P, topicId: 'bio11-enzyme', grade: 11, difficulty: 2, competency: 'zelle',
+    prompt: 'Was bewirkt ein Enzym in einer Reaktion?',
+    correct: 'Es senkt die Aktivierungsenergie',
+    wrong: ['Es liefert Energie', 'Es verschiebt das Gleichgewicht', 'Es wird dabei verbraucht'],
+    explanation: 'Enzyme beschleunigen Reaktionen, ohne selbst verbraucht zu werden oder die Lage des Gleichgewichts zu ändern.',
+  }));
+  add(match({
+    prefix: P, topicId: 'bio11-enzyme', grade: 11, difficulty: 3, competency: 'zelle',
+    prompt: 'Ordne die Begriffe der Enzymatik zu.',
+    pairs: [
+      { left: 'Substrat', right: 'Der Stoff, der umgesetzt wird' },
+      { left: 'Aktives Zentrum', right: 'Bindungsstelle am Enzym' },
+      { left: 'Kompetitive Hemmung', right: 'Hemmstoff blockiert das aktive Zentrum' },
+      { left: 'Allosterische Hemmung', right: 'Hemmstoff bindet an anderer Stelle und verformt das Enzym' },
+    ],
+    explanation: 'Kompetitive Hemmung lässt sich durch mehr Substrat aufheben, allosterische nicht.',
+  }));
+  add(multi({
+    prefix: P, topicId: 'bio11-enzyme', grade: 11, difficulty: 3, competency: 'zelle',
+    prompt: 'Wovon hängt die Enzymaktivität ab?',
+    correct: ['Temperatur', 'pH-Wert', 'Substratkonzentration', 'Hemmstoffe'],
+    wrong: ['Der Farbe des Gefässes', 'Der Tageszeit'],
+    explanation: 'Jedes Enzym hat ein Temperatur- und ein pH-Optimum.',
+  }));
+  add(tf({
+    prefix: P, topicId: 'bio11-enzyme', grade: 11, difficulty: 2, competency: 'zelle',
+    prompt: 'Über dem Temperaturoptimum sinkt die Enzymaktivität, weil das Protein denaturiert.',
+    answer: true,
+    explanation: 'Die Raumstruktur zerfällt — das aktive Zentrum passt nicht mehr zum Substrat.',
+  }));
+  add(mc({
+    prefix: P, topicId: 'bio11-enzyme', grade: 11, difficulty: 3, competency: 'zelle',
+    prompt: 'Was beschreibt das Schlüssel-Schloss-Prinzip?',
+    correct: 'Die Passgenauigkeit von Substrat und aktivem Zentrum',
+    wrong: ['Die Öffnung der Zellmembran', 'Den Transport im Blut', 'Die Verdopplung der DNA'],
+    explanation: 'Moderner spricht man vom „induced fit" — das Enzym passt sich beim Binden an.',
+  }));
+
+  /* ------------- Biomembranen und Transport (Klasse 11) ----------- */
+  add(mc({
+    prefix: P, topicId: 'bio11-membran', grade: 11, difficulty: 2, competency: 'zelle',
+    prompt: 'Wie ist eine Biomembran grundsätzlich aufgebaut?',
+    correct: 'Als Doppelschicht aus Phospholipiden mit eingelagerten Proteinen',
+    wrong: ['Als einfache Proteinschicht', 'Als Zellwand aus Cellulose', 'Als Gitter aus DNA'],
+    explanation: 'Das Flüssig-Mosaik-Modell beschreibt die Membran als bewegliche Lipiddoppelschicht.',
+  }));
+  add(match({
+    prefix: P, topicId: 'bio11-membran', grade: 11, difficulty: 3, competency: 'zelle',
+    prompt: 'Ordne die Transportarten ihrer Beschreibung zu.',
+    pairs: [
+      { left: 'Diffusion', right: 'Ausgleich entlang des Gefälles, ohne Energie' },
+      { left: 'Osmose', right: 'Diffusion von Wasser durch eine Membran' },
+      { left: 'Erleichterte Diffusion', right: 'Durch Kanalproteine, ohne Energie' },
+      { left: 'Aktiver Transport', right: 'Gegen das Gefälle, unter ATP-Verbrauch' },
+    ],
+    explanation: 'Nur der aktive Transport kostet Energie — er arbeitet gegen das Konzentrationsgefälle.',
+  }));
+  add(multi({
+    prefix: P, topicId: 'bio11-membran', grade: 11, difficulty: 3, competency: 'zelle',
+    prompt: 'Welche Aufgaben hat die Zellmembran?',
+    correct: ['Abgrenzung nach aussen', 'Stoffaustausch steuern', 'Signale empfangen', 'Zellen erkennen'],
+    wrong: ['Proteine herstellen', 'Erbinformation speichern'],
+    explanation: 'Die Membran ist selektiv permeabel — sie entscheidet, was hinein- und hinausgelangt.',
+  }));
+  add(tf({
+    prefix: P, topicId: 'bio11-membran', grade: 11, difficulty: 2, competency: 'zelle',
+    prompt: 'Bei der Osmose wandert Wasser in die Lösung mit der höheren Teilchenkonzentration.',
+    answer: true,
+    explanation: 'Das Wasser folgt dem Konzentrationsgefälle der gelösten Teilchen.',
+  }));
+
+  /* ------------------ Genregulation (Klasse 12) ------------------- */
+  add(mc({
+    prefix: P, topicId: 'bio12-genregulation', grade: 12, difficulty: 3, competency: 'dna',
+    prompt: 'Was beschreibt das Operon-Modell?',
+    correct: 'Wie Bakterien die Ablesung mehrerer Gene gemeinsam steuern',
+    wrong: ['Wie DNA verdoppelt wird', 'Wie Proteine abgebaut werden', 'Wie Zellen sich teilen'],
+    explanation: 'Jacob und Monod beschrieben es am lac-Operon von E. coli.',
+  }));
+  add(match({
+    prefix: P, topicId: 'bio12-genregulation', grade: 12, difficulty: 3, competency: 'dna',
+    prompt: 'Ordne die Bestandteile des Operons ihrer Funktion zu.',
+    pairs: [
+      { left: 'Promotor', right: 'Bindungsstelle der RNA-Polymerase' },
+      { left: 'Operator', right: 'Bindungsstelle des Repressors' },
+      { left: 'Strukturgene', right: 'Codieren die Enzyme' },
+      { left: 'Regulatorgen', right: 'Codiert den Repressor' },
+    ],
+    explanation: 'Bindet der Repressor am Operator, kann die Polymerase nicht ablesen.',
+  }));
+  add(mc({
+    prefix: P, topicId: 'bio12-genregulation', grade: 12, difficulty: 3, competency: 'dna',
+    prompt: 'Warum wird das lac-Operon als „Substratinduktion" bezeichnet?',
+    correct: 'Lactose schaltet die Gene an, die zu ihrem Abbau nötig sind',
+    wrong: ['Lactose schaltet die Gene ab', 'Es wird immer abgelesen', 'Es reagiert auf Temperatur'],
+    explanation: 'Ohne Lactose wären die Abbau-Enzyme unnötig — die Zelle spart Energie.',
+  }));
+  add(tf({
+    prefix: P, topicId: 'bio12-genregulation', grade: 12, difficulty: 3, competency: 'dna',
+    prompt: 'Alle Körperzellen eines Menschen enthalten dieselbe DNA, lesen aber unterschiedliche Gene ab.',
+    answer: true,
+    explanation: 'Genau das ist Differenzierung: dieselbe Bauanleitung, verschiedene Kapitel.',
+  }));
+
+  /* --------------- Gentechnische Verfahren (Klasse 12) ------------ */
+  add(match({
+    prefix: P, topicId: 'bio12-gentechnik', grade: 12, difficulty: 3, competency: 'dna',
+    prompt: 'Ordne jedem Werkzeug seine Aufgabe zu.',
+    pairs: [
+      { left: 'Restriktionsenzym', right: 'Schneidet DNA an bestimmten Sequenzen' },
+      { left: 'Ligase', right: 'Verknüpft DNA-Stücke' },
+      { left: 'Plasmid', right: 'Ringförmiger Genfähre in Bakterien' },
+      { left: 'PCR', right: 'Vervielfältigt DNA-Abschnitte' },
+    ],
+    explanation: 'Schneiden, einsetzen, verkleben, vermehren — das ist der Kern der Gentechnik.',
+  }));
+  add(order({
+    prefix: P, topicId: 'bio12-gentechnik', grade: 12, difficulty: 3, competency: 'dna',
+    prompt: 'Ordne die Schritte der PCR.',
+    items: ['Denaturierung bei etwa 95 °C', 'Primerhybridisierung bei etwa 55 °C', 'Elongation bei etwa 72 °C', 'Zyklus wiederholen'],
+    explanation: 'Jeder Zyklus verdoppelt die Zahl der Kopien — nach 30 Zyklen sind es rund eine Milliarde.',
+  }));
+  add(numeric({
+    prefix: P, topicId: 'bio12-gentechnik', grade: 12, difficulty: 3, competency: 'dna',
+    prompt: 'Wie viele DNA-Kopien entstehen aus einem Molekül nach 5 PCR-Zyklen?',
+    answer: 32,
+    hint: 'Jeder Zyklus verdoppelt.',
+    explanation: '2⁵ = 32.',
+  }));
+  add(multi({
+    prefix: P, topicId: 'bio12-gentechnik', grade: 12, difficulty: 3, competency: 'dna',
+    prompt: 'Wofür wird Gentechnik eingesetzt?',
+    correct: ['Insulinherstellung', 'Gendiagnostik', 'Züchtung resistenter Pflanzen'],
+    wrong: ['Wettervorhersage', 'Metallgewinnung'],
+    explanation: 'Humaninsulin aus Bakterien war die erste grosstechnische Anwendung.',
+  }));
+
+  /* ---------------- Neurophysiologie (Klasse 12) ------------------ */
+  add(mc({
+    prefix: P, topicId: 'bio12-neurophysiologie', grade: 12, difficulty: 3, competency: 'nerven',
+    prompt: 'Was hält das Ruhepotential aufrecht?',
+    correct: 'Die Natrium-Kalium-Pumpe und die selektive Kaliumdurchlässigkeit',
+    wrong: ['Die Myelinscheide', 'Die Synapse', 'Der Zellkern'],
+    explanation: 'Das Ruhepotential liegt bei etwa −70 mV und kostet ständig ATP.',
+  }));
+  add(order({
+    prefix: P, topicId: 'bio12-neurophysiologie', grade: 12, difficulty: 3, competency: 'nerven',
+    prompt: 'Ordne die Phasen des Aktionspotentials.',
+    items: ['Überschreiten des Schwellenwerts', 'Depolarisation durch Na⁺-Einstrom', 'Repolarisation durch K⁺-Ausstrom', 'Hyperpolarisation', 'Rückkehr zum Ruhepotential'],
+    explanation: 'Während der Refraktärzeit kann kein neues Aktionspotential entstehen — das sichert die Richtung.',
+  }));
+  add(match({
+    prefix: P, topicId: 'bio12-neurophysiologie', grade: 12, difficulty: 3, competency: 'nerven',
+    prompt: 'Ordne die Teile der Synapse ihrer Aufgabe zu.',
+    pairs: [
+      { left: 'Präsynapse', right: 'Speichert und entlässt den Transmitter' },
+      { left: 'Synaptischer Spalt', right: 'Der Transmitter diffundiert hindurch' },
+      { left: 'Postsynapse', right: 'Trägt die Rezeptoren' },
+      { left: 'Transmitter', right: 'Überträgt das Signal chemisch' },
+    ],
+    explanation: 'Die chemische Übertragung macht die Erregungsleitung einsinnig.',
+  }));
+  add(tf({
+    prefix: P, topicId: 'bio12-neurophysiologie', grade: 12, difficulty: 3, competency: 'nerven',
+    prompt: 'Myelinisierte Axone leiten Erregungen schneller als unmyelinisierte.',
+    answer: true,
+    explanation: 'Die saltatorische Erregungsleitung springt von Schnürring zu Schnürring.',
+  }));
+
+  /* --------- Ökologie und Nachhaltigkeit (Klasse 13) -------------- */
+  add(match({
+    prefix: P, topicId: 'bio13-oekologie-vertieft', grade: 13, difficulty: 3, competency: 'oekosystem',
+    prompt: 'Ordne die ökologischen Begriffe zu.',
+    pairs: [
+      { left: 'Biotop', right: 'Der Lebensraum' },
+      { left: 'Biozönose', right: 'Die Lebensgemeinschaft' },
+      { left: 'Ökologische Nische', right: 'Die Gesamtheit der Ansprüche einer Art' },
+      { left: 'Sukzession', right: 'Zeitliche Abfolge von Lebensgemeinschaften' },
+    ],
+    explanation: 'Biotop und Biozönose bilden zusammen das Ökosystem.',
+  }));
+  add(mc({
+    prefix: P, topicId: 'bio13-oekologie-vertieft', grade: 13, difficulty: 3, competency: 'nahrungskette',
+    prompt: 'Wie viel Energie wird von einer Trophiestufe zur nächsten etwa weitergegeben?',
+    correct: 'Rund 10 Prozent', wrong: ['Rund 50 Prozent', 'Rund 90 Prozent', 'Die gesamte Energie'],
+    explanation: 'Der Rest geht als Wärme und für den Eigenstoffwechsel verloren — daher die Pyramidenform.',
+  }));
+  add(multi({
+    prefix: P, topicId: 'bio13-oekologie-vertieft', grade: 13, difficulty: 3, competency: 'oekosystem',
+    prompt: 'Was macht ein Ökosystem stabil?',
+    correct: ['Hohe Artenvielfalt', 'Viele Nahrungsbeziehungen', 'Redundante Funktionen'],
+    wrong: ['Eine einzige dominierende Art', 'Vollständige Abschottung'],
+    explanation: 'Je mehr Verknüpfungen, desto eher kann eine Art den Ausfall einer anderen auffangen.',
+  }));
+  add(mc({
+    prefix: P, topicId: 'bio13-oekologie-vertieft', grade: 13, difficulty: 3, competency: 'oekosystem',
+    prompt: 'Was beschreibt der Begriff „Nachhaltigkeit" ursprünglich?',
+    correct: 'Nur so viel zu entnehmen, wie nachwachsen kann',
+    wrong: ['Möglichst viel zu produzieren', 'Ressourcen vollständig zu schonen', 'Auf Nutzung zu verzichten'],
+    explanation: 'Der Begriff stammt aus der Forstwirtschaft des 18. Jahrhunderts.',
+  }));
+
+  /* ----------- Evolutionsmechanismen (Klasse 13) ------------------ */
+  add(match({
+    prefix: P, topicId: 'bio13-evolution-vertieft', grade: 13, difficulty: 3, competency: 'evolution',
+    prompt: 'Ordne die Evolutionsfaktoren ihrer Wirkung zu.',
+    pairs: [
+      { left: 'Mutation', right: 'Erzeugt neue Varianten' },
+      { left: 'Rekombination', right: 'Mischt vorhandene Varianten neu' },
+      { left: 'Selektion', right: 'Verändert Häufigkeiten gerichtet' },
+      { left: 'Gendrift', right: 'Verändert Häufigkeiten zufällig' },
+    ],
+    explanation: 'Nur Mutation schafft Neues — alles andere arbeitet mit dem Vorhandenen.',
+  }));
+  add(mc({
+    prefix: P, topicId: 'bio13-evolution-vertieft', grade: 13, difficulty: 3, competency: 'evolution',
+    prompt: 'Was versteht man unter Gendrift?',
+    correct: 'Zufällige Änderung der Allelhäufigkeit, besonders in kleinen Populationen',
+    wrong: ['Gerichtete Auslese durch die Umwelt', 'Wanderung von Individuen', 'Verdopplung des Erbguts'],
+    explanation: 'In kleinen Populationen kann ein Allel allein durch Zufall verschwinden.',
+  }));
+  add(multi({
+    prefix: P, topicId: 'bio13-evolution-vertieft', grade: 13, difficulty: 3, competency: 'belege',
+    prompt: 'Welche Belege stützen die Evolutionstheorie?',
+    correct: ['Homologe Organe', 'Fossilfunde', 'Molekulare Ähnlichkeiten der DNA', 'Beobachtete Resistenzbildung'],
+    wrong: ['Analoge Organe als Verwandtschaftsbeleg', 'Die Grösse einer Art'],
+    explanation: 'Analogien entstehen durch ähnliche Anforderungen, nicht durch Verwandtschaft.',
+  }));
+  add(mc({
+    prefix: P, topicId: 'bio13-evolution-vertieft', grade: 13, difficulty: 3, competency: 'evolution',
+    prompt: 'Wie entsteht eine neue Art nach dem Modell der allopatrischen Artbildung?',
+    correct: 'Durch geografische Trennung und anschliessende getrennte Entwicklung',
+    wrong: ['Durch eine einzelne Mutation', 'Durch Anpassung innerhalb einer Generation', 'Durch Kreuzung zweier Gattungen'],
+    explanation: 'Erst die Isolation, dann die Divergenz, zuletzt die reproduktive Trennung.',
+  }));
+
   return out;
 }

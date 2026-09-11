@@ -2,7 +2,7 @@
  * AUTOMATISCH GENERIERT — nicht von Hand bearbeiten.
  * Neu erzeugen mit: node tools/build-exercises.mjs
  *
- * Übungspool latein: 106 Aufgaben.
+ * Übungspool latein: 148 Aufgaben.
  */
 
 export default {
@@ -2565,6 +2565,1051 @@ export default {
    ],
    "answer": "a",
    "explanation": "vocare (a-Konjugation), videre (e-Konjugation), mittere (konsonantisch), audire (i-Konjugation)."
+  },
+  {
+   "id": "la-107",
+   "topicId": "la10-ovid",
+   "grade": 10,
+   "difficulty": 3,
+   "competency": "vokabeln",
+   "type": "cloze",
+   "prompt": "Wie heißt „die Gestalt\" auf Latein?",
+   "segments": [
+    "",
+    {
+     "blank": "a",
+     "accept": [
+      "forma"
+     ]
+    },
+    ""
+   ],
+   "explanation": "„die Gestalt\" heißt forma."
+  },
+  {
+   "id": "la-108",
+   "topicId": "la10-ovid",
+   "grade": 10,
+   "difficulty": 3,
+   "competency": "vokabeln",
+   "type": "mc",
+   "prompt": "Was bedeutet „forma\" auf Deutsch?",
+   "options": [
+    {
+     "id": "a",
+     "text": "die Liebe"
+    },
+    {
+     "id": "b",
+     "text": "der Körper"
+    },
+    {
+     "id": "c",
+     "text": "verwandeln"
+    },
+    {
+     "id": "d",
+     "text": "die Gestalt"
+    }
+   ],
+   "answer": "d",
+   "explanation": "„forma\" bedeutet „die Gestalt\"."
+  },
+  {
+   "id": "la-109",
+   "topicId": "la10-ovid",
+   "grade": 10,
+   "difficulty": 3,
+   "competency": "vokabeln",
+   "type": "cloze",
+   "prompt": "Wie heißt „verwandeln\" auf Latein?",
+   "segments": [
+    "",
+    {
+     "blank": "a",
+     "accept": [
+      "mutare"
+     ]
+    },
+    ""
+   ],
+   "explanation": "„verwandeln\" heißt mutare."
+  },
+  {
+   "id": "la-110",
+   "topicId": "la10-ovid",
+   "grade": 10,
+   "difficulty": 3,
+   "competency": "vokabeln",
+   "type": "cloze",
+   "prompt": "Wie heißt „der Körper\" auf Latein?",
+   "segments": [
+    "",
+    {
+     "blank": "a",
+     "accept": [
+      "corpus"
+     ]
+    },
+    ""
+   ],
+   "explanation": "„der Körper\" heißt corpus."
+  },
+  {
+   "id": "la-111",
+   "topicId": "la10-ovid",
+   "grade": 10,
+   "difficulty": 3,
+   "competency": "vokabeln",
+   "type": "mc",
+   "prompt": "Was bedeutet „corpus\" auf Deutsch?",
+   "options": [
+    {
+     "id": "a",
+     "text": "die Gestalt"
+    },
+    {
+     "id": "b",
+     "text": "die Liebe"
+    },
+    {
+     "id": "c",
+     "text": "der Körper"
+    },
+    {
+     "id": "d",
+     "text": "verwandeln"
+    }
+   ],
+   "answer": "c",
+   "explanation": "„corpus\" bedeutet „der Körper\"."
+  },
+  {
+   "id": "la-112",
+   "topicId": "la10-ovid",
+   "grade": 10,
+   "difficulty": 3,
+   "competency": "vokabeln",
+   "type": "cloze",
+   "prompt": "Wie heißt „die Liebe\" auf Latein?",
+   "segments": [
+    "",
+    {
+     "blank": "a",
+     "accept": [
+      "amor"
+     ]
+    },
+    ""
+   ],
+   "explanation": "„die Liebe\" heißt amor."
+  },
+  {
+   "id": "la-113",
+   "topicId": "la10-ovid",
+   "grade": 10,
+   "difficulty": 3,
+   "competency": "vokabeln",
+   "type": "cloze",
+   "prompt": "Wie heißt „fliehen\" auf Latein?",
+   "segments": [
+    "",
+    {
+     "blank": "a",
+     "accept": [
+      "fugere"
+     ]
+    },
+    ""
+   ],
+   "explanation": "„fliehen\" heißt fugere."
+  },
+  {
+   "id": "la-114",
+   "topicId": "la10-ovid",
+   "grade": 10,
+   "difficulty": 3,
+   "competency": "vokabeln",
+   "type": "mc",
+   "prompt": "Was bedeutet „fugere\" auf Deutsch?",
+   "options": [
+    {
+     "id": "a",
+     "text": "der Körper"
+    },
+    {
+     "id": "b",
+     "text": "fliehen"
+    },
+    {
+     "id": "c",
+     "text": "die Gestalt"
+    },
+    {
+     "id": "d",
+     "text": "verwandeln"
+    }
+   ],
+   "answer": "b",
+   "explanation": "„fugere\" bedeutet „fliehen\"."
+  },
+  {
+   "id": "la-115",
+   "topicId": "la10-ovid",
+   "grade": 10,
+   "difficulty": 3,
+   "competency": "vokabeln",
+   "type": "cloze",
+   "prompt": "Wie heißt „der Gott\" auf Latein?",
+   "segments": [
+    "",
+    {
+     "blank": "a",
+     "accept": [
+      "deus"
+     ]
+    },
+    ""
+   ],
+   "explanation": "„der Gott\" heißt deus."
+  },
+  {
+   "id": "la-116",
+   "topicId": "la10-ovid",
+   "grade": 10,
+   "difficulty": 3,
+   "competency": "vokabeln",
+   "type": "match",
+   "prompt": "Ordne jedem deutschen Wort die Lateine Entsprechung zu.",
+   "pairs": [
+    {
+     "left": "die Gestalt",
+     "right": "forma"
+    },
+    {
+     "left": "verwandeln",
+     "right": "mutare"
+    },
+    {
+     "left": "der Körper",
+     "right": "corpus"
+    },
+    {
+     "left": "die Liebe",
+     "right": "amor"
+    }
+   ],
+   "explanation": "Vokabeln lernt man am besten in beide Richtungen."
+  },
+  {
+   "id": "la-117",
+   "topicId": "la10-ovid",
+   "grade": 10,
+   "difficulty": 3,
+   "competency": "autoren",
+   "type": "mc",
+   "prompt": "Worum geht es in Ovids „Metamorphosen\"?",
+   "options": [
+    {
+     "id": "a",
+     "text": "Um Verwandlungssagen von der Weltentstehung bis in Ovids Gegenwart"
+    },
+    {
+     "id": "b",
+     "text": "Um die Gründung Roms"
+    },
+    {
+     "id": "c",
+     "text": "Um den Trojanischen Krieg"
+    },
+    {
+     "id": "d",
+     "text": "Um Caesars Feldzüge"
+    }
+   ],
+   "answer": "a",
+   "explanation": "„In nova fert animus mutatas dicere formas corpora\" — das Programm steht im ersten Vers."
+  },
+  {
+   "id": "la-118",
+   "topicId": "la10-ovid",
+   "grade": 10,
+   "difficulty": 3,
+   "competency": "autoren",
+   "type": "match",
+   "prompt": "Ordne die Verwandlungssagen ihrem Ausgang zu.",
+   "pairs": [
+    {
+     "left": "Daphne",
+     "right": "wird zum Lorbeerbaum"
+    },
+    {
+     "left": "Narcissus",
+     "right": "wird zur Narzisse"
+    },
+    {
+     "left": "Niobe",
+     "right": "erstarrt zu Stein"
+    },
+    {
+     "left": "Arachne",
+     "right": "wird zur Spinne"
+    }
+   ],
+   "explanation": "Die Verwandlung ist bei Ovid stets Folge eines menschlichen Übermasses oder einer Gottesbegegnung."
+  },
+  {
+   "id": "la-119",
+   "topicId": "la10-ovid",
+   "grade": 10,
+   "difficulty": 3,
+   "competency": "uebersetzen",
+   "type": "mc",
+   "prompt": "In welchem Versmass sind die „Metamorphosen\" verfasst?",
+   "options": [
+    {
+     "id": "a",
+     "text": "Im daktylischen Hexameter"
+    },
+    {
+     "id": "b",
+     "text": "In Prosa"
+    },
+    {
+     "id": "c",
+     "text": "Im jambischen Trimeter"
+    },
+    {
+     "id": "d",
+     "text": "Im elegischen Distichon"
+    }
+   ],
+   "answer": "a",
+   "explanation": "Der Hexameter ist das Versmass des Epos — sechs Versfüsse je Zeile."
+  },
+  {
+   "id": "la-120",
+   "topicId": "la10-ovid",
+   "grade": 10,
+   "difficulty": 3,
+   "competency": "uebersetzen",
+   "type": "multi",
+   "prompt": "Worauf achtet man beim Übersetzen eines Ovid-Textes besonders?",
+   "options": [
+    {
+     "id": "a",
+     "text": "Grossschreibung der Nomen"
+    },
+    {
+     "id": "b",
+     "text": "Deutsche Interpunktion im Original"
+    },
+    {
+     "id": "c",
+     "text": "Ungewöhnliche Wortstellung im Vers"
+    },
+    {
+     "id": "d",
+     "text": "Partizipialkonstruktionen"
+    },
+    {
+     "id": "e",
+     "text": "Metrisch bedingte Kurzformen"
+    }
+   ],
+   "answer": [
+    "c",
+    "d",
+    "e"
+   ],
+   "explanation": "Im Vers ist die Wortstellung freier — das Satzgerüst muss man sich erst erschliessen."
+  },
+  {
+   "id": "la-121",
+   "topicId": "la11-cicero",
+   "grade": 11,
+   "difficulty": 3,
+   "competency": "vokabeln",
+   "type": "cloze",
+   "prompt": "Wie heißt „der Staat\" auf Latein?",
+   "segments": [
+    "",
+    {
+     "blank": "a",
+     "accept": [
+      "res publica"
+     ]
+    },
+    ""
+   ],
+   "explanation": "„der Staat\" heißt res publica."
+  },
+  {
+   "id": "la-122",
+   "topicId": "la11-cicero",
+   "grade": 11,
+   "difficulty": 3,
+   "competency": "vokabeln",
+   "type": "mc",
+   "prompt": "Was bedeutet „res publica\" auf Deutsch?",
+   "options": [
+    {
+     "id": "a",
+     "text": "die Freiheit"
+    },
+    {
+     "id": "b",
+     "text": "die Rede"
+    },
+    {
+     "id": "c",
+     "text": "der Bürger"
+    },
+    {
+     "id": "d",
+     "text": "der Staat"
+    }
+   ],
+   "answer": "d",
+   "explanation": "„res publica\" bedeutet „der Staat\"."
+  },
+  {
+   "id": "la-123",
+   "topicId": "la11-cicero",
+   "grade": 11,
+   "difficulty": 3,
+   "competency": "vokabeln",
+   "type": "cloze",
+   "prompt": "Wie heißt „die Rede\" auf Latein?",
+   "segments": [
+    "",
+    {
+     "blank": "a",
+     "accept": [
+      "oratio"
+     ]
+    },
+    ""
+   ],
+   "explanation": "„die Rede\" heißt oratio."
+  },
+  {
+   "id": "la-124",
+   "topicId": "la11-cicero",
+   "grade": 11,
+   "difficulty": 3,
+   "competency": "vokabeln",
+   "type": "cloze",
+   "prompt": "Wie heißt „der Bürger\" auf Latein?",
+   "segments": [
+    "",
+    {
+     "blank": "a",
+     "accept": [
+      "civis"
+     ]
+    },
+    ""
+   ],
+   "explanation": "„der Bürger\" heißt civis."
+  },
+  {
+   "id": "la-125",
+   "topicId": "la11-cicero",
+   "grade": 11,
+   "difficulty": 3,
+   "competency": "vokabeln",
+   "type": "mc",
+   "prompt": "Was bedeutet „civis\" auf Deutsch?",
+   "options": [
+    {
+     "id": "a",
+     "text": "der Staat"
+    },
+    {
+     "id": "b",
+     "text": "der Bürger"
+    },
+    {
+     "id": "c",
+     "text": "die Freiheit"
+    },
+    {
+     "id": "d",
+     "text": "die Rede"
+    }
+   ],
+   "answer": "b",
+   "explanation": "„civis\" bedeutet „der Bürger\"."
+  },
+  {
+   "id": "la-126",
+   "topicId": "la11-cicero",
+   "grade": 11,
+   "difficulty": 3,
+   "competency": "vokabeln",
+   "type": "cloze",
+   "prompt": "Wie heißt „die Freiheit\" auf Latein?",
+   "segments": [
+    "",
+    {
+     "blank": "a",
+     "accept": [
+      "libertas"
+     ]
+    },
+    ""
+   ],
+   "explanation": "„die Freiheit\" heißt libertas."
+  },
+  {
+   "id": "la-127",
+   "topicId": "la11-cicero",
+   "grade": 11,
+   "difficulty": 3,
+   "competency": "vokabeln",
+   "type": "cloze",
+   "prompt": "Wie heißt „anklagen\" auf Latein?",
+   "segments": [
+    "",
+    {
+     "blank": "a",
+     "accept": [
+      "accusare"
+     ]
+    },
+    ""
+   ],
+   "explanation": "„anklagen\" heißt accusare."
+  },
+  {
+   "id": "la-128",
+   "topicId": "la11-cicero",
+   "grade": 11,
+   "difficulty": 3,
+   "competency": "vokabeln",
+   "type": "mc",
+   "prompt": "Was bedeutet „accusare\" auf Deutsch?",
+   "options": [
+    {
+     "id": "a",
+     "text": "die Rede"
+    },
+    {
+     "id": "b",
+     "text": "der Staat"
+    },
+    {
+     "id": "c",
+     "text": "der Bürger"
+    },
+    {
+     "id": "d",
+     "text": "anklagen"
+    }
+   ],
+   "answer": "d",
+   "explanation": "„accusare\" bedeutet „anklagen\"."
+  },
+  {
+   "id": "la-129",
+   "topicId": "la11-cicero",
+   "grade": 11,
+   "difficulty": 3,
+   "competency": "vokabeln",
+   "type": "cloze",
+   "prompt": "Wie heißt „das Gesetz\" auf Latein?",
+   "segments": [
+    "",
+    {
+     "blank": "a",
+     "accept": [
+      "lex"
+     ]
+    },
+    ""
+   ],
+   "explanation": "„das Gesetz\" heißt lex."
+  },
+  {
+   "id": "la-130",
+   "topicId": "la11-cicero",
+   "grade": 11,
+   "difficulty": 3,
+   "competency": "vokabeln",
+   "type": "match",
+   "prompt": "Ordne jedem deutschen Wort die Lateine Entsprechung zu.",
+   "pairs": [
+    {
+     "left": "der Staat",
+     "right": "res publica"
+    },
+    {
+     "left": "die Rede",
+     "right": "oratio"
+    },
+    {
+     "left": "der Bürger",
+     "right": "civis"
+    },
+    {
+     "left": "die Freiheit",
+     "right": "libertas"
+    }
+   ],
+   "explanation": "Vokabeln lernt man am besten in beide Richtungen."
+  },
+  {
+   "id": "la-131",
+   "topicId": "la11-cicero",
+   "grade": 11,
+   "difficulty": 3,
+   "competency": "autoren",
+   "type": "mc",
+   "prompt": "Gegen wen richtet sich Ciceros berühmteste Rede „Quo usque tandem…\"?",
+   "options": [
+    {
+     "id": "a",
+     "text": "Gegen Caesar"
+    },
+    {
+     "id": "b",
+     "text": "Gegen Verres"
+    },
+    {
+     "id": "c",
+     "text": "Gegen Catilina"
+    },
+    {
+     "id": "d",
+     "text": "Gegen Antonius"
+    }
+   ],
+   "answer": "c",
+   "explanation": "Die erste Catilinarische Rede hielt Cicero 63 v. Chr. im Senat."
+  },
+  {
+   "id": "la-132",
+   "topicId": "la11-cicero",
+   "grade": 11,
+   "difficulty": 3,
+   "competency": "autoren",
+   "type": "match",
+   "prompt": "Ordne die rhetorischen Mittel ihrer lateinischen Bezeichnung zu.",
+   "pairs": [
+    {
+     "left": "Wiederholung am Satzanfang",
+     "right": "Anapher"
+    },
+    {
+     "left": "Dreierfigur",
+     "right": "Trikolon"
+    },
+    {
+     "left": "Überkreuzstellung",
+     "right": "Chiasmus"
+    },
+    {
+     "left": "Scheinfrage",
+     "right": "Interrogatio rhetorica"
+    }
+   ],
+   "explanation": "Ciceros Reden sind das Musterbeispiel antiker Rhetorik."
+  },
+  {
+   "id": "la-133",
+   "topicId": "la11-cicero",
+   "grade": 11,
+   "difficulty": 3,
+   "competency": "uebersetzen",
+   "type": "order",
+   "prompt": "Ordne die Schritte der Satzerschliessung.",
+   "items": [
+    "Prädikat suchen",
+    "Subjekt bestimmen",
+    "Objekte und Ergänzungen zuordnen",
+    "Nebensätze abgrenzen",
+    "Sinngemäss übersetzen"
+   ],
+   "explanation": "Wer mit dem Prädikat beginnt, findet auch in langen Perioden den Halt."
+  },
+  {
+   "id": "la-134",
+   "topicId": "la11-cicero",
+   "grade": 11,
+   "difficulty": 3,
+   "competency": "kultur",
+   "type": "mc",
+   "prompt": "Welches Amt bekleidete Cicero im Jahr 63 v. Chr.?",
+   "options": [
+    {
+     "id": "a",
+     "text": "Praetor"
+    },
+    {
+     "id": "b",
+     "text": "Censor"
+    },
+    {
+     "id": "c",
+     "text": "Consul"
+    },
+    {
+     "id": "d",
+     "text": "Quaestor"
+    }
+   ],
+   "answer": "c",
+   "explanation": "Als Konsul deckte er die Catilinarische Verschwörung auf."
+  },
+  {
+   "id": "la-135",
+   "topicId": "la12-seneca",
+   "grade": 12,
+   "difficulty": 3,
+   "competency": "vokabeln",
+   "type": "cloze",
+   "prompt": "Wie heißt „die Zeit\" auf Latein?",
+   "segments": [
+    "",
+    {
+     "blank": "a",
+     "accept": [
+      "tempus"
+     ]
+    },
+    ""
+   ],
+   "explanation": "„die Zeit\" heißt tempus."
+  },
+  {
+   "id": "la-136",
+   "topicId": "la12-seneca",
+   "grade": 12,
+   "difficulty": 3,
+   "competency": "vokabeln",
+   "type": "mc",
+   "prompt": "Was bedeutet „tempus\" auf Deutsch?",
+   "options": [
+    {
+     "id": "a",
+     "text": "die Tugend"
+    },
+    {
+     "id": "b",
+     "text": "die Zeit"
+    },
+    {
+     "id": "c",
+     "text": "die Seele"
+    },
+    {
+     "id": "d",
+     "text": "der Weise"
+    }
+   ],
+   "answer": "b",
+   "explanation": "„tempus\" bedeutet „die Zeit\"."
+  },
+  {
+   "id": "la-137",
+   "topicId": "la12-seneca",
+   "grade": 12,
+   "difficulty": 3,
+   "competency": "vokabeln",
+   "type": "cloze",
+   "prompt": "Wie heißt „die Tugend\" auf Latein?",
+   "segments": [
+    "",
+    {
+     "blank": "a",
+     "accept": [
+      "virtus"
+     ]
+    },
+    ""
+   ],
+   "explanation": "„die Tugend\" heißt virtus."
+  },
+  {
+   "id": "la-138",
+   "topicId": "la12-seneca",
+   "grade": 12,
+   "difficulty": 3,
+   "competency": "vokabeln",
+   "type": "cloze",
+   "prompt": "Wie heißt „die Seele\" auf Latein?",
+   "segments": [
+    "",
+    {
+     "blank": "a",
+     "accept": [
+      "animus"
+     ]
+    },
+    ""
+   ],
+   "explanation": "„die Seele\" heißt animus."
+  },
+  {
+   "id": "la-139",
+   "topicId": "la12-seneca",
+   "grade": 12,
+   "difficulty": 3,
+   "competency": "vokabeln",
+   "type": "mc",
+   "prompt": "Was bedeutet „animus\" auf Deutsch?",
+   "options": [
+    {
+     "id": "a",
+     "text": "die Seele"
+    },
+    {
+     "id": "b",
+     "text": "der Weise"
+    },
+    {
+     "id": "c",
+     "text": "die Zeit"
+    },
+    {
+     "id": "d",
+     "text": "die Tugend"
+    }
+   ],
+   "answer": "a",
+   "explanation": "„animus\" bedeutet „die Seele\"."
+  },
+  {
+   "id": "la-140",
+   "topicId": "la12-seneca",
+   "grade": 12,
+   "difficulty": 3,
+   "competency": "vokabeln",
+   "type": "cloze",
+   "prompt": "Wie heißt „der Weise\" auf Latein?",
+   "segments": [
+    "",
+    {
+     "blank": "a",
+     "accept": [
+      "sapiens"
+     ]
+    },
+    ""
+   ],
+   "explanation": "„der Weise\" heißt sapiens."
+  },
+  {
+   "id": "la-141",
+   "topicId": "la12-seneca",
+   "grade": 12,
+   "difficulty": 3,
+   "competency": "vokabeln",
+   "type": "cloze",
+   "prompt": "Wie heißt „das Schicksal\" auf Latein?",
+   "segments": [
+    "",
+    {
+     "blank": "a",
+     "accept": [
+      "fatum"
+     ]
+    },
+    ""
+   ],
+   "explanation": "„das Schicksal\" heißt fatum."
+  },
+  {
+   "id": "la-142",
+   "topicId": "la12-seneca",
+   "grade": 12,
+   "difficulty": 3,
+   "competency": "vokabeln",
+   "type": "mc",
+   "prompt": "Was bedeutet „fatum\" auf Deutsch?",
+   "options": [
+    {
+     "id": "a",
+     "text": "die Seele"
+    },
+    {
+     "id": "b",
+     "text": "die Tugend"
+    },
+    {
+     "id": "c",
+     "text": "das Schicksal"
+    },
+    {
+     "id": "d",
+     "text": "die Zeit"
+    }
+   ],
+   "answer": "c",
+   "explanation": "„fatum\" bedeutet „das Schicksal\"."
+  },
+  {
+   "id": "la-143",
+   "topicId": "la12-seneca",
+   "grade": 12,
+   "difficulty": 3,
+   "competency": "vokabeln",
+   "type": "cloze",
+   "prompt": "Wie heißt „die Vernunft\" auf Latein?",
+   "segments": [
+    "",
+    {
+     "blank": "a",
+     "accept": [
+      "ratio"
+     ]
+    },
+    ""
+   ],
+   "explanation": "„die Vernunft\" heißt ratio."
+  },
+  {
+   "id": "la-144",
+   "topicId": "la12-seneca",
+   "grade": 12,
+   "difficulty": 3,
+   "competency": "vokabeln",
+   "type": "match",
+   "prompt": "Ordne jedem deutschen Wort die Lateine Entsprechung zu.",
+   "pairs": [
+    {
+     "left": "die Zeit",
+     "right": "tempus"
+    },
+    {
+     "left": "die Tugend",
+     "right": "virtus"
+    },
+    {
+     "left": "die Seele",
+     "right": "animus"
+    },
+    {
+     "left": "der Weise",
+     "right": "sapiens"
+    }
+   ],
+   "explanation": "Vokabeln lernt man am besten in beide Richtungen."
+  },
+  {
+   "id": "la-145",
+   "topicId": "la12-seneca",
+   "grade": 12,
+   "difficulty": 3,
+   "competency": "autoren",
+   "type": "mc",
+   "prompt": "Was ist nach stoischer Lehre das höchste Gut?",
+   "options": [
+    {
+     "id": "a",
+     "text": "Die Ehre im Staat"
+    },
+    {
+     "id": "b",
+     "text": "Der Reichtum"
+    },
+    {
+     "id": "c",
+     "text": "Die Tugend, also ein Leben gemäss der Vernunft"
+    },
+    {
+     "id": "d",
+     "text": "Der Lustgewinn"
+    }
+   ],
+   "answer": "c",
+   "explanation": "Die Stoa unterscheidet zwischen dem Gut (virtus) und dem Gleichgültigen (indifferentia)."
+  },
+  {
+   "id": "la-146",
+   "topicId": "la12-seneca",
+   "grade": 12,
+   "difficulty": 3,
+   "competency": "autoren",
+   "type": "match",
+   "prompt": "Ordne die stoischen Begriffe ihrer Bedeutung zu.",
+   "pairs": [
+    {
+     "left": "virtus",
+     "right": "Tugend als einziges Gut"
+    },
+    {
+     "left": "apatheia",
+     "right": "Freiheit von zerstörenden Affekten"
+    },
+    {
+     "left": "fatum",
+     "right": "Die vernünftige Weltordnung"
+    },
+    {
+     "left": "otium",
+     "right": "Musse zur philosophischen Arbeit"
+    }
+   ],
+   "explanation": "Senecas Briefe an Lucilius entfalten diese Begriffe an Alltagsbeispielen."
+  },
+  {
+   "id": "la-147",
+   "topicId": "la12-seneca",
+   "grade": 12,
+   "difficulty": 3,
+   "competency": "uebersetzen",
+   "type": "cloze",
+   "prompt": "Übersetze: „Vita brevis est.\" — Das Leben ist ___ .",
+   "segments": [
+    "Das Leben ist ",
+    {
+     "blank": "a",
+     "accept": [
+      "kurz"
+     ]
+    },
+    "."
+   ],
+   "explanation": "„brevis\" heisst kurz; Seneca eröffnet damit „De brevitate vitae\"."
+  },
+  {
+   "id": "la-148",
+   "topicId": "la12-seneca",
+   "grade": 12,
+   "difficulty": 3,
+   "competency": "kultur",
+   "type": "multi",
+   "prompt": "Welche Aussagen treffen auf Seneca zu?",
+   "options": [
+    {
+     "id": "a",
+     "text": "Er war Feldherr in Gallien"
+    },
+    {
+     "id": "b",
+     "text": "Er schrieb die Metamorphosen"
+    },
+    {
+     "id": "c",
+     "text": "Er vertrat die Stoa"
+    },
+    {
+     "id": "d",
+     "text": "Er war Erzieher Neros"
+    },
+    {
+     "id": "e",
+     "text": "Er schrieb Briefe an Lucilius"
+    }
+   ],
+   "answer": [
+    "c",
+    "d",
+    "e"
+   ],
+   "explanation": "Seneca verband philosophische Schriften mit einer Karriere am Kaiserhof — ein Spannungsfeld, das die Lektüre prägt."
   }
  ]
 };

@@ -2,7 +2,7 @@
  * AUTOMATISCH GENERIERT — nicht von Hand bearbeiten.
  * Neu erzeugen mit: node tools/build-exercises.mjs
  *
- * Übungspool kunst: 101 Aufgaben.
+ * Übungspool kunst: 106 Aufgaben.
  */
 
 export default {
@@ -2823,6 +2823,159 @@ export default {
    ],
    "answer": "a",
    "explanation": "Der Blaue Reiter (München) und Die Brücke (Dresden) sind die beiden bekanntesten expressionistischen Gruppen."
+  },
+  {
+   "id": "ku-102",
+   "topicId": "ku13-pruefung",
+   "grade": 13,
+   "difficulty": 3,
+   "competency": "bildanalyse",
+   "type": "order",
+   "prompt": "Ordne die Schritte einer Bildanalyse in der Prüfung.",
+   "items": [
+    "Formale Beschreibung: Format, Technik, Motiv",
+    "Bildaufbau und Komposition",
+    "Farbe, Licht und Raum",
+    "Historische Einordnung",
+    "Deutung und Beurteilung"
+   ],
+   "explanation": "Beschreiben, analysieren, deuten — in dieser Reihenfolge und deutlich getrennt."
+  },
+  {
+   "id": "ku-103",
+   "topicId": "ku13-pruefung",
+   "grade": 13,
+   "difficulty": 3,
+   "competency": "bildanalyse",
+   "type": "match",
+   "prompt": "Ordne die Operatoren ihrer Anforderung zu.",
+   "pairs": [
+    {
+     "left": "beschreiben",
+     "right": "Sichtbares ohne Deutung wiedergeben"
+    },
+    {
+     "left": "analysieren",
+     "right": "Bildmittel und ihre Wirkung untersuchen"
+    },
+    {
+     "left": "interpretieren",
+     "right": "Eine begründete Gesamtdeutung entwickeln"
+    },
+    {
+     "left": "gestalten",
+     "right": "Praktisch mit bildnerischen Mitteln arbeiten"
+    }
+   ],
+   "explanation": "Der Operator bestimmt, wie viel Deutung erwartet wird."
+  },
+  {
+   "id": "ku-104",
+   "topicId": "ku13-pruefung",
+   "grade": 13,
+   "difficulty": 3,
+   "competency": "komposition",
+   "type": "multi",
+   "prompt": "Welche Aspekte gehören zur Kompositionsanalyse?",
+   "options": [
+    {
+     "id": "a",
+     "text": "Verhältnis von Figur und Grund"
+    },
+    {
+     "id": "b",
+     "text": "Bildaufbau und Achsen"
+    },
+    {
+     "id": "c",
+     "text": "Der Preis des Werks"
+    },
+    {
+     "id": "d",
+     "text": "Die Grösse des Museums"
+    },
+    {
+     "id": "e",
+     "text": "Raumwirkung"
+    },
+    {
+     "id": "f",
+     "text": "Blickführung"
+    }
+   ],
+   "answer": [
+    "a",
+    "b",
+    "e",
+    "f"
+   ],
+   "explanation": "Die Komposition steuert, wohin der Blick wandert — und damit die Wirkung."
+  },
+  {
+   "id": "ku-105",
+   "topicId": "ku13-pruefung",
+   "grade": 13,
+   "difficulty": 3,
+   "competency": "bildanalyse",
+   "type": "mc",
+   "prompt": "Wie belegt man eine Deutung in der Bildanalyse?",
+   "options": [
+    {
+     "id": "a",
+     "text": "Durch die eigene Stimmung"
+    },
+    {
+     "id": "b",
+     "text": "Durch das Zitieren eines Lexikons"
+    },
+    {
+     "id": "c",
+     "text": "Gar nicht"
+    },
+    {
+     "id": "d",
+     "text": "Durch den Verweis auf konkrete Bildelemente"
+    }
+   ],
+   "answer": "d",
+   "explanation": "Jede Deutung muss am Bild selbst nachvollziehbar sein."
+  },
+  {
+   "id": "ku-106",
+   "topicId": "ku13-pruefung",
+   "grade": 13,
+   "difficulty": 3,
+   "competency": "gegenwart",
+   "type": "multi",
+   "prompt": "Was gehört zu einer praktischen Prüfungsarbeit?",
+   "options": [
+    {
+     "id": "a",
+     "text": "Eine Kopie eines bekannten Werks"
+    },
+    {
+     "id": "b",
+     "text": "Eine Konzeptskizze"
+    },
+    {
+     "id": "c",
+     "text": "Eine schriftliche Reflexion"
+    },
+    {
+     "id": "d",
+     "text": "Begründete Materialwahl"
+    },
+    {
+     "id": "e",
+     "text": "Ein möglichst grosses Format"
+    }
+   ],
+   "answer": [
+    "b",
+    "c",
+    "d"
+   ],
+   "explanation": "Bewertet wird nicht nur das Ergebnis, sondern auch der begründete Weg dorthin."
   }
  ]
 };

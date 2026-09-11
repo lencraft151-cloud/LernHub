@@ -218,5 +218,131 @@ export default function build() {
     explanation: 'vocare (a-Konjugation), videre (e-Konjugation), mittere (konsonantisch), audire (i-Konjugation).',
   }));
 
+  /* ================================================================== *
+   * Ausbau: Autorenlektüre Klasse 10–12
+   * ================================================================== */
+
+  push(vocabQuestions({
+    prefix: P, topicId: 'la10-ovid', grade: 10, competency: 'vokabeln', difficulty: 3,
+    toLabel: 'Latein', fromLabel: 'Deutsch',
+    pairs: [
+      ['die Gestalt', 'forma'], ['verwandeln', 'mutare'],
+      ['der Körper', 'corpus'], ['die Liebe', 'amor'],
+      ['fliehen', 'fugere'], ['der Gott', 'deus'],
+    ],
+  }));
+  add(mc({
+    prefix: P, topicId: 'la10-ovid', grade: 10, difficulty: 3, competency: 'autoren',
+    prompt: 'Worum geht es in Ovids „Metamorphosen"?',
+    correct: 'Um Verwandlungssagen von der Weltentstehung bis in Ovids Gegenwart',
+    wrong: ['Um den Trojanischen Krieg', 'Um Caesars Feldzüge', 'Um die Gründung Roms'],
+    explanation: '„In nova fert animus mutatas dicere formas corpora" — das Programm steht im ersten Vers.',
+  }));
+  add(match({
+    prefix: P, topicId: 'la10-ovid', grade: 10, difficulty: 3, competency: 'autoren',
+    prompt: 'Ordne die Verwandlungssagen ihrem Ausgang zu.',
+    pairs: [
+      { left: 'Daphne', right: 'wird zum Lorbeerbaum' },
+      { left: 'Narcissus', right: 'wird zur Narzisse' },
+      { left: 'Niobe', right: 'erstarrt zu Stein' },
+      { left: 'Arachne', right: 'wird zur Spinne' },
+    ],
+    explanation: 'Die Verwandlung ist bei Ovid stets Folge eines menschlichen Übermasses oder einer Gottesbegegnung.',
+  }));
+  add(mc({
+    prefix: P, topicId: 'la10-ovid', grade: 10, difficulty: 3, competency: 'uebersetzen',
+    prompt: 'In welchem Versmass sind die „Metamorphosen" verfasst?',
+    correct: 'Im daktylischen Hexameter',
+    wrong: ['Im elegischen Distichon', 'Im jambischen Trimeter', 'In Prosa'],
+    explanation: 'Der Hexameter ist das Versmass des Epos — sechs Versfüsse je Zeile.',
+  }));
+  add(multi({
+    prefix: P, topicId: 'la10-ovid', grade: 10, difficulty: 3, competency: 'uebersetzen',
+    prompt: 'Worauf achtet man beim Übersetzen eines Ovid-Textes besonders?',
+    correct: ['Ungewöhnliche Wortstellung im Vers', 'Partizipialkonstruktionen', 'Metrisch bedingte Kurzformen'],
+    wrong: ['Deutsche Interpunktion im Original', 'Grossschreibung der Nomen'],
+    explanation: 'Im Vers ist die Wortstellung freier — das Satzgerüst muss man sich erst erschliessen.',
+  }));
+
+  push(vocabQuestions({
+    prefix: P, topicId: 'la11-cicero', grade: 11, competency: 'vokabeln', difficulty: 3,
+    toLabel: 'Latein', fromLabel: 'Deutsch',
+    pairs: [
+      ['der Staat', 'res publica'], ['die Rede', 'oratio'],
+      ['der Bürger', 'civis'], ['die Freiheit', 'libertas'],
+      ['anklagen', 'accusare'], ['das Gesetz', 'lex'],
+    ],
+  }));
+  add(mc({
+    prefix: P, topicId: 'la11-cicero', grade: 11, difficulty: 3, competency: 'autoren',
+    prompt: 'Gegen wen richtet sich Ciceros berühmteste Rede „Quo usque tandem…"?',
+    correct: 'Gegen Catilina', wrong: ['Gegen Caesar', 'Gegen Verres', 'Gegen Antonius'],
+    explanation: 'Die erste Catilinarische Rede hielt Cicero 63 v. Chr. im Senat.',
+  }));
+  add(match({
+    prefix: P, topicId: 'la11-cicero', grade: 11, difficulty: 3, competency: 'autoren',
+    prompt: 'Ordne die rhetorischen Mittel ihrer lateinischen Bezeichnung zu.',
+    pairs: [
+      { left: 'Wiederholung am Satzanfang', right: 'Anapher' },
+      { left: 'Dreierfigur', right: 'Trikolon' },
+      { left: 'Überkreuzstellung', right: 'Chiasmus' },
+      { left: 'Scheinfrage', right: 'Interrogatio rhetorica' },
+    ],
+    explanation: 'Ciceros Reden sind das Musterbeispiel antiker Rhetorik.',
+  }));
+  add(order({
+    prefix: P, topicId: 'la11-cicero', grade: 11, difficulty: 3, competency: 'uebersetzen',
+    prompt: 'Ordne die Schritte der Satzerschliessung.',
+    items: ['Prädikat suchen', 'Subjekt bestimmen', 'Objekte und Ergänzungen zuordnen', 'Nebensätze abgrenzen', 'Sinngemäss übersetzen'],
+    explanation: 'Wer mit dem Prädikat beginnt, findet auch in langen Perioden den Halt.',
+  }));
+  add(mc({
+    prefix: P, topicId: 'la11-cicero', grade: 11, difficulty: 3, competency: 'kultur',
+    prompt: 'Welches Amt bekleidete Cicero im Jahr 63 v. Chr.?',
+    correct: 'Consul', wrong: ['Praetor', 'Quaestor', 'Censor'],
+    explanation: 'Als Konsul deckte er die Catilinarische Verschwörung auf.',
+  }));
+
+  push(vocabQuestions({
+    prefix: P, topicId: 'la12-seneca', grade: 12, competency: 'vokabeln', difficulty: 3,
+    toLabel: 'Latein', fromLabel: 'Deutsch',
+    pairs: [
+      ['die Zeit', 'tempus'], ['die Tugend', 'virtus'],
+      ['die Seele', 'animus'], ['der Weise', 'sapiens'],
+      ['das Schicksal', 'fatum'], ['die Vernunft', 'ratio'],
+    ],
+  }));
+  add(mc({
+    prefix: P, topicId: 'la12-seneca', grade: 12, difficulty: 3, competency: 'autoren',
+    prompt: 'Was ist nach stoischer Lehre das höchste Gut?',
+    correct: 'Die Tugend, also ein Leben gemäss der Vernunft',
+    wrong: ['Der Lustgewinn', 'Der Reichtum', 'Die Ehre im Staat'],
+    explanation: 'Die Stoa unterscheidet zwischen dem Gut (virtus) und dem Gleichgültigen (indifferentia).',
+  }));
+  add(match({
+    prefix: P, topicId: 'la12-seneca', grade: 12, difficulty: 3, competency: 'autoren',
+    prompt: 'Ordne die stoischen Begriffe ihrer Bedeutung zu.',
+    pairs: [
+      { left: 'virtus', right: 'Tugend als einziges Gut' },
+      { left: 'apatheia', right: 'Freiheit von zerstörenden Affekten' },
+      { left: 'fatum', right: 'Die vernünftige Weltordnung' },
+      { left: 'otium', right: 'Musse zur philosophischen Arbeit' },
+    ],
+    explanation: 'Senecas Briefe an Lucilius entfalten diese Begriffe an Alltagsbeispielen.',
+  }));
+  add(cloze({
+    prefix: P, topicId: 'la12-seneca', grade: 12, difficulty: 3, competency: 'uebersetzen',
+    prompt: 'Übersetze: „Vita brevis est." — Das Leben ist ___ .',
+    segments: ['Das Leben ist ', { blank: 'a', accept: ['kurz'] }, '.'],
+    explanation: '„brevis" heisst kurz; Seneca eröffnet damit „De brevitate vitae".',
+  }));
+  add(multi({
+    prefix: P, topicId: 'la12-seneca', grade: 12, difficulty: 3, competency: 'kultur',
+    prompt: 'Welche Aussagen treffen auf Seneca zu?',
+    correct: ['Er war Erzieher Neros', 'Er schrieb Briefe an Lucilius', 'Er vertrat die Stoa'],
+    wrong: ['Er war Feldherr in Gallien', 'Er schrieb die Metamorphosen'],
+    explanation: 'Seneca verband philosophische Schriften mit einer Karriere am Kaiserhof — ein Spannungsfeld, das die Lektüre prägt.',
+  }));
+
   return out;
 }

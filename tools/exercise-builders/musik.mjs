@@ -313,5 +313,106 @@ export default function build() {
     explanation: 'Die Zauberflöte entstand 1791, im Todesjahr Mozarts.',
   }));
 
+
+  /* ================================================================== *
+   * Oberstufe — Werkanalyse, Musik und Gesellschaft, Prüfung
+   * ================================================================== */
+
+  add(order({
+    prefix: P, topicId: 'mu11-werkanalyse', grade: 11, difficulty: 3, competency: 'formen',
+    prompt: 'Ordne die Schritte einer Werkanalyse.',
+    items: ['Werk und Komponist einordnen', 'Formteile bestimmen', 'Melodik, Harmonik und Rhythmik untersuchen', 'Instrumentation beschreiben', 'Wirkung deuten'],
+    explanation: 'Erst die Form, dann die Mittel, zuletzt die Deutung.',
+  }));
+  add(match({
+    prefix: P, topicId: 'mu11-werkanalyse', grade: 11, difficulty: 3, competency: 'formen',
+    prompt: 'Ordne die musikalischen Formen ihrem Aufbau zu.',
+    pairs: [
+      { left: 'Sonatenhauptsatzform', right: 'Exposition — Durchführung — Reprise' },
+      { left: 'Rondo', right: 'Refrain wechselt mit Couplets: A-B-A-C-A' },
+      { left: 'Variationen', right: 'Ein Thema wird mehrfach verändert wiederholt' },
+      { left: 'Fuge', right: 'Ein Thema wandert imitierend durch alle Stimmen' },
+    ],
+    explanation: 'Die Form gibt dem Hören Orientierung — deshalb steht sie am Anfang jeder Analyse.',
+  }));
+  add(multi({
+    prefix: P, topicId: 'mu11-werkanalyse', grade: 11, difficulty: 3, competency: 'formen',
+    prompt: 'Welche Parameter untersucht eine Werkanalyse?',
+    correct: ['Melodik', 'Harmonik', 'Rhythmik', 'Dynamik', 'Instrumentation'],
+    wrong: ['Preis der Aufnahme', 'Länge des Booklets'],
+    explanation: 'Die fünf Parameter decken zusammen fast jede Beobachtung ab.',
+  }));
+  add(mc({
+    prefix: P, topicId: 'mu11-werkanalyse', grade: 11, difficulty: 3, competency: 'formen',
+    prompt: 'Was geschieht in der Durchführung eines Sonatenhauptsatzes?',
+    correct: 'Die Themen werden verarbeitet, moduliert und zerlegt',
+    wrong: ['Die Themen werden zum ersten Mal vorgestellt', 'Das Stück endet', 'Ein neues Thema ersetzt die alten'],
+    explanation: 'Die Durchführung ist der dramatische Kern — die Reprise bringt Beruhigung.',
+  }));
+
+  add(match({
+    prefix: P, topicId: 'mu12-musik-gesellschaft', grade: 12, difficulty: 3, competency: 'popmusik',
+    prompt: 'Ordne die Funktionen von Musik zu.',
+    pairs: [
+      { left: 'Kultische Funktion', right: 'Musik im religiösen Ritual' },
+      { left: 'Politische Funktion', right: 'Musik als Protest oder Propaganda' },
+      { left: 'Kommerzielle Funktion', right: 'Musik als Ware und Werbemittel' },
+      { left: 'Identitätsstiftende Funktion', right: 'Musik als Zeichen der Zugehörigkeit' },
+    ],
+    explanation: 'Dieselbe Musik kann je nach Verwendung mehrere Funktionen erfüllen.',
+  }));
+  add(multi({
+    prefix: P, topicId: 'mu12-musik-gesellschaft', grade: 12, difficulty: 3, competency: 'popmusik',
+    prompt: 'Wodurch hat die Digitalisierung die Musikwirtschaft verändert?',
+    correct: ['Streaming statt Tonträgerverkauf', 'Direkte Veröffentlichung ohne Label', 'Neue Formen der Vergütung'],
+    wrong: ['Ende des Urheberrechts', 'Verschwinden von Konzerten'],
+    explanation: 'Die Verteilung der Einnahmen ist dabei die umstrittenste Frage.',
+  }));
+  add(mc({
+    prefix: P, topicId: 'mu12-musik-gesellschaft', grade: 12, difficulty: 3, competency: 'epochen',
+    prompt: 'Was versteht man unter „Gebrauchsmusik"?',
+    correct: 'Musik, die für einen bestimmten Zweck oder Anlass geschrieben ist',
+    wrong: ['Musik ohne Noten', 'Alte Musik', 'Musik ohne Komponist'],
+    explanation: 'Der Begriff stammt aus den 1920er-Jahren und wendet sich gegen die reine „Kunstmusik".',
+  }));
+  add(tf({
+    prefix: P, topicId: 'mu12-musik-gesellschaft', grade: 12, difficulty: 2, competency: 'popmusik',
+    prompt: 'Musik wurde in Diktaturen sowohl zur Propaganda als auch zum Widerstand genutzt.',
+    answer: true,
+    explanation: 'Dasselbe Medium kann beiden Seiten dienen — das macht die Analyse des Kontexts nötig.',
+  }));
+
+  add(order({
+    prefix: P, topicId: 'mu13-pruefung', grade: 13, difficulty: 3, competency: 'formen',
+    prompt: 'Ordne die Schritte einer Höranalyse in der Prüfung.',
+    items: ['Erster Höreindruck notieren', 'Besetzung und Gattung bestimmen', 'Formteile markieren', 'Auffälligkeiten in Melodik und Harmonik notieren', 'Ergebnisse zusammenfassen'],
+    explanation: 'Beim ersten Hören das Grosse, beim zweiten die Details.',
+  }));
+  add(match({
+    prefix: P, topicId: 'mu13-pruefung', grade: 13, difficulty: 3, competency: 'epochen',
+    prompt: 'Ordne die Epochen ihren Merkmalen zu.',
+    pairs: [
+      { left: 'Barock', right: 'Generalbass, Terrassendynamik, Polyphonie' },
+      { left: 'Klassik', right: 'Periodenbau, klare Harmonik, Sonatenform' },
+      { left: 'Romantik', right: 'Erweiterte Harmonik, Programmmusik, grosses Orchester' },
+      { left: 'Moderne', right: 'Auflösung der Tonalität, neue Klangfarben' },
+    ],
+    explanation: 'Für die Höranalyse reichen zwei bis drei Merkmale je Epoche zur Einordnung.',
+  }));
+  add(multi({
+    prefix: P, topicId: 'mu13-pruefung', grade: 13, difficulty: 3, competency: 'formen',
+    prompt: 'Was gehört in eine gute schriftliche Analyse?',
+    correct: ['Takt- oder Zeitangaben als Beleg', 'Fachbegriffe', 'Deutung der Wirkung'],
+    wrong: ['Persönliche Geschmacksurteile ohne Begründung', 'Eine Nacherzählung des Textes im Booklet'],
+    explanation: 'Beobachtung und Deutung müssen unterscheidbar bleiben — und belegt sein.',
+  }));
+  add(mc({
+    prefix: P, topicId: 'mu13-pruefung', grade: 13, difficulty: 2, competency: 'formen',
+    prompt: 'Wie belegt man eine Beobachtung in einer Musikanalyse?',
+    correct: 'Mit Takt- oder Zeitangabe',
+    wrong: ['Mit der Seitenzahl im Schulbuch', 'Mit dem Namen der Aufnahme', 'Gar nicht'],
+    explanation: 'Erst die Stellenangabe macht die Beobachtung nachprüfbar.',
+  }));
+
   return out;
 }

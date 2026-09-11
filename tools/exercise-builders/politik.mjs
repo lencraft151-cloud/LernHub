@@ -318,5 +318,75 @@ export default function build() {
     ],
   }));
 
+
+  /* ================================================================== *
+   * Oberstufe — soziale Ungleichheit und Globalisierung
+   * ================================================================== */
+
+  add(match({
+    prefix: P, topicId: 'pw12-ungleichheit', grade: 12, difficulty: 3, competency: 'sozialstaat',
+    prompt: 'Ordne die Begriffe der Ungleichheitsforschung zu.',
+    pairs: [
+      { left: 'Armutsgefährdungsquote', right: 'Anteil mit weniger als 60 % des mittleren Einkommens' },
+      { left: 'Gini-Koeffizient', right: 'Mass für die Ungleichheit der Verteilung' },
+      { left: 'Soziale Mobilität', right: 'Möglichkeit des Auf- und Abstiegs' },
+      { left: 'Bildungsvererbung', right: 'Abschluss der Kinder hängt vom Elternhaus ab' },
+    ],
+    explanation: 'Der Gini-Koeffizient reicht von 0 (gleich verteilt) bis 1 (alles bei einem).',
+  }));
+  add(mc({
+    prefix: P, topicId: 'pw12-ungleichheit', grade: 12, difficulty: 3, competency: 'sozialstaat',
+    prompt: 'Was bedeutet relative Armut?',
+    correct: 'Ein Einkommen deutlich unter dem gesellschaftlichen Durchschnitt',
+    wrong: ['Kein Einkommen', 'Kein Zugang zu Trinkwasser', 'Arbeitslosigkeit'],
+    explanation: 'Absolute Armut misst das Existenzminimum, relative Armut die Teilhabe.',
+  }));
+  add(multi({
+    prefix: P, topicId: 'pw12-ungleichheit', grade: 12, difficulty: 3, competency: 'sozialstaat',
+    prompt: 'Mit welchen Mitteln wirkt der Sozialstaat der Ungleichheit entgegen?',
+    correct: ['Progressive Besteuerung', 'Transferleistungen', 'Gebührenfreie Bildung', 'Sozialversicherungen'],
+    wrong: ['Abschaffung des Mindestlohns', 'Erhöhung der Mehrwertsteuer auf Grundnahrungsmittel'],
+    explanation: 'Umverteilung wirkt über Steuern und über Leistungen — beides zusammen.',
+  }));
+  add(mc({
+    prefix: P, topicId: 'pw12-ungleichheit', grade: 12, difficulty: 3, competency: 'grundrechte',
+    prompt: 'Welches Prinzip verlangt das Grundgesetz vom Staat?',
+    correct: 'Das Sozialstaatsprinzip (Art. 20 GG)',
+    wrong: ['Das Prinzip der Gleichverteilung aller Vermögen', 'Die Abschaffung des Eigentums', 'Ein festes Einkommen für alle'],
+    explanation: 'Das Sozialstaatsprinzip verpflichtet zum sozialen Ausgleich, schreibt aber kein bestimmtes Mittel vor.',
+  }));
+
+  add(match({
+    prefix: P, topicId: 'pw13-globalisierung', grade: 13, difficulty: 3, competency: 'marktwirtschaft',
+    prompt: 'Ordne die Institutionen ihrer Aufgabe zu.',
+    pairs: [
+      { left: 'WTO', right: 'Regeln des Welthandels' },
+      { left: 'IWF', right: 'Stabilität des Währungssystems' },
+      { left: 'Weltbank', right: 'Entwicklungsfinanzierung' },
+      { left: 'UN', right: 'Friedenssicherung und internationale Zusammenarbeit' },
+    ],
+    explanation: 'Die drei Wirtschaftsinstitutionen gehen auf die Konferenz von Bretton Woods 1944 zurück.',
+  }));
+  add(multi({
+    prefix: P, topicId: 'pw13-globalisierung', grade: 13, difficulty: 3, competency: 'marktwirtschaft',
+    prompt: 'Welche Folgen hat die Globalisierung?',
+    correct: ['Internationale Arbeitsteilung', 'Grössere Abhängigkeit von Lieferketten', 'Druck auf nationale Standards', 'Wachsender Wohlstand in vielen Schwellenländern'],
+    wrong: ['Ende des internationalen Handels', 'Abschaffung der Nationalstaaten'],
+    explanation: 'Chancen und Risiken treten gemeinsam auf — die Bewertung hängt vom Blickwinkel ab.',
+  }));
+  add(mc({
+    prefix: P, topicId: 'pw13-globalisierung', grade: 13, difficulty: 3, competency: 'marktwirtschaft',
+    prompt: 'Was beschreibt der Begriff „Global Governance"?',
+    correct: 'Das Zusammenwirken von Staaten, Organisationen und NGOs bei globalen Problemen',
+    wrong: ['Eine Weltregierung', 'Die Herrschaft der grössten Konzerne', 'Ein Handelsabkommen'],
+    explanation: 'Es gibt keine Weltregierung — deshalb braucht es Koordination ohne zentrale Instanz.',
+  }));
+  add(order({
+    prefix: P, topicId: 'pw13-globalisierung', grade: 13, difficulty: 3, competency: 'eu',
+    prompt: 'Ordne die Stufen der wirtschaftlichen Integration.',
+    items: ['Freihandelszone', 'Zollunion', 'Binnenmarkt', 'Währungsunion'],
+    explanation: 'Die EU hat alle vier Stufen durchlaufen — die Währungsunion gilt aber nicht für alle Mitglieder.',
+  }));
+
   return out;
 }

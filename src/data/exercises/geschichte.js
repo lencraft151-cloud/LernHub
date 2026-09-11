@@ -2,7 +2,7 @@
  * AUTOMATISCH GENERIERT — nicht von Hand bearbeiten.
  * Neu erzeugen mit: node tools/build-exercises.mjs
  *
- * Übungspool geschichte: 123 Aufgaben.
+ * Übungspool geschichte: 148 Aufgaben.
  */
 
 export default {
@@ -3007,6 +3007,676 @@ export default {
     "Euro-Bargeld 2002"
    ],
    "explanation": "Aus der wirtschaftlichen Zusammenarbeit wurde schrittweise eine politische Union mit gemeinsamer Währung."
+  },
+  {
+   "id": "ge-124",
+   "topicId": "ge7-kirche",
+   "grade": 7,
+   "difficulty": 2,
+   "competency": "kirche",
+   "type": "mc",
+   "prompt": "Worum ging es im Investiturstreit?",
+   "options": [
+    {
+     "id": "a",
+     "text": "Um die Höhe der Kirchensteuer"
+    },
+    {
+     "id": "b",
+     "text": "Um das Recht, Bischöfe einzusetzen"
+    },
+    {
+     "id": "c",
+     "text": "Um die Sprache der Messe"
+    },
+    {
+     "id": "d",
+     "text": "Um den Bau von Kathedralen"
+    }
+   ],
+   "answer": "b",
+   "explanation": "Kaiser und Papst stritten darum, wer die geistlichen Ämter vergeben darf."
+  },
+  {
+   "id": "ge-125",
+   "topicId": "ge7-kirche",
+   "grade": 7,
+   "difficulty": 2,
+   "competency": "kirche",
+   "type": "mc",
+   "prompt": "Wer ging 1077 nach Canossa?",
+   "options": [
+    {
+     "id": "a",
+     "text": "Kaiser Heinrich IV."
+    },
+    {
+     "id": "b",
+     "text": "Friedrich Barbarossa"
+    },
+    {
+     "id": "c",
+     "text": "Papst Gregor VII."
+    },
+    {
+     "id": "d",
+     "text": "Karl der Große"
+    }
+   ],
+   "answer": "a",
+   "explanation": "Heinrich IV. tat Busse, um den Kirchenbann aufheben zu lassen."
+  },
+  {
+   "id": "ge-126",
+   "topicId": "ge7-kirche",
+   "grade": 7,
+   "difficulty": 3,
+   "competency": "kirche",
+   "type": "match",
+   "prompt": "Ordne den mittelalterlichen Begriffen ihre Bedeutung zu.",
+   "pairs": [
+    {
+     "left": "Kirchenbann",
+     "right": "Ausschluss aus der Kirchengemeinschaft"
+    },
+    {
+     "left": "Investitur",
+     "right": "Einsetzung in ein geistliches Amt"
+    },
+    {
+     "left": "Zehnt",
+     "right": "Abgabe eines Zehntels des Ertrags"
+    },
+    {
+     "left": "Kloster",
+     "right": "Gemeinschaft von Mönchen oder Nonnen"
+    }
+   ],
+   "explanation": "Der Bann traf einen Herrscher hart: Seine Untertanen waren vom Treueid entbunden."
+  },
+  {
+   "id": "ge-127",
+   "topicId": "ge7-kirche",
+   "grade": 7,
+   "difficulty": 3,
+   "competency": "kirche",
+   "type": "multi",
+   "prompt": "Welche Aufgaben hatten mittelalterliche Klöster?",
+   "options": [
+    {
+     "id": "a",
+     "text": "Schulunterricht"
+    },
+    {
+     "id": "b",
+     "text": "Führung von Heeren"
+    },
+    {
+     "id": "c",
+     "text": "Landwirtschaft"
+    },
+    {
+     "id": "d",
+     "text": "Münzprägung für den Kaiser"
+    },
+    {
+     "id": "e",
+     "text": "Abschreiben von Büchern"
+    },
+    {
+     "id": "f",
+     "text": "Krankenpflege"
+    }
+   ],
+   "answer": [
+    "a",
+    "c",
+    "e",
+    "f"
+   ],
+   "explanation": "Klöster waren Bildungs-, Wirtschafts- und Sozialzentren zugleich."
+  },
+  {
+   "id": "ge-128",
+   "topicId": "ge7-kirche",
+   "grade": 7,
+   "difficulty": 2,
+   "competency": "kirche",
+   "type": "numeric",
+   "prompt": "In welchem Jahr geschah dieses Ereignis: Gang nach Canossa?",
+   "answer": 1077,
+   "tolerance": 0.001,
+   "explanation": "Gang nach Canossa: 1077."
+  },
+  {
+   "id": "ge-129",
+   "topicId": "ge7-kirche",
+   "grade": 7,
+   "difficulty": 2,
+   "competency": "kirche",
+   "type": "numeric",
+   "prompt": "In welchem Jahr geschah dieses Ereignis: Erster Kreuzzug beginnt?",
+   "answer": 1096,
+   "tolerance": 0.001,
+   "explanation": "Erster Kreuzzug beginnt: 1096."
+  },
+  {
+   "id": "ge-130",
+   "topicId": "ge7-kirche",
+   "grade": 7,
+   "difficulty": 2,
+   "competency": "kirche",
+   "type": "numeric",
+   "prompt": "In welchem Jahr geschah dieses Ereignis: Wormser Konkordat?",
+   "answer": 1122,
+   "tolerance": 0.001,
+   "explanation": "Wormser Konkordat: 1122."
+  },
+  {
+   "id": "ge-131",
+   "topicId": "ge7-kirche",
+   "grade": 7,
+   "difficulty": 3,
+   "competency": "kirche",
+   "type": "order",
+   "prompt": "Bringe die Ereignisse in die richtige zeitliche Reihenfolge.",
+   "items": [
+    "Gang nach Canossa (1077)",
+    "Erster Kreuzzug beginnt (1096)",
+    "Wormser Konkordat (1122)"
+   ],
+   "explanation": "Die Reihenfolge ergibt sich aus den Jahreszahlen."
+  },
+  {
+   "id": "ge-132",
+   "topicId": "ge11-menschenrechte",
+   "grade": 11,
+   "difficulty": 3,
+   "competency": "begriffe",
+   "type": "order",
+   "prompt": "Ordne die Meilensteine der Menschenrechte chronologisch.",
+   "items": [
+    "Magna Carta (1215)",
+    "Virginia Bill of Rights (1776)",
+    "Erklärung der Menschen- und Bürgerrechte (1789)",
+    "Allgemeine Erklärung der Menschenrechte (1948)",
+    "Europäische Menschenrechtskonvention (1950)"
+   ],
+   "explanation": "Die Idee wächst über Jahrhunderte — von Standesrechten zu universellen Rechten."
+  },
+  {
+   "id": "ge-133",
+   "topicId": "ge11-menschenrechte",
+   "grade": 11,
+   "difficulty": 3,
+   "competency": "begriffe",
+   "type": "mc",
+   "prompt": "Was kennzeichnet Menschenrechte im modernen Verständnis?",
+   "options": [
+    {
+     "id": "a",
+     "text": "Sie gelten nur in Demokratien"
+    },
+    {
+     "id": "b",
+     "text": "Sie gelten jedem Menschen allein aufgrund seines Menschseins"
+    },
+    {
+     "id": "c",
+     "text": "Sie müssen verdient werden"
+    },
+    {
+     "id": "d",
+     "text": "Sie gelten nur für Staatsbürger"
+    }
+   ],
+   "answer": "b",
+   "explanation": "Universalität, Unveräusserlichkeit und Unteilbarkeit sind ihre drei Kennzeichen."
+  },
+  {
+   "id": "ge-134",
+   "topicId": "ge11-menschenrechte",
+   "grade": 11,
+   "difficulty": 3,
+   "competency": "begriffe",
+   "type": "multi",
+   "prompt": "Welche Generationen von Menschenrechten unterscheidet man?",
+   "options": [
+    {
+     "id": "a",
+     "text": "Rechte von Unternehmen"
+    },
+    {
+     "id": "b",
+     "text": "Rechte von Maschinen"
+    },
+    {
+     "id": "c",
+     "text": "Bürgerliche und politische Rechte"
+    },
+    {
+     "id": "d",
+     "text": "Kollektive Rechte wie das Recht auf Entwicklung"
+    },
+    {
+     "id": "e",
+     "text": "Wirtschaftliche und soziale Rechte"
+    }
+   ],
+   "answer": [
+    "c",
+    "d",
+    "e"
+   ],
+   "explanation": "Die drei Generationen entstanden nacheinander und ergänzen einander."
+  },
+  {
+   "id": "ge-135",
+   "topicId": "ge11-menschenrechte",
+   "grade": 11,
+   "difficulty": 2,
+   "competency": "begriffe",
+   "type": "truefalse",
+   "prompt": "Die Allgemeine Erklärung der Menschenrechte von 1948 ist völkerrechtlich bindend.",
+   "answer": false,
+   "explanation": "Sie ist eine Resolution der UN-Generalversammlung; bindend wurden Teile erst durch die Pakte von 1966."
+  },
+  {
+   "id": "ge-136",
+   "topicId": "ge11-migration",
+   "grade": 11,
+   "difficulty": 3,
+   "competency": "begriffe",
+   "type": "match",
+   "prompt": "Ordne die Migrationsbegriffe zu.",
+   "pairs": [
+    {
+     "left": "Emigration",
+     "right": "Auswanderung aus einem Land"
+    },
+    {
+     "left": "Immigration",
+     "right": "Einwanderung in ein Land"
+    },
+    {
+     "left": "Flucht",
+     "right": "Erzwungene Migration wegen Verfolgung oder Krieg"
+    },
+    {
+     "left": "Arbeitsmigration",
+     "right": "Wanderung aus wirtschaftlichen Gründen"
+    }
+   ],
+   "explanation": "Die Unterscheidung von freiwilliger und erzwungener Wanderung prägt auch das Recht."
+  },
+  {
+   "id": "ge-137",
+   "topicId": "ge11-migration",
+   "grade": 11,
+   "difficulty": 3,
+   "competency": "begriffe",
+   "type": "order",
+   "prompt": "Ordne die Migrationsbewegungen in der deutschen Geschichte chronologisch.",
+   "items": [
+    "Auswanderung nach Amerika im 19. Jahrhundert",
+    "Flucht und Vertreibung nach 1945",
+    "Anwerbeabkommen ab 1955",
+    "Spätaussiedler nach 1990",
+    "Fluchtbewegungen ab 2015"
+   ],
+   "explanation": "Deutschland war lange Auswanderungs-, dann Einwanderungsland."
+  },
+  {
+   "id": "ge-138",
+   "topicId": "ge11-migration",
+   "grade": 11,
+   "difficulty": 3,
+   "competency": "begriffe",
+   "type": "multi",
+   "prompt": "Welche Ursachen hat Migration?",
+   "options": [
+    {
+     "id": "a",
+     "text": "Die Zahl der Feiertage"
+    },
+    {
+     "id": "b",
+     "text": "Familienzusammenführung"
+    },
+    {
+     "id": "c",
+     "text": "Krieg und Verfolgung"
+    },
+    {
+     "id": "d",
+     "text": "Wirtschaftliche Not"
+    },
+    {
+     "id": "e",
+     "text": "Umweltkatastrophen"
+    },
+    {
+     "id": "f",
+     "text": "Die Erfindung des Buchdrucks"
+    }
+   ],
+   "answer": [
+    "b",
+    "c",
+    "d",
+    "e"
+   ],
+   "explanation": "Man unterscheidet Push- und Pull-Faktoren."
+  },
+  {
+   "id": "ge-139",
+   "topicId": "ge12-diktaturvergleich",
+   "grade": 12,
+   "difficulty": 3,
+   "competency": "ns",
+   "type": "match",
+   "prompt": "Ordne die Merkmale ihrer Herrschaftsform zu.",
+   "pairs": [
+    {
+     "left": "Totalitäre Diktatur",
+     "right": "Durchdringt alle Lebensbereiche mit einer Ideologie"
+    },
+    {
+     "left": "Autoritäre Diktatur",
+     "right": "Unterdrückt Opposition, lässt Privates aber weitgehend frei"
+    },
+    {
+     "left": "Demokratie",
+     "right": "Gewaltenteilung, freie Wahlen, Grundrechte"
+    }
+   ],
+   "explanation": "Das Totalitarismusmodell nach Friedrich und Brzezinski nennt sechs Merkmale."
+  },
+  {
+   "id": "ge-140",
+   "topicId": "ge12-diktaturvergleich",
+   "grade": 12,
+   "difficulty": 3,
+   "competency": "ns",
+   "type": "multi",
+   "prompt": "Welche Merkmale nennt das Totalitarismusmodell?",
+   "options": [
+    {
+     "id": "a",
+     "text": "Terrorsystem"
+    },
+    {
+     "id": "b",
+     "text": "Einparteiensystem"
+    },
+    {
+     "id": "c",
+     "text": "Waffenmonopol"
+    },
+    {
+     "id": "d",
+     "text": "Föderalismus"
+    },
+    {
+     "id": "e",
+     "text": "Unabhängige Gerichte"
+    },
+    {
+     "id": "f",
+     "text": "Medienmonopol"
+    },
+    {
+     "id": "g",
+     "text": "Einheitsideologie"
+    }
+   ],
+   "answer": [
+    "a",
+    "b",
+    "c",
+    "f",
+    "g"
+   ],
+   "explanation": "Das Modell erlaubt den Vergleich, verwischt aber Unterschiede — das ist die Hauptkritik."
+  },
+  {
+   "id": "ge-141",
+   "topicId": "ge12-diktaturvergleich",
+   "grade": 12,
+   "difficulty": 3,
+   "competency": "ns",
+   "type": "mc",
+   "prompt": "Was ist der stärkste Einwand gegen einen Vergleich von NS-Staat und DDR?",
+   "options": [
+    {
+     "id": "a",
+     "text": "Beide hatten eine Verfassung"
+    },
+    {
+     "id": "b",
+     "text": "Beide Staaten lagen in Deutschland"
+    },
+    {
+     "id": "c",
+     "text": "Vergleiche sind grundsätzlich unzulässig"
+    },
+    {
+     "id": "d",
+     "text": "Er kann den Völkermord relativieren, wenn Unterschiede verwischt werden"
+    }
+   ],
+   "answer": "d",
+   "explanation": "Vergleichen heisst Gemeinsamkeiten und Unterschiede herausarbeiten — nicht gleichsetzen."
+  },
+  {
+   "id": "ge-142",
+   "topicId": "ge12-erinnerungskultur",
+   "grade": 12,
+   "difficulty": 3,
+   "competency": "ns",
+   "type": "mc",
+   "prompt": "Was versteht man unter Erinnerungskultur?",
+   "options": [
+    {
+     "id": "a",
+     "text": "Die Art, wie eine Gesellschaft öffentlich mit ihrer Vergangenheit umgeht"
+    },
+    {
+     "id": "b",
+     "text": "Die Forschung von Historikern"
+    },
+    {
+     "id": "c",
+     "text": "Das Sammeln von Antiquitäten"
+    },
+    {
+     "id": "d",
+     "text": "Der Geschichtsunterricht allein"
+    }
+   ],
+   "answer": "a",
+   "explanation": "Denkmäler, Gedenktage, Museen und Debatten gehören dazu."
+  },
+  {
+   "id": "ge-143",
+   "topicId": "ge12-erinnerungskultur",
+   "grade": 12,
+   "difficulty": 3,
+   "competency": "ns",
+   "type": "match",
+   "prompt": "Ordne die Erinnerungsorte ihrer Bedeutung zu.",
+   "pairs": [
+    {
+     "left": "Stolpersteine",
+     "right": "Dezentrales Gedenken an einzelne Opfer"
+    },
+    {
+     "left": "Gedenkstätte eines Konzentrationslagers",
+     "right": "Authentischer Ort des Verbrechens"
+    },
+    {
+     "left": "9. November",
+     "right": "Datum mehrerer Wendepunkte deutscher Geschichte"
+    },
+    {
+     "left": "Denkmal für die ermordeten Juden Europas",
+     "right": "Zentrales nationales Mahnmal"
+    }
+   ],
+   "explanation": "Erinnerung geschieht an Orten und an Daten."
+  },
+  {
+   "id": "ge-144",
+   "topicId": "ge12-erinnerungskultur",
+   "grade": 12,
+   "difficulty": 3,
+   "competency": "ns",
+   "type": "multi",
+   "prompt": "Warum wird Erinnerungskultur immer wieder neu verhandelt?",
+   "options": [
+    {
+     "id": "a",
+     "text": "Die Ereignisse ändern sich"
+    },
+    {
+     "id": "b",
+     "text": "Zeitzeugen sterben aus"
+    },
+    {
+     "id": "c",
+     "text": "Neue Quellen werden zugänglich"
+    },
+    {
+     "id": "d",
+     "text": "Die Gesellschaft verändert sich"
+    },
+    {
+     "id": "e",
+     "text": "Historiker wechseln die Meinung willkürlich"
+    }
+   ],
+   "answer": [
+    "b",
+    "c",
+    "d"
+   ],
+   "explanation": "Nicht die Vergangenheit ändert sich, sondern die Fragen, die man an sie stellt."
+  },
+  {
+   "id": "ge-145",
+   "topicId": "ge13-quellenanalyse",
+   "grade": 13,
+   "difficulty": 3,
+   "competency": "begriffe",
+   "type": "order",
+   "prompt": "Ordne die Schritte einer Quellenanalyse.",
+   "items": [
+    "Quelle formal beschreiben (Autor, Datum, Textsorte)",
+    "Historischen Kontext klären",
+    "Inhalt zusammenfassen",
+    "Sprache und Absicht analysieren",
+    "Aussagekraft beurteilen"
+   ],
+   "explanation": "Erst einordnen, dann verstehen, zuletzt bewerten."
+  },
+  {
+   "id": "ge-146",
+   "topicId": "ge13-quellenanalyse",
+   "grade": 13,
+   "difficulty": 3,
+   "competency": "begriffe",
+   "type": "match",
+   "prompt": "Ordne die Quellenarten zu.",
+   "pairs": [
+    {
+     "left": "Primärquelle",
+     "right": "Stammt aus der untersuchten Zeit"
+    },
+    {
+     "left": "Sekundärliteratur",
+     "right": "Spätere Darstellung von Historikern"
+    },
+    {
+     "left": "Sachquelle",
+     "right": "Gegenstand, etwa eine Münze"
+    },
+    {
+     "left": "Tradierte Quelle",
+     "right": "Bewusst für die Nachwelt verfasst"
+    }
+   ],
+   "explanation": "Überreste entstanden ohne Absicht auf Überlieferung — sie gelten als besonders aussagekräftig."
+  },
+  {
+   "id": "ge-147",
+   "topicId": "ge13-quellenanalyse",
+   "grade": 13,
+   "difficulty": 3,
+   "competency": "begriffe",
+   "type": "multi",
+   "prompt": "Was prüft die Quellenkritik?",
+   "options": [
+    {
+     "id": "a",
+     "text": "Entstehungszusammenhang"
+    },
+    {
+     "id": "b",
+     "text": "Die Schriftart"
+    },
+    {
+     "id": "c",
+     "text": "Absicht des Verfassers"
+    },
+    {
+     "id": "d",
+     "text": "Die Länge des Textes"
+    },
+    {
+     "id": "e",
+     "text": "Echtheit"
+    },
+    {
+     "id": "f",
+     "text": "Adressat"
+    }
+   ],
+   "answer": [
+    "a",
+    "c",
+    "e",
+    "f"
+   ],
+   "explanation": "Erst die Kritik entscheidet, wofür eine Quelle überhaupt als Beleg taugen kann."
+  },
+  {
+   "id": "ge-148",
+   "topicId": "ge13-quellenanalyse",
+   "grade": 13,
+   "difficulty": 3,
+   "competency": "begriffe",
+   "type": "mc",
+   "prompt": "Was bedeutet „Perspektivität\" von Quellen?",
+   "options": [
+    {
+     "id": "a",
+     "text": "Jede Quelle gibt einen bestimmten Standpunkt wieder"
+    },
+    {
+     "id": "b",
+     "text": "Quellen sind immer falsch"
+    },
+    {
+     "id": "c",
+     "text": "Quellen haben keinen Autor"
+    },
+    {
+     "id": "d",
+     "text": "Quellen sind immer objektiv"
+    }
+   ],
+   "answer": "a",
+   "explanation": "Deshalb braucht man mehrere Quellen mit verschiedenen Standpunkten."
   }
  ]
 };
