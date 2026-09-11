@@ -508,6 +508,114 @@ export function applyAnswerStyling(root, question, result) {
  * QuizRunner — ein Durchlauf über mehrere Aufgaben
  * ------------------------------------------------------------------ */
 
+/**
+ * Macht eine gerenderte Aufgabe bedienbar.
+ *
+ * Dieselbe Aufgabe erscheint im Übungsmodus, in einer Lektion, im
+ * Kompetenztest und im Prüfungssimulator. Früher band nur der QuizRunner die
+ * Ereignisse — im Prüfungssimulator waren die Pfeiltasten einer
+ * Reihenfolge-Aufgabe und die drei sprachlichen Typen deshalb tot: Die
+ * Knöpfe waren da, aber nichts geschah. Jetzt nutzen alle dieselbe Funktion.
+ *
+ * @param {HTMLElement} root Container, in dem die Aufgabe steht
+ * @param {object} [options]
+ * @param {() => boolean} [options.isLocked] true, solange nichts mehr geändert werden darf
+ * @param {() => void} [options.onChange] wird nach jeder Änderung gerufen
+ * @param {() => string} [options.getType] aktueller Aufgabentyp (für Mehrfachauswahl)
+ * @returns {Array<() => void>} Abmeldefunktionen
+ */
+export function bindQuestionInteractions(root, { isLocked = () => false, onChange = () => {}, getType = () => null } = {}) {
+  const off = [];
+  const gesperrt = () => isLocked();
+
+  // Antwortmöglichkeiten
+  off.push(delegate(root, 'click', '[data-role="option"]', (event, target) => {
+    if (gesperrt() || target.disabled) return;
+    const frage = target.closest('.question');
+    const bereich = frage || root;
+    const mehrfach = (frage?.dataset.type || getType()) === 'multi';
+    if (mehrfach) {
+      target.setAttribute('aria-pressed', String(target.getAttribute('aria-pressed') !== 'true'));
+    } else {
+      for (const option of bereich.querySelectorAll('.option')) option.setAttribute('aria-pressed', 'false');
+      target.setAttribute('aria-pressed', 'true');
+    }
+    onChange();
+  }));
+
+  // Reihenfolge: ein Element nach oben oder unten schieben
+  off.push(delegate(root, 'click', '[data-role="order-up"], [data-role="order-down"]', (event, target) => {
+    if (gesperrt()) return;
+    const item = target.closest('.order-item');
+    if (!item) return;
+    const list = item.parentElement;
+    const hoch = target.dataset.role === 'order-up';
+    const nachbar = hoch ? item.previousElementSibling : item.nextElementSibling;
+    if (!nachbar) return;
+    if (hoch) list.insertBefore(item, nachbar);
+    else list.insertBefore(nachbar, item);
+    refreshOrderIndices(list);
+    onChange();
+  }));
+
+  // Wörter markieren
+  off.push(delegate(root, 'click', '[data-role="mark-word"]', (event, target) => {
+    if (gesperrt()) return;
+    target.setAttribute('aria-pressed', String(target.getAttribute('aria-pressed') !== 'true'));
+    onChange();
+  }));
+
+  // Satz bauen: Wort aus dem Vorrat in die Zeile und zurück
+  off.push(delegate(root, 'click', '[data-role="word-chip"]', (event, target) => {
+    if (gesperrt()) return;
+    const frage = target.closest('.question') || root;
+    const line = frage.querySelector('[data-role="sentence-line"]');
+    const pool = frage.querySelector('[data-role="sentence-pool"]');
+    if (!line || !pool) return;
+    (target.parentElement === line ? pool : line).appendChild(target);
+    const hint = frage.querySelector('[data-role="sentence-hint"]');
+    if (hint) hint.hidden = line.querySelector('.word-chip') !== null;
+    onChange();
+  }));
+  off.push(delegate(root, 'click', '[data-role="sentence-reset"]', (event, target) => {
+    if (gesperrt()) return;
+    const frage = target.closest('.question') || root;
+    const line = frage.querySelector('[data-role="sentence-line"]');
+    const pool = frage.querySelector('[data-role="sentence-pool"]');
+    if (!line || !pool) return;
+    for (const chip of [...line.querySelectorAll('.word-chip')]) pool.appendChild(chip);
+    const hint = frage.querySelector('[data-role="sentence-hint"]');
+    if (hint) hint.hidden = false;
+    onChange();
+  }));
+
+  // Sortieren: je Begriff genau eine Kategorie
+  off.push(delegate(root, 'click', '[data-role="category-pick"]', (event, target) => {
+    if (gesperrt()) return;
+    const row = target.closest('.category-row');
+    if (!row) return;
+    for (const button of row.querySelectorAll('[data-role="category-pick"]')) {
+      button.setAttribute('aria-pressed', String(button === target));
+    }
+    onChange();
+  }));
+
+  return off;
+}
+
+/** Nummern und Randzustände der Pfeiltasten einer Reihenfolge-Aufgabe auffrischen. */
+export function refreshOrderIndices(list) {
+  const items = [...list.querySelectorAll('.order-item')];
+  items.forEach((item, index) => {
+    const nummer = item.querySelector('.order-index');
+    if (nummer) nummer.textContent = String(index + 1);
+    const hoch = item.querySelector('[data-role="order-up"]');
+    const runter = item.querySelector('[data-role="order-down"]');
+    if (hoch) hoch.disabled = index === 0;
+    if (runter) runter.disabled = index === items.length - 1;
+  });
+}
+
 export class QuizRunner {
   /**
    * @param {object} options
@@ -553,68 +661,10 @@ export class QuizRunner {
 
   bind() {
     const root = this.container;
-    this.disposers.push(delegate(root, 'click', '[data-role="option"]', (event, target) => {
-      if (this.checked || target.disabled) return;
-      const multi = this.current.type === 'multi';
-      if (multi) {
-        const pressed = target.getAttribute('aria-pressed') === 'true';
-        target.setAttribute('aria-pressed', String(!pressed));
-      } else {
-        for (const option of root.querySelectorAll('.option')) option.setAttribute('aria-pressed', 'false');
-        target.setAttribute('aria-pressed', 'true');
-      }
-      this.updateCheckButton();
-    }));
-
-    this.disposers.push(delegate(root, 'click', '[data-role="order-up"], [data-role="order-down"]', (event, target) => {
-      if (this.checked) return;
-      const item = target.closest('.order-item');
-      const list = item.parentElement;
-      const up = target.dataset.role === 'order-up';
-      const sibling = up ? item.previousElementSibling : item.nextElementSibling;
-      if (!sibling) return;
-      if (up) list.insertBefore(item, sibling);
-      else list.insertBefore(sibling, item);
-      this.refreshOrderIndices(list);
-    }));
-
-    // Wörter markieren
-    this.disposers.push(delegate(root, 'click', '[data-role="mark-word"]', (event, target) => {
-      if (this.checked) return;
-      target.setAttribute('aria-pressed', String(target.getAttribute('aria-pressed') !== 'true'));
-      this.updateCheckButton();
-    }));
-
-    // Satz bauen: Wort aus dem Vorrat in die Zeile und zurück
-    this.disposers.push(delegate(root, 'click', '[data-role="word-chip"]', (event, target) => {
-      if (this.checked) return;
-      const line = root.querySelector('[data-role="sentence-line"]');
-      const pool = root.querySelector('[data-role="sentence-pool"]');
-      if (!line || !pool) return;
-      (target.parentElement === line ? pool : line).appendChild(target);
-      const hint = root.querySelector('[data-role="sentence-hint"]');
-      if (hint) hint.hidden = line.querySelector('.word-chip') !== null;
-      this.updateCheckButton();
-    }));
-    this.disposers.push(delegate(root, 'click', '[data-role="sentence-reset"]', () => {
-      if (this.checked) return;
-      const line = root.querySelector('[data-role="sentence-line"]');
-      const pool = root.querySelector('[data-role="sentence-pool"]');
-      if (!line || !pool) return;
-      for (const chip of [...line.querySelectorAll('.word-chip')]) pool.appendChild(chip);
-      const hint = root.querySelector('[data-role="sentence-hint"]');
-      if (hint) hint.hidden = false;
-      this.updateCheckButton();
-    }));
-
-    // Sortieren: je Begriff genau eine Kategorie
-    this.disposers.push(delegate(root, 'click', '[data-role="category-pick"]', (event, target) => {
-      if (this.checked) return;
-      const row = target.closest('.category-row');
-      for (const button of row.querySelectorAll('[data-role="category-pick"]')) {
-        button.setAttribute('aria-pressed', String(button === target));
-      }
-      this.updateCheckButton();
+    this.disposers.push(...bindQuestionInteractions(root, {
+      isLocked: () => this.checked,
+      onChange: () => this.updateCheckButton(),
+      getType: () => this.current?.type,
     }));
 
     this.disposers.push(delegate(root, 'click', '[data-role="check"]', () => this.check()));
@@ -676,14 +726,7 @@ export class QuizRunner {
     this.disposers.push(() => document.removeEventListener('keydown', handler));
   }
 
-  refreshOrderIndices(list) {
-    const items = [...list.querySelectorAll('.order-item')];
-    items.forEach((item, index) => {
-      item.querySelector('.order-index').textContent = String(index + 1);
-      item.querySelector('[data-role="order-up"]').disabled = index === 0;
-      item.querySelector('[data-role="order-down"]').disabled = index === items.length - 1;
-    });
-  }
+  refreshOrderIndices(list) { refreshOrderIndices(list); }
 
   hasAnswer() {
     const question = this.current;

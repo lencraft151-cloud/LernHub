@@ -1470,6 +1470,9 @@ a.bar-row:hover { background: var(--surface-2); text-decoration: none; }
  * ------------------------------------------------------------------ */
 .game-shell {
   display: grid;
+  /* minmax(0, 1fr) statt der Vorgabe `auto`: Sonst richtet sich die Spalte
+     nach dem breitesten Inhalt und die Seite scrollt seitlich. */
+  grid-template-columns: minmax(0, 1fr);
   gap: var(--sp-4);
   max-width: 680px;
   margin: 0 auto;

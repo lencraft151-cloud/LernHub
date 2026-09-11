@@ -512,6 +512,10 @@ try {
     const second = await page.locator('[data-role="timer-value"]').innerText();
     if (first === second) throw new Error(`Timer unverändert (${first})`);
   });
+
+  // Jeder Aufgabentyp muss auch im Prüfungssimulator bedienbar sein. Genau das
+  // war er nicht: Die Pfeiltasten der Reihenfolge-Aufgaben und die drei
+  // sprachlichen Typen hatten dort keinen Handler.
   await shot('pruefung-lauf');
 
   await check('Prüfung abgeben und auswerten', async () => {
@@ -555,6 +559,151 @@ try {
     if (count < 1) throw new Error('keine Prüfung gespeichert');
   });
   await shot('pruefung-ergebnis');
+
+  await check('Alle Aufgabentypen sind in der Prüfung bedienbar', async () => {
+    await go('/tests');
+    await page.locator('[data-role="pick-subject"][data-value="deutsch"]').click();
+    await page.waitForTimeout(400);
+    await page.locator('[data-role="topics-all"]').click();
+    await page.waitForTimeout(300);
+    await page.locator('[data-role="count"]').selectOption('20');
+    await page.locator('[data-role="start-exam"]').click();
+    await page.waitForTimeout(1200);
+    await page.locator('.exam-nav-grid').first().waitFor({ timeout: 8000 });
+
+    const gesehen = new Set();
+    const kaputt = [];
+    const anzahl = await page.locator('[data-role="jump"]').count();
+
+    for (let i = 0; i < anzahl; i += 1) {
+      await page.locator(`[data-role="jump"][data-index="${i}"]`).click();
+      await page.waitForTimeout(200);
+      const host = page.locator('[data-role="question-host"]');
+      const typ = await host.locator('.question').getAttribute('data-type');
+      gesehen.add(typ);
+
+      if (typ === 'order') {
+        const vorher = await host.locator('.order-item').allInnerTexts();
+        const runter = host.locator('[data-role="order-down"]:not([disabled])').first();
+        if (!(await runter.count())) { kaputt.push('order: keine bedienbare Pfeiltaste'); continue; }
+        await runter.click();
+        await page.waitForTimeout(200);
+        const nachher = await host.locator('.order-item').allInnerTexts();
+        if (JSON.stringify(vorher) === JSON.stringify(nachher)) kaputt.push('order: Reihenfolge ändert sich nicht');
+      } else if (typ === 'mark') {
+        const wort = host.locator('[data-role="mark-word"]').first();
+        await wort.click();
+        await page.waitForTimeout(150);
+        if (await wort.getAttribute('aria-pressed') !== 'true') kaputt.push('mark: Wort lässt sich nicht markieren');
+      } else if (typ === 'sentence') {
+        const chip = host.locator('[data-role="sentence-pool"] .word-chip').first();
+        if (!(await chip.count())) { kaputt.push('sentence: keine Wortkarten'); continue; }
+        await chip.click();
+        await page.waitForTimeout(150);
+        if (!(await host.locator('[data-role="sentence-line"] .word-chip').count())) {
+          kaputt.push('sentence: Wortkarte wandert nicht in die Zeile');
+        }
+      } else if (typ === 'category') {
+        const wahl = host.locator('[data-role="category-pick"]').first();
+        await wahl.click();
+        await page.waitForTimeout(150);
+        if (await wahl.getAttribute('aria-pressed') !== 'true') kaputt.push('category: Auswahl greift nicht');
+      }
+    }
+
+    if (kaputt.length) throw new Error(kaputt.join('; '));
+    if (!gesehen.size) throw new Error('keine Aufgaben in der Prüfung');
+  });
+
+  await check('Antworten kommen in der Prüfung an', async () => {
+    // Bis zur Behebung wurde im Prüfungssimulator bei Multiple Choice nie
+    // `aria-pressed` gesetzt — die Auswahl war unsichtbar UND wurde nicht
+    // erfasst. Jede Antwort ging verloren, die ganze Prüfung zählte als
+    // unbeantwortet. Geprüft wird deshalb nicht die Punktzahl (die hinge vom
+    // Zufall ab), sondern dass die App die Aufgaben als beantwortet ansieht.
+    await go('/tests');
+    await page.locator('[data-role="pick-subject"][data-value="chemie"]').click();
+    await page.waitForTimeout(400);
+    await page.locator('[data-role="topics-all"]').click();
+    await page.waitForTimeout(300);
+    await page.locator('[data-role="count"]').selectOption('6');
+    await page.locator('[data-role="start-exam"]').click();
+    await page.waitForTimeout(1200);
+    await page.locator('.exam-nav-grid').first().waitFor({ timeout: 8000 });
+
+    const anzahl = await page.locator('[data-role="jump"]').count();
+    for (let i = 0; i < anzahl; i += 1) {
+      await page.locator(`[data-role="jump"][data-index="${i}"]`).click();
+      await page.waitForTimeout(220);
+      await answerVisibleQuestion(page.locator('[data-role="question-host"]'));
+      await page.waitForTimeout(160);
+    }
+
+    await page.locator('[data-role="submit"]').first().click();
+    await page.waitForTimeout(700);
+
+    // Erscheint jetzt die Rückfrage nach unbeantworteten Aufgaben, sind die
+    // Antworten nicht angekommen.
+    let offen = null;
+    const rueckfrage = page.locator('.modal');
+    if (await rueckfrage.count()) {
+      offen = (await rueckfrage.innerText()).match(/(\d+)\s+von\s+(\d+)\s+Aufgaben/);
+      await rueckfrage.locator('[data-role="modal-action"]').last().click();
+      await page.waitForTimeout(500);
+    }
+    // Offene Aufgaben verlangen vor der Wertung eine Selbsteinschätzung.
+    for (let i = 0; i < 8; i += 1) {
+      const urteil = page.locator('[data-role="verdict"][data-value="partial"]');
+      if (!(await urteil.count())) break;
+      await urteil.first().click();
+      await page.waitForTimeout(300);
+    }
+    await page.locator('.result-hero').first().waitFor({ timeout: 9000 });
+    if (offen) throw new Error(`${offen[1]} von ${offen[2]} Aufgaben gelten als unbeantwortet`);
+  });
+
+  await check('Antworten überstehen den Wechsel zwischen Aufgaben', async () => {
+    await go('/tests');
+    await page.locator('[data-role="pick-subject"][data-value="deutsch"]').click();
+    await page.waitForTimeout(400);
+    await page.locator('[data-role="topics-all"]').click();
+    await page.waitForTimeout(300);
+    await page.locator('[data-role="count"]').selectOption('12');
+    await page.locator('[data-role="start-exam"]').click();
+    await page.waitForTimeout(1200);
+    await page.locator('.exam-nav-grid').first().waitFor({ timeout: 8000 });
+
+    // Antworten, wegnavigieren, zurückkommen — die Antwort muss noch da sein.
+    const anzahl = await page.locator('[data-role="jump"]').count();
+    let geprueft = 0;
+    for (let i = 0; i < anzahl && geprueft < 3; i += 1) {
+      await page.locator(`[data-role="jump"][data-index="${i}"]`).click();
+      await page.waitForTimeout(200);
+      const host = page.locator('[data-role="question-host"]');
+      const typ = await host.locator('.question').getAttribute('data-type');
+      if (!['mc', 'truefalse', 'mark', 'category'].includes(typ)) continue;
+
+      const auswahl = typ === 'mark' ? '[data-role="mark-word"]'
+        : typ === 'category' ? '[data-role="category-pick"]' : '.option';
+      const ziel = host.locator(auswahl).first();
+      if (await ziel.getAttribute('aria-pressed') !== 'true') {
+        await ziel.click();
+        await page.waitForTimeout(200);
+      }
+      const anderer = (i + 1) % anzahl;
+      await page.locator(`[data-role="jump"][data-index="${anderer}"]`).click();
+      await page.waitForTimeout(250);
+      await page.locator(`[data-role="jump"][data-index="${i}"]`).click();
+      await page.waitForTimeout(300);
+      const wieder = page.locator('[data-role="question-host"]').locator(auswahl).first();
+      if (await wieder.getAttribute('aria-pressed') !== 'true') {
+        throw new Error(`${typ}: Antwort ging beim Wechsel verloren`);
+      }
+      geprueft += 1;
+    }
+    if (!geprueft) throw new Error('keine passende Aufgabe zum Prüfen gefunden');
+  });
+
 
   /* ---------------------------- Fortschritt ---------------------------- */
   console.log('\n== Fortschritt, Plan, Wiederholung ==');

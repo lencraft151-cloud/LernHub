@@ -24,7 +24,7 @@ import { getSubject, getAreas, getTopicMeta } from '../../data/curriculum/index.
 import { hasPractice } from '../../domain/topics.js';
 import { profileSetup, confirmDialog, toast } from '../shell.js';
 import { pageHead, emptyState, statTile, subjectIcon } from '../components/common.js';
-import { renderQuestion, readAnswer } from '../components/quiz.js';
+import { renderQuestion, readAnswer, bindQuestionInteractions, refreshOrderIndices } from '../components/quiz.js';
 import { splitBar, barChart, lineChart, enhanceCharts } from '../components/charts.js';
 
 let timerHandle = null;
@@ -489,11 +489,7 @@ export function renderExamRun(root) {
           const li = [...list.children].find((child) => child.dataset.item === item);
           if (li) list.append(li);
         }
-        [...list.children].forEach((li, i) => {
-          li.querySelector('.order-index').textContent = String(i + 1);
-          li.querySelector('[data-role="order-up"]').disabled = i === 0;
-          li.querySelector('[data-role="order-down"]').disabled = i === list.children.length - 1;
-        });
+        refreshOrderIndices(list);
         break;
       }
       case 'numeric': {
@@ -505,6 +501,31 @@ export function renderExamRun(root) {
         for (const [step, text] of Object.entries(value)) {
           const input = host.querySelector(`[data-role="step"][data-step="${step}"]`);
           if (input) input.value = text;
+        }
+        break;
+      case 'mark':
+        for (const position of value) {
+          host.querySelector(`[data-role="mark-word"][data-index="${position}"]`)
+            ?.setAttribute('aria-pressed', 'true');
+        }
+        break;
+      case 'sentence': {
+        const line = host.querySelector('[data-role="sentence-line"]');
+        const pool = host.querySelector('[data-role="sentence-pool"]');
+        if (!line || !pool) break;
+        // Die gespeicherte Wortfolge Karte für Karte zurück in die Zeile legen.
+        for (const wort of (Array.isArray(value) ? value : [])) {
+          const chip = [...pool.querySelectorAll('.word-chip')].find((c) => c.dataset.word === wort);
+          if (chip) line.appendChild(chip);
+        }
+        const hint = host.querySelector('[data-role="sentence-hint"]');
+        if (hint) hint.hidden = line.querySelector('.word-chip') !== null;
+        break;
+      }
+      case 'category':
+        for (const [begriff, kategorie] of Object.entries(value)) {
+          host.querySelector(`[data-role="category-pick"][data-term="${CSS.escape(begriff)}"][data-category="${CSS.escape(kategorie)}"]`)
+            ?.setAttribute('aria-pressed', 'true');
         }
         break;
       default: {
@@ -665,7 +686,11 @@ export function renderExamRun(root) {
   delegate(root, 'click', '[data-role="submit"]', () => submit());
   delegate(root, 'input', '[data-role="question-host"] input, [data-role="question-host"] textarea', () => capture());
   delegate(root, 'change', '[data-role="question-host"] select', () => capture());
-  delegate(root, 'click', '[data-role="question-host"] .option', () => setTimeout(capture, 0));
+
+  // Dieselbe Bedienlogik wie im Übungsmodus: Ohne sie waren im
+  // Prüfungssimulator die Pfeiltasten der Reihenfolge-Aufgaben und die drei
+  // sprachlichen Typen tot — die Knöpfe waren da, aber nichts geschah.
+  bindQuestionInteractions(root, { onChange: () => capture() });
 
   renderQuestionView();
   disposeTracker = createTimeTracker(null);
