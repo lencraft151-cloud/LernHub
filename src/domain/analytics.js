@@ -15,6 +15,7 @@ import { hasActivity, topicMastery, topicStatus, topicView } from './progress.js
 import { overdueDays, retention } from './srs.js';
 import { competencyList } from '../data/content/meta.js';
 import { hasPractice } from './topics.js';
+import { topicLessonStats } from './lessons.js';
 import { getAllTopics, getAreas, getTopicMeta, inSchoolType } from '../data/curriculum/index.js';
 import { daysBetween } from '../core/format.js';
 
@@ -131,7 +132,31 @@ const ACTIONS = {
   practice: { id: 'practice', label: 'Üben', verb: 'üben', route: (id) => `#/thema/${id}/ueben` },
   test: { id: 'test', label: 'Test starten', verb: 'testen', route: (id) => `#/thema/${id}/test` },
   review: { id: 'review', label: 'Wiederholen', verb: 'wiederholen', route: (id) => `#/thema/${id}/ueben?modus=wiederholung` },
+  lesson: {
+    id: 'lesson',
+    label: 'Lektion starten',
+    verb: 'lernen',
+    route: (topicId, lessonId) => `#/thema/${topicId}/lektion/${encodeURIComponent(lessonId)}`,
+  },
 };
+
+/**
+ * Die nächste offene Lektion eines Themas als Handlungsvorschlag.
+ * Lektionen sind der Hauptweg durch ein Thema; nur wenn ein Thema keine hat
+ * (oder alle erledigt sind), greifen die groben Modi Lernen/Üben/Test.
+ */
+function lessonStep(state, view) {
+  const stats = topicLessonStats(state, view.id);
+  if (!stats.next) return null;
+  return {
+    view,
+    action: { ...ACTIONS.lesson, label: stats.done ? 'Weiter' : 'Lektion starten' },
+    reason: `Lektion ${stats.next.index} von ${stats.total}: ${stats.next.title}`,
+    href: ACTIONS.lesson.route(view.id, stats.next.id),
+    lesson: stats.next,
+    lessonStats: stats,
+  };
+}
 
 /**
  * Priorisierte Empfehlungsliste für das Dashboard.
@@ -228,6 +253,10 @@ export function recommendations(state, setup, limit = 5, now = new Date()) {
     if (count >= 2 && out.length < limit) continue;
     if (out.length >= limit) break;
     perSubject.set(item.view.subjectId, count + 1);
+    // "Lernen" führt in die nächste offene Lektion statt auf die Themenseite —
+    // ein Klick weniger bis zur ersten Aufgabe.
+    const schritt = item.action.id === 'learn' ? lessonStep(state, item.view) : null;
+    const action = schritt ? schritt.action : item.action;
     out.push({
       topicId: item.view.id,
       title: item.view.title,
@@ -237,10 +266,11 @@ export function recommendations(state, setup, limit = 5, now = new Date()) {
       mastery: item.view.mastery,
       status: item.view.status,
       reason: item.reason,
-      action: item.action,
-      href: item.action.route(item.view.id),
+      action,
+      href: schritt ? schritt.href : item.action.route(item.view.id),
+      lessonId: schritt?.lesson?.id || null,
       priority: item.priority,
-      estimatedMinutes: item.view.meta?.minutes || 20,
+      estimatedMinutes: schritt?.lesson?.minutes || item.view.meta?.minutes || 20,
     });
   }
   return out;
@@ -255,6 +285,8 @@ export function continueTopic(state, setup, now = new Date()) {
     .sort((a, b) => b.lastActivityAt - a.lastActivityAt);
 
   for (const view of candidates) {
+    const schritt = lessonStep(state, view);
+    if (schritt) return schritt;
     const sections = view.meta?.sections || 0;
     const done = view.record?.sectionsDone?.length || 0;
     if (done < sections) {
@@ -273,7 +305,8 @@ export function continueTopic(state, setup, now = new Date()) {
     .sort((a, b) => a.subjectName.localeCompare(b.subjectName, 'de'))[0]
     || scopedTopics(state, setup, now).filter((view) => view.practisable && !view.started)[0];
   if (!fresh) return null;
-  return { view: fresh, action: ACTIONS.learn, reason: 'Neu starten', href: ACTIONS.learn.route(fresh.id) };
+  return lessonStep(state, fresh)
+    || { view: fresh, action: ACTIONS.learn, reason: 'Neu starten', href: ACTIONS.learn.route(fresh.id) };
 }
 
 /**

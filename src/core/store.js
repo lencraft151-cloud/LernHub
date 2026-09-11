@@ -36,6 +36,8 @@ export function createEmptyState() {
     },
     /** topicId -> Fortschrittsobjekt */
     topics: {},
+    /** lessonId -> { done, bestPercent, stars, attempts, lastAt } */
+    lessons: {},
     /** questionId -> Statistik über alle Sitzungen */
     questions: {},
     /** Liste falsch beantworteter Aufgaben für "Fehler wiederholen" */

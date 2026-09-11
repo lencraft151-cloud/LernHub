@@ -1,5 +1,5 @@
 /** Übungspool Deutsch, Klasse 1–10. */
-import { rng, int, pick, mc, tf, numeric, cloze, match, order, multi, factQuestions } from './_helpers.mjs';
+import { rng, int, pick, mc, tf, numeric, cloze, match, order, multi, factQuestions, mark, sentence, category } from './_helpers.mjs';
 
 export const competencies = {
   laute: 'Laute und Buchstaben',
@@ -373,6 +373,126 @@ export default function build() {
     prompt: 'Bringe die Schritte einer Interpretation in die übliche Reihenfolge.',
     items: ['Einleitungssatz mit Eckdaten', 'Inhaltsangabe', 'Deutungshypothese', 'Analyse von Form und Sprache', 'Zusammenfassende Deutung'],
     explanation: 'Erst Orientierung schaffen, dann deuten und die Deutung am Text belegen.',
+  }));
+
+  /* ------------------- Sprachliche Aufgabenformate -------------------- */
+  // Markieren, Sätze bauen und Sortieren trainieren Sprache dort, wo sie
+  // entsteht: im Satz. Eine Auswahlfrage kann das nicht ersetzen.
+
+  const markVerben = [
+    ['Der Hund bellt laut und rennt durch den Garten.', ['bellt', 'rennt']],
+    ['Lena liest ein Buch und trinkt Tee.', ['liest', 'trinkt']],
+    ['Wir fahren morgen nach Hamburg und besuchen Oma.', ['fahren', 'besuchen']],
+  ];
+  for (const [satz, verben] of markVerben) {
+    add(mark({
+      prefix: P, topicId: 'de2-wortarten', grade: 2, difficulty: 2, competency: 'wortarten',
+      prompt: 'Markiere alle Verben in diesem Satz.',
+      sentence: satz, targets: verben,
+      hint: 'Verben sagen, was jemand tut.',
+      explanation: `Die Verben sind: ${verben.join(' und ')}.`,
+    }));
+  }
+  const markNomen = [
+    ['Die Katze sitzt auf dem Dach.', ['Katze', 'Dach']],
+    ['Mein Bruder kauft Brot beim Bäcker.', ['Bruder', 'Brot', 'Bäcker']],
+  ];
+  for (const [satz, nomen] of markNomen) {
+    add(mark({
+      prefix: P, topicId: 'de2-grossschreibung', grade: 2, difficulty: 2, competency: 'grossschreibung',
+      prompt: 'Markiere alle Nomen. Sie werden großgeschrieben.',
+      sentence: satz, targets: nomen,
+      explanation: `Nomen in diesem Satz: ${nomen.join(', ')}. Nomen erkennt man am Begleiter (der, die, das).`,
+    }));
+  }
+  add(mark({
+    prefix: P, topicId: 'de5-satzglieder', grade: 5, difficulty: 3, competency: 'satzglieder',
+    prompt: 'Markiere das Prädikat (das gebeugte Verb).',
+    sentence: 'Am Montag schreibt die Klasse eine Arbeit.',
+    targets: ['schreibt'],
+    hint: 'Frage: Was tut die Klasse?',
+    explanation: 'Das Prädikat ist „schreibt" — es steht im Aussagesatz an zweiter Stelle.',
+  }));
+  add(mark({
+    prefix: P, topicId: 'de5-satzglieder', grade: 5, difficulty: 3, competency: 'satzglieder',
+    prompt: 'Markiere das Subjekt (wer oder was?).',
+    sentence: 'Nach dem Regen leuchtet ein Regenbogen über der Stadt.',
+    targets: ['Regenbogen'],
+    hint: 'Frage: Wer oder was leuchtet?',
+    explanation: 'Subjekt ist „ein Regenbogen" — der Kern des Satzgliedes ist das Nomen „Regenbogen".',
+  }));
+  add(mark({
+    prefix: P, topicId: 'de8-rhetorik', grade: 8, difficulty: 3, competency: 'mittel',
+    prompt: 'Markiere die beiden Wörter, die die Alliteration bilden.',
+    sentence: 'Milch macht müde Männer munter, sagt die Werbung.',
+    targets: ['Milch', 'macht'],
+    hint: 'Alliteration: gleicher Anfangslaut bei aufeinanderfolgenden Wörtern.',
+    explanation: 'Der Werbespruch reiht gleich mehrere m-Anlaute; die ersten beiden sind „Milch macht".',
+  }));
+
+  const saetze = [
+    ['de4-satzglieder', 4, 'Am Samstag besuchen wir meine Großeltern', 'satzglieder'],
+    ['de4-satzglieder', 4, 'Der kleine Hund jagt den roten Ball', 'satzglieder'],
+    ['de6-satzarten', 6, 'Weil es regnet bleiben wir zu Hause', 'satzarten'],
+    ['de3-woertliche-rede', 3, 'Lena ruft laut nach ihrem Bruder', 'woertliche_rede'],
+  ];
+  for (const [topicId, grade, satz, comp] of saetze) {
+    add(sentence({
+      prefix: P, topicId, grade, difficulty: 3, competency: comp,
+      prompt: 'Bringe die Wörter in die richtige Reihenfolge.',
+      sentence: satz,
+      explanation: `Richtig lautet der Satz: „${satz}."`,
+    }));
+  }
+
+  add(category({
+    prefix: P, topicId: 'de2-wortarten', grade: 2, difficulty: 2, competency: 'wortarten',
+    prompt: 'Sortiere die Wörter nach ihrer Wortart.',
+    groups: {
+      Nomen: ['Baum', 'Fenster', 'Freude'],
+      Verb: ['springen', 'lesen'],
+      Adjektiv: ['schnell', 'blau'],
+    },
+    explanation: 'Nomen benennen etwas, Verben beschreiben Tätigkeiten, Adjektive Eigenschaften.',
+  }));
+  add(category({
+    prefix: P, topicId: 'de5-wortarten', grade: 5, difficulty: 3, competency: 'wortarten',
+    prompt: 'Sortiere die Wörter nach ihrer Wortart.',
+    groups: {
+      Pronomen: ['ich', 'sie', 'dieser'],
+      Präposition: ['auf', 'unter', 'wegen'],
+      Konjunktion: ['weil', 'und'],
+    },
+    explanation: 'Pronomen vertreten ein Nomen, Präpositionen geben Verhältnisse an, Konjunktionen verbinden.',
+  }));
+  add(category({
+    prefix: P, topicId: 'de6-zeitformen', grade: 6, difficulty: 3, competency: 'zeitformen',
+    prompt: 'Sortiere die Verbformen nach ihrer Zeitform.',
+    groups: {
+      Präsens: ['ich laufe', 'sie singt'],
+      Präteritum: ['ich lief', 'sie sang'],
+      Perfekt: ['ich bin gelaufen', 'sie hat gesungen'],
+    },
+    explanation: 'Das Perfekt besteht aus einer Form von haben oder sein und dem Partizip II.',
+  }));
+  add(category({
+    prefix: P, topicId: 'de4-das-dass', grade: 4, difficulty: 3, competency: 'dass',
+    prompt: 'Sortiere: Wo steht „das", wo „dass"?',
+    groups: {
+      'das (Artikel/Pronomen)': ['___ Buch liegt hier', 'Ich nehme ___ Heft'],
+      'dass (Bindewort)': ['Ich hoffe, ___ du kommst', 'Sie weiß, ___ es stimmt'],
+    },
+    explanation: 'Lässt sich das Wort durch „dieses" oder „welches" ersetzen, schreibt man „das". Sonst „dass".',
+  }));
+  add(category({
+    prefix: P, topicId: 'de8-rhetorik', grade: 8, difficulty: 3, competency: 'mittel',
+    prompt: 'Ordne die Beispiele dem passenden sprachlichen Mittel zu.',
+    groups: {
+      Metapher: ['ein Meer aus Tränen', 'Zeit ist Geld'],
+      Vergleich: ['stark wie ein Bär', 'weiß wie Schnee'],
+      Personifikation: ['die Sonne lacht', 'der Wind flüstert'],
+    },
+    explanation: 'Der Vergleich nutzt „wie" oder „als", die Metapher setzt das Bild direkt, die Personifikation vermenschlicht.',
   }));
 
   return out;

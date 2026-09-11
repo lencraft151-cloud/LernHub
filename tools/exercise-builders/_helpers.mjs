@@ -313,3 +313,60 @@ export function vocabQuestions({
   }
   return out;
 }
+
+/* ------------------------------------------------------------------ *
+ * Sprachliche Aufgabentypen
+ * ------------------------------------------------------------------ */
+
+/**
+ * Wörter in einem Satz markieren.
+ * `sentence` ist der Satz, `targets` die zu markierenden Wörter im Wortlaut.
+ */
+export function mark({ prefix, topicId, grade, difficulty = 2, competency, prompt, sentence, targets, explanation, hint }) {
+  const words = sentence.split(/\s+/).filter(Boolean);
+  const wanted = new Set(targets.map((t) => t.toLowerCase()));
+  const answer = words
+    .map((word, index) => ({ index, clean: word.replace(/[.,;:!?„“"'()]/g, '').toLowerCase() }))
+    .filter((entry) => wanted.has(entry.clean))
+    .map((entry) => entry.index);
+  return {
+    ...baseFields(prefix, topicId, grade, difficulty, competency),
+    type: 'mark',
+    prompt,
+    words,
+    answer,
+    hint,
+    explanation,
+  };
+}
+
+/** Satz aus Wortkarten bauen. `sentence` ist der Zielsatz. */
+export function sentence({ prefix, topicId, grade, difficulty = 2, competency, prompt, sentence: text, accept = [], explanation, hint }) {
+  return {
+    ...baseFields(prefix, topicId, grade, difficulty, competency),
+    type: 'sentence',
+    prompt,
+    words: text.split(/\s+/).filter(Boolean),
+    accept,
+    hint,
+    explanation,
+  };
+}
+
+/** Begriffe in Kategorien sortieren. `groups` = { Kategorie: [Begriffe] }. */
+export function category({ prefix, topicId, grade, difficulty = 2, competency, prompt, groups, explanation, hint }) {
+  const categories = Object.keys(groups);
+  const items = [];
+  for (const [name, list] of Object.entries(groups)) {
+    for (const text of list) items.push({ text, category: name });
+  }
+  return {
+    ...baseFields(prefix, topicId, grade, difficulty, competency),
+    type: 'category',
+    prompt,
+    categories,
+    items,
+    hint,
+    explanation,
+  };
+}

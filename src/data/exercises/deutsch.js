@@ -2,7 +2,7 @@
  * AUTOMATISCH GENERIERT — nicht von Hand bearbeiten.
  * Neu erzeugen mit: node tools/build-exercises.mjs
  *
- * Übungspool deutsch: 110 Aufgaben.
+ * Übungspool deutsch: 127 Aufgaben.
  */
 
 export default {
@@ -3014,6 +3014,485 @@ export default {
     "Zusammenfassende Deutung"
    ],
    "explanation": "Erst Orientierung schaffen, dann deuten und die Deutung am Text belegen."
+  },
+  {
+   "id": "de-111",
+   "topicId": "de2-wortarten",
+   "grade": 2,
+   "difficulty": 2,
+   "competency": "wortarten",
+   "type": "mark",
+   "prompt": "Markiere alle Verben in diesem Satz.",
+   "words": [
+    "Der",
+    "Hund",
+    "bellt",
+    "laut",
+    "und",
+    "rennt",
+    "durch",
+    "den",
+    "Garten."
+   ],
+   "answer": [
+    2,
+    5
+   ],
+   "hint": "Verben sagen, was jemand tut.",
+   "explanation": "Die Verben sind: bellt und rennt."
+  },
+  {
+   "id": "de-112",
+   "topicId": "de2-wortarten",
+   "grade": 2,
+   "difficulty": 2,
+   "competency": "wortarten",
+   "type": "mark",
+   "prompt": "Markiere alle Verben in diesem Satz.",
+   "words": [
+    "Lena",
+    "liest",
+    "ein",
+    "Buch",
+    "und",
+    "trinkt",
+    "Tee."
+   ],
+   "answer": [
+    1,
+    5
+   ],
+   "hint": "Verben sagen, was jemand tut.",
+   "explanation": "Die Verben sind: liest und trinkt."
+  },
+  {
+   "id": "de-113",
+   "topicId": "de2-wortarten",
+   "grade": 2,
+   "difficulty": 2,
+   "competency": "wortarten",
+   "type": "mark",
+   "prompt": "Markiere alle Verben in diesem Satz.",
+   "words": [
+    "Wir",
+    "fahren",
+    "morgen",
+    "nach",
+    "Hamburg",
+    "und",
+    "besuchen",
+    "Oma."
+   ],
+   "answer": [
+    1,
+    6
+   ],
+   "hint": "Verben sagen, was jemand tut.",
+   "explanation": "Die Verben sind: fahren und besuchen."
+  },
+  {
+   "id": "de-114",
+   "topicId": "de2-grossschreibung",
+   "grade": 2,
+   "difficulty": 2,
+   "competency": "grossschreibung",
+   "type": "mark",
+   "prompt": "Markiere alle Nomen. Sie werden großgeschrieben.",
+   "words": [
+    "Die",
+    "Katze",
+    "sitzt",
+    "auf",
+    "dem",
+    "Dach."
+   ],
+   "answer": [
+    1,
+    5
+   ],
+   "explanation": "Nomen in diesem Satz: Katze, Dach. Nomen erkennt man am Begleiter (der, die, das)."
+  },
+  {
+   "id": "de-115",
+   "topicId": "de2-grossschreibung",
+   "grade": 2,
+   "difficulty": 2,
+   "competency": "grossschreibung",
+   "type": "mark",
+   "prompt": "Markiere alle Nomen. Sie werden großgeschrieben.",
+   "words": [
+    "Mein",
+    "Bruder",
+    "kauft",
+    "Brot",
+    "beim",
+    "Bäcker."
+   ],
+   "answer": [
+    1,
+    3,
+    5
+   ],
+   "explanation": "Nomen in diesem Satz: Bruder, Brot, Bäcker. Nomen erkennt man am Begleiter (der, die, das)."
+  },
+  {
+   "id": "de-116",
+   "topicId": "de5-satzglieder",
+   "grade": 5,
+   "difficulty": 3,
+   "competency": "satzglieder",
+   "type": "mark",
+   "prompt": "Markiere das Prädikat (das gebeugte Verb).",
+   "words": [
+    "Am",
+    "Montag",
+    "schreibt",
+    "die",
+    "Klasse",
+    "eine",
+    "Arbeit."
+   ],
+   "answer": [
+    2
+   ],
+   "hint": "Frage: Was tut die Klasse?",
+   "explanation": "Das Prädikat ist „schreibt\" — es steht im Aussagesatz an zweiter Stelle."
+  },
+  {
+   "id": "de-117",
+   "topicId": "de5-satzglieder",
+   "grade": 5,
+   "difficulty": 3,
+   "competency": "satzglieder",
+   "type": "mark",
+   "prompt": "Markiere das Subjekt (wer oder was?).",
+   "words": [
+    "Nach",
+    "dem",
+    "Regen",
+    "leuchtet",
+    "ein",
+    "Regenbogen",
+    "über",
+    "der",
+    "Stadt."
+   ],
+   "answer": [
+    5
+   ],
+   "hint": "Frage: Wer oder was leuchtet?",
+   "explanation": "Subjekt ist „ein Regenbogen\" — der Kern des Satzgliedes ist das Nomen „Regenbogen\"."
+  },
+  {
+   "id": "de-118",
+   "topicId": "de8-rhetorik",
+   "grade": 8,
+   "difficulty": 3,
+   "competency": "mittel",
+   "type": "mark",
+   "prompt": "Markiere die beiden Wörter, die die Alliteration bilden.",
+   "words": [
+    "Milch",
+    "macht",
+    "müde",
+    "Männer",
+    "munter,",
+    "sagt",
+    "die",
+    "Werbung."
+   ],
+   "answer": [
+    0,
+    1
+   ],
+   "hint": "Alliteration: gleicher Anfangslaut bei aufeinanderfolgenden Wörtern.",
+   "explanation": "Der Werbespruch reiht gleich mehrere m-Anlaute; die ersten beiden sind „Milch macht\"."
+  },
+  {
+   "id": "de-119",
+   "topicId": "de4-satzglieder",
+   "grade": 4,
+   "difficulty": 3,
+   "competency": "satzglieder",
+   "type": "sentence",
+   "prompt": "Bringe die Wörter in die richtige Reihenfolge.",
+   "words": [
+    "Am",
+    "Samstag",
+    "besuchen",
+    "wir",
+    "meine",
+    "Großeltern"
+   ],
+   "accept": [],
+   "explanation": "Richtig lautet der Satz: „Am Samstag besuchen wir meine Großeltern.\""
+  },
+  {
+   "id": "de-120",
+   "topicId": "de4-satzglieder",
+   "grade": 4,
+   "difficulty": 3,
+   "competency": "satzglieder",
+   "type": "sentence",
+   "prompt": "Bringe die Wörter in die richtige Reihenfolge.",
+   "words": [
+    "Der",
+    "kleine",
+    "Hund",
+    "jagt",
+    "den",
+    "roten",
+    "Ball"
+   ],
+   "accept": [],
+   "explanation": "Richtig lautet der Satz: „Der kleine Hund jagt den roten Ball.\""
+  },
+  {
+   "id": "de-121",
+   "topicId": "de6-satzarten",
+   "grade": 6,
+   "difficulty": 3,
+   "competency": "satzarten",
+   "type": "sentence",
+   "prompt": "Bringe die Wörter in die richtige Reihenfolge.",
+   "words": [
+    "Weil",
+    "es",
+    "regnet",
+    "bleiben",
+    "wir",
+    "zu",
+    "Hause"
+   ],
+   "accept": [],
+   "explanation": "Richtig lautet der Satz: „Weil es regnet bleiben wir zu Hause.\""
+  },
+  {
+   "id": "de-122",
+   "topicId": "de3-woertliche-rede",
+   "grade": 3,
+   "difficulty": 3,
+   "competency": "woertliche_rede",
+   "type": "sentence",
+   "prompt": "Bringe die Wörter in die richtige Reihenfolge.",
+   "words": [
+    "Lena",
+    "ruft",
+    "laut",
+    "nach",
+    "ihrem",
+    "Bruder"
+   ],
+   "accept": [],
+   "explanation": "Richtig lautet der Satz: „Lena ruft laut nach ihrem Bruder.\""
+  },
+  {
+   "id": "de-123",
+   "topicId": "de2-wortarten",
+   "grade": 2,
+   "difficulty": 2,
+   "competency": "wortarten",
+   "type": "category",
+   "prompt": "Sortiere die Wörter nach ihrer Wortart.",
+   "categories": [
+    "Nomen",
+    "Verb",
+    "Adjektiv"
+   ],
+   "items": [
+    {
+     "text": "Baum",
+     "category": "Nomen"
+    },
+    {
+     "text": "Fenster",
+     "category": "Nomen"
+    },
+    {
+     "text": "Freude",
+     "category": "Nomen"
+    },
+    {
+     "text": "springen",
+     "category": "Verb"
+    },
+    {
+     "text": "lesen",
+     "category": "Verb"
+    },
+    {
+     "text": "schnell",
+     "category": "Adjektiv"
+    },
+    {
+     "text": "blau",
+     "category": "Adjektiv"
+    }
+   ],
+   "explanation": "Nomen benennen etwas, Verben beschreiben Tätigkeiten, Adjektive Eigenschaften."
+  },
+  {
+   "id": "de-124",
+   "topicId": "de5-wortarten",
+   "grade": 5,
+   "difficulty": 3,
+   "competency": "wortarten",
+   "type": "category",
+   "prompt": "Sortiere die Wörter nach ihrer Wortart.",
+   "categories": [
+    "Pronomen",
+    "Präposition",
+    "Konjunktion"
+   ],
+   "items": [
+    {
+     "text": "ich",
+     "category": "Pronomen"
+    },
+    {
+     "text": "sie",
+     "category": "Pronomen"
+    },
+    {
+     "text": "dieser",
+     "category": "Pronomen"
+    },
+    {
+     "text": "auf",
+     "category": "Präposition"
+    },
+    {
+     "text": "unter",
+     "category": "Präposition"
+    },
+    {
+     "text": "wegen",
+     "category": "Präposition"
+    },
+    {
+     "text": "weil",
+     "category": "Konjunktion"
+    },
+    {
+     "text": "und",
+     "category": "Konjunktion"
+    }
+   ],
+   "explanation": "Pronomen vertreten ein Nomen, Präpositionen geben Verhältnisse an, Konjunktionen verbinden."
+  },
+  {
+   "id": "de-125",
+   "topicId": "de6-zeitformen",
+   "grade": 6,
+   "difficulty": 3,
+   "competency": "zeitformen",
+   "type": "category",
+   "prompt": "Sortiere die Verbformen nach ihrer Zeitform.",
+   "categories": [
+    "Präsens",
+    "Präteritum",
+    "Perfekt"
+   ],
+   "items": [
+    {
+     "text": "ich laufe",
+     "category": "Präsens"
+    },
+    {
+     "text": "sie singt",
+     "category": "Präsens"
+    },
+    {
+     "text": "ich lief",
+     "category": "Präteritum"
+    },
+    {
+     "text": "sie sang",
+     "category": "Präteritum"
+    },
+    {
+     "text": "ich bin gelaufen",
+     "category": "Perfekt"
+    },
+    {
+     "text": "sie hat gesungen",
+     "category": "Perfekt"
+    }
+   ],
+   "explanation": "Das Perfekt besteht aus einer Form von haben oder sein und dem Partizip II."
+  },
+  {
+   "id": "de-126",
+   "topicId": "de4-das-dass",
+   "grade": 4,
+   "difficulty": 3,
+   "competency": "dass",
+   "type": "category",
+   "prompt": "Sortiere: Wo steht „das\", wo „dass\"?",
+   "categories": [
+    "das (Artikel/Pronomen)",
+    "dass (Bindewort)"
+   ],
+   "items": [
+    {
+     "text": "___ Buch liegt hier",
+     "category": "das (Artikel/Pronomen)"
+    },
+    {
+     "text": "Ich nehme ___ Heft",
+     "category": "das (Artikel/Pronomen)"
+    },
+    {
+     "text": "Ich hoffe, ___ du kommst",
+     "category": "dass (Bindewort)"
+    },
+    {
+     "text": "Sie weiß, ___ es stimmt",
+     "category": "dass (Bindewort)"
+    }
+   ],
+   "explanation": "Lässt sich das Wort durch „dieses\" oder „welches\" ersetzen, schreibt man „das\". Sonst „dass\"."
+  },
+  {
+   "id": "de-127",
+   "topicId": "de8-rhetorik",
+   "grade": 8,
+   "difficulty": 3,
+   "competency": "mittel",
+   "type": "category",
+   "prompt": "Ordne die Beispiele dem passenden sprachlichen Mittel zu.",
+   "categories": [
+    "Metapher",
+    "Vergleich",
+    "Personifikation"
+   ],
+   "items": [
+    {
+     "text": "ein Meer aus Tränen",
+     "category": "Metapher"
+    },
+    {
+     "text": "Zeit ist Geld",
+     "category": "Metapher"
+    },
+    {
+     "text": "stark wie ein Bär",
+     "category": "Vergleich"
+    },
+    {
+     "text": "weiß wie Schnee",
+     "category": "Vergleich"
+    },
+    {
+     "text": "die Sonne lacht",
+     "category": "Personifikation"
+    },
+    {
+     "text": "der Wind flüstert",
+     "category": "Personifikation"
+    }
+   ],
+   "explanation": "Der Vergleich nutzt „wie\" oder „als\", die Metapher setzt das Bild direkt, die Personifikation vermenschlicht."
   }
  ]
 };

@@ -11,6 +11,7 @@ import { isoDate } from '../core/format.js';
 import { countsAsCorrect, questionKey } from './grading.js';
 import { review, scheduleFirstReview, isDue } from './srs.js';
 import { award, questionRewardable, markQuestionRewarded } from './coins.js';
+import { starsFor } from './lessons.js';
 
 const WRONG_QUEUE_MAX = 300;
 const SESSION_LOG_MAX = 400;
@@ -153,6 +154,64 @@ export function recordPracticeSession({ topicId, correct, total, durationMs = 0 
     if (wasDue) coinsEarned += award(state, 'review', { ref: topicId });
   });
   return coinsEarned;
+}
+
+/**
+ * Abgeschlossene Lektion verbuchen.
+ *
+ * Gespeichert wird immer das **beste** Ergebnis: Eine Lektion zu wiederholen
+ * darf den erreichten Stand nicht verschlechtern — sonst übt niemand freiwillig
+ * noch einmal.
+ *
+ * @returns {{stars:number, bestStars:number, improved:boolean, coins:number}}
+ */
+export function recordLesson({ topicId, lessonId, kind, correct, total, durationMs = 0 }) {
+  const now = Date.now();
+  const percent = total ? correct / total : 0;
+  const stars = kind === 'intro' ? 3 : starsFor(percent);
+  let ergebnis = { stars, bestStars: stars, improved: true, coins: 0 };
+
+  store.update((state) => {
+    state.lessons ??= {};
+    const vorher = state.lessons[lessonId];
+    const bestPercent = Math.max(vorher?.bestPercent ?? 0, percent);
+    const bestStars = Math.max(vorher?.stars ?? 0, stars);
+    state.lessons[lessonId] = {
+      done: true,
+      bestPercent,
+      stars: bestStars,
+      attempts: (vorher?.attempts || 0) + 1,
+      lastAt: now,
+      topicId,
+      kind,
+    };
+    ergebnis = {
+      stars,
+      bestStars,
+      improved: !vorher || bestStars > (vorher.stars || 0) || bestPercent > (vorher.bestPercent || 0),
+      coins: 0,
+    };
+
+    const record = store.topic(topicId);
+    touch(record, now);
+
+    // Münzen nur beim ersten Abschluss und bei echter Verbesserung — sonst
+    // liesse sich dieselbe Lektion beliebig oft für Münzen wiederholen.
+    if (!vorher) {
+      ergebnis.coins = award(state, kind === 'intro' ? 'section' : 'practice', {
+        percent, total: Math.max(3, total), ref: lessonId,
+      });
+    } else if (bestStars > (vorher.stars || 0)) {
+      ergebnis.coins = award(state, 'answer', { score: 1, ref: `${lessonId}:verbessert` });
+    }
+
+    if (kind !== 'intro') {
+      state.sessions.push({ at: now, type: 'lesson', topicId, lessonId, durationMs, correct, total, percent });
+      if (state.sessions.length > SESSION_LOG_MAX) state.sessions.shift();
+    }
+  });
+
+  return ergebnis;
 }
 
 /** Lernzeit verbuchen (wird vom Zeit-Tracker im Sekundentakt aufgerufen). */

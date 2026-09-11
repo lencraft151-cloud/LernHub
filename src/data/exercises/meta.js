@@ -216,6 +216,84 @@ export const EXERCISE_META = {
      "title": "Hormone"
     }
    ]
+  },
+  "counts": {
+   "bio5-kennzeichen": {
+    "kennzeichen": 1
+   },
+   "bio5-wirbeltiere": {
+    "wirbeltiere": 5,
+    "angepasstheit": 1
+   },
+   "bio5-bluetenpflanzen": {
+    "bluete": 1,
+    "bestaeubung": 2
+   },
+   "bio6-skelett": {
+    "skelett": 1,
+    "muskeln": 2
+   },
+   "bio6-ernaehrung": {
+    "naehrstoffe": 1,
+    "verdauung": 10
+   },
+   "bio6-lebensraum-wald": {
+    "wald": 1,
+    "nahrungskette": 2
+   },
+   "bio7-zelle": {
+    "zelle": 11,
+    "mikroskop": 3
+   },
+   "bio7-fotosynthese": {
+    "fotosynthese": 1,
+    "zellatmung": 1
+   },
+   "bio7-oekosystem": {
+    "oekosystem": 10,
+    "stoffkreislauf": 1
+   },
+   "bio8-blutkreislauf": {
+    "blut": 1,
+    "kreislauf": 1,
+    "herz": 2
+   },
+   "bio8-atmung": {
+    "gasaustausch": 1,
+    "atmung": 1
+   },
+   "bio8-immunsystem": {
+    "impfung": 1,
+    "immun": 9
+   },
+   "bio8-nervensystem": {
+    "nerven": 1,
+    "sinne": 1
+   },
+   "bio9-mendel": {
+    "vererbung": 10,
+    "kreuzung": 2
+   },
+   "bio9-dna": {
+    "dna": 2,
+    "proteinbiosynthese": 10
+   },
+   "bio9-humangenetik": {
+    "humangenetik": 2
+   },
+   "bio9-sexualbiologie": {
+    "fortpflanzung": 1
+   },
+   "bio10-evolution": {
+    "evolution": 10,
+    "belege": 1
+   },
+   "bio10-menschwerdung": {
+    "menschwerdung": 1
+   },
+   "bio10-hormone": {
+    "hormone": 2
+   }
   }
  },
  "chemie": {
@@ -417,32 +495,110 @@ export const EXERCISE_META = {
      "title": "Chemisches Gleichgewicht"
     }
    ]
+  },
+  "counts": {
+   "ch7-stoffeigenschaften": {
+    "eigenschaften": 2,
+    "dichte": 3
+   },
+   "ch7-trennverfahren": {
+    "trennung": 3
+   },
+   "ch7-teilchenmodell": {
+    "aggregat": 3,
+    "teilchen": 1
+   },
+   "ch7-chemische-reaktion": {
+    "reaktion": 1,
+    "energie": 2
+   },
+   "ch7-verbrennung": {
+    "verbrennung": 3
+   },
+   "ch8-atombau": {
+    "kern": 5,
+    "atombau": 2
+   },
+   "ch8-periodensystem": {
+    "pse": 3,
+    "valenz": 1
+   },
+   "ch8-ionen": {
+    "ionen": 2,
+    "ionenbindung": 1
+   },
+   "ch8-molekuele": {
+    "molekuel": 2
+   },
+   "ch8-wasser": {
+    "wasser": 2
+   },
+   "ch8-reaktionsgleichungen": {
+    "gleichung": 5
+   },
+   "ch9-saeuren-basen": {
+    "saeure": 2,
+    "base": 1
+   },
+   "ch9-ph-wert": {
+    "ph": 9,
+    "indikator": 1
+   },
+   "ch9-neutralisation": {
+    "neutralisation": 1,
+    "titration": 2
+   },
+   "ch9-redox": {
+    "redox": 3
+   },
+   "ch9-metallgewinnung": {
+    "metall": 2
+   },
+   "ch9-stoffmenge": {
+    "molmasse": 13,
+    "stoffmenge": 10
+   },
+   "ch10-kohlenwasserstoffe": {
+    "alkane": 7
+   },
+   "ch10-alkohole": {
+    "alkohole": 3
+   },
+   "ch10-carbonsaeuren": {
+    "carbon": 2
+   },
+   "ch10-energetik": {
+    "energetik": 2
+   },
+   "ch10-gleichgewicht": {
+    "gleichgewicht": 2
+   }
   }
  },
  "deutsch": {
-  "total": 110,
+  "total": 127,
   "byTopic": {
    "de1-laute-buchstaben": 5,
    "de1-silben": 5,
-   "de2-wortarten": 6,
+   "de2-wortarten": 10,
    "de2-satzzeichen": 1,
-   "de2-grossschreibung": 1,
+   "de2-grossschreibung": 3,
    "de2-lange-kurze-vokale": 4,
    "de3-zeitformen": 4,
-   "de3-woertliche-rede": 1,
+   "de3-woertliche-rede": 2,
    "de3-verlaengern": 4,
    "de4-faelle": 7,
-   "de4-satzglieder": 1,
-   "de4-das-dass": 4,
+   "de4-satzglieder": 3,
+   "de4-das-dass": 5,
    "de4-bericht": 1,
-   "de5-wortarten": 9,
-   "de5-satzglieder": 8,
+   "de5-wortarten": 10,
+   "de5-satzglieder": 10,
    "de5-maerchen": 2,
-   "de6-zeitformen": 8,
-   "de6-satzarten": 1,
+   "de6-zeitformen": 9,
+   "de6-satzarten": 2,
    "de6-woerter": 1,
    "de6-brief": 1,
-   "de8-rhetorik": 12,
+   "de8-rhetorik": 14,
    "de7-aktiv-passiv": 1,
    "de7-konjunktiv": 1,
    "de7-inhaltsangabe": 1,
@@ -676,6 +832,116 @@ export const EXERCISE_META = {
      "title": "Interpretation"
     }
    ]
+  },
+  "counts": {
+   "de1-laute-buchstaben": {
+    "laute": 5
+   },
+   "de1-silben": {
+    "silben": 5
+   },
+   "de2-wortarten": {
+    "wortarten": 10
+   },
+   "de2-satzzeichen": {
+    "satzzeichen": 1
+   },
+   "de2-grossschreibung": {
+    "grossschreibung": 3
+   },
+   "de2-lange-kurze-vokale": {
+    "vokale": 4
+   },
+   "de3-zeitformen": {
+    "zeitformen": 4
+   },
+   "de3-woertliche-rede": {
+    "woertliche_rede": 2
+   },
+   "de3-verlaengern": {
+    "strategien": 4
+   },
+   "de4-faelle": {
+    "faelle": 7
+   },
+   "de4-satzglieder": {
+    "satzglieder": 3
+   },
+   "de4-das-dass": {
+    "dass": 5
+   },
+   "de4-bericht": {
+    "bericht": 1
+   },
+   "de5-wortarten": {
+    "wortarten": 10
+   },
+   "de5-satzglieder": {
+    "satzglieder": 10
+   },
+   "de5-maerchen": {
+    "maerchen": 2
+   },
+   "de6-zeitformen": {
+    "zeitformen": 9
+   },
+   "de6-satzarten": {
+    "satzarten": 2
+   },
+   "de6-woerter": {
+    "wortbildung": 1
+   },
+   "de6-brief": {
+    "brief": 1
+   },
+   "de8-rhetorik": {
+    "mittel": 14
+   },
+   "de7-aktiv-passiv": {
+    "passiv": 1
+   },
+   "de7-konjunktiv": {
+    "konjunktiv": 1
+   },
+   "de7-inhaltsangabe": {
+    "inhaltsangabe": 1
+   },
+   "de7-ballade": {
+    "ballade": 1
+   },
+   "de7-zeitung": {
+    "zeitung": 1
+   },
+   "de8-charakterisierung": {
+    "charakterisierung": 1
+   },
+   "de8-bewerbung": {
+    "bewerbung": 1
+   },
+   "de9-eroerterung": {
+    "eroerterung": 2
+   },
+   "de9-sachtextanalyse": {
+    "sachtext": 1
+   },
+   "de9-epochen": {
+    "epochen": 8
+   },
+   "de9-drama": {
+    "drama": 1
+   },
+   "de10-roman": {
+    "erzaehltheorie": 1
+   },
+   "de9-medienkritik": {
+    "medien": 1
+   },
+   "de8-satzbau": {
+    "stil": 1
+   },
+   "de10-textinterpretation": {
+    "interpretation": 2
+   }
   }
  },
  "englisch": {
@@ -872,6 +1138,89 @@ export const EXERCISE_META = {
      "title": "Zeitenüberblick"
     }
    ]
+  },
+  "counts": {
+   "en3-greetings": {
+    "greetings": 7
+   },
+   "en3-numbers-colours": {
+    "colours": 10
+   },
+   "en3-animals-family": {
+    "animals": 10
+   },
+   "en4-food": {
+    "food": 9
+   },
+   "en4-school": {
+    "school": 9
+   },
+   "en4-time-routine": {
+    "time": 3
+   },
+   "en5-present-simple": {
+    "present_simple": 6
+   },
+   "en5-present-progressive": {
+    "present_progressive": 1
+   },
+   "en5-plural-articles": {
+    "plural": 6
+   },
+   "en6-simple-past": {
+    "irregular": 8
+   },
+   "en7-present-perfect": {
+    "present_perfect": 6
+   },
+   "en6-comparison": {
+    "comparison": 5
+   },
+   "en6-future": {
+    "future": 1
+   },
+   "en7-modals": {
+    "modals": 1
+   },
+   "en7-relative-clauses": {
+    "relative": 1
+   },
+   "en8-passive": {
+    "passive": 3
+   },
+   "en8-conditional": {
+    "conditional": 2
+   },
+   "en8-gerund": {
+    "gerund": 1
+   },
+   "en9-reported-speech": {
+    "reported": 3
+   },
+   "en7-uk-usa": {
+    "landeskunde": 7
+   },
+   "en9-globalisation": {
+    "landeskunde": 1
+   },
+   "en9-text-analysis": {
+    "analysis": 1
+   },
+   "en10-argumentative-essay": {
+    "essay": 1
+   },
+   "en6-reading": {
+    "reading": 1
+   },
+   "en8-writing-email": {
+    "writing": 1
+   },
+   "en9-tenses-review": {
+    "tenses": 1
+   },
+   "en10-advanced-structures": {
+    "tenses": 1
+   }
   }
  },
  "erdkunde": {
@@ -1018,6 +1367,64 @@ export const EXERCISE_META = {
      "title": "Ressourcen und Energie"
     }
    ]
+  },
+  "counts": {
+   "ek5-karten": {
+    "massstab": 6,
+    "karten": 1,
+    "himmelsrichtung": 1
+   },
+   "ek5-deutschland": {
+    "bundeslaender": 9,
+    "deutschland": 9
+   },
+   "ek5-landwirtschaft": {
+    "landwirtschaft": 2
+   },
+   "ek6-europa-ueberblick": {
+    "europa": 10
+   },
+   "ek6-klima-europa": {
+    "klimaeuropa": 2,
+    "diagramm": 3
+   },
+   "ek7-klimazonen": {
+    "klimazonen": 9,
+    "diagramm": 1
+   },
+   "ek7-tropischer-regenwald": {
+    "regenwald": 8
+   },
+   "ek7-wueste": {
+    "wueste": 1
+   },
+   "ek8-plattentektonik": {
+    "tektonik": 11
+   },
+   "ek8-naturrisiken": {
+    "naturrisiken": 2
+   },
+   "ek8-industrie": {
+    "industrie": 1
+   },
+   "ek9-bevoelkerung": {
+    "bevoelkerung": 4
+   },
+   "ek9-verstaedterung": {
+    "stadt": 5
+   },
+   "ek9-disparitaeten": {
+    "disparitaeten": 2
+   },
+   "ek9-globalisierung": {
+    "globalisierung": 9
+   },
+   "ek10-klimawandel": {
+    "klimawandel": 2
+   },
+   "ek10-ressourcen": {
+    "ressourcen": 2
+   }
   }
  },
  "franzoesisch": {
@@ -1145,6 +1552,53 @@ export const EXERCISE_META = {
      "title": "Textarbeit"
     }
    ]
+  },
+  "counts": {
+   "fr6-artikel": {
+    "vokabeln": 10,
+    "artikel": 2,
+    "substantive": 1
+   },
+   "fr6-praesens": {
+    "vokabeln": 12,
+    "praesens": 7,
+    "verben": 12
+   },
+   "fr7-passe-compose": {
+    "partizip": 8,
+    "passe": 2
+   },
+   "fr7-imparfait": {
+    "zeitwahl": 2,
+    "imparfait": 3
+   },
+   "fr7-fragen": {
+    "fragen": 9,
+    "vokabeln": 10
+   },
+   "fr8-pronomen": {
+    "pronomen": 1,
+    "vokabeln": 10
+   },
+   "fr8-futur": {
+    "futur": 1
+   },
+   "fr9-subjonctif": {
+    "subjonctif": 1
+   },
+   "fr9-relativsaetze": {
+    "relativ": 1
+   },
+   "fr10-conditionnel": {
+    "conditionnel": 1
+   },
+   "fr9-frankophonie": {
+    "frankophonie": 7,
+    "vokabeln": 7
+   },
+   "fr10-textarbeit": {
+    "textarbeit": 1
+   }
   }
  },
  "geschichte": {
@@ -1292,6 +1746,68 @@ export const EXERCISE_META = {
      "title": "Europäische Einigung"
     }
    ]
+  },
+  "counts": {
+   "ge8-franzoesische-revolution": {
+    "revolution": 10
+   },
+   "ge9-erster-weltkrieg": {
+    "wk1": 9
+   },
+   "ge9-weimarer-republik": {
+    "weimar": 10
+   },
+   "ge9-zweiter-weltkrieg": {
+    "wk2": 9
+   },
+   "ge10-zwei-deutsche-staaten": {
+    "teilung": 7
+   },
+   "ge10-wiedervereinigung": {
+    "wende": 4
+   },
+   "ge6-steinzeit": {
+    "neolithikum": 8
+   },
+   "ge6-griechenland": {
+    "demokratie": 9
+   },
+   "ge6-rom": {
+    "rom": 8
+   },
+   "ge7-lehnswesen": {
+    "lehnswesen": 8
+   },
+   "ge7-stadt": {
+    "stadt": 8
+   },
+   "ge8-industrielle-revolution": {
+    "industrialisierung": 8
+   },
+   "ge9-nationalsozialismus": {
+    "ns": 8
+   },
+   "ge10-kalter-krieg": {
+    "kalterkrieg": 8
+   },
+   "ge6-aegypten": {
+    "aegypten": 2
+   },
+   "ge7-entdeckungen": {
+    "entdeckungen": 1
+   },
+   "ge7-reformation": {
+    "reformation": 2
+   },
+   "ge8-1848": {
+    "jahr1848": 1
+   },
+   "ge8-kaiserreich": {
+    "kaiserreich": 1
+   },
+   "ge10-europa": {
+    "europa": 2
+   }
   }
  },
  "informatik": {
@@ -1448,6 +1964,64 @@ export const EXERCISE_META = {
      "title": "Algorithmusbegriff"
     }
    ]
+  },
+  "counts": {
+   "if5-hardware": {
+    "hardware": 3,
+    "software": 1
+   },
+   "if5-dateien": {
+    "speicher": 8,
+    "dateien": 1
+   },
+   "if6-internet": {
+    "internet": 2,
+    "protokolle": 2
+   },
+   "if6-datenschutz": {
+    "passwort": 2,
+    "datenschutz": 2
+   },
+   "if7-algorithmus-begriff": {
+    "algorithmus": 2
+   },
+   "if7-scratch": {
+    "schleife": 2,
+    "programm": 1
+   },
+   "if8-binaersystem": {
+    "binaer": 17,
+    "hexadezimal": 8,
+    "codierung": 5
+   },
+   "if8-tabellenkalkulation": {
+    "formel": 6,
+    "tabelle": 6
+   },
+   "if9-algorithmen": {
+    "verzweigung": 4,
+    "schleife": 5,
+    "logik": 4
+   },
+   "if9-funktionen": {
+    "funktion": 3
+   },
+   "if9-listen": {
+    "liste": 5
+   },
+   "if9-verschluesselung": {
+    "verschluesselung": 3
+   },
+   "if10-datenbanken": {
+    "datenbank": 1,
+    "sql": 2
+   },
+   "if10-oop": {
+    "oop": 2
+   },
+   "if11-sortieren": {
+    "algorithmus": 5
+   }
   }
  },
  "kunst": {
@@ -1589,6 +2163,59 @@ export const EXERCISE_META = {
      "title": "Bildanalyse"
     }
    ]
+  },
+  "counts": {
+   "ku1-farben-mischen": {
+    "mischen": 3,
+    "grundfarben": 2
+   },
+   "ku5-farbenlehre": {
+    "mischen": 3,
+    "komplementaer": 3,
+    "farbkreis": 5,
+    "kontraste": 8,
+    "eigenschaften": 1
+   },
+   "ku2-drucken": {
+    "drucken": 2,
+    "muster": 1
+   },
+   "ku3-plastisch": {
+    "plastisch": 2
+   },
+   "ku5-zeichnen": {
+    "zeichnen": 8
+   },
+   "ku6-perspektive": {
+    "perspektive": 9
+   },
+   "ku7-bildanalyse": {
+    "bildanalyse": 1,
+    "komposition": 8
+   },
+   "ku8-renaissance": {
+    "epochen": 8
+   },
+   "ku9-expressionismus": {
+    "kuenstler": 8,
+    "epochen": 1
+   },
+   "ku9-fotografie": {
+    "fotografie": 3
+   },
+   "ku10-design": {
+    "design": 8
+   },
+   "ku12-gegenwart": {
+    "gegenwart": 8
+   },
+   "ku4-kuenstler": {
+    "bildanalyse": 1,
+    "kuenstler": 1
+   },
+   "ku11-methoden": {
+    "bildanalyse": 7
+   }
   }
  },
  "latein": {
@@ -1694,6 +2321,45 @@ export const EXERCISE_META = {
      "title": "Übersetzen"
     }
    ]
+  },
+  "counts": {
+   "la6-deklination": {
+    "deklination": 14,
+    "vokabeln": 10
+   },
+   "la6-praesens": {
+    "praesens": 6,
+    "vokabeln": 10,
+    "konjugation": 1
+   },
+   "la7-tempora": {
+    "perfekt": 11,
+    "tempora": 7
+   },
+   "la7-kasusfunktionen": {
+    "kasus": 9,
+    "vokabeln": 10
+   },
+   "la8-aci": {
+    "aci": 2
+   },
+   "la8-participia": {
+    "participium": 1
+   },
+   "la9-ablativus-absolutus": {
+    "ablabs": 1
+   },
+   "la9-konjunktiv": {
+    "konjunktiv": 1
+   },
+   "la9-roemisches-leben": {
+    "kultur": 8,
+    "vokabeln": 7
+   },
+   "la10-caesar": {
+    "autoren": 7,
+    "uebersetzen": 1
+   }
   }
  },
  "mathematik": {
@@ -2296,6 +2962,238 @@ export const EXERCISE_META = {
      "title": "Bedingte Wahrscheinlichkeit"
     }
    ]
+  },
+  "counts": {
+   "ma1-zahlenraum-20": {
+    "zahlenraum": 5
+   },
+   "ma1-plus-minus-20": {
+    "plus": 3,
+    "minus": 3
+   },
+   "ma1-formen": {
+    "formen": 3
+   },
+   "ma2-zahlenraum-100": {
+    "stellenwert": 3
+   },
+   "ma2-plus-minus-100": {
+    "plus": 3,
+    "minus": 2
+   },
+   "ma2-einmaleins": {
+    "einmaleins": 5,
+    "teilen": 3
+   },
+   "ma2-uhrzeit": {
+    "uhrzeit": 4
+   },
+   "ma2-laengen": {
+    "laengen": 4
+   },
+   "ma3-zahlenraum-1000": {
+    "runden": 4
+   },
+   "ma3-schriftlich-addieren": {
+    "schriftlich": 5
+   },
+   "ma3-mal-geteilt": {
+    "division": 3,
+    "multiplikation": 2
+   },
+   "ma3-symmetrie": {
+    "symmetrie": 2
+   },
+   "ma3-geld-gewicht": {
+    "geld": 1,
+    "gewicht": 1,
+    "zeit": 1,
+    "einheiten": 1
+   },
+   "ma4-zahlenraum-million": {
+    "stellenwert": 3
+   },
+   "ma4-schriftlich-mal": {
+    "multiplikation": 2,
+    "division": 2
+   },
+   "ma4-brueche-erste": {
+    "brueche": 3
+   },
+   "ma4-umfang-flaeche": {
+    "umfang": 2,
+    "flaeche": 2
+   },
+   "ma4-diagramme": {
+    "diagramme": 2
+   },
+   "ma4-sachaufgaben": {
+    "sachaufgaben": 3
+   },
+   "ma5-natuerliche-zahlen": {
+    "runden": 2,
+    "zehnerpotenz": 1
+   },
+   "ma5-grundrechenarten": {
+    "rechenregeln": 4
+   },
+   "ma5-groessen": {
+    "umrechnen": 4
+   },
+   "ma5-teilbarkeit": {
+    "teiler": 2,
+    "teilbarkeitsregeln": 1,
+    "primzahlen": 1
+   },
+   "ma5-grundbegriffe": {
+    "winkel": 3
+   },
+   "ma5-flaechen": {
+    "flaeche": 3
+   },
+   "ma5-koerper": {
+    "koerper": 2
+   },
+   "ma5-diagramme": {
+    "auswerten": 2
+   },
+   "ma6-brueche-grundlagen": {
+    "kuerzen": 3,
+    "vergleichen": 1
+   },
+   "ma6-brueche-addieren": {
+    "addieren": 4
+   },
+   "ma6-brueche-multiplizieren": {
+    "multiplizieren": 3,
+    "dividieren": 1
+   },
+   "ma6-dezimalzahlen": {
+    "umwandeln": 3
+   },
+   "ma6-dezimal-rechnen": {
+    "addieren": 3
+   },
+   "ma6-dreieck-viereck": {
+    "dreiecke": 3
+   },
+   "ma6-volumen": {
+    "volumen": 3
+   },
+   "ma6-negative-zahlen": {
+    "rechnen": 3
+   },
+   "ma7-prozentrechnung": {
+    "prozentwert": 3,
+    "prozentsatz": 2,
+    "grundwert": 1
+   },
+   "ma7-zinsrechnung": {
+    "jahreszins": 3,
+    "monatszins": 1
+   },
+   "ma7-terme": {
+    "einsetzen": 3,
+    "zusammenfassen": 1
+   },
+   "ma7-gleichungen": {
+    "loesen": 4
+   },
+   "ma7-proportional": {
+    "dreisatz": 1,
+    "antiproportional": 1,
+    "erkennen": 1
+   },
+   "ma7-winkelsaetze": {
+    "winkelsaetze": 3
+   },
+   "ma7-dreieckskonstruktion": {
+    "kongruenz": 1,
+    "dreiecksungleichung": 1
+   },
+   "ma7-wahrscheinlichkeit": {
+    "laplace": 2,
+    "grundlagen": 1
+   },
+   "ma8-lineare-funktionen": {
+    "funktionswert": 3,
+    "steigung": 2,
+    "graph": 1
+   },
+   "ma8-lgs": {
+    "loesen": 3,
+    "faelle": 1
+   },
+   "ma8-binomische-formeln": {
+    "erste": 3,
+    "dritte": 2
+   },
+   "ma8-kreis": {
+    "umfang": 3,
+    "flaeche": 2
+   },
+   "ma8-prisma": {
+    "volumen": 2
+   },
+   "ma8-statistik": {
+    "mittelwert": 1,
+    "median": 1,
+    "ausreisser": 1
+   },
+   "ma8-mehrstufig": {
+    "pfadregel": 2
+   },
+   "ma9-quadratische-funktionen": {
+    "scheitelform": 3,
+    "scheitel": 1
+   },
+   "ma9-quadratische-gleichungen": {
+    "pq": 4,
+    "diskriminante": 1
+   },
+   "ma9-potenzen": {
+    "potenzgesetze": 4
+   },
+   "ma9-wurzeln": {
+    "wurzelziehen": 2,
+    "reelle-zahlen": 1
+   },
+   "ma9-pythagoras": {
+    "hypotenuse": 4,
+    "kathete": 1
+   },
+   "ma9-aehnlichkeit": {
+    "strahlensatz": 1
+   },
+   "ma9-koerper": {
+    "pyramide": 1,
+    "kugel": 1
+   },
+   "ma9-wahrscheinlichkeit": {
+    "kombinatorik": 1
+   },
+   "ma10-trigonometrie": {
+    "sinus": 3,
+    "definition": 1
+   },
+   "ma10-sinussatz": {
+    "sinussatz": 1
+   },
+   "ma10-trigonometrische-funktionen": {
+    "periode": 1
+   },
+   "ma10-exponentialfunktionen": {
+    "wachstum": 3
+   },
+   "ma10-logarithmus": {
+    "logarithmus": 2
+   },
+   "ma10-potenzfunktionen": {
+    "graph": 1
+   },
+   "ma10-bedingte-wahrscheinlichkeit": {
+    "bedingt": 1
+   }
   }
  },
  "musik": {
@@ -2427,6 +3325,54 @@ export const EXERCISE_META = {
      "title": "Neue Musik und Filmmusik"
     }
    ]
+  },
+  "counts": {
+   "mu1-lieder": {
+    "singen": 1,
+    "dynamik": 1
+   },
+   "mu2-rhythmus": {
+    "rhythmus": 2,
+    "takt": 1
+   },
+   "mu3-instrumente": {
+    "instrumente": 8
+   },
+   "mu4-noten-erste": {
+    "notenwerte": 4,
+    "notennamen": 1
+   },
+   "mu5-noten": {
+    "notenwerte": 4,
+    "pausen": 1,
+    "tempo": 7,
+    "notennamen": 9,
+    "takt": 5
+   },
+   "mu5-instrumente": {
+    "instrumente": 8
+   },
+   "mu6-tonleiter": {
+    "tonleiter": 4,
+    "intervalle": 6
+   },
+   "mu7-akkorde": {
+    "akkorde": 3,
+    "kadenz": 1
+   },
+   "mu8-barock-klassik": {
+    "epochen": 7,
+    "komponisten": 8
+   },
+   "mu9-formen": {
+    "formen": 9
+   },
+   "mu9-popmusik": {
+    "popmusik": 2
+   },
+   "mu10-moderne": {
+    "moderne": 8
+   }
   }
  },
  "physik": {
@@ -2649,6 +3595,83 @@ export const EXERCISE_META = {
      "title": "Wärme und Energie"
     }
    ]
+  },
+  "counts": {
+   "ph6-messen": {
+    "einheiten": 9,
+    "messen": 3
+   },
+   "ph6-temperatur": {
+    "temperatur": 2,
+    "waerme": 2
+   },
+   "ph7-licht-schatten": {
+    "ausbreitung": 1,
+    "schatten": 1,
+    "reflexion": 4
+   },
+   "ph7-lichtbrechung": {
+    "brechung": 2,
+    "linsen": 2
+   },
+   "ph7-schall": {
+    "schallgeschwindigkeit": 4,
+    "schall": 2
+   },
+   "ph8-stromkreis": {
+    "stromkreis": 2,
+    "reihe": 1,
+    "parallel": 1
+   },
+   "ph8-ohmsches-gesetz": {
+    "ohm": 8,
+    "widerstand": 5
+   },
+   "ph8-elektrische-energie": {
+    "leistung": 6,
+    "arbeit": 2,
+    "kosten": 1
+   },
+   "ph8-magnetismus": {
+    "magnetismus": 1,
+    "elektromagnet": 1
+   },
+   "ph9-bewegung": {
+    "geschwindigkeit": 13,
+    "beschleunigung": 1
+   },
+   "ph9-kraefte": {
+    "gewichtskraft": 3,
+    "hebel": 1,
+    "kraft": 1
+   },
+   "ph9-energie": {
+    "hubarbeit": 3,
+    "wirkungsgrad": 1,
+    "energieformen": 2,
+    "arbeit": 3,
+    "leistung": 3
+   },
+   "ph9-druck": {
+    "druck": 3,
+    "auftrieb": 1,
+    "dichte": 5
+   },
+   "ph10-induktion": {
+    "induktion": 1,
+    "transformator": 1
+   },
+   "ph10-radioaktivitaet": {
+    "strahlung": 2,
+    "halbwertszeit": 3
+   },
+   "ph10-kernenergie": {
+    "kernspaltung": 1
+   },
+   "ph10-waermelehre": {
+    "energieumwandlung": 1,
+    "waerme": 1
+   }
   }
  },
  "politik": {
@@ -2755,6 +3778,49 @@ export const EXERCISE_META = {
      "title": "Soziale Marktwirtschaft"
     }
    ]
+  },
+  "counts": {
+   "pw9-verfassungsorgane": {
+    "organe": 8,
+    "grundrechte": 2
+   },
+   "pw9-wahlen": {
+    "wahlen": 15,
+    "wahlgrundsaetze": 8
+   },
+   "pw9-gesetzgebung": {
+    "gesetzgebung": 2
+   },
+   "pw8-markt": {
+    "markt": 10
+   },
+   "pw10-sozialstaat": {
+    "versicherung": 12
+   },
+   "pw10-soziale-marktwirtschaft": {
+    "marktwirtschaft": 8
+   },
+   "pw9-arbeitsmarkt": {
+    "arbeitsmarkt": 5
+   },
+   "pw7-kinderrechte": {
+    "kinderrechte": 2
+   },
+   "pw7-medien": {
+    "medien": 9
+   },
+   "pw8-verbraucher": {
+    "verbraucher": 5
+   },
+   "pw10-eu": {
+    "eu": 8
+   },
+   "pw10-un": {
+    "un": 2
+   },
+   "pw11-konjunktur": {
+    "marktwirtschaft": 7
+   }
   }
  },
  "religion": {
@@ -2881,6 +3947,59 @@ export const EXERCISE_META = {
      "title": "Menschenbilder"
     }
    ]
+  },
+  "counts": {
+   "rel1-feste": {
+    "feste": 8
+   },
+   "rel2-schoepfung": {
+    "schoepfung": 3
+   },
+   "rel3-bibel": {
+    "bibel": 8
+   },
+   "rel4-weltreligionen": {
+    "weltreligionen": 11
+   },
+   "rel5-weltreligionen-einstieg": {
+    "weltreligionen": 8
+   },
+   "rel5-regeln": {
+    "regeln": 3
+   },
+   "rel6-bibel": {
+    "bibelaufbau": 3
+   },
+   "rel7-judentum": {
+    "judentum": 11
+   },
+   "rel7-islam": {
+    "islam": 16
+   },
+   "rel8-gewissen": {
+    "gewissen": 2
+   },
+   "rel8-gerechtigkeit": {
+    "gerechtigkeit": 8
+   },
+   "rel9-ethik-verantwortung": {
+    "ethik": 9
+   },
+   "rel9-medizinethik": {
+    "medizinethik": 2
+   },
+   "rel9-theodizee": {
+    "theodizee": 1
+   },
+   "rel10-freiheit": {
+    "freiheit": 1
+   },
+   "rel10-erkenntnis": {
+    "erkenntnis": 4
+   },
+   "rel11-menschenbild": {
+    "menschenbild": 3
+   }
   }
  },
  "sachunterricht": {
@@ -3021,6 +4140,65 @@ export const EXERCISE_META = {
      "title": "Damals und heute"
     }
    ]
+  },
+  "counts": {
+   "su1-schulweg": {
+    "verkehr": 9
+   },
+   "su1-sinne": {
+    "sinne": 9
+   },
+   "su1-jahreszeiten": {
+    "jahreszeiten": 8
+   },
+   "su1-tiere-winter": {
+    "tiere": 14
+   },
+   "su2-wetter": {
+    "wetter": 12
+   },
+   "su2-pflanzen": {
+    "pflanzen": 2
+   },
+   "su2-haustiere": {
+    "haustiere": 14
+   },
+   "su2-verkehr": {
+    "verkehr": 2
+   },
+   "su3-wasser": {
+    "wasser": 4
+   },
+   "su3-magnetismus": {
+    "magnetismus": 4
+   },
+   "su3-feuer": {
+    "feuer": 2
+   },
+   "su3-ernaehrung": {
+    "ernaehrung": 3
+   },
+   "su3-zaehne": {
+    "zaehne": 2
+   },
+   "su3-himmelsrichtungen": {
+    "orientierung": 2
+   },
+   "su4-stromkreis": {
+    "strom": 3
+   },
+   "su4-fahrrad": {
+    "fahrrad": 2
+   },
+   "su4-deutschland": {
+    "deutschland": 8
+   },
+   "su4-sonnensystem": {
+    "weltall": 3
+   },
+   "su4-damals-heute": {
+    "zeit": 6
+   }
   }
  },
  "sport": {
@@ -3154,9 +4332,69 @@ export const EXERCISE_META = {
      "title": "Trainingsprinzipien"
     }
    ]
+  },
+  "counts": {
+   "sp1-spielregeln": {
+    "regeln": 9
+   },
+   "sp2-aufwaermen": {
+    "aufwaermen": 1,
+    "puls": 1
+   },
+   "sp3-laufen-springen": {
+    "leichtathletik": 6
+   },
+   "sp4-baderegeln": {
+    "schwimmen": 9
+   },
+   "sp5-aufwaermen": {
+    "aufwaermen": 8,
+    "dehnen": 1
+   },
+   "sp5-fairplay": {
+    "regeln": 2
+   },
+   "sp6-muskeln": {
+    "muskeln": 15,
+    "gelenke": 1
+   },
+   "sp7-ausdauer": {
+    "puls": 12,
+    "ausdauer": 9
+   },
+   "sp8-trainingsprinzipien": {
+    "methoden": 7,
+    "superkompensation": 2,
+    "prinzipien": 2
+   },
+   "sp9-energiebereitstellung": {
+    "energie": 8,
+    "laktat": 2
+   },
+   "sp9-doping": {
+    "doping": 2
+   },
+   "sp10-sport-gesellschaft": {
+    "gesellschaft": 2
+   },
+   "sp11-bewegungsanalyse": {
+    "biomechanik": 1
+   },
+   "sp12-periodisierung": {
+    "prinzipien": 1
+   }
   }
  }
 };
+
+/** Aufgabenzahl je Kompetenz eines Themas aus dem Übungspool. */
+export function exerciseCountsByCompetency(topicId) {
+  for (const meta of Object.values(EXERCISE_META)) {
+    const counts = meta.counts?.[topicId];
+    if (counts) return counts;
+  }
+  return {};
+}
 
 /** Kompetenzen, die der Übungspool zu einem Thema abdeckt. */
 export function exerciseCompetencies(topicId) {
@@ -3179,6 +4417,6 @@ export const hasExercises = (topicId) => exerciseCount(topicId) > 0;
 
 export const EXERCISE_TOTALS = {
   subjects: 17,
-  exercises: 1917,
+  exercises: 1934,
   topics: 350,
 };

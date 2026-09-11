@@ -110,6 +110,43 @@ const seeText = async (text, options = {}) => {
   await page.getByText(text, { exact: false, ...options }).first().waitFor({ state: 'visible', timeout: 8000 });
 };
 
+/**
+ * Beantwortet die gerade sichtbare Aufgabe irgendwie plausibel.
+ * Korrektheit ist hier nicht das Ziel — geprüft wird, dass jeder Aufgabentyp
+ * bedienbar ist und die Runde bis zur Auswertung durchläuft.
+ */
+const answerVisibleQuestion = async (scope) => {
+  const question = scope.locator('.question').first();
+  if (!(await question.count())) return false;
+  const type = await question.getAttribute('data-type');
+
+  if (type === 'mc' || type === 'truefalse' || type === 'multi') {
+    await question.locator('.option').first().click();
+  } else if (type === 'cloze') {
+    for (const input of await question.locator('[data-role="blank"]').all()) await input.fill('7');
+  } else if (type === 'match') {
+    for (const select of await question.locator('[data-role="match"]').all()) await select.selectOption({ index: 1 });
+  } else if (type === 'numeric') {
+    await question.locator('[data-role="numeric"]').fill('4');
+  } else if (type === 'steps') {
+    for (const input of await question.locator('[data-role="step"]').all()) await input.fill('2');
+  } else if (type === 'mark') {
+    await question.locator('[data-role="mark-word"]').first().click();
+  } else if (type === 'sentence') {
+    for (const chip of await question.locator('[data-role="word-chip"]').all()) await chip.click();
+  } else if (type === 'category') {
+    for (const row of await question.locator('.category-row').all()) {
+      await row.locator('[data-role="category-pick"]').first().click();
+    }
+  } else if (type === 'order') {
+    // Reihenfolge unverändert absenden
+  } else {
+    const feld = question.locator('[data-role="open"]');
+    if (await feld.count()) await feld.fill('Testantwort mit Stichwort pH und Skala.');
+  }
+  return true;
+};
+
 const go = async (hash) => {
   await page.evaluate((h) => { window.location.hash = h; }, hash);
   await page.waitForTimeout(450);
@@ -775,6 +812,92 @@ try {
   await check('Thema ohne Inhalt zeigt Hinweis', async () => {
     await go('/thema/ma5-natuerliche-zahlen/lernen');
     await seeText('in Vorbereitung');
+  });
+
+  /* ------------------------------ Lektionen ---------------------------- */
+  // Der ANTON-Weg: Thema öffnen, Lektion nach Lektion abarbeiten, jede mit
+  // eigenem Ergebnis. Hier wird eine Übungslektion vollständig durchgespielt.
+  console.log('\n== Lektionen ==');
+
+  await check('Themenseite listet Lektionen', async () => {
+    await go('/thema/ch9-saeuren-basen');
+    await seeText('Lektionen');
+    const anzahl = await page.locator('.lesson-row').count();
+    if (anzahl < 2) throw new Error(`nur ${anzahl} Lektionen sichtbar`);
+  });
+
+  await check('Erste Lektion ist als nächste markiert', async () => {
+    const naechste = page.locator('.lesson-row.is-next');
+    if (await naechste.count() !== 1) throw new Error('keine eindeutige nächste Lektion');
+  });
+
+  await check('Fortschrittsstreifen zeigt den Stand', async () => {
+    await page.locator('.lesson-strip .lesson-pip').first().waitFor({ timeout: 5000 });
+    await seeText('von');
+  });
+
+  await check('Erklärungslektion lässt sich abschließen', async () => {
+    await page.locator('.lesson-row.is-next').click();
+    await page.waitForTimeout(600);
+    const fertig = page.locator('[data-role="finish-intro"]');
+    if (await fertig.count()) {
+      await fertig.click();
+      await page.waitForTimeout(700);
+    }
+    // Danach steht entweder die nächste Lektion oder ein Quiz bereit.
+    const inhalt = await page.locator('#main').innerText();
+    if (!/Aufgabe|Lektion|Antwort/i.test(inhalt)) throw new Error('keine Lektion geladen');
+  });
+
+  await check('Übungslektion spielt sich durch', async () => {
+    await go('/thema/ch9-saeuren-basen');
+    const offen = page.locator('.lesson-row:not(.is-done)').first();
+    await offen.click();
+    await page.waitForTimeout(700);
+
+    for (let runde = 0; runde < 12; runde += 1) {
+      if (await page.locator('.lesson-result').count()) break;
+      if (!(await answerVisibleQuestion(page))) break;
+      await page.locator('[data-role="check"]').click();
+      await page.waitForTimeout(260);
+      const selbst = page.locator('[data-role="self"][data-verdict="partial"]');
+      if (await selbst.count()) { await selbst.first().click(); await page.waitForTimeout(200); }
+      const weiter = page.locator('[data-role="next"]');
+      if (await weiter.count()) { await weiter.click(); await page.waitForTimeout(340); }
+    }
+    await page.locator('.lesson-result').waitFor({ timeout: 6000 });
+  });
+
+  await check('Ergebnis zeigt Sterne und Trefferquote', async () => {
+    const sterne = await page.locator('.lesson-result .star').count();
+    if (sterne !== 3) throw new Error(`erwartet 3 Sternplätze, gefunden ${sterne}`);
+    await page.locator('.lesson-result-pct').waitFor({ timeout: 4000 });
+  });
+
+  await check('Abgeschlossene Lektion ist danach markiert', async () => {
+    await go('/thema/ch9-saeuren-basen');
+    const erledigt = await page.locator('.lesson-row.is-done').count();
+    if (!erledigt) throw new Error('keine Lektion als erledigt markiert');
+  });
+
+  await check('Lektionsfortschritt übersteht einen Reload', async () => {
+    await page.reload({ waitUntil: 'networkidle' });
+    await page.waitForTimeout(600);
+    const erledigt = await page.locator('.lesson-row.is-done').count();
+    if (!erledigt) throw new Error('Fortschritt nach Reload verloren');
+  });
+
+  await check('Unbekannte Lektion zeigt Hinweis', async () => {
+    await go('/thema/ch9-saeuren-basen/lektion/gibt-es-nicht');
+    await seeText('Lektion nicht gefunden');
+  });
+
+  await check('Lektionsliste ohne Überbreite auf dem Handy', async () => {
+    await page.setViewportSize({ width: 360, height: 780 });
+    await go('/thema/ch9-saeuren-basen');
+    const zuBreit = await page.evaluate(() => document.documentElement.scrollWidth - document.documentElement.clientWidth);
+    await page.setViewportSize({ width: 1280, height: 900 });
+    if (zuBreit > 1) throw new Error(`${zuBreit}px Überbreite`);
   });
 
   /* ----------------------------- Grundschule --------------------------- */

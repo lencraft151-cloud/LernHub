@@ -43,6 +43,13 @@ function modelAnswerFor(question) {
       return out;
     }
     case 'order': return [...(question.items || [])];
+    case 'mark': return [...(question.answer || [])];
+    case 'sentence': return [...(question.words || [])];
+    case 'category': {
+      const out = {};
+      for (const item of question.items || []) out[item.text] = item.category;
+      return out;
+    }
     case 'numeric': return question.answer;
     case 'steps': {
       const out = {};
@@ -52,6 +59,46 @@ function modelAnswerFor(question) {
       return out;
     }
     default: return question.modelAnswer;
+  }
+}
+
+
+/** Strukturprüfung der sprachlichen Aufgabentypen. */
+function checkLanguageType(fail, file, q) {
+  if (q.type === 'mark') {
+    if (!(q.words || []).length) fail(file, `${q.id}: keine Wörter angegeben`);
+    if (!(q.answer || []).length) fail(file, `${q.id}: keine Wörter zu markieren`);
+    for (const index of q.answer || []) {
+      if (!Number.isInteger(index) || index < 0 || index >= (q.words || []).length) {
+        fail(file, `${q.id}: Markierung ${index} liegt außerhalb der Wortliste`);
+      }
+    }
+    if ((q.answer || []).length >= (q.words || []).length) {
+      fail(file, `${q.id}: alle Wörter markiert — dann gibt es nichts zu unterscheiden`);
+    }
+  }
+  if (q.type === 'sentence') {
+    if ((q.words || []).length < 3) fail(file, `${q.id}: Satz braucht mindestens drei Wortkarten`);
+    const unique = new Set((q.words || []).map((w) => String(w).toLowerCase()));
+    if (unique.size !== (q.words || []).length) {
+      fail(file, `${q.id}: doppelte Wortkarten machen die Zuordnung mehrdeutig`);
+    }
+  }
+  if (q.type === 'category') {
+    const items = q.items || [];
+    if (items.length < 3) fail(file, `${q.id}: zu wenige Begriffe zum Sortieren`);
+    const categories = new Set(items.map((i) => i.category));
+    if (categories.size < 2) fail(file, `${q.id}: mindestens zwei Kategorien nötig`);
+    for (const item of items) {
+      if (!item.text || !item.category) fail(file, `${q.id}: Begriff ohne Text oder Kategorie`);
+    }
+    if (q.categories) {
+      for (const category of categories) {
+        if (!q.categories.includes(category)) {
+          fail(file, `${q.id}: Kategorie "${category}" fehlt in der Auswahlliste`);
+        }
+      }
+    }
   }
 }
 
@@ -166,6 +213,7 @@ for (const file of files) {
     if (question.type === 'numeric' && typeof question.answer !== 'number') {
       fail(file, `${question.id}: numerische Lösung muss eine Zahl sein`);
     }
+    checkLanguageType(fail, file, question);
     if (OPEN_TYPES.has(question.type)) {
       if (!question.modelAnswer) fail(file, `${question.id}: offene Aufgabe ohne Musterlösung`);
       if (!(question.keywords || []).length) fail(file, `${question.id}: offene Aufgabe ohne Stichwörter`);
@@ -238,6 +286,7 @@ for (const file of poolFiles) {
         if (!ids.includes(answerId)) fail(file, `${exercise.id}: Lösung "${answerId}" ist keine Option`);
       }
     }
+    checkLanguageType(fail, file, exercise);
     if (exercise.type === 'numeric' && typeof exercise.answer !== 'number') {
       fail(file, `${exercise.id}: numerische Lösung muss eine Zahl sein`);
     }

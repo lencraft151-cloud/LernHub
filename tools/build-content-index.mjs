@@ -36,6 +36,14 @@ for (const file of files) {
   for (const competency of content.competencies || []) if (competency.title) terms.add(competency.title);
   for (const alias of content.aliases || []) terms.add(alias);
 
+  // Aufgaben je Kompetenz — daraus leitet sich der Lektionsplan ab, ohne
+  // dass dafür das ganze Inhaltsmodul geladen werden muss.
+  const byCompetency = {};
+  for (const question of questions) {
+    const key = question.competency || '_frei';
+    byCompetency[key] = (byCompetency[key] || 0) + 1;
+  }
+
   entries.push({
     id: content.id,
     file,
@@ -44,6 +52,8 @@ for (const file of files) {
     checks: checkCount,
     minutes: content.estimatedMinutes || 20,
     competencies: (content.competencies || []).map((c) => ({ id: c.id, title: c.title })),
+    byCompetency,
+    sectionTitles: sections.map((s) => s.title),
     terms: [...terms],
   });
 }
@@ -86,7 +96,7 @@ export function peekLoadedContent(topicId) {
 `;
 
 const metaSrc = `${header('Kennzahlen aller Inhaltsmodule (synchron nutzbar).')}export const CONTENT_META = {
-${entries.map((e) => `  '${e.id}': { sections: ${e.sections}, questions: ${e.questions}, checks: ${e.checks}, minutes: ${e.minutes}, competencies: ${JSON.stringify(e.competencies)}, terms: ${JSON.stringify(e.terms)} },`).join('\n')}
+${entries.map((e) => `  '${e.id}': { sections: ${e.sections}, questions: ${e.questions}, checks: ${e.checks}, minutes: ${e.minutes}, competencies: ${JSON.stringify(e.competencies)}, byCompetency: ${JSON.stringify(e.byCompetency)}, sectionTitles: ${JSON.stringify(e.sectionTitles)}, terms: ${JSON.stringify(e.terms)} },`).join('\n')}
 };
 
 export const CONTENT_TOPIC_IDS = Object.keys(CONTENT_META);

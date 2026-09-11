@@ -12,11 +12,13 @@ import { dueLabel, retention } from '../../domain/srs.js';
 import { resetTopic } from '../../domain/session.js';
 import { getTopicMeta, topicBreadcrumb, gradeLabel, getSubject } from '../../data/curriculum/index.js';
 import { loadTopicContent, hasContent } from '../../data/content/index.js';
+import { lessonsWithProgress, topicLessonStats } from '../../domain/lessons.js';
 import { profileSetup, confirmDialog, toast } from '../shell.js';
 import {
   pageHead, statTile, emptyState, statusBadge, competencyRow, subjectIcon,
 } from '../components/common.js';
 import { progressRing, lineChart, progressBar, enhanceCharts } from '../components/charts.js';
+import { lessonList, lessonProgressStrip } from '../components/lessons.js';
 
 export async function renderTopic(root, { params }) {
   const state = store.get();
@@ -41,6 +43,8 @@ export async function renderTopic(root, { params }) {
   const sectionsDone = view.record?.sectionsDone?.length || 0;
   const sectionCount = view.meta?.sections || 0;
   const ret = view.record?.srs ? retention(view.record.srs, new Date()) : null;
+  const lessons = lessonsWithProgress(state, meta.id);
+  const lessonStats = topicLessonStats(state, meta.id);
 
   mount(root, html`
     <div class="page page-narrow" style="--subject-color: ${subject?.color}">
@@ -91,6 +95,25 @@ export async function renderTopic(root, { params }) {
             </div>
           </div>
         </div>
+
+        ${lessons.length ? html`
+          <section class="card">
+            <div class="card-header">
+              <div class="stack" style="gap:2px">
+                <h2>Lektionen</h2>
+                <span class="xs subtle">Kurze Einheiten — eine nach der anderen, jede mit eigenem Ergebnis</span>
+              </div>
+              ${lessonStats.next ? html`
+                <a class="btn btn-primary btn-sm btn-wrap"
+                   href="#/thema/${meta.id}/lektion/${encodeURIComponent(lessonStats.next.id)}">
+                  ${icon('play')} ${lessonStats.done ? 'Weitermachen' : 'Loslegen'}
+                </a>` : html`<span class="badge badge-success">${icon('check', { size: 13 })} Alle geschafft</span>`}
+            </div>
+            <div class="stack stack-4">
+              ${lessonProgressStrip(lessonStats)}
+              ${lessonList(lessons)}
+            </div>
+          </section>` : ''}
 
         <div class="grid grid-2">
           <a class="card card-link stack stack-3 ${view.hasContent ? '' : 'is-muted'}"

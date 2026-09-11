@@ -116,6 +116,61 @@ function renderOrder(question, seed, currentOrder) {
     </ol>`;
 }
 
+/**
+ * Wörter im Satz antippen. Jedes Wort ist eine eigene Schaltfläche — das
+ * funktioniert mit Maus, Tastatur und Finger gleichermaßen.
+ */
+function renderMark(question) {
+  return html`
+    <div class="mark-sentence" data-role="mark-sentence">
+      ${(question.words || []).map((word, index) => html`
+        <button type="button" class="mark-word" data-role="mark-word" data-index="${index}"
+                aria-pressed="false">${word}</button>`)}
+    </div>
+    <p class="xs subtle">Tippe die passenden Wörter an. Nochmal tippen hebt die Markierung auf.</p>`;
+}
+
+/**
+ * Satz aus Wortkarten bauen: unten der Vorrat, oben die gelegte Zeile.
+ * Bewusst ohne Ziehen und Ablegen — Antippen ist auf dem Handy zuverlässiger.
+ */
+function renderSentence(question, seed) {
+  const pool = shuffle(question.words || [], seededRandom(seed));
+  return html`
+    <div class="sentence-build">
+      <div class="sentence-line" data-role="sentence-line" aria-label="Dein Satz">
+        <span class="sentence-hint" data-role="sentence-hint">Tippe die Wörter in der richtigen Reihenfolge an.</span>
+      </div>
+      <div class="sentence-pool" data-role="sentence-pool">
+        ${pool.map((word, index) => html`
+          <button type="button" class="word-chip" data-role="word-chip" data-word="${word}"
+                  data-chip="${index}">${word}</button>`)}
+      </div>
+      <button type="button" class="btn btn-sm btn-ghost" data-role="sentence-reset">
+        ${icon('refresh', { size: 14 })} Zurücksetzen
+      </button>
+    </div>`;
+}
+
+/** Begriffe in Kategorien einsortieren — je Begriff eine Auswahl. */
+function renderCategory(question, seed) {
+  const items = shuffle(question.items || [], seededRandom(seed));
+  const categories = question.categories || [...new Set((question.items || []).map((i) => i.category))];
+  return html`
+    <div class="category-grid">
+      ${items.map((item, index) => html`
+        <div class="category-row">
+          <span class="category-term">${raw(item.text)}</span>
+          <div class="category-choices" role="group" aria-label="Kategorie für ${item.text}">
+            ${categories.map((category) => html`
+              <button type="button" class="category-pick" data-role="category-pick"
+                      data-term="${item.text}" data-category="${category}"
+                      aria-pressed="false">${category}</button>`)}
+          </div>
+        </div>`)}
+    </div>`;
+}
+
 function renderNumeric(question) {
   return html`
     <div class="numeric-answer">
@@ -161,6 +216,9 @@ export function renderQuestionBody(question, { orderState } = {}) {
     case 'cloze': return renderCloze(question);
     case 'match': return renderMatch(question, seed);
     case 'order': return renderOrder(question, seed, orderState);
+    case 'mark': return renderMark(question);
+    case 'sentence': return renderSentence(question, seed);
+    case 'category': return renderCategory(question, seed);
     case 'numeric': return renderNumeric(question);
     case 'steps': return renderSteps(question);
     case 'free':
@@ -216,6 +274,18 @@ export function readAnswer(root, question) {
     }
     case 'order':
       return [...root.querySelectorAll('[data-role="order-list"] .order-item')].map((li) => li.dataset.item);
+    case 'mark':
+      return [...root.querySelectorAll('[data-role="mark-word"][aria-pressed="true"]')]
+        .map((el) => Number(el.dataset.index));
+    case 'sentence':
+      return [...root.querySelectorAll('[data-role="sentence-line"] .word-chip')].map((el) => el.dataset.word);
+    case 'category': {
+      const out = {};
+      for (const button of root.querySelectorAll('[data-role="category-pick"][aria-pressed="true"]')) {
+        out[button.dataset.term] = button.dataset.category;
+      }
+      return out;
+    }
     case 'numeric':
       return root.querySelector('[data-role="numeric"]')?.value ?? '';
     case 'steps': {
@@ -393,6 +463,43 @@ export function applyAnswerStyling(root, question, result) {
       });
       break;
     }
+    case 'mark': {
+      const wanted = new Set((question.answer || []).map(Number));
+      for (const word of root.querySelectorAll('[data-role="mark-word"]')) {
+        word.disabled = true;
+        const index = Number(word.dataset.index);
+        const chosen = word.getAttribute('aria-pressed') === 'true';
+        if (wanted.has(index) && chosen) word.classList.add('is-correct');
+        else if (wanted.has(index)) word.classList.add('is-missed');
+        else if (chosen) word.classList.add('is-wrong');
+      }
+      break;
+    }
+    case 'sentence': {
+      const line = root.querySelector('[data-role="sentence-line"]');
+      const expected = question.words || [];
+      [...(line?.querySelectorAll('.word-chip') || [])].forEach((chip, index) => {
+        chip.classList.add(chip.dataset.word === expected[index] ? 'is-correct' : 'is-wrong');
+      });
+      for (const chip of root.querySelectorAll('.word-chip')) chip.disabled = true;
+      const reset = root.querySelector('[data-role="sentence-reset"]');
+      if (reset) reset.disabled = true;
+      break;
+    }
+    case 'category': {
+      for (const button of root.querySelectorAll('[data-role="category-pick"]')) button.disabled = true;
+      for (const entry of detail.perItem || []) {
+        const row = [...root.querySelectorAll('.category-row')]
+          .find((el) => el.querySelector('.category-term')?.textContent === entry.text);
+        if (!row) continue;
+        row.classList.add(entry.ok ? 'is-correct' : 'is-wrong');
+        if (!entry.ok) {
+          const richtig = row.querySelector(`[data-category="${entry.expected}"]`);
+          if (richtig) richtig.classList.add('is-missed');
+        }
+      }
+      break;
+    }
     default: break;
   }
 }
@@ -471,6 +578,45 @@ export class QuizRunner {
       this.refreshOrderIndices(list);
     }));
 
+    // Wörter markieren
+    this.disposers.push(delegate(root, 'click', '[data-role="mark-word"]', (event, target) => {
+      if (this.checked) return;
+      target.setAttribute('aria-pressed', String(target.getAttribute('aria-pressed') !== 'true'));
+      this.updateCheckButton();
+    }));
+
+    // Satz bauen: Wort aus dem Vorrat in die Zeile und zurück
+    this.disposers.push(delegate(root, 'click', '[data-role="word-chip"]', (event, target) => {
+      if (this.checked) return;
+      const line = root.querySelector('[data-role="sentence-line"]');
+      const pool = root.querySelector('[data-role="sentence-pool"]');
+      if (!line || !pool) return;
+      (target.parentElement === line ? pool : line).appendChild(target);
+      const hint = root.querySelector('[data-role="sentence-hint"]');
+      if (hint) hint.hidden = line.querySelector('.word-chip') !== null;
+      this.updateCheckButton();
+    }));
+    this.disposers.push(delegate(root, 'click', '[data-role="sentence-reset"]', () => {
+      if (this.checked) return;
+      const line = root.querySelector('[data-role="sentence-line"]');
+      const pool = root.querySelector('[data-role="sentence-pool"]');
+      if (!line || !pool) return;
+      for (const chip of [...line.querySelectorAll('.word-chip')]) pool.appendChild(chip);
+      const hint = root.querySelector('[data-role="sentence-hint"]');
+      if (hint) hint.hidden = false;
+      this.updateCheckButton();
+    }));
+
+    // Sortieren: je Begriff genau eine Kategorie
+    this.disposers.push(delegate(root, 'click', '[data-role="category-pick"]', (event, target) => {
+      if (this.checked) return;
+      const row = target.closest('.category-row');
+      for (const button of row.querySelectorAll('[data-role="category-pick"]')) {
+        button.setAttribute('aria-pressed', String(button === target));
+      }
+      this.updateCheckButton();
+    }));
+
     this.disposers.push(delegate(root, 'click', '[data-role="check"]', () => this.check()));
     this.disposers.push(delegate(root, 'click', '[data-role="next"]', () => this.next()));
     this.disposers.push(delegate(root, 'click', '[data-role="skip"]', () => this.skip()));
@@ -509,7 +655,13 @@ export class QuizRunner {
   updateCheckButton() {
     const button = this.container.querySelector('[data-role="check"]');
     if (!button || this.checked) return;
-    const ready = this.current.type === 'order' ? true : this.hasAnswer();
+    let ready = this.hasAnswer();
+    if (this.current.type === 'order') ready = true;
+    if (this.current.type === 'category') {
+      const total = (this.current.items || []).length;
+      const gesetzt = this.container.querySelectorAll('[data-role="category-pick"][aria-pressed="true"]').length;
+      ready = gesetzt === total;
+    }
     button.disabled = !ready;
   }
 

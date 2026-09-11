@@ -25,6 +25,9 @@ export const QUESTION_TYPES = {
   term: 'Begriff erklären',
   analysis: 'Textanalyse',
   steps: 'Schritt für Schritt',
+  mark: 'Wörter markieren',
+  sentence: 'Satz bauen',
+  category: 'Sortieren',
 };
 
 /** Typen, die der Lernende am Ende selbst bewertet. */
@@ -244,6 +247,66 @@ export function grade(question, answer) {
       return result(status, score, correctAnswerText(question), { perItem });
     }
 
+    /**
+     * Wörter im Satz markieren, etwa "Markiere alle Verben".
+     * Antwort: Liste der markierten Wortindizes.
+     */
+    case 'mark': {
+      const wanted = new Set((question.answer || []).map(Number));
+      const given = new Set((Array.isArray(answer) ? answer : []).map(Number));
+      const hits = [...given].filter((i) => wanted.has(i)).length;
+      const falsePositives = [...given].filter((i) => !wanted.has(i)).length;
+      const distractors = Math.max(1, (question.words || []).length - wanted.size);
+      // Wie bei der Mehrfachauswahl: Alles anklicken darf nicht belohnt werden.
+      const raw = wanted.size ? hits / wanted.size - falsePositives / distractors : 0;
+      const score = Math.max(0, raw);
+      const status = score >= 1 ? 'correct' : score > 0 ? 'partial' : 'wrong';
+      return result(status, score, correctAnswerText(question), {
+        hits, falsePositives, missed: wanted.size - hits,
+        wanted: [...wanted], given: [...given],
+      });
+    }
+
+    /**
+     * Satz aus Wortkarten bauen. Antwort: Wörter in der gelegten Reihenfolge.
+     * Bewertet wird der ganze Satz — halb richtige Wortstellung ergibt
+     * keinen sinnvollen Satz.
+     */
+    case 'sentence': {
+      const expected = (question.words || []).join(' ');
+      const given = (Array.isArray(answer) ? answer : []).join(' ');
+      const alternatives = [expected, ...(question.accept || [])];
+      const ok = alternatives.some((variant) => normalizeText(variant) === normalizeText(given));
+      if (ok) return result('correct', 1, correctAnswerText(question), { given });
+      // Teilpunkte nach der Zahl der Wörter, die an der richtigen Stelle stehen.
+      const words = question.words || [];
+      const givenWords = Array.isArray(answer) ? answer : [];
+      const hits = words.filter((w, i) => normalizeText(givenWords[i]) === normalizeText(w)).length;
+      const score = words.length ? Math.min(0.9, hits / words.length) : 0;
+      return result(score > 0 ? 'partial' : 'wrong', score, correctAnswerText(question), {
+        given, hits, total: words.length,
+      });
+    }
+
+    /**
+     * Begriffe in Kategorien einsortieren.
+     * Antwort: { begriff: kategorie }
+     */
+    case 'category': {
+      const items = question.items || [];
+      const given = answer && typeof answer === 'object' ? answer : {};
+      const perItem = items.map((item) => ({
+        text: item.text,
+        expected: item.category,
+        given: given[item.text] ?? null,
+        ok: normalizeText(given[item.text]) === normalizeText(item.category),
+      }));
+      const hits = perItem.filter((p) => p.ok).length;
+      const score = items.length ? hits / items.length : 0;
+      const status = score >= 1 ? 'correct' : score > 0 ? 'partial' : 'wrong';
+      return result(status, score, correctAnswerText(question), { perItem, hits, total: items.length });
+    }
+
     case 'numeric': {
       const ok = numberMatches(answer, question);
       // Häufiger Fehler: richtige Zahl, falsches Vorzeichen → als Teilpunkt melden
@@ -304,6 +367,16 @@ export function correctAnswerText(question) {
         .join(' · ');
     case 'match': return (question.pairs || []).map((p) => `${p.left} → ${p.right}`).join(' · ');
     case 'order': return (question.items || []).join(' → ');
+    case 'mark': return (question.answer || []).map((i) => (question.words || [])[i]).filter(Boolean).join(' · ');
+    case 'sentence': return (question.words || []).join(' ');
+    case 'category': {
+      const groups = new Map();
+      for (const item of question.items || []) {
+        if (!groups.has(item.category)) groups.set(item.category, []);
+        groups.get(item.category).push(item.text);
+      }
+      return [...groups.entries()].map(([cat, list]) => `${cat}: ${list.join(', ')}`).join(' · ');
+    }
     case 'numeric': return `${question.answer}${question.unit ? ` ${question.unit}` : ''}`;
     case 'steps': return (question.steps || []).map((s) => `${s.label}: ${s.answer ?? (s.accept || [])[0]}`).join(' · ');
     case 'free':

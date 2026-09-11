@@ -18,6 +18,7 @@ import { renderDashboard } from './ui/views/dashboard.js';
 import { renderSubjects } from './ui/views/subjects.js';
 import { renderSubject } from './ui/views/subject.js';
 import { renderTopic } from './ui/views/topic.js';
+import { renderLesson, disposeLesson } from './ui/views/lesson.js';
 import { renderLearn, disposeLearn } from './ui/views/learn.js';
 import { renderPractice, disposePractice } from './ui/views/practice.js';
 import { renderTest, disposeTest } from './ui/views/test.js';
@@ -70,6 +71,7 @@ function boot() {
 /** Vor jedem Wechsel laufende Timer und Listener der alten View beenden. */
 function cleanup() {
   disposeLearn();
+  disposeLesson();
   disposePractice();
   disposeTest();
   disposeExam();
@@ -133,6 +135,7 @@ function setupRoutes() {
     .add('/faecher', view(renderSubjects))
     .add('/fach/:subjectId', view(renderSubject))
     .add('/thema/:topicId', view(renderTopic))
+    .add('/thema/:topicId/lektion/:lessonId', view(renderLesson))
     .add('/thema/:topicId/lernen', view(renderLearn, { keepScroll: true }))
     .add('/thema/:topicId/ueben', view(renderPractice))
     .add('/thema/:topicId/test', view(renderTest))

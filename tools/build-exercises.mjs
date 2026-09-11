@@ -91,7 +91,17 @@ export default ${JSON.stringify({ subject: subjectId, competencies: competencyTi
       competenciesByTopic[ex.topicId].push({ id: ex.competency, title: competencyTitles[ex.competency] });
     }
   }
-  metaBySubject[subjectId] = { total: exercises.length, byTopic, competencies: competenciesByTopic };
+  // Aufgaben je Thema und Kompetenz — Grundlage des Lektionsplans.
+  const countsByTopic = {};
+  for (const ex of exercises) {
+    if (!topicById.has(ex.topicId)) continue;
+    const key = ex.competency || '_frei';
+    countsByTopic[ex.topicId] ??= {};
+    countsByTopic[ex.topicId][key] = (countsByTopic[ex.topicId][key] || 0) + 1;
+  }
+  metaBySubject[subjectId] = {
+    total: exercises.length, byTopic, competencies: competenciesByTopic, counts: countsByTopic,
+  };
   summary.push({ subjectId, count: exercises.length, topics: Object.keys(byTopic).length });
 }
 
@@ -143,6 +153,15 @@ const metaBody = `/**
  */
 
 export const EXERCISE_META = ${JSON.stringify(metaBySubject, null, 1)};
+
+/** Aufgabenzahl je Kompetenz eines Themas aus dem Übungspool. */
+export function exerciseCountsByCompetency(topicId) {
+  for (const meta of Object.values(EXERCISE_META)) {
+    const counts = meta.counts?.[topicId];
+    if (counts) return counts;
+  }
+  return {};
+}
 
 /** Kompetenzen, die der Übungspool zu einem Thema abdeckt. */
 export function exerciseCompetencies(topicId) {
