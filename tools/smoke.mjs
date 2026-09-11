@@ -35,6 +35,8 @@ const MIME = {
   '.json': 'application/json; charset=utf-8',
   '.svg': 'image/svg+xml',
   '.ico': 'image/x-icon',
+  '.png': 'image/png',
+  '.webmanifest': 'application/manifest+json',
 };
 
 const server = createServer(async (req, res) => {
@@ -813,6 +815,232 @@ try {
     await go('/thema/ma5-natuerliche-zahlen/lernen');
     await seeText('in Vorbereitung');
   });
+
+  /* ------------------------------- Geräte ------------------------------ */
+  // Ein Lernender sitzt mal am Notebook, mal am Tablet, mal im Bus am Handy.
+  // Geprüft wird die ganze Spanne: kein Querscrollen, erreichbare Navigation,
+  // bedienbare Aufgaben.
+  console.log('\n== Geräte ==');
+
+  const geraete = [
+    { name: 'Handy hochkant (360×780)', width: 360, height: 780, touch: true, nav: 'bottom' },
+    { name: 'Handy quer (780×360)', width: 780, height: 360, touch: true, nav: 'bottom' },
+    { name: 'Kleines Tablet (600×960)', width: 600, height: 960, touch: true, nav: 'bottom' },
+    { name: 'Tablet hochkant (768×1024)', width: 768, height: 1024, touch: true, nav: 'bottom' },
+    { name: 'Tablet quer (1024×768)', width: 1024, height: 768, touch: true, nav: 'sidebar' },
+    { name: 'Notebook (1366×768)', width: 1366, height: 768, touch: false, nav: 'sidebar' },
+    { name: 'Grosser Bildschirm (1920×1080)', width: 1920, height: 1080, touch: false, nav: 'sidebar' },
+  ];
+  const seiten = ['/', '/faecher', '/thema/ch9-saeuren-basen', '/thema/ch9-saeuren-basen/ueben', '/fortschritt', '/einstellungen'];
+
+  for (const geraet of geraete) {
+    await check(`${geraet.name}: kein Querscrollen`, async () => {
+      const ctx = await browser.newContext({
+        viewport: { width: geraet.width, height: geraet.height },
+        locale: 'de-DE',
+        hasTouch: geraet.touch,
+        isMobile: geraet.touch && geraet.width < 800,
+      });
+      await ctx.addInitScript(([schluessel, profil]) => {
+        localStorage.setItem(schluessel, JSON.stringify(profil));
+      }, ['studyflow.v1', {
+        profile: {
+          onboarded: true, name: 'Geräte', state: 'nw', schoolType: 'gymnasium', grade: 9,
+          subjects: ['mathematik', 'chemie', 'deutsch'], dailyGoalMinutes: 20,
+        },
+      }]);
+      const seite = await ctx.newPage();
+      seite.on('pageerror', (error) => consoleErrors.push(`pageerror (${geraet.name}): ${error.message}`));
+      await seite.goto(base, { waitUntil: 'networkidle' });
+
+      const zuBreit = [];
+      for (const pfad of seiten) {
+        await seite.evaluate((h) => { window.location.hash = h; }, pfad);
+        await seite.waitForTimeout(500);
+        const ueber = await seite.evaluate(
+          () => document.documentElement.scrollWidth - document.documentElement.clientWidth,
+        );
+        if (ueber > 1) zuBreit.push(`${pfad}: ${ueber}px`);
+      }
+
+      // Navigation muss erreichbar sein — je nach Breite unten oder seitlich.
+      // `offsetParent` taugt hier nicht: Bei position:fixed ist es immer null.
+      const sichtbar = await seite.evaluate(() => {
+        const zuSehen = (auswahl) => {
+          const node = document.querySelector(auswahl);
+          if (!node) return false;
+          const kasten = node.getBoundingClientRect();
+          return getComputedStyle(node).display !== 'none' && kasten.width > 0 && kasten.height > 0;
+        };
+        return { bottom: zuSehen('.bottomnav'), sidebar: zuSehen('.sidebar') };
+      });
+      await ctx.close();
+
+      if (zuBreit.length) throw new Error(`Überbreite — ${zuBreit.join(', ')}`);
+      if (geraet.nav === 'bottom' && !sichtbar.bottom) throw new Error('Bottom-Navigation fehlt');
+      if (geraet.nav === 'sidebar' && !sichtbar.sidebar) throw new Error('Sidebar fehlt');
+    });
+  }
+
+  await check('Tippziele auf Touch-Geräten sind gross genug', async () => {
+    const ctx = await browser.newContext({
+      viewport: { width: 768, height: 1024 }, locale: 'de-DE', hasTouch: true,
+    });
+    await ctx.addInitScript(([schluessel, profil]) => {
+      localStorage.setItem(schluessel, JSON.stringify(profil));
+    }, ['studyflow.v1', {
+      profile: {
+        onboarded: true, name: 'Touch', state: 'nw', schoolType: 'gymnasium', grade: 9,
+        subjects: ['chemie'], dailyGoalMinutes: 20,
+      },
+    }]);
+    const seite = await ctx.newPage();
+    await seite.goto(base, { waitUntil: 'networkidle' });
+    await seite.evaluate(() => { window.location.hash = '/thema/ch9-saeuren-basen/ueben'; });
+    await seite.waitForTimeout(1200);
+    const zuKlein = await seite.evaluate(() => {
+      const out = [];
+      for (const node of document.querySelectorAll('#main .btn, #main .option, .bottomnav-item')) {
+        const kasten = node.getBoundingClientRect();
+        if (kasten.width && kasten.height && kasten.height < 40) {
+          out.push(`${node.className.split(' ')[0]}: ${Math.round(kasten.height)}px`);
+        }
+      }
+      return out;
+    });
+    await ctx.close();
+    if (zuKlein.length) throw new Error(zuKlein.slice(0, 4).join(', '));
+  });
+
+  await check('Aufgaben lassen sich per Tastatur lösen', async () => {
+    await go('/thema/ch9-saeuren-basen/ueben');
+    await page.locator('.question').first().waitFor({ timeout: 8000 });
+    // Bis zu einer Aufgabe blättern, die sich mit Zifferntasten bedienen lässt.
+    let gefunden = false;
+    for (let i = 0; i < 8 && !gefunden; i += 1) {
+      const typ = await page.locator('.question').first().getAttribute('data-type');
+      if (['mc', 'multi', 'truefalse'].includes(typ)) { gefunden = true; break; }
+      await page.locator('[data-role="skip"]').click();
+      await page.waitForTimeout(320);
+    }
+    if (!gefunden) throw new Error('keine Aufgabe mit Antwortmöglichkeiten gefunden');
+
+    await page.locator('#main').click({ position: { x: 4, y: 4 } });
+    await page.keyboard.press('1');
+    await page.waitForTimeout(200);
+    const gewaehlt = await page.locator('[data-role="option"][aria-pressed="true"]').count();
+    if (!gewaehlt) throw new Error('Zifferntaste wählt keine Antwort');
+
+    await page.keyboard.press('Enter');
+    await page.waitForTimeout(350);
+    const geprueft = await page.locator('[data-role="next"]').count();
+    if (!geprueft) throw new Error('Enter prüft die Antwort nicht');
+  });
+
+  /* ------------------------- App und Offline-Betrieb -------------------- */
+  // Der Anspruch: einmal geladen, läuft StudyFlow ohne Netz weiter. Geprüft
+  // wird in einem eigenen Kontext, damit die Installation sauber von vorn beginnt.
+  console.log('\n== Offline-Betrieb ==');
+  const pwaContext = await browser.newContext({ viewport: { width: 1280, height: 900 }, locale: 'de-DE' });
+  await pwaContext.addInitScript(([schluessel, profil]) => {
+    localStorage.setItem(schluessel, JSON.stringify(profil));
+  }, ['studyflow.v1', {
+    profile: {
+      onboarded: true, name: 'Offline', state: 'nw', schoolType: 'gymnasium', grade: 9,
+      subjects: ['mathematik', 'chemie', 'deutsch'], dailyGoalMinutes: 20,
+    },
+  }]);
+  const pw = await pwaContext.newPage();
+  pw.on('pageerror', (error) => consoleErrors.push(`pageerror (PWA): ${error.message}`));
+  pw.on('console', (message) => { if (message.type() === 'error') consoleErrors.push(`PWA: ${message.text()}`); });
+
+  await check('Manifest ist erreichbar und gültig', async () => {
+    const antwort = await pwaContext.request.get(`${base}manifest.webmanifest`);
+    if (!antwort.ok()) throw new Error(`HTTP ${antwort.status()}`);
+    const manifest = JSON.parse(await antwort.text());
+    for (const feld of ['name', 'short_name', 'start_url', 'scope', 'display', 'icons']) {
+      if (!manifest[feld]) throw new Error(`Feld ${feld} fehlt`);
+    }
+    if (manifest.display !== 'standalone') throw new Error('display ist nicht standalone');
+    if (!manifest.icons.some((sym) => sym.purpose === 'maskable')) throw new Error('kein maskierbares Icon');
+    if (manifest.start_url.startsWith('/')) throw new Error('start_url ist absolut — bricht im Unterverzeichnis');
+  });
+
+  await check('Manifest-Icons sind vorhanden', async () => {
+    const antwort = await pwaContext.request.get(`${base}manifest.webmanifest`);
+    const manifest = JSON.parse(await antwort.text());
+    for (const sym of manifest.icons) {
+      const datei = await pwaContext.request.get(base + sym.src);
+      if (!datei.ok()) throw new Error(`${sym.src}: HTTP ${datei.status()}`);
+    }
+  });
+
+  await check('Service Worker registriert sich', async () => {
+    await pw.goto(base, { waitUntil: 'networkidle' });
+    await pw.waitForFunction(() => navigator.serviceWorker.controller !== null, null, { timeout: 20000 });
+  });
+
+  await check('App-Shell liegt vollständig im Cache', async () => {
+    const stand = await pw.evaluate(async () => {
+      const namen = await caches.keys();
+      const shell = namen.find((name) => name.startsWith('studyflow-shell-'));
+      if (!shell) return null;
+      return (await (await caches.open(shell)).keys()).length;
+    });
+    if (!stand || stand < 50) throw new Error(`nur ${stand} Dateien im Shell-Cache`);
+  });
+
+  await check('App startet ohne Netz', async () => {
+    await pwaContext.setOffline(true);
+    await pw.reload({ waitUntil: 'domcontentloaded' });
+    await pw.waitForTimeout(1200);
+    await pw.getByText('Dein Lernstand').first().waitFor({ state: 'visible', timeout: 10000 });
+  });
+
+  await check('Navigation funktioniert ohne Netz', async () => {
+    await pw.evaluate(() => { window.location.hash = '/faecher'; });
+    await pw.waitForTimeout(600);
+    const inhalt = await pw.locator('#main').innerText();
+    if (!/Mathematik/i.test(inhalt)) throw new Error('Fächerübersicht ohne Netz leer');
+  });
+
+  await check('Fortschritt lässt sich ohne Netz speichern', async () => {
+    await pw.evaluate(() => { window.location.hash = '/einstellungen'; });
+    await pw.waitForTimeout(600);
+    await pw.locator('[data-role="name"]').fill('Offline-Test');
+    await pw.waitForTimeout(400);
+    const name = await pw.evaluate(() => JSON.parse(localStorage.getItem('studyflow.v1')).profile.name);
+    if (name !== 'Offline-Test') throw new Error(`gespeichert wurde "${name}"`);
+  });
+
+  await check('Einstellungen melden den Offline-Zustand', async () => {
+    const badge = await pw.locator('[data-role="net-badge"]').innerText();
+    if (!/Offline/i.test(badge)) throw new Error(`Anzeige sagt "${badge}"`);
+  });
+
+  await check('Inhalte lassen sich vorab offline laden', async () => {
+    await pwaContext.setOffline(false);
+    await pw.reload({ waitUntil: 'networkidle' });
+    await pw.evaluate(() => { window.location.hash = '/einstellungen'; });
+    await pw.waitForTimeout(700);
+    await pw.locator('[data-role="pwa-warm"]').click();
+    await pw.waitForFunction(async () => {
+      const namen = await caches.keys();
+      const inhalt = namen.find((name) => name.startsWith('studyflow-content-'));
+      if (!inhalt) return false;
+      return (await (await caches.open(inhalt)).keys()).length >= 40;
+    }, null, { timeout: 40000 });
+  });
+
+  await check('Vorgeladenes Thema öffnet sich ohne Netz', async () => {
+    await pwaContext.setOffline(true);
+    await pw.evaluate(() => { window.location.hash = '/thema/ch9-saeuren-basen/ueben'; });
+    await pw.waitForTimeout(1500);
+    await pw.locator('.question').first().waitFor({ timeout: 10000 });
+  });
+
+  await pwaContext.setOffline(false);
+  await pwaContext.close();
 
   /* ------------------------------ Lektionen ---------------------------- */
   // Der ANTON-Weg: Thema öffnen, Lektion nach Lektion abarbeiten, jede mit

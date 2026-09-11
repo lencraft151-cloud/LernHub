@@ -50,6 +50,15 @@ jobs:
             git --no-pager diff --stat -- src/data/exercises
             exit 1
           fi
+      - name: Service Worker neu erzeugen und auf Änderungen prüfen
+        run: |
+          node tools/build-sw.mjs
+          if ! git diff --quiet -- sw.js; then
+            echo "::error::Der generierte Service Worker ist nicht aktuell."
+            echo "Bitte 'node tools/build-sw.mjs' ausführen und das Ergebnis committen."
+            git --no-pager diff --stat -- sw.js
+            exit 1
+          fi
       - name: Lehrplan, Inhalte und Übungen validieren
         run: node tools/validate-content.mjs
 

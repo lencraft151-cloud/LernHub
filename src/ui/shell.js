@@ -75,6 +75,9 @@ export function renderShell(root) {
       </div>
 
       <div class="topbar-actions">
+        <span class="offline-pill" data-role="offline-pill" hidden>
+          ${icon('globe', { size: 13 })}<span class="offline-pill-text">Offline</span>
+        </span>
         <a class="coin-badge" href="#/spiel" data-role="coin-badge" title="Münzen — zum Minispiel">
           ${icon('coin', { size: 15 })}
           <b data-role="coin-count">0</b>
@@ -100,7 +103,24 @@ export function renderShell(root) {
     <div data-role="overlays"></div>`);
 
   bindShell(root);
+  bindNetworkPill(root);
   updateShell();
+}
+
+/**
+ * Der Offline-Hinweis in der Kopfzeile.
+ *
+ * Ohne Netz funktioniert StudyFlow weiter — nur noch nicht besuchte Inhalte
+ * fehlen. Genau das soll der Hinweis sagen: Er erklärt einen möglichen
+ * Fehlschlag, statt Betrieb zu suggerieren, den es nicht gibt.
+ */
+function bindNetworkPill(root) {
+  const pill = $('[data-role="offline-pill"]', root);
+  if (!pill) return;
+  const zeige = () => { pill.hidden = navigator.onLine !== false; };
+  zeige();
+  window.addEventListener('online', zeige);
+  window.addEventListener('offline', zeige);
 }
 
 function bindShell(root) {

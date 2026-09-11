@@ -44,6 +44,9 @@
   --radius-full: 999px;
 
   /* --- Layout --- */
+  /* Seitlicher Abstand des Inhalts — wächst mit der Fensterbreite und wird im
+     Querformat gegen die Geräteaussparung aufgerechnet. */
+  --gutter: var(--sp-4);
   --sidebar-w: 252px;
   --topbar-h: 60px;
   --bottomnav-h: 62px;

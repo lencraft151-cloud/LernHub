@@ -132,7 +132,7 @@
   align-items: center;
   gap: var(--sp-3);
   height: var(--topbar-h);
-  padding: 0 var(--sp-4);
+  padding: 0 var(--gutter);
   background: color-mix(in srgb, var(--bg) 88%, transparent);
   backdrop-filter: blur(12px);
   border-bottom: 1px solid var(--border);
@@ -170,7 +170,7 @@
 .main {
   grid-area: main;
   min-width: 0;
-  padding: var(--sp-5) var(--sp-4) calc(var(--bottomnav-h) + var(--sp-8));
+  padding: var(--sp-5) var(--gutter) calc(var(--bottomnav-h) + var(--sp-8));
 }
 .page {
   max-width: var(--content-max);
@@ -515,8 +515,8 @@
    ========================================================================== */
 
 @media (min-width: 720px) {
-  .main { padding: var(--sp-6) var(--sp-6) calc(var(--bottomnav-h) + var(--sp-8)); }
-  .topbar { padding: 0 var(--sp-6); }
+  :root { --gutter: var(--sp-6); }
+  .main { padding-top: var(--sp-6); }
 }
 
 /* Ab hier Sidebar statt Bottom-Nav */
@@ -528,10 +528,10 @@
       "sidebar topbar"
       "sidebar main";
   }
+  :root { --gutter: var(--sp-8); }
   .sidebar { display: flex; }
   .bottomnav { display: none; }
-  .main { padding: var(--sp-6) var(--sp-8) var(--sp-10); }
-  .topbar { padding: 0 var(--sp-8); }
+  .main { padding: var(--sp-6) var(--gutter) var(--sp-10); }
   .topbar-mobile-brand, .topbar-menu-btn { display: none; }
   .toast-region { bottom: var(--sp-5); }
   .sticky-actions { bottom: var(--sp-5); }
@@ -674,8 +674,8 @@ html, body { overscroll-behavior-x: none; }
     position: sticky;
     bottom: calc(var(--bottomnav-h) + env(safe-area-inset-bottom, 0px));
     z-index: 40;
-    margin: var(--sp-2) calc(var(--sp-4) * -1) 0;
-    padding: var(--sp-3) var(--sp-4);
+    margin: var(--sp-2) calc(var(--gutter) * -1) 0;
+    padding: var(--sp-3) var(--gutter);
     background: color-mix(in srgb, var(--surface) 97%, transparent);
     backdrop-filter: blur(12px);
     border-top: 1px solid var(--border);
@@ -690,4 +690,55 @@ html, body { overscroll-behavior-x: none; }
   .bottomnav { height: calc(46px + env(safe-area-inset-bottom, 0px)); }
   .bottomnav-item span { display: none; }
   .main { padding-bottom: calc(56px + env(safe-area-inset-bottom, 0px)); }
+}
+
+/* ==========================================================================
+   Tablets und Touch-Geräte
+   ========================================================================== */
+
+/* Tippziele richten sich nach der Eingabeart, nicht nach der Fensterbreite:
+   Ein 800 px breites Tablet wird mit dem Finger bedient, ein 800 px breites
+   Browserfenster am Notebook mit der Maus. */
+@media (pointer: coarse) {
+  .btn { min-height: 44px; }
+  .btn-sm { min-height: 38px; }
+  .icon-btn { min-width: 42px; min-height: 42px; }
+  .option, .game-option { min-height: 52px; }
+  .chip, .tab { min-height: 38px; display: inline-flex; align-items: center; }
+  .topic-row, .lesson-row { min-height: 56px; }
+  .mark-word, .word-chip, .category-pick { min-height: 40px; }
+  /* Auswahlfelder werden auf Touch-Geräten sonst zu flach getroffen. */
+  .select, .input { min-height: 44px; }
+}
+
+/* Zwischen Handy und Desktop: Das Tablet hat Platz für zwei Spalten, aber
+   noch keine Sidebar. Die Bottom-Navigation bleibt — sie ist am Daumen. */
+@media (min-width: 720px) and (max-width: 959px) {
+  .main { padding-bottom: calc(var(--bottomnav-h) + env(safe-area-inset-bottom, 0px) + var(--sp-8)); }
+  .page { gap: var(--sp-5); }
+  .page-narrow { max-width: 720px; }
+  /* Die Bottom-Navigation wird auf breiten Geräten nicht breiter, sondern
+     bleibt in der Mitte erreichbar. */
+  .bottomnav { max-width: 640px; left: 50%; right: auto; transform: translateX(-50%); border-radius: var(--radius-lg) var(--radius-lg) 0 0; border: 1px solid var(--border); border-bottom: 0; }
+}
+
+/* Ab hier lohnt sich die zweite Spalte, auch ohne Sidebar. */
+@media (min-width: 840px) {
+  .split { grid-template-columns: minmax(0, 1.5fr) minmax(0, 1fr); align-items: start; }
+  .split-even { grid-template-columns: 1fr 1fr; }
+}
+
+/* Querformat: seitliche Aussparungen respektieren (Notch, abgerundete Ecken),
+   sonst steht Text unter der Kamera. Der reguläre Abstand bleibt die Untergrenze. */
+@media (orientation: landscape) {
+  .main, .topbar {
+    padding-left: max(var(--gutter), env(safe-area-inset-left, 0px));
+    padding-right: max(var(--gutter), env(safe-area-inset-right, 0px));
+  }
+}
+
+/* Als installierte App gibt es keine Browserleiste — der obere Rand darf
+   dann nicht unter der Statusleiste des Systems verschwinden. */
+@media (display-mode: standalone) {
+  .topbar { padding-top: env(safe-area-inset-top, 0px); height: calc(var(--topbar-h) + env(safe-area-inset-top, 0px)); }
 }

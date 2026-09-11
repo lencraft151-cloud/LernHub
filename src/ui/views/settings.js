@@ -15,6 +15,10 @@ import { hasPractice } from '../../domain/topics.js';
 import { getAreas } from '../../data/curriculum/index.js';
 import { profileSetup, toast, confirmDialog, applyTheme, updateShell } from '../shell.js';
 import { pageHead, statTile, emptyState } from '../components/common.js';
+import { progressBar } from '../components/charts.js';
+import {
+  pwaState, onPwaChange, promptInstall, warmOfflineCache, applyUpdate, checkForUpdate, refreshCacheStatus,
+} from '../../core/pwa.js';
 
 const AI_PROVIDERS = [
   { id: 'anthropic', label: 'Anthropic (Messages API)', endpoint: 'https://api.anthropic.com/v1/messages', model: 'claude-sonnet-5' },
@@ -250,6 +254,17 @@ export function renderSettings(root, { query }) {
         </div>
       </section>
 
+      <section class="card" id="offline">
+        <div class="card-header">
+          <div class="stack" style="gap:2px">
+            <h2>App und Offline-Betrieb</h2>
+            <span class="xs subtle">StudyFlow rechnet vollständig im Browser — ohne Netz ist nur der Nachschub neu</span>
+          </div>
+          <span class="badge" data-role="net-badge"></span>
+        </div>
+        <div class="stack stack-4" data-role="offline-panel"></div>
+      </section>
+
       <section class="card">
         <div class="card-header"><h2>Über StudyFlow</h2></div>
         <div class="stack stack-3 small muted">
@@ -440,5 +455,102 @@ export function renderSettings(root, { query }) {
     store.reset();
     toast('Alle Daten gelöscht.', 'info');
     navigate('/einrichtung');
+  });
+
+  /* ------------------------- App und Offline-Betrieb --------------------- */
+
+  const offlinePanel = $('[data-role="offline-panel"]', root);
+  const netBadge = $('[data-role="net-badge"]', root);
+
+  let offVomPwa = null;
+
+  function zeichneOffline(pwa) {
+    // Beim Seitenwechsel verschwindet das Panel aus dem Dokument — dann
+    // meldet sich der Zuhörer selbst ab, statt für immer liegen zu bleiben.
+    if (!offlinePanel?.isConnected) { offVomPwa?.(); return; }
+
+    netBadge.className = `badge ${pwa.online ? 'badge-success' : 'badge-warning'} badge-dot`;
+    netBadge.textContent = pwa.online ? 'Online' : 'Offline';
+
+    const anteil = pwa.contentTotal ? pwa.content / pwa.contentTotal : 0;
+    const laden = pwa.warming;
+
+    mount(offlinePanel, html`
+      ${!pwa.supported ? html`
+        <p class="small muted">
+          Dieser Browser stellt keinen Offline-Speicher bereit — das passiert etwa im privaten
+          Fenster oder wenn die Seite nicht über HTTPS geladen wurde. StudyFlow funktioniert
+          weiterhin vollständig, braucht dann aber eine Verbindung zum Nachladen von Inhalten.
+        </p>` : html`
+        <div class="stack stack-3">
+          <div class="row row-between row-wrap row-2">
+            <span class="small">Lerninhalte offline verfügbar</span>
+            <b class="tabular">${integer(pwa.warming ? pwa.warmDone : pwa.content)} von ${integer(pwa.contentTotal)}</b>
+          </div>
+          ${progressBar(pwa.warming && pwa.contentTotal ? pwa.warmDone / pwa.contentTotal : anteil, {
+    size: 'progress-sm', tone: anteil >= 1 ? 'success' : 'primary',
+  })}
+          <p class="xs subtle">
+            Die App selbst liegt nach dem ersten Besuch vollständig auf dem Gerät. Lerninhalte
+            kommen beim Lesen dazu — oder alle auf einmal, wenn du sie vorab lädst.
+          </p>
+        </div>
+
+        <div class="row row-wrap row-2">
+          ${pwa.installable ? html`
+            <button type="button" class="btn btn-primary" data-role="pwa-install">
+              ${icon('download')} Als App installieren
+            </button>` : pwa.installed ? html`
+            <span class="badge badge-success badge-dot">Als App installiert</span>` : ''}
+          <button type="button" class="btn" data-role="pwa-warm" ${laden ? 'disabled' : ''}>
+            ${icon('layers')} ${laden ? 'Lädt …' : anteil >= 1 ? 'Offline-Inhalte auffrischen' : 'Alle Inhalte offline laden'}
+          </button>
+          <button type="button" class="btn btn-ghost" data-role="pwa-check">
+            ${icon('refresh')} Nach Aktualisierung suchen
+          </button>
+        </div>
+
+        ${pwa.updateReady ? html`
+          <div class="callout-recommend">
+            ${icon('sparkles')}
+            <div class="row row-between row-wrap row-2 grow">
+              <span>Eine neue Fassung von StudyFlow liegt bereit.</span>
+              <button type="button" class="btn btn-sm btn-primary" data-role="pwa-update">Jetzt übernehmen</button>
+            </div>
+          </div>` : ''}
+
+        ${!pwa.installable && !pwa.installed ? html`
+          <p class="xs subtle">
+            Zum Installieren bietet der Browser im Menü „Zum Startbildschirm hinzufügen“ an —
+            auf dem iPhone über das Teilen-Symbol in Safari.
+          </p>` : ''}`}`);
+  }
+
+  zeichneOffline(pwaState());
+  refreshCacheStatus();
+  offVomPwa = onPwaChange(zeichneOffline);
+
+  delegate(root, 'click', '[data-role="pwa-install"]', async () => {
+    const ergebnis = await promptInstall();
+    if (ergebnis === 'accepted') toast('StudyFlow wird installiert.', 'success');
+    else if (ergebnis === 'unavailable') {
+      toast('Dieser Browser bietet die Installation über sein eigenes Menü an.', 'info');
+    }
+  });
+
+  delegate(root, 'click', '[data-role="pwa-warm"]', () => {
+    if (warmOfflineCache()) toast('Inhalte werden geladen — du kannst weiterlernen.', 'info');
+    else toast('Der Offline-Speicher ist noch nicht bereit. Lade die Seite einmal neu.', 'info');
+  });
+
+  delegate(root, 'click', '[data-role="pwa-check"]', async () => {
+    const ok = await checkForUpdate();
+    const pwa = pwaState();
+    if (pwa.updateReady) toast('Neue Fassung gefunden.', 'success');
+    else toast(ok ? 'StudyFlow ist aktuell.' : 'Aktualisierung ließ sich nicht prüfen.', ok ? 'success' : 'error');
+  });
+
+  delegate(root, 'click', '[data-role="pwa-update"]', () => {
+    if (!applyUpdate()) toast('Es wartet gerade keine neue Fassung.', 'info');
   });
 }

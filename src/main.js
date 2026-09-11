@@ -32,6 +32,7 @@ import { renderSearchPage } from './ui/views/search.js';
 import { renderGame, disposeGame } from './ui/views/game.js';
 import { html, mount } from './core/dom.js';
 import { emptyState, pageHead } from './ui/components/common.js';
+import { initPwa } from './core/pwa.js';
 
 const appRoot = $('#app');
 
@@ -66,6 +67,10 @@ function boot() {
   renderShell(appRoot);
   setupRoutes();
   router.start();
+
+  // Erst nach dem ersten Rendern: Die Registrierung darf den Start nicht
+  // verzögern, und ein Browser ohne Service Worker soll trotzdem laufen.
+  initPwa().catch(() => { /* ohne Offline-Betrieb funktioniert alles Weitere */ });
 }
 
 /** Vor jedem Wechsel laufende Timer und Listener der alten View beenden. */

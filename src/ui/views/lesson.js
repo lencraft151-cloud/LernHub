@@ -99,7 +99,7 @@ export async function renderLesson(root, { params }) {
         topicId: meta.id, lessonId: lesson.id, kind: 'intro',
         correct: 1, total: 1, durationMs: Date.now() - startedAt,
       });
-      if (ergebnis.coins) toast(`+${ergebnis.coins} Münzen fürs Durcharbeiten`, { tone: 'success' });
+      if (ergebnis.coins) toast(`+${ergebnis.coins} Münzen fürs Durcharbeiten`);
       navigate(naechste ? `/thema/${meta.id}/lektion/${encodeURIComponent(naechste.id)}` : `/thema/${meta.id}`);
     });
     return;

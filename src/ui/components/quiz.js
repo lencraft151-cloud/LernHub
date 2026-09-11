@@ -632,6 +632,48 @@ export class QuizRunner {
     this.disposers.push(delegate(root, 'keydown', 'input', (event) => {
       if (event.key === 'Enter') { event.preventDefault(); if (!this.checked) this.check(); else this.next(); }
     }));
+
+    this.bindKeyboard();
+  }
+
+  /**
+   * Tastatursteuerung.
+   *
+   * Auf Laptop und Tablet mit Tastatur ist eine Übungsrunde sonst eine
+   * Klickstrecke. Mit 1–9 für die Antwortmöglichkeiten und Enter zum
+   * Weitergehen läuft dieselbe Runde ohne Maus — und deutlich schneller.
+   */
+  bindKeyboard() {
+    const handler = (event) => {
+      if (!this.container.isConnected) return;
+      if (event.metaKey || event.ctrlKey || event.altKey) return;
+      // In Eingabefeldern gehört jede Taste dem Feld.
+      const ziel = event.target;
+      const imFeld = ziel instanceof HTMLElement
+        && (ziel.matches('input, textarea, select') || ziel.isContentEditable);
+
+      if (event.key === 'Enter' && !imFeld) {
+        const knopf = this.container.querySelector(this.checked ? '[data-role="next"]' : '[data-role="check"]');
+        if (knopf && !knopf.disabled && !knopf.closest('[hidden]')) {
+          event.preventDefault();
+          knopf.click();
+        }
+        return;
+      }
+
+      if (imFeld || this.checked) return;
+      if (!/^[1-9]$/.test(event.key)) return;
+      // Nur bei Aufgaben, deren Antworten durchnummeriert dastehen.
+      if (!['mc', 'multi', 'truefalse'].includes(this.current?.type)) return;
+      const optionen = [...this.container.querySelectorAll('[data-role="option"]')];
+      const option = optionen[Number(event.key) - 1];
+      if (!option) return;
+      event.preventDefault();
+      option.click();
+    };
+
+    document.addEventListener('keydown', handler);
+    this.disposers.push(() => document.removeEventListener('keydown', handler));
   }
 
   refreshOrderIndices(list) {
@@ -706,6 +748,12 @@ export class QuizRunner {
           ${this.mode !== 'check' ? html`
             <button type="button" class="btn btn-ghost" data-role="skip">Überspringen</button>` : ''}
         </div>
+
+        <p class="kbd-hint">
+          ${['mc', 'multi', 'truefalse'].includes(question.type)
+    ? html`<span><kbd class="kbd">1</kbd>–<kbd class="kbd">9</kbd> auswählen</span>` : ''}
+          <span><kbd class="kbd">Enter</kbd> ${this.immediateFeedback ? 'prüfen und weiter' : 'speichern und weiter'}</span>
+        </p>
       </div>`);
 
     this.container.querySelector('input, textarea, select, .option')?.focus?.({ preventScroll: true });

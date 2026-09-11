@@ -224,7 +224,7 @@ async function startRound(root, { setup, subjectId }) {
   let paid = false;
   store.update((state) => { paid = spend(state, GAME_COST, 'Runde Wissens-Blitz'); });
   if (!paid) {
-    toast('Das Guthaben reicht nicht für eine Runde.', { tone: 'warning' });
+    toast('Das Guthaben reicht nicht für eine Runde.', 'error');
     navigate('/spiel');
     return;
   }
