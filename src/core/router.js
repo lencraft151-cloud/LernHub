@@ -86,6 +86,22 @@ export class Router {
     if (this.started) return;
     this.started = true;
     window.addEventListener('hashchange', () => this.resolve());
+
+    // Ein Link auf die Adresse, auf der man schon steht, feuert kein
+    // `hashchange` — der Browser sieht keine Änderung. Die Seite darunter kann
+    // sich aber sehr wohl verändert haben: Nach einer Spielrunde steht dort
+    // das Ergebnis, und „Übersicht" (ein Link auf #/spiel) tat nichts. Solche
+    // Links stossen den Router deshalb selbst an.
+    document.addEventListener('click', (event) => {
+      if (event.defaultPrevented || event.button !== 0) return;
+      if (event.metaKey || event.ctrlKey || event.shiftKey || event.altKey) return;
+      const anchor = event.target.closest?.('a[href^="#"]');
+      if (!anchor || anchor.target === '_blank') return;
+      if (anchor.getAttribute('href') !== location.hash) return;
+      event.preventDefault();
+      this.resolve();
+    });
+
     this.resolve();
   }
 }

@@ -447,7 +447,7 @@ node tools/smoke.mjs --headed        # sichtbares Browserfenster
 ```
 
 Der Rauchtest startet einen statischen Server und geht in Chromium mit
-**137 Prüfungen** den vollständigen Weg von der Einrichtung bis zur Auswertung
+**141 Prüfungen** den vollständigen Weg von der Einrichtung bis zur Auswertung
 durch. Dazu gehören:
 
 * echte Antworten auf jeden der 14 Aufgabentypen
@@ -456,6 +456,9 @@ durch. Dazu gehören:
 * eine Gerätematrix von 360 px bis 1920 px: kein Querscrollen, erreichbare
   Navigation, ausreichend grosse Tippziele, Kopfzeile verdeckt den Seitenanfang
   nicht
+* jeder Aufgabentyp auch im Prüfungssimulator: Reihenfolge umsortieren, Wörter
+  markieren, Satz bauen, einsortieren — und dass die Antworten dort ankommen
+* nach einer Spielrunde führt jeder Weg zurück zu einer neuen Runde
 * Offline-Betrieb: Service Worker registriert sich, App startet ohne Netz,
   Fortschritt lässt sich ohne Netz speichern, Inhalte lassen sich vorab laden
 * der Assistent: freie Frage im Thema, freie Frage ohne Thema, ausgewiesene

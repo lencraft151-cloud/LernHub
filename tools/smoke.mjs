@@ -944,6 +944,35 @@ try {
       const runs = await page.evaluate(() => JSON.parse(localStorage.getItem('studyflow.v1')).gameRuns.length);
       if (!runs) throw new Error('Ergebnis wurde nicht gespeichert');
     });
+
+    await check('Nach der Runde führt jeder Weg zurück zum Start', async () => {
+      // Ein Link auf die Adresse, auf der man schon steht, feuerte kein
+      // `hashchange` — nach einer Runde war „Übersicht" damit tot und man
+      // kam nicht mehr zu einer neuen Runde.
+      const uebersicht = page.locator('a.btn[href="#/spiel"]');
+      if (!(await uebersicht.count())) throw new Error('kein Weg zurück zur Übersicht');
+      await uebersicht.first().click();
+      await page.waitForTimeout(700);
+      if (!(await page.locator('[data-role="start"]').count())) {
+        throw new Error('„Übersicht" führt nicht zum Startbildschirm');
+      }
+    });
+
+    await check('Zweite Runde lässt sich starten', async () => {
+      const guthaben = await page.evaluate(() => JSON.parse(localStorage.getItem('studyflow.v1')).coins.balance);
+      if (guthaben < 10) return; // Nach der ersten Runde reicht es nicht immer.
+      await page.locator('[data-role="start"]').click();
+      await page.locator('.game-question').waitFor({ timeout: 15000 });
+      const option = page.locator('.game-option:not([disabled])').first();
+      if (await option.count()) {
+        await option.click();
+        await page.waitForTimeout(500);
+        const rueckmeldung = await page.locator('[data-role="feedback"]').textContent();
+        if (!rueckmeldung.trim()) throw new Error('zweite Runde reagiert nicht auf Antworten');
+      }
+      await page.locator('[data-role="abort"]').click();
+      await page.waitForTimeout(600);
+    });
   }
 
   /* ---------------------------- Einstellungen -------------------------- */
